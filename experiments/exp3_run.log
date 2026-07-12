@@ -1,0 +1,42 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 100824.62it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:   0%|          | 2/729 [00:00<01:29,  8.16it/s]Loading weights:   2%|▏         | 17/729 [00:00<00:12, 57.66it/s]Loading weights:   4%|▍         | 30/729 [00:00<00:09, 72.94it/s]Loading weights:   7%|▋         | 52/729 [00:00<00:06, 112.41it/s]Loading weights:   9%|▉         | 65/729 [00:00<00:05, 116.07it/s]Loading weights:  12%|█▏        | 84/729 [00:00<00:04, 137.30it/s]Loading weights:  14%|█▎        | 100/729 [00:00<00:04, 140.37it/s]Loading weights:  16%|█▌        | 115/729 [00:01<00:04, 128.92it/s]Loading weights:  19%|█▊        | 135/729 [00:01<00:04, 147.53it/s]Loading weights:  21%|██        | 151/729 [00:01<00:04, 135.88it/s]Loading weights:  24%|██▎       | 172/729 [00:01<00:03, 155.10it/s]Loading weights:  26%|██▌       | 189/729 [00:01<00:03, 148.10it/s]Loading weights:  29%|██▊       | 209/729 [00:01<00:03, 152.09it/s]Loading weights:  31%|███       | 225/729 [00:01<00:03, 149.77it/s]Loading weights:  33%|███▎      | 241/729 [00:01<00:03, 150.73it/s]Loading weights:  35%|███▌      | 257/729 [00:01<00:03, 142.68it/s]Loading weights:  37%|███▋      | 272/729 [00:02<00:03, 129.49it/s]Loading weights:  40%|████      | 293/729 [00:02<00:03, 144.13it/s]Loading weights:  42%|████▏     | 308/729 [00:02<00:02, 140.53it/s]Loading weights:  45%|████▍     | 328/729 [00:02<00:02, 152.60it/s]Loading weights:  57%|█████▋    | 414/729 [00:02<00:00, 342.05it/s]Loading weights:  70%|██████▉   | 507/729 [00:02<00:00, 504.85it/s]Loading weights:  84%|████████▎ | 610/729 [00:02<00:00, 651.39it/s]Loading weights:  98%|█████████▊| 716/729 [00:02<00:00, 742.42it/s]Loading weights: 100%|██████████| 729/729 [00:02<00:00, 251.78it/s]
+[xrd       /local /seed=0] n=25 accuracy=0.120 PCR=0.560 (248.1s)
+[xrd       /local /seed=1] n=15 accuracy=0.267 PCR=0.533 (305.8s)
+[xrd       /local /seed=2] n=22 accuracy=0.273 PCR=0.591 (261.7s)
+[xrd       /gemini/seed=0] n=23 accuracy=0.217 PCR=0.739 (137.2s)
+[xrd       /gemini/seed=1] n=13 accuracy=0.154 PCR=0.462 (194.6s)
+[xrd       /gemini/seed=2] n=21 accuracy=0.238 PCR=0.667 (155.1s)
+[xrd       /gpt4o /seed=0] n=26 accuracy=0.154 PCR=0.500 (128.3s)
+[xrd       /gpt4o /seed=1] n=15 accuracy=0.267 PCR=0.733 (203.1s)
+[xrd       /gpt4o /seed=2] n=22 accuracy=0.364 PCR=0.864 (152.1s)
+[xrd       /claude/seed=0] n=26 accuracy=0.154 PCR=0.462 (266.1s)
+[xrd       /claude/seed=1] n=16 accuracy=0.188 PCR=0.625 (339.7s)
+[xrd       /claude/seed=2] n=22 accuracy=0.227 PCR=0.591 (287.1s)
+[spectrum  /local /seed=0] n=30 accuracy=0.067 PCR=0.767 (89.6s)
+[spectrum  /local /seed=1] n=30 accuracy=0.000 PCR=0.600 (90.2s)
+[spectrum  /local /seed=2] n=30 accuracy=0.133 PCR=0.733 (90.1s)
+[spectrum  /gemini/seed=0] n=30 accuracy=0.067 PCR=0.900 (48.1s)
+[spectrum  /gemini/seed=1] n=30 accuracy=0.133 PCR=0.867 (45.1s)
+[spectrum  /gemini/seed=2] n=30 accuracy=0.233 PCR=0.867 (44.0s)
+[spectrum  /gpt4o /seed=0] n=12 accuracy=0.083 PCR=0.750 (39.6s)
+[spectrum  /gpt4o /seed=1] n=16 accuracy=0.000 PCR=0.188 (39.2s)
+[spectrum  /gpt4o /seed=2] n=14 accuracy=0.143 PCR=0.857 (42.2s)
+[spectrum  /claude/seed=0] n=30 accuracy=0.033 PCR=0.767 (147.9s)
+[spectrum  /claude/seed=1] n=30 accuracy=0.033 PCR=0.733 (139.1s)
+[spectrum  /claude/seed=2] n=30 accuracy=0.133 PCR=0.767 (139.1s)
+[stability /local /seed=0] n=30 accuracy=0.933 PCR=0.800 (73.3s)
+[stability /local /seed=1] n=30 accuracy=0.900 PCR=0.700 (78.6s)
+[stability /local /seed=2] n=30 accuracy=1.000 PCR=0.900 (80.7s)
+[stability /gemini/seed=0] n=30 accuracy=0.667 PCR=0.700 (25.8s)
+[stability /gemini/seed=1] n=30 accuracy=0.833 PCR=0.600 (24.6s)
+[stability /gemini/seed=2] n=30 accuracy=0.567 PCR=0.600 (24.4s)
+[stability /gpt4o /seed=0] n=30 accuracy=0.800 PCR=0.800 (45.0s)
+[stability /gpt4o /seed=1] n=30 accuracy=0.900 PCR=0.767 (49.8s)
+[stability /gpt4o /seed=2] n=30 accuracy=0.900 PCR=0.667 (48.9s)
+[stability /claude/seed=0] n=30 accuracy=0.933 PCR=0.767 (141.6s)
+[stability /claude/seed=1] n=30 accuracy=0.833 PCR=0.667 (143.0s)
+[stability /claude/seed=2] n=30 accuracy=0.833 PCR=0.700 (140.3s)
+
+Total records: 918
+Written to: experiments/exp3_results.jsonl

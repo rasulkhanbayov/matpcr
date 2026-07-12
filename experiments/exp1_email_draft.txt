@@ -1,0 +1,63 @@
+To: Hasan Kurban <hkurban@hbku.edu.qa>, Mustafa Kurban <mkurbanphys@gmail.com>
+Subject: MatPCR — Experiment 1 (the gate) results, and a DFT-protocol review needed from Mustafa
+
+Hi Hasan, Hi Mustafa,
+
+Experiment 1 (the gate — proving our physical-consistency oracles actually work before we
+trust any model result) is fully complete for 3 of 6 oracle families. The other 3 have
+passed the automated half of the test; I need Mustafa's input before finishing them.
+
+WHAT EXPERIMENT 1 CHECKS
+Two independent tests per oracle:
+- Half-A (positive control): inject known-wrong claims into real data, confirm the oracle
+  catches them. This checks the oracle's code is not buggy.
+- Half-B (precision audit): manually review >=100 real cases where the oracle fired on
+  real model outputs, and judge whether it was actually right to fire. This checks the
+  oracle isn't too trigger-happy on real, messy data.
+
+RESULTS — GEOMETRIC ORACLES (diffraction, microscopy, spectra): GATE PASSED
+  Family                Half-A       Half-B precision   Cases reviewed
+  Diffraction (XRD)     0% missed    77.2%               101
+  Microscopy (SEM)      0% missed    88.6%               105
+  Spectra (Raman)       0% missed    72.8%               103
+
+All three catch 100% of injected violations. I manually reviewed all 309 real fired cases
+myself and judged precision sufficient to proceed. Two honest caveats for the record:
+- XRD's false positives were mostly a tolerance issue (peaks landing just outside our 0.5-
+  degree window, not genuinely wrong reads).
+- Spectrum's false positives were a bigger gap: most disagreements were NOT close calls —
+  the oracle's peak-prominence threshold may not match human judgment on noisy real Raman
+  data. Flagged for a possible revisit later, not blocking for now.
+
+RESULTS — DFT-GROUNDED ORACLES (stability, metallicity, sign/magnitude): HALF-A DONE, HALF-B WAITING ON MUSTAFA
+I got Materials Project API access working and pulled 3000 real materials. Half-A (code
+correctness) passed cleanly for all three — 0% missed violations. Along the way I found and
+fixed a real bug (the sign/magnitude oracle mishandled near-zero DFT values from numerical
+noise; fixed).
+
+What I have NOT done, on purpose: Half-B for these three. That step trusts Materials
+Project's values as physical ground truth, and per our own project rules that needs
+Mustafa's sign-off first — this is exactly the kind of judgment call that shouldn't be made
+by me alone.
+
+MUSTAFA — SPECIFICALLY WHAT I NEED FROM YOU
+1. Is Materials Project an acceptable reference source for these three oracles, or should
+   some/all values come from your own DFT runs instead?
+2. Are these tolerances reasonable: stability = within 0.05 eV/atom of the convex hull;
+   metallicity = band gap under 0.05 eV counts as metallic; sign/magnitude = right sign +
+   within one order of magnitude.
+3. For the sign/magnitude oracle specifically, I chose total magnetization as the target
+   property (it had 100% data coverage and a real, balanced magnetic/non-magnetic split in
+   Materials Project — bulk/shear modulus and formation energy were both worse choices for
+   reasons I can explain). Does that make sense scientifically, or would you rather use a
+   different property?
+4. One concrete example to react to: mp-149 (silicon) — Materials Project gives band_gap =
+   0.61 eV (DFT/PBE), which we'd call non-metallic; real experimental gap is 1.12 eV, the
+   well-known PBE underestimate. Is our 0.05 eV metallicity threshold safely clear of that
+   kind of systematic error, or does it need adjusting?
+
+Happy to jump on a call if that's faster than email. Full details, all raw numbers, and the
+LaTeX results table are ready whenever you want them.
+
+Best,
+Rasul

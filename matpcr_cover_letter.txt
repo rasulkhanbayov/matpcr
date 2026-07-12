@@ -1,0 +1,56 @@
+[DATE]
+
+Dear Editors of npj Computational Materials,
+
+We submit our manuscript, "A DFT-Grounded, Label-Free Benchmark, Metric, and
+Verifier for the Physical Consistency of Materials Reasoning in Vision-Language and
+Language Models," for consideration as an Article.
+
+Context and importance. Vision-language and language models are increasingly used
+to interpret materials data, but they are evaluated almost entirely on whether the
+final answer matches a human label, and a recent wave of discovery agents instead
+verifies final proposals or the correctness of DFT execution. None of this measures
+whether the model's reasoning itself respects the physics that materials data fixes,
+and none of it yields a reusable tool the community can run. This matters because a
+reasoning chain that misreads a scale bar, assigns a diffraction peak to an
+impossible angle, or calls an above-hull structure stable is unreliable inside any
+analysis or screening pipeline, regardless of whether its final answer happens to be
+right.
+
+What we contribute. We introduce a DFT-grounded, label-free way to measure and
+improve the physical consistency of materials reasoning: programmatic and
+first-principles oracles that require no human annotation, the Physical-Consistency
+Rate metric, a label-free agentic self-verification loop, and an open released
+verifier. The approach applies to both image and structure or text inputs and is
+built entirely from public data, making it broadly reusable.
+
+Fit for the journal. The work is computational, reproducible, and provides an open
+artifact for the computational-materials community, consistent with the journal's
+scope and emphasis on tools and methods that others can adopt.
+
+We confirm that this manuscript is not under consideration elsewhere and that there
+is no significant overlap with other work by the authors under consideration or in
+press. In accordance with the journal's policy, our use of an AI assistant to help
+draft text, parts of the method, and code is disclosed in the Methods; all content
+was independently verified by the authors, who take full responsibility, and no AI
+system is an author.
+
+Related work (per submission policy). The following related works by overlapping authors are published, in press, or under review; copies can be provided to the Editor on request: CrysMTM (Machine Learning: Science and Technology, 2025); R-CRYSTALS (under review); QuantumShellNet (Computational Materials Science, 2025); HalluVerse25 (preprint); and IRIS (preprint). MatPCR does not overlap in content with these: it measures and corrects the physical consistency of model reasoning with label-free, DFT-grounded oracles, rather than providing a dataset, a generation benchmark, a property-prediction model, or a text-factuality benchmark.
+
+Thank you for considering our submission.
+
+Sincerely,
+Hasan Kurban and Mustafa Kurban (co-corresponding authors)
+Hasan Kurban -- College of Science and Engineering, Hamad Bin Khalifa University, Doha, Qatar; hkurban@hbku.edu.qa
+Mustafa Kurban -- Ankara University, Ankara, Turkey; mkurbanphys@gmail.com
+ORCIDs: [add before final submission]
+on behalf of all authors
+
+------------------------------------------------------------------------------
+NOTE TO AUTHORS (delete before sending): The cover letter is confidential and not
+shared with referees; use it to declare conflicts, related/in-press work, and
+suggested or excluded referees. Per the journal, manuscripts need NOT meet
+formatting requirements at initial submission (only at acceptance), so this LaTeX
+draft is acceptable as-is for first submission; at acceptance you may drop the text
+into the official Springer Nature template. Replace all >>> TO RUN items and
+[RESULT PLACEHOLDER] cells with real results first.

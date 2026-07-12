@@ -1,0 +1,157 @@
+==============================================================================
+ MatPCR (DFT-grounded, cross-modal)  --  STUDENT EXPERIMENT RUNBOOK
+ Label-Free Physical-Consistency Evaluation, Verifier, and Self-Correction
+ for VLM/LLM Reasoning on Materials Data
+==============================================================================
+
+------------------------------------------------------------------------------
+ *** READ THIS FIRST: THE TWO INSTRUCTIONS THAT MATTER MOST ***
+------------------------------------------------------------------------------
+ 1. THE ORACLE MUST BE RIGHT BEFORE ANY MODEL IS RUN.
+    Your whole contribution rests on the physical checkers being correct -- the
+    geometric ones (Bragg, scale bar, spectral peak) AND the new DFT-grounded
+    ones (stability vs convex hull, metallicity, property sign/magnitude). A bug
+    here means every number is meaningless and you publish a false claim. DO
+    EXPERIMENT 1 (positive control + manual precision audit) FIRST. Have your
+    co-author sign off on the DFT protocol and tolerances before trusting any
+    DFT-grounded judgment.
+
+ 2. EVERY NUMBER IN THE PAPER IS A PLACEHOLDER UNTIL YOU MEASURE IT.
+    Do not fill any table from intuition or from the smoke test (synthetic).
+    Fill tables only from real runs, then reconcile the abstract, title, and
+    contributions to what you actually found; weaken any claim the data softens.
+
+------------------------------------------------------------------------------
+ RESOURCES (you have: multi-GPU cluster, DFT, materials-science co-author)
+------------------------------------------------------------------------------
+ Python 3.12.x; numpy; pymatgen (XRD peaks + convex-hull energies from CIF);
+ ASE; a DFT code (VASP/QE) with PINNED settings (functional, cutoff, k-mesh,
+ pseudopotentials) recorded in the repo and validated by the co-author;
+ opencv/scikit-image (scale-bar detection); scipy (peak finding); a training
+ stack (transformers/peft) for the verifier fine-tune on the cluster.
+ Public data: SimXRD-4M and opXRD (diffraction + CIF) [VERIFY URLs/licenses];
+ a public SEM/TEM corpus with scale bars [VERIFY]; open Raman/IR (e.g. RRUFF)
+ [VERIFY]; Materials Project computed energies/gaps via pymatgen API [VERIFY].
+ Models: open VLM (Qwen2.5-VL-class) + open reasoning LLM on the cluster; 2-3
+ frontier API VLM/LLMs. PIN versions and API snapshot dates. [VERIFY]
+
+------------------------------------------------------------------------------
+ BUILD THE DFT-GROUNDED ORACLES (do with the co-author)
+------------------------------------------------------------------------------
+ - For each structure item, compute e_above_hull (pymatgen + MP entries, or your
+   own DFT) -> stability oracle. Compute band gap -> metallicity oracle. Compute
+   a target property -> sign/magnitude oracle. Pin and document every setting.
+ - Record provenance for every reference value (public DB id or your DFT job id)
+   so the benchmark is reproducible and auditable.
+
+------------------------------------------------------------------------------
+ PILOT FIRST (cheap, ~1-2 days)
+------------------------------------------------------------------------------
+ - 50-100 items per modality/constraint type (diffraction, microscopy, spectra,
+   DFT-grounded). Wire each to its oracle (matpcr_metrics.py).
+ - Run ONE local + ONE API model. Confirm chains EXPOSE checkable quantities and
+   the parser extracts them; if not, fix the PROMPT to require the model to state
+   the scale/peak/size/stability/value it used. Flag back if it persists.
+
+------------------------------------------------------------------------------
+ EXPERIMENT 1 -- POSITIVE CONTROL + ORACLE PRECISION AUDIT   (RUN FIRST; GATE)
+------------------------------------------------------------------------------
+ Objective: prove the oracles (geometric AND DFT-grounded) measure real
+   violations. Inject violations at a known rate; confirm recovery. Manually
+   inspect >=100 oracle-FIRED cases per oracle family; record true-violation
+   fraction (precision). GATE: if precision is low, STOP and fix before anything.
+
+------------------------------------------------------------------------------
+ EXPERIMENT 2 -- MAIN EVALUATION (PCR sweep)
+------------------------------------------------------------------------------
+ PCR + rho_t for all models x modalities x constraint types (incl. DFT), with
+ bootstrap 95% CIs and S seeds. Fills Table 1.
+
+------------------------------------------------------------------------------
+ EXPERIMENT 3 -- ACCURACY vs CONSISTENCY GAP
+------------------------------------------------------------------------------
+ On the labeled subset, measure accuracy and PCR on the same items; report the
+ gap and the four cells. Shows PCR is not accuracy in disguise.
+
+------------------------------------------------------------------------------
+ EXPERIMENT 4 -- CGSV EFFECT
+------------------------------------------------------------------------------
+ PCR before vs after CGSV (Algorithm 1), same decoding, K rounds. Exact McNemar
+ on discordant items; report fixes c, regressions b, p, residual violations.
+ Small/insignificant is a valid, reportable outcome -- adjust framing.
+
+------------------------------------------------------------------------------
+ EXPERIMENT 5 -- VERIFIER (the released artifact)
+------------------------------------------------------------------------------
+ Fine-tune an open model on ORACLE labels (no human labels) to predict whether a
+ chain has a violation, from input + chain alone. Report precision/recall/F1,
+ ROC AUC, ECE (matpcr_metrics.py) on held-out items. Include generalization
+ splits: held-out modality and held-out constraint type. Release the weights.
+
+------------------------------------------------------------------------------
+ EXPERIMENT 6 -- DETECTOR ANALYSIS
+------------------------------------------------------------------------------
+ Does the verifier score (or model uncertainty) predict a real violation? ROC
+ AUC with bootstrap CI. Supports practical triage.
+
+------------------------------------------------------------------------------
+ OPTIONAL STRETCH (NOT the headline) -- DISCOVERY CASE STUDY
+------------------------------------------------------------------------------
+ Use the verifier to pre-filter candidate structures BEFORE DFT in ONE small
+ screening task in your co-author's domain; report whether it improves the DFT
+ hit-rate vs an unfiltered baseline. Report ONLY if it holds. Do NOT bet the
+ paper on this; the method angle (physics-verified screening) is crowded
+ (DREAMS, MAPPS, physics-aware rejection sampling), so it is a demonstration,
+ not the contribution.
+
+------------------------------------------------------------------------------
+ FLAG-BACK TRIGGERS
+------------------------------------------------------------------------------
+ - Oracle precision (Exp 1) low -> fix checker/parser/DFT protocol first.
+ - Models rarely expose checkable quantities -> prompt redesign.
+ - PCR ~1.0 everywhere -> add harder items or narrow to benchmark+metric+verifier
+   and say so honestly.
+ - CGSV regressions >= fixes -> report honestly; loop is not corrective.
+ - Verifier does not generalize across modality/constraint -> report the limit;
+   it is still a useful in-distribution tool.
+ - A neighbor appears doing DFT-grounded reasoning-chain consistency -> re-run
+   novelty check and re-angle BEFORE submitting.
+
+------------------------------------------------------------------------------
+ INTEGRITY REMINDERS
+------------------------------------------------------------------------------
+ - Fresh arXiv novelty search right before submission (neighbors in README).
+ - Co-author independently verifies all physics: Bragg math, scale-bar geometry,
+   DFT protocol, stability/metallicity/property oracles, the metric, Algorithm 1.
+   The assistant drafted these; the human authors are responsible and are the
+   only authors.
+ - Fill every "% VERIFY" citation in matpcr_refs.bib by reading the source.
+ - Never report a number you did not measure. Reconcile all claims to results.
+ - Check the venue's AI-use/disclosure and reproducibility policy and comply.
+ - Get 2-3 INDEPENDENT HUMAN MOCK REVIEWS and resolve every issue. Highest-value
+   step before submission.
+==============================================================================
+
+==============================================================================
+ npj COMPUTATIONAL MATERIALS -- SUBMISSION CHECKLIST (do before submitting)
+==============================================================================
+ - [ ] Replace EVERY ">>> TO RUN" and "[RESULT PLACEHOLDER]" with real, measured
+       results; reconcile abstract/title/contributions to them.
+ - [ ] Structure is Intro / Results / Discussion / Methods + Data availability /
+       Code availability / Author contributions / Competing interests /
+       Acknowledgements (already in main.tex).
+ - [ ] References are numbered superscripts (Nature style; already set).
+ - [ ] Keep the "Use of AI assistance" statement in Methods (journal policy:
+       LLMs are not authors; document LLM use). Authors take full responsibility.
+ - [ ] Deposit data + code in a public repo; insert the DOIs into the Data and
+       Code availability statements.
+ - [ ] Fill Author contributions with initials; add funding/computing in
+       Acknowledgements.
+ - [ ] Write the cover letter (matpcr_cover_letter.txt): confidential; declare
+       conflicts, related/in-press work, suggested/excluded referees; add ORCID.
+ - [ ] Prepare the Nature Portfolio Reporting Summary + editorial policy checklist
+       (requested at peer-review).
+ - [ ] Confirm open-access charge / waiver eligibility.
+ - [ ] Formatting is required only at acceptance; the official Springer Nature
+       template (sn-jnl.cls) can be used then.
+==============================================================================

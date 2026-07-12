@@ -1,0 +1,48 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+=== xrd: collecting until 100 fired cases ===
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 87018.76it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:   0%|          | 1/729 [00:00<02:07,  5.72it/s]Loading weights:   0%|          | 2/729 [00:00<02:07,  5.70it/s]Loading weights:   4%|▍         | 28/729 [00:00<00:08, 84.46it/s]Loading weights:   6%|▌         | 41/729 [00:00<00:07, 95.79it/s]Loading weights:   7%|▋         | 54/729 [00:00<00:06, 102.89it/s]Loading weights:  10%|█         | 76/729 [00:00<00:04, 136.48it/s]Loading weights:  12%|█▏        | 91/729 [00:00<00:04, 137.64it/s]Loading weights:  16%|█▌        | 113/729 [00:01<00:03, 156.48it/s]Loading weights:  19%|█▉        | 137/729 [00:01<00:03, 172.49it/s]Loading weights:  22%|██▏       | 161/729 [00:01<00:03, 183.66it/s]Loading weights:  25%|██▍       | 180/729 [00:01<00:02, 184.04it/s]Loading weights:  27%|██▋       | 199/729 [00:01<00:03, 176.42it/s]Loading weights:  30%|███       | 221/729 [00:01<00:02, 185.68it/s]Loading weights:  33%|███▎      | 244/729 [00:01<00:02, 193.28it/s]Loading weights:  37%|███▋      | 268/729 [00:01<00:02, 197.90it/s]Loading weights:  40%|███▉      | 291/729 [00:01<00:02, 190.24it/s]Loading weights:  43%|████▎     | 316/729 [00:02<00:02, 199.88it/s]Loading weights:  52%|█████▏    | 381/729 [00:02<00:01, 320.87it/s]Loading weights:  80%|███████▉  | 581/729 [00:02<00:00, 787.64it/s]Loading weights: 100%|██████████| 729/729 [00:02<00:00, 316.04it/s]
+  round 1: fired_count=11/100 (cost so far: $0.0038)
+  round 2: fired_count=26/100 (cost so far: $0.0087)
+  round 3: fired_count=44/100 (cost so far: $0.0134)
+  round 4: fired_count=56/100 (cost so far: $0.0179)
+  round 5: fired_count=69/100 (cost so far: $0.0214)
+  round 6: fired_count=83/100 (cost so far: $0.0253)
+  round 7: fired_count=101/100 (cost so far: $0.0300)
+
+=== sem: collecting until 100 fired cases ===
+  round 1: fired_count=11/100 (cost so far: $0.0331)
+  round 2: fired_count=15/100 (cost so far: $0.0365)
+  round 3: fired_count=22/100 (cost so far: $0.0399)
+  round 4: fired_count=30/100 (cost so far: $0.0430)
+  round 5: fired_count=37/100 (cost so far: $0.0463)
+  round 6: fired_count=49/100 (cost so far: $0.0493)
+  round 7: fired_count=56/100 (cost so far: $0.0526)
+  round 8: fired_count=60/100 (cost so far: $0.0562)
+  round 9: fired_count=67/100 (cost so far: $0.0604)
+  round 10: fired_count=74/100 (cost so far: $0.0640)
+  round 11: fired_count=85/100 (cost so far: $0.0664)
+  round 12: fired_count=93/100 (cost so far: $0.0694)
+  round 13: fired_count=98/100 (cost so far: $0.0724)
+  round 14: fired_count=105/100 (cost so far: $0.0754)
+
+=== spectrum: collecting until 100 fired cases ===
+  round 1: fired_count=8/100 (cost so far: $0.0796)
+  round 2: fired_count=12/100 (cost so far: $0.0836)
+  round 3: fired_count=19/100 (cost so far: $0.0875)
+  round 4: fired_count=31/100 (cost so far: $0.0916)
+  round 5: fired_count=35/100 (cost so far: $0.0954)
+  round 6: fired_count=43/100 (cost so far: $0.0997)
+  round 7: fired_count=48/100 (cost so far: $0.1038)
+  round 8: fired_count=58/100 (cost so far: $0.1078)
+  round 9: fired_count=63/100 (cost so far: $0.1116)
+  round 10: fired_count=72/100 (cost so far: $0.1160)
+  round 11: fired_count=79/100 (cost so far: $0.1200)
+  round 12: fired_count=83/100 (cost so far: $0.1242)
+  round 13: fired_count=89/100 (cost so far: $0.1279)
+  round 14: fired_count=97/100 (cost so far: $0.1320)
+  round 15: fired_count=103/100 (cost so far: $0.1355)
+
+Total API cost: $0.1355
+Fired cases written to: experiments/halfB_fired_cases.jsonl
