@@ -43,25 +43,37 @@ def render_case_html(idx: int, case: dict) -> str:
     claim = case["parsed"]
 
     if case["claim_type"] == "stability":
+        near_hull_note = (
+            " (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable')"
+            if 0 < ref["energy_above_hull"] <= 0.05 else ""
+        )
         note = (
             f"Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). "
-            f"Real energy_above_hull = {ref['energy_above_hull']:.4f} eV/atom "
+            f"Real energy_above_hull = {ref['energy_above_hull']:.4f} eV/atom{near_hull_note} "
             f"(Materials Project's own is_stable flag: {ref['is_stable']} -- note this can differ from the "
             f"oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). "
             f"Model claimed: {claim}."
         )
     elif case["claim_type"] == "metallicity":
         note = (
-            f"Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV). "
-            f"Real band_gap = {ref['band_gap']:.4f} eV (Materials Project is_metal flag: {ref['is_metal']}). "
-            f"Model claimed: {claim}."
+            f"Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for "
+            f"band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials "
+            f"are excluded from collection entirely, so every case shown here is clearly gapped or "
+            f"clearly gapless). Real band_gap = {ref['band_gap']:.4f} eV "
+            f"(Materials Project is_metal flag: {ref['is_metal']}). Model claimed: {claim}."
         )
     else:  # magnetism
+        classification = claim.get("classification") if isinstance(claim, dict) else claim
+        magnitude = claim.get("magnitude_muB_per_atom") if isinstance(claim, dict) else None
+        n_atoms = ref.get("nsites")
+        ref_per_atom = abs(ref["total_magnetization"]) / n_atoms if n_atoms else float("nan")
         note = (
-            f"Sign/magnitude oracle (magnetism): the model's binary MAGNETIC/NONMAGNETIC claim was "
-            f"converted to a representative numeric probe (0.0 for NONMAGNETIC; unit magnitude with the "
-            f"reference's own sign for MAGNETIC) and checked with property_sign_magnitude_consistent. "
-            f"Real total_magnetization = {ref['total_magnetization']:.6f}. Model claimed: {claim}."
+            f"Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by "
+            f"|total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then "
+            f"compared only for magnetic materials, within an order-of-magnitude band. "
+            f"Real |total_magnetization| = {abs(ref['total_magnetization']):.6f} muB over {n_atoms} atoms "
+            f"= {ref_per_atom:.4f} muB/atom. Model classified: {classification}"
+            + (f", claimed magnitude {magnitude} muB/atom." if magnitude is not None else " (no magnitude claim; classification-only).")
         )
 
     return f"""
@@ -79,7 +91,8 @@ def render_case_html(idx: int, case: dict) -> str:
             <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
             <tr><th>Reference values</th><td>hull={ref['energy_above_hull']:.4f} eV/atom,
                 is_stable={ref['is_stable']}, band_gap={ref['band_gap']:.4f} eV,
-                is_metal={ref['is_metal']}, total_magnetization={ref['total_magnetization']:.6f}</td></tr>
+                is_metal={ref['is_metal']}, total_magnetization={ref['total_magnetization']:.6f} muB,
+                nsites={ref.get('nsites')}</td></tr>
             <tr><th>Claim-type note</th><td>{note}</td></tr>
           </table>
           <details open>
@@ -136,10 +149,13 @@ PAGE_TEMPLATE = """<!doctype html>
 </head>
 <body>
 <h1>Half-B Precision Review — DFT {claim_type} oracle ({n_cases} fired cases)</h1>
-<p style="color:#a00; font-size:0.85rem;">Note: these DFT reference values (Materials Project)
-have NOT been independently validated by the domain co-author (Mustafa) -- this review is
-proceeding on a PI override, see CLAUDE.md. Treat any "real violation" verdict here as
-provisional until that review happens.</p>
+<p style="color:#666; font-size:0.85rem;">Note: Materials Project is an APPROVED standardized
+computational reference for this oracle (domain co-author M.K.'s review, 2026-07, conditional
+on the oracle corrections now implemented -- metallicity abstention band, magnetism
+classify-then-magnitude redesign, stability near-hull framing). These are computational
+references, not experimental ground truth. This review pass supersedes the prior PI-override
+pass (which used the OLD, uncorrected oracle logic) -- do not merge or compare precision
+numbers across the two passes.</p>
 <div class="summary">
   <strong id="tally">Reviewed: 0 / {n_cases}</strong>
   &nbsp;|&nbsp; Real: <span id="tally-real">0</span>

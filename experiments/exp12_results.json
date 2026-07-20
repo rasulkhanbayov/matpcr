@@ -1,0 +1,611 @@
+{
+  "random": {
+    "label": "In-distribution (random split)",
+    "n": 431,
+    "reliability_bins": [
+      {
+        "bin_lo": 0.0,
+        "bin_hi": 0.1,
+        "n": 138,
+        "mean_pred": 0.026898502019334494,
+        "empirical_rate": 0.10869565217391304
+      },
+      {
+        "bin_lo": 0.1,
+        "bin_hi": 0.2,
+        "n": 35,
+        "mean_pred": 0.14442168133599417,
+        "empirical_rate": 0.34285714285714286
+      },
+      {
+        "bin_lo": 0.2,
+        "bin_hi": 0.30000000000000004,
+        "n": 34,
+        "mean_pred": 0.2507559280185139,
+        "empirical_rate": 0.29411764705882354
+      },
+      {
+        "bin_lo": 0.30000000000000004,
+        "bin_hi": 0.4,
+        "n": 24,
+        "mean_pred": 0.3551069994767507,
+        "empirical_rate": 0.5833333333333334
+      },
+      {
+        "bin_lo": 0.4,
+        "bin_hi": 0.5,
+        "n": 19,
+        "mean_pred": 0.4455336065668809,
+        "empirical_rate": 0.3684210526315789
+      },
+      {
+        "bin_lo": 0.5,
+        "bin_hi": 0.6000000000000001,
+        "n": 14,
+        "mean_pred": 0.5400008686951229,
+        "empirical_rate": 0.42857142857142855
+      },
+      {
+        "bin_lo": 0.6000000000000001,
+        "bin_hi": 0.7000000000000001,
+        "n": 21,
+        "mean_pred": 0.6630670910789853,
+        "empirical_rate": 0.6190476190476191
+      },
+      {
+        "bin_lo": 0.7000000000000001,
+        "bin_hi": 0.8,
+        "n": 19,
+        "mean_pred": 0.7434897799240915,
+        "empirical_rate": 0.6842105263157895
+      },
+      {
+        "bin_lo": 0.8,
+        "bin_hi": 0.9,
+        "n": 31,
+        "mean_pred": 0.8524025870907691,
+        "empirical_rate": 0.8064516129032258
+      },
+      {
+        "bin_lo": 0.9,
+        "bin_hi": 1.0,
+        "n": 96,
+        "mean_pred": 0.9535313186546167,
+        "empirical_rate": 0.8541666666666666
+      }
+    ],
+    "best_operating_point": {
+      "threshold": 0.25,
+      "f1": 0.765375854214123,
+      "precision": 0.6942148760330579,
+      "recall": 0.8527918781725888
+    },
+    "default_threshold_0.5": {
+      "precision": 0.7679558011049724,
+      "recall": 0.7055837563451777,
+      "f1": 0.7354497354497355
+    }
+  },
+  "modality_heldout_xrd": {
+    "label": "Held-out xrd",
+    "n": 205,
+    "reliability_bins": [
+      {
+        "bin_lo": 0.0,
+        "bin_hi": 0.1,
+        "n": 78,
+        "mean_pred": 0.07096381191737376,
+        "empirical_rate": 0.47435897435897434
+      },
+      {
+        "bin_lo": 0.1,
+        "bin_hi": 0.2,
+        "n": 102,
+        "mean_pred": 0.13694295177564902,
+        "empirical_rate": 0.49019607843137253
+      },
+      {
+        "bin_lo": 0.2,
+        "bin_hi": 0.30000000000000004,
+        "n": 18,
+        "mean_pred": 0.23007519212034014,
+        "empirical_rate": 0.5
+      },
+      {
+        "bin_lo": 0.30000000000000004,
+        "bin_hi": 0.4,
+        "n": 0,
+        "mean_pred": null,
+        "empirical_rate": null
+      },
+      {
+        "bin_lo": 0.4,
+        "bin_hi": 0.5,
+        "n": 2,
+        "mean_pred": 0.45666393637657166,
+        "empirical_rate": 1.0
+      },
+      {
+        "bin_lo": 0.5,
+        "bin_hi": 0.6000000000000001,
+        "n": 2,
+        "mean_pred": 0.541893720626831,
+        "empirical_rate": 0.5
+      },
+      {
+        "bin_lo": 0.6000000000000001,
+        "bin_hi": 0.7000000000000001,
+        "n": 0,
+        "mean_pred": null,
+        "empirical_rate": null
+      },
+      {
+        "bin_lo": 0.7000000000000001,
+        "bin_hi": 0.8,
+        "n": 0,
+        "mean_pred": null,
+        "empirical_rate": null
+      },
+      {
+        "bin_lo": 0.8,
+        "bin_hi": 0.9,
+        "n": 2,
+        "mean_pred": 0.8931972980499268,
+        "empirical_rate": 1.0
+      },
+      {
+        "bin_lo": 0.9,
+        "bin_hi": 1.0,
+        "n": 1,
+        "mean_pred": 0.9428760409355164,
+        "empirical_rate": 0.0
+      }
+    ],
+    "best_operating_point": {
+      "threshold": 0.05,
+      "f1": 0.6279863481228669,
+      "precision": 0.4791666666666667,
+      "recall": 0.9108910891089109
+    },
+    "default_threshold_0.5": {
+      "precision": 0.6,
+      "recall": 0.0297029702970297,
+      "f1": 0.056603773584905655
+    }
+  },
+  "modality_heldout_sem": {
+    "label": "Held-out sem",
+    "n": 481,
+    "reliability_bins": [
+      {
+        "bin_lo": 0.0,
+        "bin_hi": 0.1,
+        "n": 0,
+        "mean_pred": null,
+        "empirical_rate": null
+      },
+      {
+        "bin_lo": 0.1,
+        "bin_hi": 0.2,
+        "n": 0,
+        "mean_pred": null,
+        "empirical_rate": null
+      },
+      {
+        "bin_lo": 0.2,
+        "bin_hi": 0.30000000000000004,
+        "n": 5,
+        "mean_pred": 0.2841448962688446,
+        "empirical_rate": 0.0
+      },
+      {
+        "bin_lo": 0.30000000000000004,
+        "bin_hi": 0.4,
+        "n": 33,
+        "mean_pred": 0.35838239752885065,
+        "empirical_rate": 0.21212121212121213
+      },
+      {
+        "bin_lo": 0.4,
+        "bin_hi": 0.5,
+        "n": 47,
+        "mean_pred": 0.46277248352131944,
+        "empirical_rate": 0.06382978723404255
+      },
+      {
+        "bin_lo": 0.5,
+        "bin_hi": 0.6000000000000001,
+        "n": 95,
+        "mean_pred": 0.5547287482964365,
+        "empirical_rate": 0.22105263157894736
+      },
+      {
+        "bin_lo": 0.6000000000000001,
+        "bin_hi": 0.7000000000000001,
+        "n": 156,
+        "mean_pred": 0.6459970982410969,
+        "empirical_rate": 0.2948717948717949
+      },
+      {
+        "bin_lo": 0.7000000000000001,
+        "bin_hi": 0.8,
+        "n": 70,
+        "mean_pred": 0.7499262137072427,
+        "empirical_rate": 0.12857142857142856
+      },
+      {
+        "bin_lo": 0.8,
+        "bin_hi": 0.9,
+        "n": 75,
+        "mean_pred": 0.8471322512626648,
+        "empirical_rate": 0.25333333333333335
+      },
+      {
+        "bin_lo": 0.9,
+        "bin_hi": 1.0,
+        "n": 0,
+        "mean_pred": null,
+        "empirical_rate": null
+      }
+    ],
+    "best_operating_point": {
+      "threshold": 0.55,
+      "f1": 0.40172786177105824,
+      "precision": 0.25977653631284914,
+      "recall": 0.8857142857142857
+    },
+    "default_threshold_0.5": {
+      "precision": 0.23929471032745592,
+      "recall": 0.9047619047619048,
+      "f1": 0.3784860557768924
+    }
+  },
+  "modality_heldout_spectrum": {
+    "label": "Held-out spectrum",
+    "n": 575,
+    "reliability_bins": [
+      {
+        "bin_lo": 0.0,
+        "bin_hi": 0.1,
+        "n": 389,
+        "mean_pred": 0.021537594260482698,
+        "empirical_rate": 0.8431876606683805
+      },
+      {
+        "bin_lo": 0.1,
+        "bin_hi": 0.2,
+        "n": 120,
+        "mean_pred": 0.15240689050406217,
+        "empirical_rate": 0.925
+      },
+      {
+        "bin_lo": 0.2,
+        "bin_hi": 0.30000000000000004,
+        "n": 63,
+        "mean_pred": 0.23187674203562358,
+        "empirical_rate": 0.8571428571428571
+      },
+      {
+        "bin_lo": 0.30000000000000004,
+        "bin_hi": 0.4,
+        "n": 3,
+        "mean_pred": 0.3101787269115448,
+        "empirical_rate": 0.6666666666666666
+      },
+      {
+        "bin_lo": 0.4,
+        "bin_hi": 0.5,
+        "n": 0,
+        "mean_pred": null,
+        "empirical_rate": null
+      },
+      {
+        "bin_lo": 0.5,
+        "bin_hi": 0.6000000000000001,
+        "n": 0,
+        "mean_pred": null,
+        "empirical_rate": null
+      },
+      {
+        "bin_lo": 0.6000000000000001,
+        "bin_hi": 0.7000000000000001,
+        "n": 0,
+        "mean_pred": null,
+        "empirical_rate": null
+      },
+      {
+        "bin_lo": 0.7000000000000001,
+        "bin_hi": 0.8,
+        "n": 0,
+        "mean_pred": null,
+        "empirical_rate": null
+      },
+      {
+        "bin_lo": 0.8,
+        "bin_hi": 0.9,
+        "n": 0,
+        "mean_pred": null,
+        "empirical_rate": null
+      },
+      {
+        "bin_lo": 0.9,
+        "bin_hi": 1.0,
+        "n": 0,
+        "mean_pred": null,
+        "empirical_rate": null
+      }
+    ],
+    "best_operating_point": {
+      "threshold": 0.05,
+      "f1": 0.5902964959568734,
+      "precision": 0.8866396761133604,
+      "recall": 0.44242424242424244
+    },
+    "default_threshold_0.5": {
+      "precision": NaN,
+      "recall": 0.0,
+      "f1": NaN
+    }
+  },
+  "modality_heldout_stability": {
+    "label": "Held-out stability",
+    "n": 395,
+    "reliability_bins": [
+      {
+        "bin_lo": 0.0,
+        "bin_hi": 0.1,
+        "n": 58,
+        "mean_pred": 0.06535366367034871,
+        "empirical_rate": 0.3620689655172414
+      },
+      {
+        "bin_lo": 0.1,
+        "bin_hi": 0.2,
+        "n": 81,
+        "mean_pred": 0.14714597717479425,
+        "empirical_rate": 0.2962962962962963
+      },
+      {
+        "bin_lo": 0.2,
+        "bin_hi": 0.30000000000000004,
+        "n": 100,
+        "mean_pred": 0.24782599449157716,
+        "empirical_rate": 0.26
+      },
+      {
+        "bin_lo": 0.30000000000000004,
+        "bin_hi": 0.4,
+        "n": 72,
+        "mean_pred": 0.3541884774135219,
+        "empirical_rate": 0.2222222222222222
+      },
+      {
+        "bin_lo": 0.4,
+        "bin_hi": 0.5,
+        "n": 53,
+        "mean_pred": 0.4451478196764892,
+        "empirical_rate": 0.16981132075471697
+      },
+      {
+        "bin_lo": 0.5,
+        "bin_hi": 0.6000000000000001,
+        "n": 25,
+        "mean_pred": 0.5363203382492066,
+        "empirical_rate": 0.28
+      },
+      {
+        "bin_lo": 0.6000000000000001,
+        "bin_hi": 0.7000000000000001,
+        "n": 4,
+        "mean_pred": 0.6239255666732788,
+        "empirical_rate": 0.75
+      },
+      {
+        "bin_lo": 0.7000000000000001,
+        "bin_hi": 0.8,
+        "n": 2,
+        "mean_pred": 0.7621107697486877,
+        "empirical_rate": 0.5
+      },
+      {
+        "bin_lo": 0.8,
+        "bin_hi": 0.9,
+        "n": 0,
+        "mean_pred": null,
+        "empirical_rate": null
+      },
+      {
+        "bin_lo": 0.9,
+        "bin_hi": 1.0,
+        "n": 0,
+        "mean_pred": null,
+        "empirical_rate": null
+      }
+    ],
+    "best_operating_point": {
+      "threshold": 0.05,
+      "f1": 0.40573770491803274,
+      "precision": 0.25984251968503935,
+      "recall": 0.9252336448598131
+    },
+    "default_threshold_0.5": {
+      "precision": 0.3548387096774194,
+      "recall": 0.102803738317757,
+      "f1": 0.15942028985507245
+    }
+  },
+  "modality_heldout_metallicity": {
+    "label": "Held-out metallicity",
+    "n": 255,
+    "reliability_bins": [
+      {
+        "bin_lo": 0.0,
+        "bin_hi": 0.1,
+        "n": 82,
+        "mean_pred": 0.04795651011759552,
+        "empirical_rate": 0.34146341463414637
+      },
+      {
+        "bin_lo": 0.1,
+        "bin_hi": 0.2,
+        "n": 50,
+        "mean_pred": 0.15035876259207726,
+        "empirical_rate": 0.5
+      },
+      {
+        "bin_lo": 0.2,
+        "bin_hi": 0.30000000000000004,
+        "n": 45,
+        "mean_pred": 0.24958013892173767,
+        "empirical_rate": 0.37777777777777777
+      },
+      {
+        "bin_lo": 0.30000000000000004,
+        "bin_hi": 0.4,
+        "n": 16,
+        "mean_pred": 0.34224120900034904,
+        "empirical_rate": 0.6875
+      },
+      {
+        "bin_lo": 0.4,
+        "bin_hi": 0.5,
+        "n": 25,
+        "mean_pred": 0.44476074337959287,
+        "empirical_rate": 0.6
+      },
+      {
+        "bin_lo": 0.5,
+        "bin_hi": 0.6000000000000001,
+        "n": 13,
+        "mean_pred": 0.5641274314660293,
+        "empirical_rate": 0.38461538461538464
+      },
+      {
+        "bin_lo": 0.6000000000000001,
+        "bin_hi": 0.7000000000000001,
+        "n": 9,
+        "mean_pred": 0.6270544396506416,
+        "empirical_rate": 0.4444444444444444
+      },
+      {
+        "bin_lo": 0.7000000000000001,
+        "bin_hi": 0.8,
+        "n": 4,
+        "mean_pred": 0.763713151216507,
+        "empirical_rate": 0.25
+      },
+      {
+        "bin_lo": 0.8,
+        "bin_hi": 0.9,
+        "n": 8,
+        "mean_pred": 0.8516135290265083,
+        "empirical_rate": 0.875
+      },
+      {
+        "bin_lo": 0.9,
+        "bin_hi": 1.0,
+        "n": 3,
+        "mean_pred": 0.9640456239382426,
+        "empirical_rate": 0.3333333333333333
+      }
+    ],
+    "best_operating_point": {
+      "threshold": 0.05,
+      "f1": 0.6111111111111112,
+      "precision": 0.4714285714285714,
+      "recall": 0.868421052631579
+    },
+    "default_threshold_0.5": {
+      "precision": 0.4864864864864865,
+      "recall": 0.15789473684210525,
+      "f1": 0.2384105960264901
+    }
+  },
+  "modality_heldout_magnetism": {
+    "label": "Held-out magnetism",
+    "n": 241,
+    "reliability_bins": [
+      {
+        "bin_lo": 0.0,
+        "bin_hi": 0.1,
+        "n": 26,
+        "mean_pred": 0.029079297751125593,
+        "empirical_rate": 0.5384615384615384
+      },
+      {
+        "bin_lo": 0.1,
+        "bin_hi": 0.2,
+        "n": 11,
+        "mean_pred": 0.14991615577177567,
+        "empirical_rate": 0.7272727272727273
+      },
+      {
+        "bin_lo": 0.2,
+        "bin_hi": 0.30000000000000004,
+        "n": 13,
+        "mean_pred": 0.2377216609624716,
+        "empirical_rate": 0.3076923076923077
+      },
+      {
+        "bin_lo": 0.30000000000000004,
+        "bin_hi": 0.4,
+        "n": 21,
+        "mean_pred": 0.3495529776527768,
+        "empirical_rate": 0.5238095238095238
+      },
+      {
+        "bin_lo": 0.4,
+        "bin_hi": 0.5,
+        "n": 14,
+        "mean_pred": 0.456901769552912,
+        "empirical_rate": 0.35714285714285715
+      },
+      {
+        "bin_lo": 0.5,
+        "bin_hi": 0.6000000000000001,
+        "n": 38,
+        "mean_pred": 0.5495723501632088,
+        "empirical_rate": 0.39473684210526316
+      },
+      {
+        "bin_lo": 0.6000000000000001,
+        "bin_hi": 0.7000000000000001,
+        "n": 41,
+        "mean_pred": 0.6534445024118191,
+        "empirical_rate": 0.4634146341463415
+      },
+      {
+        "bin_lo": 0.7000000000000001,
+        "bin_hi": 0.8,
+        "n": 47,
+        "mean_pred": 0.7509003826912414,
+        "empirical_rate": 0.44680851063829785
+      },
+      {
+        "bin_lo": 0.8,
+        "bin_hi": 0.9,
+        "n": 25,
+        "mean_pred": 0.8399103140830994,
+        "empirical_rate": 0.6
+      },
+      {
+        "bin_lo": 0.9,
+        "bin_hi": 1.0,
+        "n": 5,
+        "mean_pred": 0.9483690857887268,
+        "empirical_rate": 0.6
+      }
+    ],
+    "best_operating_point": {
+      "threshold": 0.05,
+      "f1": 0.6167664670658682,
+      "precision": 0.4703196347031963,
+      "recall": 0.8956521739130435
+    },
+    "default_threshold_0.5": {
+      "precision": 0.46794871794871795,
+      "recall": 0.6347826086956522,
+      "f1": 0.5387453874538746
+    }
+  }
+}

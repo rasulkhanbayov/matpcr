@@ -2,30 +2,29 @@
 halfB_collect_dft.py
 =====================
 Experiment 1, Half-B data collection for the 3 DFT-grounded oracles
-(stability, metallicity, property sign/magnitude), mirroring
-halfB_collect.py's pattern for the geometric oracles.
+(stability, metallicity, magnetism-magnitude), mirroring halfB_collect.py's
+pattern for the geometric oracles.
 
-SCOPE NOTE: per the 2026-07-XX PI override (Hasan instructed proceeding
-without Mustafa's DFT-protocol sign-off -- see CLAUDE.md "Mustafa's sign-off
-scope" + "OVERRIDE" entries), this collects real Half-B material for these 3
-oracles. The DFT precision numbers that come out of the eventual human review
-of this material are NOT YET independently validated by the domain
-co-author -- flag this explicitly wherever these numbers are reported.
+SCOPE NOTE: per the domain co-author's review (M.K., 2026-07, see
+VERSION2/Dr_mustafas_comments), Materials Project is now an APPROVED
+reference source for completing Half-B for all 3 oracles, conditional on the
+oracle corrections in matpcr_metrics.py -- all implemented. This is a genuine
+re-collection, not a re-aggregation: the metallicity and magnetism oracle
+signatures changed (metallicity's abstention band; magnetism's
+classify-then-magnitude redesign), and the magnetism prompt itself changed
+(pilot_dft.py now asks for a magnitude estimate when the model claims
+MAGNETIC, since the corrected oracle needs a genuine magnitude claim, not
+a binary-classification proxy).
 
 Method: real Materials Project formulas (text-only prompt, no image -- see
-pilot_dft.py) -> real model claim (STABLE/UNSTABLE, METALLIC/NONMETALLIC,
-MAGNETIC/NONMAGNETIC) -> parsed -> checked against the REAL MP reference
-value for that exact material via the actual oracle function -> if the
-oracle says "inconsistent" (fired), keep the case for review. Loop per claim
-type until >=target fired cases accumulate.
+pilot_dft.py) -> real model claim -> parsed -> checked against the REAL MP
+reference value for that exact material via the actual oracle function -> if
+the oracle says "inconsistent" (fired), keep the case for review. Loop per
+claim type until >=target fired cases accumulate.
 
-For the sign/magnitude oracle, the model's binary MAGNETIC/NONMAGNETIC claim
-is converted to a representative numeric claim (0.0 for NONMAGNETIC; the
-reference's own sign preserved but magnitude probed for MAGNETIC, since the
-model was not asked for a numeric value in the pilot's binary framing --
-this is a genuine adaptation, documented below) before calling
-property_sign_magnitude_consistent, since that oracle takes a numeric claim,
-not a boolean.
+Magnetism uses parse_magnetism_chain (not the generic parse_dft_chain) to get
+both the classification AND the claimed magnitude (muB/atom) in one parse,
+matching what magnetism_magnitude_consistent actually needs.
 
 Run: python3 experiments/halfB_collect_dft.py --target 100
 """
@@ -38,6 +37,7 @@ os.environ["HF_HOME"] = "/ephemeral/matpcr/hf_cache"
 
 import argparse
 import json
+import random
 import sys
 import time
 
@@ -45,12 +45,15 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from matpcr_metrics import (  # noqa: E402
     stability_claim_consistent,
     metallicity_claim_consistent,
-    property_sign_magnitude_consistent,
+    magnetism_magnitude_consistent,
 )
 
-import pilot_dft  # noqa: E402  reuse PROMPTS, parse_dft_chain, run_text_local_qwen, run_text_api_openrouter
+import pilot_dft  # noqa: E402  reuse PROMPTS, parse_dft_chain, parse_magnetism_chain, run_text_local_qwen, run_text_api_openrouter
 
 MP_DATA_PATH = "/ephemeral/matpcr/mp_data/mp_reference_batch.jsonl"
+MAGNETIC_THRESHOLD_MUB_PER_ATOM = 0.05
+METALLICITY_METAL_MAX_EV = 0.05
+METALLICITY_GAP_MIN_EV = 0.20
 
 
 def load_materials():
@@ -58,32 +61,37 @@ def load_materials():
         return [json.loads(line) for line in f]
 
 
-def check_oracle(claim_type: str, parsed: str, material: dict):
-    """Return True (consistent) / False (fired) for this real claim against
-    the real MP reference value, or None if it can't be evaluated."""
+def check_oracle(claim_type: str, parsed, material: dict):
+    """Return True (consistent) / False (fired) / None (not checkable) for
+    this real claim against the real MP reference value.
+
+    `parsed` is a bare label string for stability/metallicity, or the
+    (classification, magnitude) tuple from parse_magnetism_chain for
+    magnetism.
+    """
     if claim_type == "stability":
         claimed_stable = parsed == "STABLE"
         return stability_claim_consistent(claimed_stable, material["energy_above_hull"], tol_eV_atom=0.05)
 
     if claim_type == "metallicity":
         claimed_metallic = parsed == "METALLIC"
-        return metallicity_claim_consistent(claimed_metallic, material["band_gap"], gap_tol_eV=0.05)
+        return metallicity_claim_consistent(
+            claimed_metallic, material["band_gap"],
+            metal_max_eV=METALLICITY_METAL_MAX_EV, gap_min_eV=METALLICITY_GAP_MIN_EV,
+        )
 
     if claim_type == "magnetism":
-        ref = material["total_magnetization"]
-        # The pilot's prompt asks for a binary MAGNETIC/NONMAGNETIC judgment,
-        # not a numeric value -- property_sign_magnitude_consistent needs a
-        # number. Convert the binary claim to the most representative numeric
-        # claim consistent with that binary judgment: NONMAGNETIC -> 0.0;
-        # MAGNETIC -> the reference's own sign with unit magnitude (1.0 or
-        # -1.0), which tests whether the model's binary judgment agrees with
-        # whether the material actually has nonzero magnetization, without
-        # presupposing a magnitude the model was never asked to state.
-        if parsed == "NONMAGNETIC":
-            claim = 0.0
-        else:
-            claim = 1.0 if ref >= 0 else -1.0
-        return property_sign_magnitude_consistent(claim, ref, rel_tol=1.0)
+        classification, magnitude = parsed
+        if classification is None:
+            return None
+        n_atoms = material.get("nsites")
+        if not n_atoms or n_atoms <= 0:
+            return None
+        claimed_magnetic = classification == "MAGNETIC"
+        return magnetism_magnitude_consistent(
+            claimed_magnetic, magnitude, material["total_magnetization"], n_atoms,
+            magnetic_threshold_muB_per_atom=MAGNETIC_THRESHOLD_MUB_PER_ATOM,
+        )
 
     return None
 
@@ -104,7 +112,13 @@ def main():
         args.models = [m for m in args.models if m != "api"]
 
     materials = load_materials()
-    print(f"Loaded {len(materials)} real materials from Materials Project.")
+    # Shuffle before walking the cursor: the raw MP pull is NOT randomly
+    # ordered (confirmed directly -- the first 200 materials in a fresh pull
+    # were 89.5% non-magnetic vs. 25% over the full 3000-material pool),
+    # which without shuffling starved the magnetism collection of any fired
+    # cases for many rounds. A fixed seed keeps this reproducible.
+    random.Random(7).shuffle(materials)
+    print(f"Loaded {len(materials)} real materials from Materials Project (shuffled, seed=7).")
 
     total_cost = 0.0
 
@@ -140,9 +154,16 @@ def main():
                             cost = 0.0
                         elapsed = time.time() - t0
 
-                        parsed = pilot_dft.parse_dft_chain(chain_text)
-                        if parsed is None:
-                            continue
+                        if claim_type == "magnetism":
+                            parsed = pilot_dft.parse_magnetism_chain(chain_text)
+                            parsed_for_record = {"classification": parsed[0], "magnitude_muB_per_atom": parsed[1]}
+                            if parsed[0] is None:
+                                continue
+                        else:
+                            parsed = pilot_dft.parse_dft_chain(chain_text)
+                            parsed_for_record = parsed
+                            if parsed is None:
+                                continue
 
                         try:
                             oracle_result = check_oracle(claim_type, parsed, m)
@@ -164,10 +185,11 @@ def main():
                                 "band_gap": m["band_gap"],
                                 "is_metal": m["is_metal"],
                                 "total_magnetization": m["total_magnetization"],
+                                "nsites": m.get("nsites"),
                             },
                             "prompt": prompt,
                             "chain_text": chain_text,
-                            "parsed": parsed,
+                            "parsed": parsed_for_record,
                             "oracle_consistent": oracle_result,
                             "fired": fired,
                             "cost_usd": cost,

@@ -1,0 +1,31 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 85250.08it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:   0%|          | 1/729 [00:00<02:11,  5.53it/s]Loading weights:   2%|▏         | 16/729 [00:00<00:10, 66.96it/s]Loading weights:   4%|▍         | 28/729 [00:00<00:08, 85.54it/s]Loading weights:   6%|▌         | 42/729 [00:00<00:06, 103.50it/s]Loading weights:   9%|▉         | 64/729 [00:00<00:04, 138.31it/s]Loading weights:  11%|█         | 79/729 [00:00<00:04, 141.81it/s]Loading weights:  14%|█▍        | 102/729 [00:00<00:03, 163.29it/s]Loading weights:  17%|█▋        | 125/729 [00:00<00:03, 177.79it/s]Loading weights:  20%|██        | 148/729 [00:01<00:03, 186.34it/s]Loading weights:  24%|██▎       | 173/729 [00:01<00:02, 198.79it/s]Loading weights:  27%|██▋       | 197/729 [00:01<00:02, 203.59it/s]Loading weights:  30%|███       | 222/729 [00:01<00:02, 209.59it/s]Loading weights:  34%|███▎      | 246/729 [00:01<00:02, 212.18it/s]Loading weights:  37%|███▋      | 270/729 [00:01<00:02, 214.29it/s]Loading weights:  40%|████      | 294/729 [00:01<00:02, 214.81it/s]Loading weights:  43%|████▎     | 317/729 [00:01<00:02, 202.46it/s]Loading weights:  46%|████▋     | 338/729 [00:01<00:02, 192.71it/s]Loading weights:  70%|██████▉   | 510/729 [00:02<00:00, 598.84it/s]Loading weights:  93%|█████████▎| 679/729 [00:02<00:00, 897.34it/s]Loading weights: 100%|██████████| 729/729 [00:02<00:00, 331.80it/s]
+[xrd       /local /seed=0] n=23 PCR_before=0.696 PCR_after=0.739 (cost_so_far=$0.0000) (259.0s)
+[xrd       /local /seed=1] n=25 PCR_before=0.560 PCR_after=0.680 (cost_so_far=$0.0000) (289.0s)
+[xrd       /local /seed=2] n=20 PCR_before=0.700 PCR_after=0.700 (cost_so_far=$0.0000) (230.0s)
+[xrd       /gemini/seed=0] n=20 PCR_before=0.800 PCR_after=0.950 (cost_so_far=$0.0096) (150.3s)
+[xrd       /gemini/seed=1] n=14 PCR_before=0.857 PCR_after=0.929 (cost_so_far=$0.0235) (177.6s)
+[xrd       /gemini/seed=2] n=14 PCR_before=0.929 PCR_after=1.000 (cost_so_far=$0.0326) (166.8s)
+[xrd       /gpt4o /seed=0] n=23 PCR_before=0.565 PCR_after=0.826 (cost_so_far=$0.1614) (175.2s)
+[xrd       /gpt4o /seed=1] n=25 PCR_before=0.640 PCR_after=0.840 (cost_so_far=$0.2927) (165.3s)
+[xrd       /gpt4o /seed=2] n=20 PCR_before=0.750 PCR_after=0.900 (cost_so_far=$0.4015) (141.8s)
+[xrd       /claude/seed=0] n=23 PCR_before=0.696 PCR_after=0.957 (cost_so_far=$0.6748) (384.9s)
+[xrd       /claude/seed=1] n=25 PCR_before=0.600 PCR_after=0.840 (cost_so_far=$1.0031) (466.2s)
+[xrd       /claude/seed=2] n=20 PCR_before=0.650 PCR_after=0.950 (cost_so_far=$1.2790) (383.8s)
+[spectrum  /local /seed=0] n=30 PCR_before=0.100 PCR_after=0.233 (cost_so_far=$1.2790) (257.0s)
+[spectrum  /local /seed=1] n=30 PCR_before=0.100 PCR_after=0.233 (cost_so_far=$1.2790) (249.7s)
+[spectrum  /local /seed=2] n=29 PCR_before=0.103 PCR_after=0.241 (cost_so_far=$1.2790) (244.3s)
+[spectrum  /gemini/seed=0] n=19 PCR_before=0.368 PCR_after=0.421 (cost_so_far=$1.2970) (126.5s)
+[spectrum  /gemini/seed=1] n=26 PCR_before=0.231 PCR_after=0.346 (cost_so_far=$1.3143) (122.4s)
+[spectrum  /gemini/seed=2] n=24 PCR_before=0.292 PCR_after=0.458 (cost_so_far=$1.3311) (125.2s)
+[spectrum  /gpt4o /seed=0] n=14 PCR_before=0.071 PCR_after=0.214 (cost_so_far=$1.4260) (88.6s)
+[spectrum  /gpt4o /seed=1] n=16 PCR_before=0.062 PCR_after=0.125 (cost_so_far=$1.5283) (90.9s)
+[spectrum  /gpt4o /seed=2] n=15 PCR_before=0.200 PCR_after=0.267 (cost_so_far=$1.6214) (82.8s)
+[spectrum  /claude/seed=0] n=30 PCR_before=0.233 PCR_after=0.500 (cost_so_far=$1.9362) (341.8s)
+[spectrum  /claude/seed=1] n=30 PCR_before=0.133 PCR_after=0.400 (cost_so_far=$2.2986) (385.5s)
+[spectrum  /claude/seed=2] n=30 PCR_before=0.133 PCR_after=0.400 (cost_so_far=$2.6597) (392.3s)
+
+Total records: 545
+Total API cost: $2.6597
+Written to: experiments/exp4_results.jsonl

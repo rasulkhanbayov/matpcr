@@ -46,9 +46,23 @@ import json
 import random
 import re
 import sys
+import threading
 import time
 
 import numpy as np
+
+# matplotlib's Agg backend keeps global mutable figure-stack state that is
+# NOT thread-safe. exp2_pcr_sweep.py's call_with_hard_timeout backstop can
+# leave a daemon thread running past its timeout (by design -- it must not
+# block the main thread); if that thread is still inside requests/networking
+# code while the main thread starts building the next item batch, there is
+# no overlap. But if a future caller ever touches matplotlib from a
+# background thread, or two builders somehow run concurrently, this lock
+# prevents corrupting the shared Agg canvas state (root cause of a real
+# 2026-07-17 crash: "AttributeError: '_idat' object has no attribute
+# 'fileno'" inside PIL's PNG writer, consistent with two savefig calls
+# racing on the same global canvas).
+_MPL_LOCK = threading.Lock()
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, REPO_ROOT)
@@ -87,16 +101,17 @@ def build_xrd_items(n: int, seed: int = 0):
         except Exception:
             continue
 
-        fig, ax = plt.subplots(figsize=(8, 5), dpi=120)
-        ax.plot(two_theta, intensities, linewidth=0.8, color="black")
-        ax.set_xlabel("2theta (degrees)")
-        ax.set_ylabel("Intensity")
-        ax.set_title("XRD pattern")
-        ax.set_xticks(np.arange(0, two_theta.max() + 10, 10))
-        ax.grid(True, axis="x", linestyle=":", alpha=0.5)
         img_path = os.path.join(SCRATCH_IMG_DIR, f"xrd_{os.path.basename(fp)}.png")
-        fig.savefig(img_path, bbox_inches="tight")
-        plt.close(fig)
+        with _MPL_LOCK:
+            fig, ax = plt.subplots(figsize=(8, 5), dpi=120)
+            ax.plot(two_theta, intensities, linewidth=0.8, color="black")
+            ax.set_xlabel("2theta (degrees)")
+            ax.set_ylabel("Intensity")
+            ax.set_title("XRD pattern")
+            ax.set_xticks(np.arange(0, two_theta.max() + 10, 10))
+            ax.grid(True, axis="x", linestyle=":", alpha=0.5)
+            fig.savefig(img_path, bbox_inches="tight")
+            plt.close(fig)
 
         prompt = (
             "This image shows an X-ray diffraction (XRD) pattern: 2theta (degrees) on the "
@@ -170,14 +185,15 @@ def build_spectrum_items(n: int, seed: int = 0):
         if len(xs) < 10:
             continue
 
-        fig, ax = plt.subplots(figsize=(6, 4), dpi=100)
-        ax.plot(xs, ys, linewidth=0.8, color="black")
-        ax.set_xlabel("Raman shift (cm-1)")
-        ax.set_ylabel("Intensity")
-        ax.set_title("Raman spectrum")
         img_path = os.path.join(SCRATCH_IMG_DIR, f"raman_{os.path.basename(fp)}.png")
-        fig.savefig(img_path, bbox_inches="tight")
-        plt.close(fig)
+        with _MPL_LOCK:
+            fig, ax = plt.subplots(figsize=(6, 4), dpi=100)
+            ax.plot(xs, ys, linewidth=0.8, color="black")
+            ax.set_xlabel("Raman shift (cm-1)")
+            ax.set_ylabel("Intensity")
+            ax.set_title("Raman spectrum")
+            fig.savefig(img_path, bbox_inches="tight")
+            plt.close(fig)
 
         prompt = (
             "This image shows a Raman spectrum: Raman shift (cm-1) on the x-axis vs "

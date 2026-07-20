@@ -1402,3 +1402,374 @@ correct per-family average of stability/metallicity/magnetism from §13).
   low-n, verifier weight public release, magnetism's generalization mystery)
   are referenced honestly in the manuscript text but remain unresolved as
   research questions, not just writing tasks.
+
+---
+
+## 19. Supervisor audit + Dr. Mustafa's review response — Phase 0/1 DONE (2026-07-16/17)
+
+The supervisor sent back `VERSION2/` with a deep-audit red-flag list
+(`VERSION2/matpcr_REDFLAGS.txt`) and Dr. Mustafa sent formal DFT-protocol
+review comments (`VERSION2/Dr_mustafas_comments`) approving Materials Project
+as a reference source CONDITIONAL on specific oracle corrections. Full plan
+recorded in `REVISION_PLAN.md` at repo root. This section records what Phase
+0 (oracle corrections) and Phase 1 (re-running affected experiments) actually
+found and changed.
+
+### Independent verification of the audit before trusting it
+- **BL1 (seed pseudoreplication) is factually wrong as stated.** The audit
+  claimed "S=3 seeds run on the same 30 items." Checked directly: 0 duplicate
+  source files across any seed in 555 real CGSV records — seeds draw a fresh
+  random sample via `seed=BASE + seed*100`, not the same items redecoded. The
+  deeper unit-of-analysis/multiple-comparisons concern is still real (see
+  "Not yet done" below) but the audit's specific mechanism does not apply.
+- **BL2 (verifier split leakage) was real and has been fixed** — see below.
+- **Found independently (not in the audit): `exp2_results.jsonl` and
+  `exp3_results.jsonl` never recorded a source/item ID at all** before this
+  pass (only exp4's did). Both were re-run from scratch with a `source_id`
+  field added, not just re-aggregated.
+
+### Mustafa's review — three conditional approvals, all now implemented
+1. **Stability**: 0.05 eV/atom tolerance kept, but 0-0.05 eV/atom must be
+   described as "near-hull/potentially metastable," never "stable." Added
+   `STABILITY_SENSITIVITY_TOLERANCES_EV_ATOM = (0.0, 0.025, 0.05, 0.10)` and
+   re-ran Half-A at all 4 (clean: 0% FN/FP at every tolerance).
+2. **Metallicity**: abstention band added exactly as specified — ≤0.05 eV
+   computed-metallic, 0.05-0.20 eV ambiguous/excluded, ≥0.20 eV
+   computed-non-metallic (Mustafa's literal 0.20, not VERSION2 code's
+   inherited 0.3 default — confirmed by user decision 2026-07-16).
+   `metallicity_claim_consistent()` now returns `None` for the ambiguous band
+   (item excluded from PCR entirely) instead of a forced decision.
+3. **Magnetism — full redesign, not a parameter tweak.** Renamed
+   `property_sign_magnitude_consistent` → `magnetism_magnitude_consistent`.
+   Sign is NEVER checked (a DFT calculation's magnetization sign is an
+   arbitrary axis choice, not a physical claim). New protocol: (a) normalize
+   to `|total_magnetization| / nsites` (per-atom, never raw/un-normalized),
+   (b) classify magnetic-vs-not via a preregistered 0.05 muB/atom threshold,
+   (c) compare MAGNITUDE ONLY within the magnetic class, order-of-magnitude
+   band. Required a real prompt change too (see below) since the old prompt
+   only ever elicited a binary MAGNETIC/NONMAGNETIC judgment with no
+   magnitude to check.
+- **MP provenance now pinned**: `mp_fetch_reference_data.py` records database
+  version (2026.04.13), retrieval date, calculation type, and exact fields
+  pulled to `/ephemeral/matpcr/mp_data/mp_provenance.json` on every fresh
+  pull. Values are described as "standardized computational references," not
+  experimental ground truth, per Mustafa's exact wording.
+- Re-pulled a fresh 3000-material MP batch with `nsites` added (needed for
+  magnetism per-atom normalization) — old batch lacked this field entirely.
+
+### Real bugs found and fixed during this pass (not anticipated by the plan)
+1. **Magnetism prompt never collected a magnitude** — `pilot_dft.py`'s
+   `PROMPTS["magnetism"]` only ever asked MAGNETIC/NONMAGNETIC, so the
+   corrected oracle's magnitude-comparison branch was untestable. Fixed by
+   extending the prompt to ask for `<value> muB/atom` when claiming MAGNETIC,
+   and adding a dedicated `parse_magnetism_chain()` (returns
+   `(classification, magnitude_or_None)`, keeping the old `parse_dft_chain`
+   for backward-compatible stability/metallicity callers).
+2. **`halfB_collect_dft.py` walked the materials pool in raw file order,
+   never shuffled** — the fresh MP pull's first ~200 rows were 89.5%
+   non-magnetic (vs. 25% over the full 3000), which silently starved
+   magnetism Half-B collection of any fired cases for multiple rounds before
+   this was caught. Fixed with `random.Random(7).shuffle(materials)`.
+3. **`halfB_fired_cases.jsonl`'s spectrum labels were stale**: the file
+   predates the Phase 0 spectrum oracle fix (genuine-local-maximum
+   requirement). Directly re-checked 200 spectrum records against the
+   corrected oracle: **137/200 (68.5%) mismatched their stored label.**
+   Relabeled all 575 spectrum records in place using the corrected oracle on
+   the EXISTING chain_text/parsed values (no new model calls) — 392 flipped,
+   class balance inverted from mostly-consistent to mostly-inconsistent
+   (matches the pattern independently confirmed in Experiments 2-4's
+   re-runs). Confirmed XRD/SEM records in the same file have ZERO mismatches
+   (their oracle logic didn't change) — this was a correctly narrow fix, not
+   a blanket re-labeling.
+4. **BL2 fix, concretely**: `exp5_build_dataset.py` now retains a
+   `source_id` field (source_file for geometric records, material_id for
+   DFT) on every output record. `exp5_train_verifier.py`'s `make_split()`
+   "random" mode now splits on unique `source_id`, not record index — a
+   genuinely disjoint 80/20 split, closing the exact leak the audit
+   described.
+
+### Phase 1 results — every affected experiment re-run on corrected oracles
+
+**Half-A (DFT) re-run**: 0% FN, 0% FP for all 3 oracles at all 3 planted
+rates, across all 4 stability tolerances and the new metallicity/magnetism
+logic. Metallicity correctly excluded 125/3000 ambiguous-band materials.
+
+**Half-B (DFT) re-collected**: 107 stability / 114 metallicity / 115
+magnetism fired cases (891 total records), $0.07 API cost. Review pages
+regenerated (`experiments/halfB_review_dft_{stability,metallicity,magnetism}.html`)
+with corrected-oracle language. **These supersede the OLD
+stability.txt/metallicity.txt/magnetism.txt reviews in the repo root, which
+were done on the uncorrected oracle and are now stale for precision
+purposes.** Manual re-review is the standing blocking item before new DFT
+precision numbers can be reported — not yet done as of this writing.
+
+**Experiment 2 (PCR sweep) re-run**: 72 cells (6 modalities × 4 models × 3
+seeds, up from a partial run before), 1,892 checkable records, $4.93 API
+cost, `source_id` added to every record.
+
+| Model | XRD | SEM | Spectrum | Stability* | Metallicity* | Magnetism* | **All** |
+|---|---|---|---|---|---|---|---|
+| Qwen2.5-VL-7B (local) | 0.516 | 0.652 | 0.148 | 0.700 | 0.570 | 0.489 | **0.513** |
+| Gemini 2.5 Flash Lite | 0.385 | 0.977 | 0.184 | 0.671 | 0.766 | 0.525 | **0.602** |
+| GPT-4o | 0.581 | 0.933 | 0.103 | 0.756 | 0.580 | 0.611 | **0.649** |
+| Claude Sonnet 4.5 | 0.532 | 0.978 | 0.178 | 0.767 | 0.704 | 0.644 | **0.638** |
+
+(*DFT-grounded, provisional pending Mustafa's Half-B sign-off on these
+specific numbers.) **Spectrum's PCR collapsed from the original ~0.62-0.88
+range to ~0.10-0.18** — confirmed directly (not assumed) by testing the old
+vs. new `spectrum_peak_exists` on a real spectrum: 81/200 sampled positions
+(40%) disagree between the two oracle versions. This is a correct,
+oracle-fix-driven finding, not a regression, and must be framed that way in
+the manuscript. XRD/Gemini showed real seed-to-seed volatility (0.235-0.526
+range observed mid-run) that settled to 0.385 pooled — a real, if noisy,
+finding, not a bug (GPT-4o/Claude's XRD numbers landed in the expected
+range, ruling out a systemic re-run problem).
+
+**Experiment 3 (accuracy-vs-consistency) re-run**: 920 records (36 cells:
+XRD/spectrum/stability × 4 models × 3 seeds), `source_id` and
+`claimed_stable`/`true_stable` fields added (the latter enables the
+balanced-accuracy/class-conditional analysis the audit requested — not yet
+computed, just the raw fields are now present). Spectrum's accuracy-PCR gap
+reproduced the same collapse pattern as Experiment 2. Stability's base-rate
+skew (most models 83-97% raw accuracy) reproduced identically to before.
+**New strong clue on the standing GPT-4o/spectrum anomaly**: all 3 seeds
+produced EXACTLY n=16/30 checkable — this precise repetition across
+different random item draws suggests something deterministic (e.g. a fixed
+subset of RRUFF files GPT-4o consistently fails to parse), not random
+per-call variance. Confirmed reproduced a 7th time total across Experiments
+2, 3, and 4 combined — highest-priority open investigation.
+
+**Experiment 4 (CGSV) re-run**: 545 records, $2.66 API cost. Added a
+`claimed_values` field (the model's numeric claim at each round) as the
+honest analogue to the audit's BL4 concern — this benchmark's single-claim-
+per-item design has no multi-claim k_i to count (an unparseable round already
+drops the whole item, so there's no "claim count drops but item survives"
+case to hide).
+
+| Model | Modality | n | PCR before | PCR after | b | c | p | residual |
+|---|---|---|---|---|---|---|---|---|
+| Qwen2.5-VL-7B | XRD | 68 | 0.647 | 0.706 | 0 | 4 | 0.125 | 20 |
+| Gemini 2.5 Flash Lite | XRD | 48 | 0.854 | 0.958 | 0 | 5 | 0.063 | 2 |
+| GPT-4o | XRD | 68 | 0.647 | 0.853 | 0 | 14 | 1.2e-04 | 10 |
+| Claude Sonnet 4.5 | XRD | 68 | 0.647 | 0.912 | 0 | 18 | 7.6e-06 | 6 |
+| Qwen2.5-VL-7B | Spectrum | 89 | 0.101 | 0.236 | 0 | 12 | 4.9e-04 | 68 |
+| Gemini 2.5 Flash Lite | Spectrum | 69 | 0.290 | 0.406 | 0 | 8 | 7.8e-03 | 41 |
+| GPT-4o | Spectrum | 45 | 0.111 | 0.200 | 0 | 4 | 0.125 | 36 |
+| Claude Sonnet 4.5 | Spectrum | 90 | 0.167 | 0.433 | 0 | 24 | 1.2e-07 | 51 |
+
+**Per-model pooled**: Qwen 0.338→0.439 (p=3.1e-05), Gemini 0.521→0.632
+(p=2.4e-04), GPT-4o 0.434→0.593 (p=7.6e-06), Claude 0.373→0.639 (p=4.6e-13).
+**Zero regressions (b=0) in every single cell, unchanged from before the
+oracle correction** — CGSV's core positive-control result is robust to the
+much stricter spectrum oracle. Absolute PCR is lower everywhere (expected,
+tracks Experiment 2's spectrum collapse) but the relative improvement and
+McNemar significance pattern holds for every model.
+
+**Experiment 5 (verifier) re-run — the manuscript's most significant
+correction.** Rebuilt `exp5_verifier_dataset.jsonl` from the corrected
+Half-B data (2,152 records; spectrum's relabeled distribution flows through
+automatically) with `source_id` retained; retrained all 13 runs with the
+now-genuinely-disjoint split.
+
+| Split | AUC (new, source-disjoint) | AUC (old, leaky) |
+|---|---|---|
+| In-distribution | 0.850 | 0.858 |
+| Held-out XRD | 0.497 | 0.462 |
+| Held-out SEM | 0.527 | 0.407 |
+| Held-out Spectrum | 0.558 | 0.610 |
+| Held-out Stability | 0.436 | 0.457 |
+| Held-out Metallicity | 0.582 | 0.674 |
+| **Held-out Magnetism** | **0.503** | **0.867** |
+
+**The manuscript's claim that magnetism uniquely generalizes well does NOT
+survive the corrected methodology.** Confirmed reproducible: both the
+held-out-modality AND held-out-constraint-type versions of the magnetism test
+independently landed at AUC=0.503 (chance). The original 0.867 was very
+likely an artifact of the old record-level split allowing same-source-item
+records to appear on both sides of train/test, not a real transferable
+signal. **This must replace the "magnetism is the one exception" framing
+throughout the manuscript (Results, Discussion, abstract) with the simpler,
+cleaner finding: the verifier does not generalize across ANY held-out
+modality** — arguably a stronger, more defensible result for the paper since
+there's no unexplained anomaly left to hedge around.
+
+**Experiment 6 (detector analysis) re-run**: bootstrap 95% CIs recomputed on
+the corrected probs/labels. No held-out modality clears the AUC≥0.7
+usable-triage threshold (all 6 sit at 0.436-0.582). Updated the script's
+hardcoded conclusion text (previously said "magnetism is the exception") to
+explicitly state the finding was retracted after the methodology fix, not
+just softened.
+
+### Not yet done (Phase 1 remainder + carried into Phase 2)
+- [ ] **Manual re-review of the 3 new Half-B DFT pages** — blocking new DFT
+      precision numbers. Old .txt exports are stale, do not reuse.
+- [ ] Item-level clustering / multiple-comparisons correction (Holm or
+      Benjamini-Hochberg) across the full model×modality sweep and the CGSV
+      tests — BL1's specific mechanism was refuted, but a real
+      multiple-comparisons correction across ~20+ statistical tests is still
+      owed and hasn't been computed.
+- [ ] Root-cause GPT-4o's spectrum low-n anomaly (7 reproductions now,
+      strong deterministic clue: identical n=16/30 across 3 different-seed
+      draws in Experiment 3).
+- [ ] Fix Gemini's magnetism-prompt token-budget truncation (confirmed root
+      cause: hedgy reasoning on structurally ambiguous formulas exhausts the
+      1000-token budget before FINAL_ANSWER; same failure class as the
+      earlier stability-prompt truncation fix, not yet applied to magnetism).
+- [x] Update `matpcr_snjnl.tex` with all of the above — table numbers, the
+      spectrum-collapse explanation, and (most importantly) rewriting the
+      verifier/detector sections to remove the now-retracted magnetism
+      exception claim. **Done, but only in `VERSION2/matpcr_snjnl.tex` — see
+      §20 below.**
+- [x] Phase 2 (new experiments the venue will expect — EX1-EX13 from the audit)
+  — DONE 2026-07-19/20. See §20.
+
+---
+
+## 20. Phase 2 (new experiments) + Phase 3 (manuscript text) — DONE (2026-07-19/20)
+
+Per `REVISION_PLAN.md`. Phase 2 ran 9 new experiments/analyses (items 15–23 +
+EX6); Phase 3 rewrote `VERSION2/matpcr_snjnl.tex` end-to-end against the
+results. Full experiment-level detail (scripts, bugs found/fixed, exact
+numbers) lives in the session transcript and in each `experiments/exp{8-14}*`
+script's own docstring — this section is the manuscript-facing summary.
+
+### Phase 2 results, one line each
+- **Item 15 (model refresh)**: added Claude Opus 4.6, GPT-5.6-Terra,
+  Qwen3-VL-8B-Instruct, Qwen3-VL-8B-Thinking (all via OpenRouter) across all 6
+  constraint types, 3 seeds each. Fixed a real matplotlib/Agg-backend +
+  threading race condition in `pilot.py` that was silently corrupting PNG
+  renders during a prior crashed run (root-caused, not just retried).
+- **Item 16 (MatterChat domain evaluee)**: built a full working local
+  integration from scratch (isolated venv, real Mistral-7B-Instruct-v0.3 +
+  CHGNet checkpoint from the paper's own Zenodo record 18735961/18735881,
+  CC-BY-4.0) — fixed 6 real dependency/version issues (ase API change,
+  missing timm/protobuf/setuptools-pkg_resources, cross-version MPID
+  pickling). Caught and fixed a real sampling bug: the first structure
+  fetch used raw MP file order (3.3% magnetic vs. real ~65-74%); re-fetched
+  shuffled. Final: stability PCR=0.783, metallicity=0.795 (n=112/120
+  checkable), magnetism=0.850 on 120 real shuffled MP structures.
+- **Item 17 (verifier baselines)**: zero-shot LLM-judge (Gemini Flash Lite)
+  and local-model token self-confidence, both on the same 7 splits as
+  Experiment 5/6. Neither is competitive with the fine-tuned verifier
+  in-distribution (LLM-judge AUC=0.447, self-confidence AUC=0.315, both
+  ≤chance, vs. verifier's 0.850). Found and confirmed a real, non-obvious
+  result: the model is *more* confident (higher token log-prob) when its
+  claim is physically wrong, not less — directly checked on a 40-item
+  sample (violation mean logprob -2.84 vs. clean -3.99), not a sign bug.
+- **Item 18 (CGSV mechanism-isolation controls)**: ran `exp7_cgsv_controls.py`
+  to completion (self_refine, re_prompt, best_of_n × xrd/spectrum × 4
+  original models × 3 seeds, $12.19 API cost). Neither self_refine
+  (0.349→0.339, b=34, c=29, p=0.615) nor re_prompt (0.358→0.342, b=24, c=15,
+  p=0.20) shows a significant change, and both have real regressions
+  (b>0) — unlike CGSV itself (b=0 everywhere). Best-of-3: random-pick
+  PCR=0.363, oracle-oracle ceiling=0.419.
+- **Item 19 (tolerance sensitivity)**: pure re-analysis of already-collected
+  claims at multiple tolerances, no new model calls. **Real finding: XRD's
+  model ranking is NOT robust to tolerance choice** (rank agreement 0.0 —
+  local model beats API models pooled at tol=0.25°, reverses by tol=1.0°).
+  Spectrum's ranking is fully robust (1.0); stability is partially robust
+  (0.67).
+- **Item 20 (violation taxonomy)**: XRD (78 human-confirmed real violations)
+  and SEM (93) only — spectrum and all 3 DFT families excluded because
+  their human reviews predate later oracle corrections and would mismatch
+  the current fired-case population (documented explicitly in the script,
+  not silently skipped). First attempt used exact-string clustering and
+  produced 30 fragmented near-duplicate categories; fixed with a second
+  LLM clustering pass. Final: XRD 70.5% "gridline misread"; SEM 37.6%+23.7%
+  scale-bar unit/conversion errors.
+- **Item 21 (contamination check)**: zero metadata-leakage hits across 2,152
+  records (models never state institution codes/sample IDs they weren't
+  shown). opXRD's Zenodo publication date (2025-04-28, confirmed directly)
+  postdates GPT-4o's cutoff, ruling out that specific pairing. Local-model
+  perplexity check run but explicitly flagged as weak/non-diagnostic (lower
+  perplexity on real vs. control-gibberish text is fully explained by
+  real-data predictability, not memorization).
+- **Item 22 (detector calibration)**: reliability diagrams + per-split
+  recommended operating points from Exp5's existing scores, no new model
+  calls. **Real finding: every held-out split is severely miscalibrated in
+  the same direction** — low-probability bins massively underestimate true
+  violation rate (e.g. held-out spectrum: predicted 0.02-0.15, actual
+  0.84-0.93), so the default 0.5 threshold gives near-zero recall held out;
+  a much lower threshold (0.05) recovers usable recall at a real precision
+  cost.
+- **Item 23 (scaling trend + utility demo)**: re-run once items 15/18
+  finished. **Real finding: GPT-4o→GPT-5.6-Terra is the one clear
+  generation-scaling signal** (0.648→0.800, non-overlapping CIs); Claude
+  Sonnet 4.5→Opus 4.6 and Qwen3-VL-Instruct→Thinking both show no
+  significant change (CIs overlap) — explicit reasoning mode alone does not
+  reliably raise PCR in this sample.
+- **EX6 (second-reviewer harness)**: added `cohens_kappa` to
+  `matpcr_metrics.py` (smoke-tested: perfect agreement, constructed
+  chance-level case) and `experiments/exp13_second_reviewer_kappa.py`.
+  Genuinely blocked on a second human reviewer completing an independent
+  pass through the existing review pages — the harness is ready, the human
+  labor is not done, and this is reported as such, not worked around.
+
+### Phase 3: manuscript rewrite — DONE, but only in `VERSION2/`
+**Root-level `matpcr_snjnl.tex` and `VERSION2/matpcr_snjnl.tex` are now
+substantially different files, by explicit user decision (2026-07-20) not
+to overwrite one with the other this pass.** `VERSION2/matpcr_snjnl.tex`
+(1473 lines) is the current, correct, fully-filled manuscript: all 16
+`\redflag{}` sites resolved with real Phase 1+2 data, both remaining
+`\redflag{}`s are intentional author-only placeholders (funding/grant
+numbers, GPU-hours), Table 1/2/3 rewritten with corrected 8-model numbers, a
+new SI Table S1 added, and the magnetism-verifier-exception claim explicitly
+retracted (0.867→0.503 under the corrected source-disjoint split).
+Compiles clean end-to-end (`pdflatex ×3 + bibtex`, 29 pages, zero undefined
+references/citations). **Root `matpcr_snjnl.tex` (835 lines) was
+intentionally left untouched — it still has the old pre-Phase-1 numbers, no
+Baselines/ablations subsection, and no SI table.** Any future session
+building the paper for real submission must use `VERSION2/matpcr_snjnl.tex`,
+not root, or must explicitly re-reconcile the two first. `matpcr_cover_letter.txt`
+(root) was updated to match VERSION2's title and current-state framing.
+
+**Real, substantive corrections made during the rewrite (not just filling
+blanks):**
+- Retracted the magnetism-verifier-generalizes exception entirely (was the
+  headline "positive surprise" of the whole verifier section) — confirmed
+  independently under both held-out-modality and held-out-constraint-type
+  splits, both landing at chance (AUC≈0.50).
+- The accuracy-vs-consistency mean gap changed from 41.8% to 22.2% once the
+  spectrum oracle correction flowed through Experiment 3's numbers — the
+  qualitative story flipped too (spectrum was previously the
+  largest-WC-dominated gap; now it's WI-dominated and one of the smallest
+  gaps).
+- Found and did NOT report Exp6's pooled cross-modality AUC (0.315,
+  suspiciously below chance) as a headline number after recognizing it
+  naively concatenates raw scores from 6 separately-trained models on
+  non-comparable probability scales — reported only the 6 individually
+  well-defined per-constraint-type numbers instead, flagged the pooling
+  problem explicitly rather than silently drop it.
+- Resolved BL4 (CGSV correction-vs-retraction ambiguity) with a real,
+  checkable fact rather than an assumption: every one of the 545 CGSV
+  records exposes exactly 1 checkable claim in every round (verified
+  directly against `claimed_values` vs. `rounds_used` — zero items with
+  fewer claim values than rounds+1), so a PCR gain cannot be explained by
+  claim-dropping in this benchmark's design.
+- Cross-checked Section C's ("fixes already applied") claims against the
+  actual file rather than trusting the audit doc: found one real, minor
+  discrepancy (Section C claims the title was changed to "Physics- and
+  DFT-Grounded...", but the actual title is "Physics Is the Label..." —
+  the title itself is fine, just Section C's description of it is wrong;
+  not fixed, flagged here since it doesn't affect the manuscript itself).
+
+### Not yet done (carried forward)
+- [ ] Manual re-review of the 3 DFT Half-B pages — still the standing
+      blocking item for DFT precision numbers (Table 1's 3 cells correctly
+      still say "pending human review", not a number).
+- [ ] Holm/Benjamini-Hochberg multiple-comparisons correction across the
+      144-cell sweep + 4 CGSV comparisons — explicitly flagged in the
+      manuscript's Statistics paragraph as still owed, not computed this
+      pass either.
+- [ ] GPT-4o's spectrum low-n anomaly — still not root-caused.
+- [ ] Gemini's magnetism-prompt truncation fix — still not applied.
+- [ ] A genuine verifier-as-best-of-N-selector comparison (needs
+      `exp7_cgsv_controls.py`'s best_of_n path extended to persist each
+      candidate's chain_text, not just the aggregate first/any flags) —
+      the current best-of-3 numbers only bound the headroom, not whether
+      the verifier can capture it.
+- [ ] Second human reviewer for EX6 (harness ready, human pass not started).
+- [ ] All the standing Final-gate items (§8 rule 4/5, REVISION_PLAN.md):
+      Mustafa's DFT sign-off, 2-3 independent human mock reviews, every
+      `% VERIFY` citation checked, Overleaf recompile with the official
+      (non-patched) `sn-jnl` class before real submission.

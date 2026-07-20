@@ -103,22 +103,45 @@ def spectrum_peak_exists(
     prominence_frac: float = 0.05,
 ) -> bool:
     """A claimed spectral peak (Raman shift / wavenumber / 2-theta) is consistent
-    iff there is a local maximum near it whose prominence exceeds a fraction of
-    the signal's dynamic range. Ground truth is the signal itself: label-free.
+    iff there is a GENUINE local maximum near it (higher than both adjacent
+    flanks down to their nearest valleys) whose prominence above the higher
+    adjacent valley exceeds a fraction of the signal's dynamic range. Ground
+    truth is the signal itself: label-free.
+
+    Requires an actual interior local maximum, not just the tallest point in
+    the tolerance window -- a monotonic rise or a shoulder on the flank of a
+    nearby peak has no real apex near the claim and must be rejected, which a
+    plain "max of windowed points minus global median" check does not do.
     """
     signal_x = np.asarray(signal_x, float)
     signal_y = np.asarray(signal_y, float)
-    if signal_x.size < 3:
-        return False
-    mask = np.abs(signal_x - claimed_peak_x) <= x_tol
-    if not mask.any():
+    n = signal_x.size
+    if n < 3:
         return False
     rng = float(signal_y.max() - signal_y.min())
     if rng <= 0:
         return False
-    local_max = float(signal_y[mask].max())
-    baseline = float(np.median(signal_y))
-    return (local_max - baseline) >= prominence_frac * rng
+    idx = np.where(np.abs(signal_x - claimed_peak_x) <= x_tol)[0]
+    if idx.size == 0:
+        return False
+    # Consider windowed points from highest to lowest; accept the first genuine
+    # interior local maximum whose prominence above the higher adjacent valley
+    # clears the threshold.
+    for k in sorted(idx.tolist(), key=lambda j: -signal_y[j]):
+        if k <= 0 or k >= n - 1:
+            continue
+        if not (signal_y[k] > signal_y[k - 1] and signal_y[k] > signal_y[k + 1]):
+            continue  # not a strict local maximum (rejects monotonic rise / shoulder)
+        li = k
+        while li > 0 and signal_y[li - 1] <= signal_y[li]:
+            li -= 1  # walk down the left flank to the adjacent valley
+        ri = k
+        while ri < n - 1 and signal_y[ri + 1] <= signal_y[ri]:
+            ri += 1  # walk down the right flank to the adjacent valley
+        base = max(float(signal_y[li]), float(signal_y[ri]))
+        if (float(signal_y[k]) - base) >= prominence_frac * rng:
+            return True
+    return False
 
 
 # ----------------------------------------------------------------------------
@@ -250,52 +273,141 @@ def stability_claim_consistent(
     """A 'stable' claim is consistent iff the computed energy above the convex
     hull is within tolerance of the hull; an 'unstable' claim is consistent iff
     it is clearly above. e_above_hull comes from a DFT reference (public DB or a
-    pinned in-house protocol), so no human label is needed."""
+    pinned in-house protocol), so no human label is needed.
+
+    Per the domain co-author's review (M.K., 2026-07): 0.05 eV/atom is a
+    reasonable near-hull tolerance, but a structure between 0 and tol_eV_atom
+    should be DESCRIBED as "near-hull" or "potentially metastable," never as
+    strictly thermodynamically stable -- that framing is a manuscript-text
+    obligation, not something this function enforces. Report sensitivity of
+    any downstream rate to tol_eV_atom in {0, 0.025, 0.05, 0.10} rather than
+    the single default value alone.
+    """
     is_actually_stable = e_above_hull_eV_atom <= tol_eV_atom
     return bool(claimed_stable) == bool(is_actually_stable)
+
+
+STABILITY_SENSITIVITY_TOLERANCES_EV_ATOM = (0.0, 0.025, 0.05, 0.10)
 
 
 def metallicity_claim_consistent(
     claimed_metallic: bool,
     band_gap_eV: float,
-    gap_tol_eV: float = 0.05,
-) -> bool:
-    """A 'metallic' claim is consistent iff the computed band gap is ~zero."""
-    is_actually_metallic = band_gap_eV <= gap_tol_eV
+    metal_max_eV: float = 0.05,
+    gap_min_eV: float = 0.20,
+):
+    """A 'metallic' claim is consistent iff the computed band gap is ~zero.
+
+    Because semilocal DFT underestimates band gaps, metallicity decisions are
+    restricted to clearly gapped or clearly gapless cases: a gap at or below
+    ``metal_max_eV`` is treated as computed-metallic, a gap at or above
+    ``gap_min_eV`` as computed-non-metallic, and the ambiguous band in between
+    returns ``None`` so the item is EXCLUDED rather than forced into a
+    functional-error-sensitive decision. Callers treat ``None`` as "not
+    checkable" (contributes no constraint to PCR).
+
+    Thresholds are the domain co-author's (M.K., 2026-07) exact recommendation
+    (<=0.05 eV computed-metallic, 0.05-0.20 eV ambiguous/abstain, >=0.20 eV
+    computed-non-metallic), given explicitly to avoid "pretending that one
+    threshold can remove the known semilocal-DFT band-gap error." Even outside
+    the ambiguous band, some real small-gap semiconductors may still be
+    predicted gapless by the functional; the abstention band mitigates but
+    does not eliminate this (silicon, mp-149, remains safely non-metallic at
+    a computed 0.61 eV, well clear of gap_min_eV).
+    """
+    if band_gap_eV <= metal_max_eV:
+        is_actually_metallic = True
+    elif band_gap_eV >= gap_min_eV:
+        is_actually_metallic = False
+    else:
+        return None  # ambiguous gap in the functional-error dead zone: excluded
     return bool(claimed_metallic) == bool(is_actually_metallic)
 
 
-def property_sign_magnitude_consistent(
-    claimed_value: float,
-    reference_value: float,
+def magnetism_magnitude_consistent(
+    claimed_magnetic: bool,
+    claimed_magnitude: "float | None",
+    total_magnetization_muB: float,
+    n_atoms: int,
+    magnetic_threshold_muB_per_atom: float = 0.05,
     rel_tol: float = 1.0,
-    zero_atol: float = 1e-6,
-) -> bool:
-    """A stated property value is consistent iff it has the right sign and is
-    within an order-of-magnitude band of the DFT reference (rel_tol=1.0 means the
-    claim must lie within [ref/10, ref*10] in magnitude and match sign).
+) -> "bool | None":
+    """Renamed from 'sign/magnitude' per the domain co-author's review (M.K.,
+    2026-07): total magnetization must NOT be treated as a signed quantity.
+    Its sign can reverse under an equivalent global spin reversal (an
+    arbitrary choice of "up" in a DFT calculation, not a physical claim a
+    model could be right or wrong about), and an order-of-magnitude ratio is
+    undefined near zero. The corrected protocol, exactly as specified:
 
-    reference_value is compared to zero with an absolute tolerance (zero_atol),
-    not exact float equality: real DFT-computed references (e.g. total
-    magnetization for a nonmagnetic material) are essentially never exactly
-    0.0 -- numerical noise commonly leaves values like 1e-7. An exact ==0
-    check sends those cases into the nonzero branch, where a tiny reference
-    makes the magnitude ratio test reject almost any claim, including
-    genuinely correct ones. Confirmed directly on real Materials Project data
-    (2026-07-09): 82/3000 materials had 0 < |total_magnetization| < 1e-6,
-    all of which were spuriously flagged before this fix.
+      1. Normalize to |total_magnetization| PER ATOM (never signed, never
+         un-normalized -- comparing raw total moments across cells of
+         different sizes is not physically meaningful either).
+      2. Classify magnetic vs. non-magnetic FIRST, using a small
+         preregistered threshold on that per-atom magnitude
+         (magnetic_threshold_muB_per_atom).
+      3. Only within the magnetic class, compare MAGNITUDE (never sign) to
+         the DFT reference, within an order-of-magnitude band (rel_tol=1.0
+         means [ref/10, ref*10]).
+
+    Parameters
+    ----------
+    claimed_magnetic: the model's binary MAGNETIC/NONMAGNETIC claim.
+    claimed_magnitude: the model's stated |magnetization|/atom, or None if the
+        chain only exposed the binary claim (magnitude check is skipped, and
+        this function evaluates the classification claim only).
+    total_magnetization_muB: DFT reference total magnetization in Bohr
+        magnetons (raw, NOT yet normalized -- normalization happens here).
+    n_atoms: number of atoms in the reference cell, for per-atom normalization.
+
+    Returns True/False for a checkable claim, or None if n_atoms is not a
+    positive integer (not checkable -- contributes no constraint to PCR).
     """
-    if abs(reference_value) <= zero_atol:
-        return abs(claimed_value) <= 10 ** (-rel_tol)
-    if (claimed_value < 0) != (reference_value < 0):
+    if not n_atoms or n_atoms <= 0:
+        return None
+    ref_magnitude_per_atom = abs(total_magnetization_muB) / n_atoms
+    is_actually_magnetic = ref_magnitude_per_atom >= magnetic_threshold_muB_per_atom
+    if bool(claimed_magnetic) != bool(is_actually_magnetic):
         return False
-    ratio = abs(claimed_value) / abs(reference_value)
+    if not is_actually_magnetic or claimed_magnitude is None:
+        return True  # classification alone is checkable and it matched
+    ratio = abs(claimed_magnitude) / ref_magnitude_per_atom
     return (10 ** (-rel_tol)) <= ratio <= (10 ** rel_tol)
 
 
 # ----------------------------------------------------------------------------
 # 7. Verifier evaluation: predicted-violation vs oracle-violation
 # ----------------------------------------------------------------------------
+def cohens_kappa(rater_a: Sequence[str], rater_b: Sequence[str]) -> float:
+    """Cohen's kappa for inter-rater agreement between two independent human
+    reviewers labeling the same items (e.g. Half-B fired-case verdicts:
+    "real" / "false_positive" / "unsure"). Corrects raw percent agreement
+    for the agreement expected by chance given each rater's own label
+    distribution -- needed because two reviewers can agree 80% of the time
+    trivially if one label dominates the population, which raw agreement
+    alone would not reveal.
+
+    kappa = (p_o - p_e) / (1 - p_e), where p_o is observed agreement and
+    p_e is chance agreement under each rater's marginal label distribution.
+    """
+    a = list(rater_a)
+    b = list(rater_b)
+    if len(a) != len(b):
+        raise ValueError("rater_a and rater_b must have the same length (same items, same order)")
+    n = len(a)
+    if n == 0:
+        return float("nan")
+    labels = sorted(set(a) | set(b))
+    p_o = sum(1 for x, y in zip(a, b) if x == y) / n
+    p_e = 0.0
+    for lab in labels:
+        p_a = sum(1 for x in a if x == lab) / n
+        p_b = sum(1 for y in b if y == lab) / n
+        p_e += p_a * p_b
+    if p_e >= 1.0:
+        return 1.0 if p_o >= 1.0 else float("nan")
+    return (p_o - p_e) / (1 - p_e)
+
+
 def precision_recall_f1(pred: Sequence[int], true: Sequence[int]) -> dict:
     """pred/true are 1 = violation, 0 = clean (true comes from the oracles)."""
     p = np.asarray(pred, int)
@@ -361,6 +473,17 @@ def _smoke_test() -> None:
     assert spectrum_peak_exists(800, x, y, x_tol=10) is False
     print("[checker] spectrum_peak_exists: real peak=OK, absent peak=OK")
 
+    # --- Cohen's kappa: perfect agreement, chance-level, and a planted case ---
+    perfect_a = ["real", "false_positive", "real", "real", "false_positive"]
+    assert abs(cohens_kappa(perfect_a, perfect_a) - 1.0) < 1e-9
+    # Two raters who agree exactly as often as their marginals predict by
+    # chance should score kappa~=0 -- constructed directly, not estimated.
+    rater_a = ["real"] * 50 + ["false_positive"] * 50
+    rater_b = ["real"] * 25 + ["false_positive"] * 25 + ["real"] * 25 + ["false_positive"] * 25
+    k = cohens_kappa(rater_a, rater_b)
+    assert -0.05 < k < 0.05
+    print(f"[checker] cohens_kappa: perfect agreement=OK (kappa=1.0), chance-level=OK (kappa={k:.3f})")
+
     # --- PCR / violation-rate recovery on a planted error rate ---
     n = 1200
     true_viol_p = 0.30  # planted: 30% of chains contain a physical violation
@@ -415,9 +538,18 @@ def _smoke_test() -> None:
     assert stability_claim_consistent(True, 0.30) is False      # above hull, called stable
     assert metallicity_claim_consistent(False, 1.8) is True     # gapped, called non-metal
     assert metallicity_claim_consistent(True, 1.8) is False     # gapped, called metal
-    assert property_sign_magnitude_consistent(2.5e2, 2.0e2) is True   # right ballpark
-    assert property_sign_magnitude_consistent(-2.0e2, 2.0e2) is False  # wrong sign
-    print("[DFT oracle] stability / metallicity / sign-magnitude checks: OK")
+    assert metallicity_claim_consistent(True, 0.02) is True     # deep in metallic band
+    assert metallicity_claim_consistent(True, 0.12) is None     # ambiguous dead zone: excluded
+    assert metallicity_claim_consistent(False, 0.61) is True    # silicon-like, safely non-metallic
+    # magnetism: classification-only claim (claimed_magnitude=None)
+    assert magnetism_magnitude_consistent(True, None, 2.0, 1) is True    # 2 muB/atom, called magnetic
+    assert magnetism_magnitude_consistent(False, None, 2.0, 1) is False  # magnetic, called non-magnetic
+    assert magnetism_magnitude_consistent(False, None, 1e-7, 1) is True  # ~0 muB/atom, called non-magnetic
+    # magnetism: classification + magnitude claim, sign of the claim must be ignored
+    assert magnetism_magnitude_consistent(True, 2.1, 2.0, 1) is True     # right ballpark, magnitude only
+    assert magnetism_magnitude_consistent(True, -2.1, 2.0, 1) is True    # sign is irrelevant, still consistent
+    assert magnetism_magnitude_consistent(True, 0.05, 2.0, 1) is False   # magnitude off by >10x
+    print("[DFT oracle] stability / metallicity / magnetism-magnitude checks: OK")
 
     # --- verifier evaluation on a planted predictor ---
     true_lab = np.array([it.n_violations for it in items])

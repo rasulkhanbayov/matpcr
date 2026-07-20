@@ -97,7 +97,19 @@ MODELS = {
     "gemini": {"kind": "api", "api_model": "google/gemini-2.5-flash-lite"},
     "gpt4o": {"kind": "api", "api_model": "openai/gpt-4o"},
     "claude": {"kind": "api", "api_model": "anthropic/claude-sonnet-4.5"},
+    # Current-generation refresh (added 2026-07-17 per the supervisor audit's EX3/EX4:
+    # the original 4-model set was flagged as 1-2 generations stale). All 4 confirmed
+    # vision-capable and reachable on the existing OpenRouter key. qwen3vl_thinking is
+    # the reasoning-mode condition (EX4: does explicit reasoning improve consistency),
+    # run via the API rather than loaded locally like the original Qwen2.5-VL-7B, since
+    # this is a different model family/weights, not a drop-in local-inference swap.
+    "opus46": {"kind": "api", "api_model": "anthropic/claude-opus-4.6"},
+    "gpt56": {"kind": "api", "api_model": "openai/gpt-5.6-terra"},
+    "qwen3vl": {"kind": "api", "api_model": "qwen/qwen3-vl-8b-instruct"},
+    "qwen3vl_thinking": {"kind": "api", "api_model": "qwen/qwen3-vl-8b-thinking"},
 }
+
+REFRESH_MODELS = ["opus46", "gpt56", "qwen3vl", "qwen3vl_thinking"]
 
 MP_DATA_PATH = "/ephemeral/matpcr/mp_data/mp_reference_batch.jsonl"
 
@@ -135,7 +147,7 @@ def run_one_image_item(model_key: str, modality: str, item: dict, api_key: str):
         result, err = call_with_hard_timeout(pilot.run_local_qwen, item["image_path"], item["prompt"])
         if err is not None:
             print(f"  [WARN] local call failed/timed out: {err}")
-            return None, 0.0
+            return None, item["source_file"], 0.0
         chain_text = result
         cost = 0.0
     else:
@@ -144,16 +156,19 @@ def run_one_image_item(model_key: str, modality: str, item: dict, api_key: str):
         )
         if err is not None:
             print(f"  [WARN] {model_key} call failed/timed out: {err}")
-            return None, 0.0
+            return None, item["source_file"], 0.0
         chain_text, cost = result
         cost = cost or 0.0
+    if not isinstance(chain_text, str):
+        print(f"  [WARN] {model_key}/{modality}: non-string chain_text ({type(chain_text)}), dropping item")
+        return None, item["source_file"], cost
     parsed = pilot.parse_chain(chain_text)
     if parsed is None:
-        return None, cost
+        return None, item["source_file"], cost
     consistent = check_image_oracle(modality, item, parsed)
     if consistent is None:
-        return None, cost
-    return ItemResult(consistent=bool(consistent), n_checks=1, n_violations=0 if consistent else 1, constraint_type=modality), cost
+        return None, item["source_file"], cost
+    return ItemResult(consistent=bool(consistent), n_checks=1, n_violations=0 if consistent else 1, constraint_type=modality), item["source_file"], cost
 
 
 def run_one_dft_item(model_key: str, claim_type: str, material: dict, api_key: str):
@@ -163,23 +178,48 @@ def run_one_dft_item(model_key: str, claim_type: str, material: dict, api_key: s
         result, err = call_with_hard_timeout(pilot_dft.run_text_local_qwen, prompt)
         if err is not None:
             print(f"  [WARN] local call failed/timed out: {err}")
-            return None, 0.0
+            return None, material["material_id"], 0.0
         chain_text = result
         cost = 0.0
     else:
         result, err = call_with_hard_timeout(pilot_dft.run_text_api_openrouter, prompt, api_key, model=spec["api_model"])
         if err is not None:
             print(f"  [WARN] {model_key} call failed/timed out: {err}")
-            return None, 0.0
+            return None, material["material_id"], 0.0
         chain_text, cost = result
         cost = cost or 0.0
-    parsed = pilot_dft.parse_dft_chain(chain_text)
-    if parsed is None:
-        return None, cost
+
+    if not isinstance(chain_text, str):
+        # Defensive guard: a transient API/threading interaction was observed
+        # once during Phase 2 model-refresh smoke testing to yield a non-str
+        # chain_text with err=None (not reproduced on direct retries -- flagged
+        # as a rare, unexplained flake, not a deterministic bug). Drop the item
+        # rather than crash a multi-hour unattended sweep on one flaky call.
+        print(f"  [WARN] {model_key}/{claim_type}: non-string chain_text ({type(chain_text)}), dropping item")
+        return None, material["material_id"], cost
+
+    if claim_type == "magnetism":
+        # parse_magnetism_chain returns (classification, magnitude) --
+        # check_dft_oracle (== halfB_collect_dft.check_oracle) now expects
+        # exactly this tuple for magnetism, matching the corrected
+        # classify-then-magnitude oracle's needs.
+        classification, magnitude = pilot_dft.parse_magnetism_chain(chain_text)
+        if classification is None:
+            return None, material["material_id"], cost
+        parsed = (classification, magnitude)
+    else:
+        parsed = pilot_dft.parse_dft_chain(chain_text)
+        if parsed is None:
+            return None, material["material_id"], cost
+
     consistent = check_dft_oracle(claim_type, parsed, material)
     if consistent is None:
-        return None, cost
-    return ItemResult(consistent=bool(consistent), n_checks=1, n_violations=0 if consistent else 1, constraint_type=claim_type), cost
+        return None, material["material_id"], cost
+    return (
+        ItemResult(consistent=bool(consistent), n_checks=1, n_violations=0 if consistent else 1, constraint_type=claim_type),
+        material["material_id"],
+        cost,
+    )
 
 
 def main():
@@ -257,9 +297,9 @@ def main():
                     for item_idx, entity in enumerate(items_for_seed):
                         t_item_start = time.time()
                         if modality in IMAGE_MODALITIES:
-                            r, cost = run_one_image_item(model_key, modality, entity, api_key)
+                            r, source_id, cost = run_one_image_item(model_key, modality, entity, api_key)
                         else:
-                            r, cost = run_one_dft_item(model_key, modality, entity, api_key)
+                            r, source_id, cost = run_one_dft_item(model_key, modality, entity, api_key)
                         total_cost += cost
                         if r is not None:
                             results.append(r)
@@ -268,6 +308,7 @@ def main():
                                     "modality": modality,
                                     "model": model_key,
                                     "seed": seed,
+                                    "source_id": source_id,
                                     "consistent": r.consistent,
                                     "cost_usd": cost,
                                 }

@@ -57,14 +57,28 @@ PROMPTS = {
     "magnetism": (
         "Consider the material with chemical composition {formula}. Based on your knowledge of "
         "materials chemistry, do you expect this composition to have a NONZERO net magnetic "
-        "moment (i.e. be magnetic) or ZERO net magnetization (non-magnetic)? Give brief "
-        "reasoning, then end with EXACTLY one line: "
-        "FINAL_ANSWER: MAGNETIC or FINAL_ANSWER: NONMAGNETIC"
+        "moment (i.e. be magnetic) or ZERO net magnetization (non-magnetic)? If you judge it "
+        "MAGNETIC, also give your best estimate of the magnitude of the total magnetization "
+        "per atom, in Bohr magnetons per atom (a rough order-of-magnitude guess is fine -- "
+        "state only the MAGNITUDE, never a sign, since the sign of a computed magnetic moment "
+        "is an arbitrary choice of axis, not a physical property to guess). Give brief "
+        "reasoning, then end with EXACTLY one line in one of these two formats: "
+        "FINAL_ANSWER: NONMAGNETIC  or  FINAL_ANSWER: MAGNETIC, <value> muB/atom "
+        "(e.g. 'FINAL_ANSWER: MAGNETIC, 1.5 muB/atom')"
     ),
 }
 
 ANSWER_RE = re.compile(
-    r"FINAL[_ ]ANSWER[:\*]*\s*[\*_]*\s*(STABLE|UNSTABLE|METALLIC|NONMETALLIC|MAGNETIC|NONMAGNETIC)",
+    r"FINAL[_ ]ANSWER[:\*]*\s*[\*_]*\s*(STABLE|UNSTABLE|METALLIC|NONMETALLIC|NONMAGNETIC)",
+    re.IGNORECASE,
+)
+
+# Magnetism gets its own regex: MAGNETIC is always followed by a magnitude claim
+# (tolerant of "muB/atom", "mu_B/atom", "\mu_B" LaTeX, missing "/atom", a bare
+# number). NONMAGNETIC has no magnitude and is matched by the generic ANSWER_RE
+# above (there is nothing to estimate for a claimed-zero moment).
+MAGNETIC_RE = re.compile(
+    r"FINAL[_ ]ANSWER[:\*]*\s*[\*_]*\s*MAGNETIC\s*,?\s*([\d.]+)",
     re.IGNORECASE,
 )
 
@@ -74,10 +88,42 @@ def parse_dft_chain(text: str):
     # UNSTABLE" or "Final Answer: **UNSTABLE**") -- confirmed directly as a
     # real model output pattern in the DFT pilot; a plain "FINAL_ANSWER:\s*"
     # regex missed these because "*" is not whitespace.
+    #
+    # Magnetism is checked FIRST: a MAGNETIC answer carries a magnitude
+    # ("FINAL_ANSWER: MAGNETIC, 1.5 muB/atom") that the generic ANSWER_RE
+    # below does not match (it only recognizes bare classification words,
+    # MAGNETIC deliberately excluded from it -- see module top). Returning a
+    # bare "MAGNETIC" string here for backward compatibility with existing
+    # stability/metallicity callers that expect parse_dft_chain to return a
+    # plain label; use parse_magnetism_chain for the classification+magnitude
+    # pair that the corrected oracle actually needs.
+    mm = MAGNETIC_RE.search(text)
+    if mm:
+        return "MAGNETIC"
     m = ANSWER_RE.search(text)
     if not m:
         return None
     return m.group(1).upper()
+
+
+def parse_magnetism_chain(text: str):
+    """Magnetism-specific parse: returns (classification, magnitude_or_None).
+    classification is "MAGNETIC"/"NONMAGNETIC"/None (unparseable).
+    magnitude is the claimed |magnetization| in muB/atom for a MAGNETIC
+    classification (None if the chain claimed MAGNETIC but gave no parseable
+    number -- treated as a classification-only claim, matching
+    magnetism_magnitude_consistent's claimed_magnitude=None path), or always
+    None for NONMAGNETIC (nothing to estimate for a claimed-zero moment).
+    """
+    mm = MAGNETIC_RE.search(text)
+    if mm:
+        return "MAGNETIC", float(mm.group(1))
+    m = ANSWER_RE.search(text)
+    if m and m.group(1).upper() == "NONMAGNETIC":
+        return "NONMAGNETIC", None
+    if re.search(r"FINAL[_ ]ANSWER[:\*]*\s*[\*_]*\s*MAGNETIC\b", text, re.IGNORECASE):
+        return "MAGNETIC", None  # claimed MAGNETIC but no parseable magnitude
+    return None, None
 
 
 def run_text_local_qwen(prompt: str, max_new_tokens: int = 700) -> str:

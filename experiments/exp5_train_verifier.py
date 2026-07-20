@@ -72,14 +72,26 @@ def format_text(r):
 
 
 def make_split(records, mode, held_out=None, seed=0):
-    """Returns (train_records, test_records)."""
+    """Returns (train_records, test_records).
+
+    "random" is split at the SOURCE level, not the record level (fix for the
+    supervisor audit's BL2 finding): experiments/halfB_fired_cases.jsonl and
+    halfB_dft_fired_cases.jsonl can contain multiple records for the same
+    underlying item (e.g. different models' claims about the same XRD
+    pattern or the same material), all sharing one source_id. A record-level
+    80/20 split can place two records of the SAME item in both train and
+    test, leaking item identity into the "in-distribution" test set and
+    inflating its AUC. Splitting at the source_id level guarantees no source
+    item appears on both sides.
+    """
     rng = np.random.default_rng(seed)
     if mode == "random":
-        idx = rng.permutation(len(records))
-        n_test = max(1, int(0.2 * len(records)))
-        test_idx = set(idx[:n_test].tolist())
-        train = [r for i, r in enumerate(records) if i not in test_idx]
-        test = [r for i, r in enumerate(records) if i in test_idx]
+        unique_sources = sorted(set(r["source_id"] for r in records))
+        rng.shuffle(unique_sources)
+        n_test_sources = max(1, int(0.2 * len(unique_sources)))
+        test_sources = set(unique_sources[:n_test_sources])
+        train = [r for r in records if r["source_id"] not in test_sources]
+        test = [r for r in records if r["source_id"] in test_sources]
         return train, test
     elif mode in ("modality", "constraint"):
         assert held_out is not None

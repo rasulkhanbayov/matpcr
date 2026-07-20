@@ -1,0 +1,31 @@
+Loaded 3000 real materials from Materials Project (shuffled, seed=7).
+
+=== stability: collecting until 100 fired cases ===
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 5471.31it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:   0%|          | 1/729 [00:00<07:40,  1.58it/s]Loading weights:   0%|          | 2/729 [00:01<08:33,  1.42it/s]Loading weights:   1%|          | 4/729 [00:01<03:36,  3.35it/s]Loading weights:   1%|          | 5/729 [00:01<03:17,  3.67it/s]Loading weights:   2%|▏         | 16/729 [00:01<00:41, 17.21it/s]Loading weights:   3%|▎         | 20/729 [00:02<00:40, 17.59it/s]Loading weights:   4%|▍         | 28/729 [00:02<00:27, 25.47it/s]Loading weights:   4%|▍         | 32/729 [00:02<00:29, 23.47it/s]Loading weights:   5%|▌         | 40/729 [00:02<00:22, 30.61it/s]Loading weights:   6%|▌         | 44/729 [00:02<00:25, 27.02it/s]Loading weights:   7%|▋         | 52/729 [00:02<00:20, 33.78it/s]Loading weights:   8%|▊         | 56/729 [00:03<00:23, 28.80it/s]Loading weights:   9%|▉         | 64/729 [00:03<00:18, 35.08it/s]Loading weights:   9%|▉         | 68/729 [00:03<00:22, 29.68it/s]Loading weights:  11%|█         | 77/729 [00:03<00:18, 35.62it/s]Loading weights:  13%|█▎        | 95/729 [00:03<00:10, 59.71it/s]Loading weights:  16%|█▌        | 114/729 [00:03<00:07, 84.73it/s]Loading weights:  19%|█▉        | 138/729 [00:04<00:05, 115.55it/s]Loading weights:  22%|██▏       | 162/729 [00:04<00:04, 140.14it/s]Loading weights:  26%|██▌       | 186/729 [00:04<00:03, 158.77it/s]Loading weights:  29%|██▉       | 210/729 [00:04<00:02, 173.66it/s]Loading weights:  32%|███▏      | 234/729 [00:04<00:02, 183.69it/s]Loading weights:  35%|███▌      | 258/729 [00:04<00:02, 191.47it/s]Loading weights:  39%|███▊      | 281/729 [00:04<00:02, 199.79it/s]Loading weights:  42%|████▏     | 304/729 [00:04<00:02, 162.97it/s]Loading weights:  44%|████▍     | 322/729 [00:05<00:05, 80.72it/s] Loading weights:  46%|████▌     | 336/729 [00:05<00:06, 63.22it/s]Loading weights:  51%|█████     | 373/729 [00:05<00:03, 101.09it/s]Loading weights:  57%|█████▋    | 413/729 [00:06<00:02, 145.60it/s]Loading weights:  62%|██████▏   | 451/729 [00:06<00:01, 184.58it/s]Loading weights:  67%|██████▋   | 487/729 [00:06<00:01, 217.64it/s]Loading weights:  72%|███████▏  | 525/729 [00:06<00:00, 249.99it/s]Loading weights:  78%|███████▊  | 565/729 [00:06<00:00, 281.98it/s]Loading weights:  82%|████████▏ | 601/729 [00:06<00:00, 300.27it/s]Loading weights:  88%|████████▊ | 641/729 [00:06<00:00, 326.20it/s]Loading weights:  93%|█████████▎| 679/729 [00:06<00:00, 332.23it/s]Loading weights:  98%|█████████▊| 715/729 [00:06<00:00, 333.46it/s]Loading weights: 100%|██████████| 729/729 [00:07<00:00, 103.88it/s]
+  round 1: fired_count=20/100 (cost so far: $0.0014)
+  round 2: fired_count=36/100 (cost so far: $0.0026)
+  round 3: fired_count=55/100 (cost so far: $0.0038)
+  round 4: fired_count=72/100 (cost so far: $0.0050)
+  round 5: fired_count=83/100 (cost so far: $0.0062)
+  round 6: fired_count=89/100 (cost so far: $0.0077)
+  round 7: fired_count=107/100 (cost so far: $0.0092)
+
+=== metallicity: collecting until 100 fired cases ===
+  round 1: fired_count=24/100 (cost so far: $0.0130)
+  round 2: fired_count=42/100 (cost so far: $0.0164)
+  round 3: fired_count=66/100 (cost so far: $0.0182)
+  round 4: fired_count=92/100 (cost so far: $0.0207)
+  round 5: fired_count=114/100 (cost so far: $0.0230)
+
+=== magnetism: collecting until 100 fired cases ===
+  round 1: fired_count=18/100 (cost so far: $0.0306)
+  round 2: fired_count=37/100 (cost so far: $0.0395)
+  round 3: fired_count=59/100 (cost so far: $0.0461)
+  round 4: fired_count=74/100 (cost so far: $0.0540)
+  round 5: fired_count=95/100 (cost so far: $0.0618)
+  round 6: fired_count=115/100 (cost so far: $0.0703)
+
+Total API cost: $0.0703
+Fired cases written to: experiments/halfB_dft_fired_cases.jsonl

@@ -1,0 +1,42 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 97997.76it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:   0%|          | 2/729 [00:00<01:29,  8.10it/s]Loading weights:   2%|▏         | 18/729 [00:00<00:11, 61.88it/s]Loading weights:   6%|▌         | 42/729 [00:00<00:05, 116.51it/s]Loading weights:   9%|▉         | 65/729 [00:00<00:04, 148.98it/s]Loading weights:  12%|█▏        | 84/729 [00:00<00:03, 161.45it/s]Loading weights:  14%|█▍        | 102/729 [00:00<00:04, 152.69it/s]Loading weights:  17%|█▋        | 125/729 [00:00<00:03, 166.13it/s]Loading weights:  20%|██        | 147/729 [00:01<00:03, 171.95it/s]Loading weights:  23%|██▎       | 165/729 [00:01<00:03, 168.62it/s]Loading weights:  25%|██▌       | 184/729 [00:01<00:03, 161.19it/s]Loading weights:  28%|██▊       | 207/729 [00:01<00:02, 179.48it/s]Loading weights:  31%|███       | 226/729 [00:01<00:03, 166.32it/s]Loading weights:  34%|███▎      | 245/729 [00:01<00:02, 166.14it/s]Loading weights:  37%|███▋      | 267/729 [00:01<00:02, 171.54it/s]Loading weights:  39%|███▉      | 285/729 [00:01<00:02, 167.38it/s]Loading weights:  42%|████▏     | 305/729 [00:01<00:02, 168.15it/s]Loading weights:  45%|████▍     | 328/729 [00:02<00:02, 178.82it/s]Loading weights:  59%|█████▉    | 429/729 [00:02<00:00, 402.58it/s]Loading weights:  80%|███████▉  | 582/729 [00:02<00:00, 715.53it/s]Loading weights: 100%|█████████▉| 726/729 [00:02<00:00, 899.40it/s]Loading weights: 100%|██████████| 729/729 [00:02<00:00, 302.45it/s]
+[xrd       /local /seed=0] n=25 accuracy=0.120 PCR=0.560 (206.8s)
+[xrd       /local /seed=1] n=15 accuracy=0.267 PCR=0.533 (268.6s)
+[xrd       /local /seed=2] n=22 accuracy=0.273 PCR=0.591 (221.8s)
+[xrd       /gemini/seed=0] n=22 accuracy=0.227 PCR=0.500 (134.9s)
+[xrd       /gemini/seed=1] n=14 accuracy=0.143 PCR=0.357 (191.0s)
+[xrd       /gemini/seed=2] n=22 accuracy=0.318 PCR=0.727 (159.2s)
+[xrd       /gpt4o /seed=0] n=25 accuracy=0.120 PCR=0.720 (139.9s)
+[xrd       /gpt4o /seed=1] n=15 accuracy=0.133 PCR=0.733 (211.8s)
+[xrd       /gpt4o /seed=2] n=22 accuracy=0.273 PCR=0.818 (161.2s)
+[xrd       /claude/seed=0] n=25 accuracy=0.120 PCR=0.480 (277.0s)
+[xrd       /claude/seed=1] n=15 accuracy=0.133 PCR=0.667 (362.3s)
+[xrd       /claude/seed=2] n=22 accuracy=0.364 PCR=0.591 (300.8s)
+[spectrum  /local /seed=0] n=30 accuracy=0.067 PCR=0.167 (95.0s)
+[spectrum  /local /seed=1] n=30 accuracy=0.000 PCR=0.033 (95.7s)
+[spectrum  /local /seed=2] n=30 accuracy=0.133 PCR=0.067 (94.4s)
+[spectrum  /gemini/seed=0] n=30 accuracy=0.067 PCR=0.233 (49.6s)
+[spectrum  /gemini/seed=1] n=30 accuracy=0.100 PCR=0.100 (74.2s)
+[spectrum  /gemini/seed=2] n=29 accuracy=0.172 PCR=0.207 (62.1s)
+[spectrum  /gpt4o /seed=0] n=16 accuracy=0.062 PCR=0.125 (49.9s)
+[spectrum  /gpt4o /seed=1] n=16 accuracy=0.062 PCR=0.000 (54.6s)
+[spectrum  /gpt4o /seed=2] n=16 accuracy=0.188 PCR=0.188 (52.0s)
+[spectrum  /claude/seed=0] n=30 accuracy=0.067 PCR=0.200 (155.8s)
+[spectrum  /claude/seed=1] n=30 accuracy=0.000 PCR=0.000 (149.9s)
+[spectrum  /claude/seed=2] n=30 accuracy=0.133 PCR=0.200 (154.0s)
+[stability /local /seed=0] n=30 accuracy=0.900 PCR=0.667 (80.3s)
+[stability /local /seed=1] n=30 accuracy=0.833 PCR=0.533 (84.5s)
+[stability /local /seed=2] n=30 accuracy=0.967 PCR=0.833 (80.8s)
+[stability /gemini/seed=0] n=29 accuracy=0.655 PCR=0.586 (29.2s)
+[stability /gemini/seed=1] n=30 accuracy=0.833 PCR=0.733 (26.6s)
+[stability /gemini/seed=2] n=30 accuracy=0.767 PCR=0.733 (29.2s)
+[stability /gpt4o /seed=0] n=30 accuracy=0.900 PCR=0.733 (60.0s)
+[stability /gpt4o /seed=1] n=30 accuracy=0.900 PCR=0.800 (64.2s)
+[stability /gpt4o /seed=2] n=30 accuracy=0.900 PCR=0.667 (68.1s)
+[stability /claude/seed=0] n=30 accuracy=0.967 PCR=0.833 (155.4s)
+[stability /claude/seed=1] n=30 accuracy=0.900 PCR=0.700 (147.6s)
+[stability /claude/seed=2] n=30 accuracy=0.967 PCR=0.733 (158.5s)
+
+Total records: 920
+Written to: experiments/exp3_results.jsonl

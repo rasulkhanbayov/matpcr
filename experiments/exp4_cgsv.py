@@ -175,6 +175,15 @@ def run_cgsv_item(model_key: str, modality: str, item: dict, api_key: str, k_max
     before_consistent = None
     after_consistent = None
     rounds_used = 0
+    claimed_values = []  # the model's stated numeric claim at each round it produced one --
+    # per the audit's BL4 concern (a PCR gain could reflect the model retracting/hedging the
+    # flagged claim rather than correcting the physics), this lets a downstream analysis check
+    # whether a "fix" corresponds to a genuinely revised claim (a different, still-checkable
+    # number) rather than a claim disappearing. In THIS benchmark's single-claim-per-item
+    # design, an unparseable round already drops the whole item (see below) -- there is no
+    # "claim count drops from 1 to 0 but the item survives" case to hide -- so this field is
+    # the closest honest analogue: it exposes the raw claimed value trajectory for review,
+    # rather than asserting a claim-count metric this benchmark's parser doesn't produce.
 
     for round_i in range(k_max + 1):  # round 0 = initial answer, then up to k_max revisions
         chain_text, cost = call_model(model_key, item["image_path"], turns, api_key)
@@ -184,6 +193,8 @@ def run_cgsv_item(model_key: str, modality: str, item: dict, api_key: str, k_max
         parsed = pilot.parse_chain(chain_text)
         if parsed is None:
             return None, total_cost  # unparseable chain -- drop, same as every other experiment
+
+        claimed_values.append(parsed["value"])
 
         consistent = check_oracle(modality, item, parsed)
         if consistent is None:
@@ -208,6 +219,7 @@ def run_cgsv_item(model_key: str, modality: str, item: dict, api_key: str, k_max
         "before_consistent": bool(before_consistent),
         "after_consistent": bool(after_consistent),
         "rounds_used": rounds_used,
+        "claimed_values": claimed_values,
     }, total_cost
 
 

@@ -1,0 +1,122 @@
+{
+  "utility_demo": {
+    "status": "partial",
+    "n_items": 614,
+    "random_pick_pcr": 0.36319218241042345,
+    "oracle_ceiling_pcr": 0.4185667752442997,
+    "verifier_picked_pcr": null,
+    "limitation": "exp7_cgsv_controls.py's best_of_n records store only the aggregate first_consistent/any_consistent flags, not each of the N individual chain texts -- a genuine verifier-based reselection needs per-candidate chain text to score, which was not persisted. Reporting random-pick vs. oracle-ceiling PCR (both directly available) as a partial result; a full verifier-vs-random comparison would need exp7_cgsv_controls.py extended to persist each candidate's chain_text, which was not in scope for this pass."
+  },
+  "scaling_trend": {
+    "status": "ok",
+    "per_model_pcr": {
+      "local": {
+        "n": 505,
+        "pcr": 0.5128712871287129,
+        "ci_lo": 0.4693069306930693,
+        "ci_hi": 0.5564356435643565
+      },
+      "gemini": {
+        "n": 427,
+        "pcr": 0.6018735362997658,
+        "ci_lo": 0.5550351288056206,
+        "ci_hi": 0.6487119437939111
+      },
+      "gpt4o": {
+        "n": 458,
+        "pcr": 0.648471615720524,
+        "ci_lo": 0.6048034934497817,
+        "ci_hi": 0.6921397379912664
+      },
+      "claude": {
+        "n": 502,
+        "pcr": 0.6374501992031872,
+        "ci_lo": 0.5956175298804781,
+        "ci_hi": 0.6792828685258964
+      },
+      "opus46": {
+        "n": 483,
+        "pcr": 0.6252587991718427,
+        "ci_lo": 0.5817805383022774,
+        "ci_hi": 0.6687370600414079
+      },
+      "gpt56": {
+        "n": 484,
+        "pcr": 0.7995867768595041,
+        "ci_lo": 0.762396694214876,
+        "ci_hi": 0.8347107438016529
+      },
+      "qwen3vl": {
+        "n": 493,
+        "pcr": 0.537525354969574,
+        "ci_lo": 0.49290060851926976,
+        "ci_hi": 0.5821501014198783
+      },
+      "qwen3vl_thinking": {
+        "n": 489,
+        "pcr": 0.5460122699386503,
+        "ci_lo": 0.5010224948875256,
+        "ci_hi": 0.591002044989775
+      }
+    },
+    "generation_pairs": [
+      {
+        "pair": "OpenAI: GPT-4o -> GPT-5.6-Terra",
+        "status": "available",
+        "earlier": {
+          "model": "gpt4o",
+          "n": 458,
+          "pcr": 0.648471615720524,
+          "ci_lo": 0.6048034934497817,
+          "ci_hi": 0.6921397379912664
+        },
+        "later": {
+          "model": "gpt56",
+          "n": 484,
+          "pcr": 0.7995867768595041,
+          "ci_lo": 0.762396694214876,
+          "ci_hi": 0.8347107438016529
+        },
+        "direction": "increase (later generation higher, CIs do not overlap)"
+      },
+      {
+        "pair": "Anthropic: Claude Sonnet 4.5 -> Claude Opus 4.6",
+        "status": "available",
+        "earlier": {
+          "model": "claude",
+          "n": 502,
+          "pcr": 0.6374501992031872,
+          "ci_lo": 0.5956175298804781,
+          "ci_hi": 0.6792828685258964
+        },
+        "later": {
+          "model": "opus46",
+          "n": 483,
+          "pcr": 0.6252587991718427,
+          "ci_lo": 0.5817805383022774,
+          "ci_hi": 0.6687370600414079
+        },
+        "direction": "no clear trend (CIs overlap)"
+      },
+      {
+        "pair": "Qwen: Qwen3-VL-8B-Instruct -> Qwen3-VL-8B-Thinking (same generation, reasoning-mode variant)",
+        "status": "available",
+        "earlier": {
+          "model": "qwen3vl",
+          "n": 493,
+          "pcr": 0.537525354969574,
+          "ci_lo": 0.49290060851926976,
+          "ci_hi": 0.5821501014198783
+        },
+        "later": {
+          "model": "qwen3vl_thinking",
+          "n": 489,
+          "pcr": 0.5460122699386503,
+          "ci_lo": 0.5010224948875256,
+          "ci_hi": 0.591002044989775
+        },
+        "direction": "no clear trend (CIs overlap)"
+      }
+    ]
+  }
+}

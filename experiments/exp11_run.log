@@ -1,0 +1,43 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+======================================================================
+Check 1: metadata-leakage string check
+======================================================================
+Checked 2152 records across all Half-B fired-case files.
+Leakage hits: 0
+
+======================================================================
+Check 2: publication-date vs. training-cutoff table
+======================================================================
+Model cutoffs:
+  Qwen2.5-VL-7B-Instruct (local): 2024-XX (base Qwen2.5 series; exact cutoff not published by Alibaba)
+  google/gemini-2.5-flash-lite: not publicly documented by Google for this snapshot
+  openai/gpt-4o: 2023-10 primary documented cutoff (some sources report a later 2024-06 extension); either way predates opXRD's 2025-04-28 publication
+  anthropic/claude-sonnet-4.5: not publicly documented per-snapshot by Anthropic
+  anthropic/claude-opus-4.6: not publicly documented per-snapshot by Anthropic
+  openai/gpt-5.6-terra: not publicly documented per-snapshot by OpenAI
+  qwen/qwen3-vl-8b-instruct: not publicly documented per-snapshot by Alibaba
+  qwen/qwen3-vl-8b-thinking: not publicly documented per-snapshot by Alibaba
+Dataset publication dates:
+  opXRD (Zenodo record 15298026): 2025-04-28 (confirmed directly via Zenodo record page, 2026-07-19)
+  RRUFF: rolling/continuously updated database, no single release date; individual spectra dated per-sample in file headers
+  NFFA-EUROPE (B2SHARE qtq9v-ys023): dataset predates this project; exact first-publication date not independently re-confirmed this session
+  Materials Project (via mp-api, DB version 2026.04.13 per mp_provenance.json): rolling database, continuously updated; this project's specific 3000-material pull is dated 2026-07-16
+NOTE: opXRD's 2025-04-28 publication date is the only one of the 4 datasets
+with both a confirmed single release date AND model cutoffs specific/recent
+enough to compare against -- most frontier API model cutoffs are not
+publicly documented per-snapshot, so this table is necessarily incomplete;
+reported as such rather than filled with guessed dates.
+
+======================================================================
+Check 3: local-model perplexity comparison (real vs. control text)
+======================================================================
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 90394.48it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:   0%|          | 1/729 [00:00<01:22,  8.80it/s]Loading weights:   0%|          | 2/729 [00:00<01:47,  6.75it/s]Loading weights:   2%|▏         | 18/729 [00:00<00:12, 58.86it/s]Loading weights:   6%|▌         | 41/729 [00:00<00:05, 114.79it/s]Loading weights:   9%|▉         | 64/729 [00:00<00:04, 144.80it/s]Loading weights:  11%|█         | 80/729 [00:00<00:04, 141.31it/s]Loading weights:  14%|█▎        | 100/729 [00:00<00:04, 145.43it/s]Loading weights:  16%|█▌        | 118/729 [00:00<00:03, 154.65it/s]Loading weights:  19%|█▊        | 136/729 [00:01<00:03, 161.37it/s]Loading weights:  21%|██        | 153/729 [00:01<00:03, 155.37it/s]Loading weights:  24%|██▎       | 172/729 [00:01<00:03, 162.23it/s]Loading weights:  26%|██▌       | 189/729 [00:01<00:03, 155.53it/s]Loading weights:  29%|██▊       | 208/729 [00:01<00:03, 162.76it/s]Loading weights:  31%|███       | 225/729 [00:01<00:03, 156.04it/s]Loading weights:  33%|███▎      | 244/729 [00:01<00:03, 153.85it/s]Loading weights:  36%|███▌      | 262/729 [00:01<00:02, 159.85it/s]Loading weights:  38%|███▊      | 280/729 [00:01<00:02, 163.02it/s]Loading weights:  41%|████      | 297/729 [00:02<00:02, 154.89it/s]Loading weights:  43%|████▎     | 316/729 [00:02<00:02, 160.90it/s]Loading weights:  46%|████▌     | 333/729 [00:02<00:02, 157.50it/s]Loading weights:  68%|██████▊   | 498/729 [00:02<00:00, 565.57it/s]Loading weights:  92%|█████████▏| 669/729 [00:02<00:00, 887.08it/s]Loading weights: 100%|██████████| 729/729 [00:02<00:00, 283.67it/s]
+{
+  "n_real_opxrd_scored": 30,
+  "real_opxrd_mean_logprob": -0.1823915975789229,
+  "n_control_scored": 30,
+  "control_mean_logprob": -1.9096870104471841
+}
+
+Written to: /home/ubuntu/nature_submission/experiments/exp11_results.json

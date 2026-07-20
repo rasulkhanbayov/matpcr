@@ -1,0 +1,79 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 60611.33it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:   0%|          | 2/729 [00:00<01:18,  9.31it/s]Loading weights:   1%|▏         | 10/729 [00:00<00:19, 36.79it/s]Loading weights:   4%|▍         | 28/729 [00:00<00:08, 84.36it/s]Loading weights:   5%|▌         | 40/729 [00:00<00:07, 95.46it/s]Loading weights:   7%|▋         | 52/729 [00:00<00:06, 101.26it/s]Loading weights:   9%|▉         | 65/729 [00:00<00:06, 104.24it/s]Loading weights:  10%|█         | 76/729 [00:00<00:06, 102.81it/s]Loading weights:  14%|█▎        | 100/729 [00:01<00:05, 125.47it/s]Loading weights:  17%|█▋        | 126/729 [00:01<00:03, 154.32it/s]Loading weights:  20%|██        | 148/729 [00:01<00:03, 171.78it/s]Loading weights:  23%|██▎       | 168/729 [00:01<00:03, 179.04it/s]Loading weights:  26%|██▌       | 187/729 [00:01<00:03, 168.08it/s]Loading weights:  29%|██▊       | 208/729 [00:01<00:03, 163.86it/s]Loading weights:  32%|███▏      | 232/729 [00:01<00:02, 180.20it/s]Loading weights:  34%|███▍      | 251/729 [00:01<00:02, 172.04it/s]Loading weights:  37%|███▋      | 270/729 [00:01<00:02, 165.72it/s]Loading weights:  40%|███▉      | 290/729 [00:02<00:02, 170.74it/s]Loading weights:  42%|████▏     | 308/729 [00:02<00:02, 159.55it/s]Loading weights:  45%|████▍     | 325/729 [00:02<00:02, 150.00it/s]Loading weights:  47%|████▋     | 341/729 [00:02<00:02, 150.15it/s]Loading weights:  70%|██████▉   | 507/729 [00:02<00:00, 549.37it/s]Loading weights:  86%|████████▋ | 629/729 [00:02<00:00, 730.02it/s]Loading weights: 100%|██████████| 729/729 [00:02<00:00, 267.04it/s]
+[self_refine/xrd     /local /seed=0] n=23 PCR_before=0.565 PCR_after=0.522 (cost_so_far=$0.0000) (488.8s)
+[self_refine/xrd     /local /seed=1] n=19 PCR_before=0.579 PCR_after=0.526 (cost_so_far=$0.0000) (390.3s)
+[self_refine/xrd     /local /seed=2] n=25 PCR_before=0.760 PCR_after=0.760 (cost_so_far=$0.0000) (474.7s)
+[self_refine/xrd     /gemini/seed=0] n=15 PCR_before=0.467 PCR_after=0.533 (cost_so_far=$0.0192) (348.1s)
+[self_refine/xrd     /gemini/seed=1] n=8 PCR_before=0.375 PCR_after=0.250 (cost_so_far=$0.0344) (201.4s)
+[self_refine/xrd     /gemini/seed=2] n=15 PCR_before=0.867 PCR_after=0.800 (cost_so_far=$0.0527) (238.2s)
+[self_refine/xrd     /gpt4o /seed=0] n=23 PCR_before=0.652 PCR_after=0.609 (cost_so_far=$0.2690) (367.8s)
+[self_refine/xrd     /gpt4o /seed=1] n=19 PCR_before=0.789 PCR_after=0.842 (cost_so_far=$0.4613) (299.3s)
+[self_refine/xrd     /gpt4o /seed=2] n=25 PCR_before=0.720 PCR_after=0.680 (cost_so_far=$0.6848) (310.5s)
+[self_refine/xrd     /claude/seed=0] n=23 PCR_before=0.609 PCR_after=0.478 (cost_so_far=$1.2095) (690.1s)
+[self_refine/xrd     /claude/seed=1] n=19 PCR_before=0.579 PCR_after=0.579 (cost_so_far=$1.6871) (591.3s)
+[self_refine/xrd     /claude/seed=2] n=25 PCR_before=0.720 PCR_after=0.680 (cost_so_far=$2.2572) (667.4s)
+[self_refine/spectrum/local /seed=0] n=30 PCR_before=0.033 PCR_after=0.067 (cost_so_far=$2.2572) (249.2s)
+[self_refine/spectrum/local /seed=1] n=30 PCR_before=0.067 PCR_after=0.133 (cost_so_far=$2.2572) (241.2s)
+[self_refine/spectrum/local /seed=2] n=28 PCR_before=0.071 PCR_after=0.036 (cost_so_far=$2.2572) (242.2s)
+[self_refine/spectrum/gemini/seed=0] n=29 PCR_before=0.207 PCR_after=0.172 (cost_so_far=$2.2768) (139.6s)
+[self_refine/spectrum/gemini/seed=1] n=24 PCR_before=0.208 PCR_after=0.208 (cost_so_far=$2.2976) (138.1s)
+[self_refine/spectrum/gemini/seed=2] n=28 PCR_before=0.143 PCR_after=0.143 (cost_so_far=$2.3167) (145.6s)
+[self_refine/spectrum/gpt4o /seed=0] n=13 PCR_before=0.000 PCR_after=0.000 (cost_so_far=$2.4141) (79.3s)
+[self_refine/spectrum/gpt4o /seed=1] n=17 PCR_before=0.059 PCR_after=0.000 (cost_so_far=$2.5292) (96.7s)
+[self_refine/spectrum/gpt4o /seed=2] n=14 PCR_before=0.000 PCR_after=0.071 (cost_so_far=$2.6304) (89.6s)
+[self_refine/spectrum/claude/seed=0] n=30 PCR_before=0.200 PCR_after=0.133 (cost_so_far=$3.0865) (442.4s)
+[self_refine/spectrum/claude/seed=1] n=30 PCR_before=0.067 PCR_after=0.100 (cost_so_far=$3.5408) (445.0s)
+[self_refine/spectrum/claude/seed=2] n=30 PCR_before=0.100 PCR_after=0.200 (cost_so_far=$3.9864) (444.0s)
+[re_prompt/xrd     /local /seed=0] n=22 PCR_before=0.545 PCR_after=0.455 (cost_so_far=$3.9864) (516.3s)
+[re_prompt/xrd     /local /seed=1] n=18 PCR_before=0.556 PCR_after=0.556 (cost_so_far=$3.9864) (443.9s)
+[re_prompt/xrd     /local /seed=2] n=23 PCR_before=0.739 PCR_after=0.739 (cost_so_far=$3.9864) (468.7s)
+[re_prompt/xrd     /gemini/seed=0] n=19 PCR_before=0.579 PCR_after=0.579 (cost_so_far=$4.0042) (364.8s)
+[re_prompt/xrd     /gemini/seed=1] n=15 PCR_before=0.667 PCR_after=0.733 (cost_so_far=$4.0200) (279.4s)
+[re_prompt/xrd     /gemini/seed=2] n=20 PCR_before=0.850 PCR_after=0.650 (cost_so_far=$4.0374) (259.9s)
+[re_prompt/xrd     /gpt4o /seed=0] n=23 PCR_before=0.783 PCR_after=0.696 (cost_so_far=$4.2815) (369.8s)
+[re_prompt/xrd     /gpt4o /seed=1] n=19 PCR_before=0.789 PCR_after=0.684 (cost_so_far=$4.4928) (263.5s)
+[re_prompt/xrd     /gpt4o /seed=2] n=25 PCR_before=0.560 PCR_after=0.640 (cost_so_far=$4.7470) (286.4s)
+[re_prompt/xrd     /claude/seed=0] n=23 PCR_before=0.652 PCR_after=0.609 (cost_so_far=$5.3065) (655.5s)
+[re_prompt/xrd     /claude/seed=1] n=19 PCR_before=0.737 PCR_after=0.684 (cost_so_far=$5.7988) (558.2s)
+[re_prompt/xrd     /claude/seed=2] n=25 PCR_before=0.800 PCR_after=0.800 (cost_so_far=$6.3969) (628.2s)
+[re_prompt/spectrum/local /seed=0] n=30 PCR_before=0.033 PCR_after=0.033 (cost_so_far=$6.3969) (295.0s)
+[re_prompt/spectrum/local /seed=1] n=30 PCR_before=0.067 PCR_after=0.067 (cost_so_far=$6.3969) (276.5s)
+[re_prompt/spectrum/local /seed=2] n=28 PCR_before=0.071 PCR_after=0.036 (cost_so_far=$6.3969) (268.9s)
+[re_prompt/spectrum/gemini/seed=0] n=30 PCR_before=0.167 PCR_after=0.167 (cost_so_far=$6.4143) (135.2s)
+[re_prompt/spectrum/gemini/seed=1] n=30 PCR_before=0.133 PCR_after=0.133 (cost_so_far=$6.4319) (126.5s)
+[re_prompt/spectrum/gemini/seed=2] n=30 PCR_before=0.100 PCR_after=0.100 (cost_so_far=$6.4487) (120.1s)
+[re_prompt/spectrum/gpt4o /seed=0] n=14 PCR_before=0.071 PCR_after=0.000 (cost_so_far=$6.5557) (83.7s)
+[re_prompt/spectrum/gpt4o /seed=1] n=16 PCR_before=0.000 PCR_after=0.000 (cost_so_far=$6.6705) (93.1s)
+[re_prompt/spectrum/gpt4o /seed=2] n=13 PCR_before=0.154 PCR_after=0.077 (cost_so_far=$6.7730) (76.7s)
+[re_prompt/spectrum/claude/seed=0] n=30 PCR_before=0.133 PCR_after=0.167 (cost_so_far=$7.2152) (358.6s)
+[re_prompt/spectrum/claude/seed=1] n=30 PCR_before=0.067 PCR_after=0.133 (cost_so_far=$7.6562) (352.8s)
+[re_prompt/spectrum/claude/seed=2] n=30 PCR_before=0.067 PCR_after=0.067 (cost_so_far=$8.0950) (354.8s)
+[best_of_n/xrd     /local /seed=0] n=23 PCR_first=0.565 PCR_any_of_3=0.565 (cost_so_far=$8.0950) (780.7s)
+[best_of_n/xrd     /local /seed=1] n=19 PCR_first=0.579 PCR_any_of_3=0.579 (cost_so_far=$8.0950) (607.4s)
+[best_of_n/xrd     /local /seed=2] n=25 PCR_first=0.760 PCR_any_of_3=0.760 (cost_so_far=$8.0950) (615.3s)
+[best_of_n/xrd     /gemini/seed=0] n=23 PCR_first=0.609 PCR_any_of_3=0.739 (cost_so_far=$8.1149) (559.7s)
+[best_of_n/xrd     /gemini/seed=1] n=19 PCR_first=0.632 PCR_any_of_3=0.737 (cost_so_far=$8.1332) (429.3s)
+[best_of_n/xrd     /gemini/seed=2] n=25 PCR_first=0.880 PCR_any_of_3=0.960 (cost_so_far=$8.1514) (407.1s)
+[best_of_n/xrd     /gpt4o /seed=0] n=23 PCR_first=0.783 PCR_any_of_3=0.913 (cost_so_far=$8.4009) (595.3s)
+[best_of_n/xrd     /gpt4o /seed=1] n=19 PCR_first=0.789 PCR_any_of_3=0.842 (cost_so_far=$8.6481) (412.5s)
+[best_of_n/xrd     /gpt4o /seed=2] n=25 PCR_first=0.840 PCR_any_of_3=0.880 (cost_so_far=$8.9025) (400.9s)
+[best_of_n/xrd     /claude/seed=0] n=23 PCR_first=0.696 PCR_any_of_3=0.739 (cost_so_far=$9.4616) (1026.5s)
+[best_of_n/xrd     /claude/seed=1] n=19 PCR_first=0.632 PCR_any_of_3=0.789 (cost_so_far=$10.0255) (846.7s)
+[best_of_n/xrd     /claude/seed=2] n=25 PCR_first=0.760 PCR_any_of_3=0.840 (cost_so_far=$10.5933) (850.9s)
+[best_of_n/spectrum/local /seed=0] n=30 PCR_first=0.033 PCR_any_of_3=0.033 (cost_so_far=$10.5933) (281.6s)
+[best_of_n/spectrum/local /seed=1] n=30 PCR_first=0.067 PCR_any_of_3=0.067 (cost_so_far=$10.5933) (276.8s)
+[best_of_n/spectrum/local /seed=2] n=28 PCR_first=0.071 PCR_any_of_3=0.071 (cost_so_far=$10.5933) (269.2s)
+[best_of_n/spectrum/gemini/seed=0] n=30 PCR_first=0.167 PCR_any_of_3=0.333 (cost_so_far=$10.6127) (120.4s)
+[best_of_n/spectrum/gemini/seed=1] n=30 PCR_first=0.233 PCR_any_of_3=0.333 (cost_so_far=$10.6321) (117.8s)
+[best_of_n/spectrum/gemini/seed=2] n=30 PCR_first=0.100 PCR_any_of_3=0.167 (cost_so_far=$10.6512) (118.9s)
+[best_of_n/spectrum/gpt4o /seed=0] n=23 PCR_first=0.043 PCR_any_of_3=0.043 (cost_so_far=$10.7959) (144.2s)
+[best_of_n/spectrum/gpt4o /seed=1] n=28 PCR_first=0.036 PCR_any_of_3=0.071 (cost_so_far=$10.9424) (140.0s)
+[best_of_n/spectrum/gpt4o /seed=2] n=27 PCR_first=0.000 PCR_any_of_3=0.000 (cost_so_far=$11.0866) (138.9s)
+[best_of_n/spectrum/claude/seed=0] n=30 PCR_first=0.133 PCR_any_of_3=0.167 (cost_so_far=$11.4532) (468.9s)
+[best_of_n/spectrum/claude/seed=1] n=30 PCR_first=0.067 PCR_any_of_3=0.167 (cost_so_far=$11.8230) (422.0s)
+[best_of_n/spectrum/claude/seed=2] n=30 PCR_first=0.100 PCR_any_of_3=0.133 (cost_so_far=$12.1889) (432.7s)
+
+Total records: 1718
+Total API cost: $12.1889
+Written to: experiments/exp7_results.jsonl

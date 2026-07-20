@@ -1,0 +1,91 @@
+% Experiment 1 (positive control + precision audit) results, measured 2026-07-06/09.
+% Drop-in fragment for matpcr_snjnl.tex -- insert after the Methods paragraph ending
+% "...quantify oracle precision on real chains." (around line 613), before
+% "Tolerances, prompts, and the DFT protocol are pre-registered...".
+%
+% Scope: ALL 6 oracle families now have Half-A. Half-B is complete for the 3
+% geometric families (diffraction/XRD, microscopy/SEM, spectra) and DELIBERATELY
+% HELD for the 3 DFT-grounded families (stability, metallicity, sign/magnitude)
+% pending Dr. Mustafa's DFT-protocol sign-off -- see the "Pending" column and the
+% note block below. Do not fill in DFT Half-B numbers before that review.
+%
+% Half-A (positive control): synthetic violations injected into real reference
+% data (opXRD/NFFA-EUROPE/RRUFF for the geometric families; Materials Project
+% for the DFT families) at known planted rates; false-negative rate = fraction
+% of planted violations the oracle missed. Shown value is the max FN rate
+% observed across three planted rates (10%, 30%, 50%) -- all were 0.0000 for
+% every one of the 6 families.
+% Half-B (precision audit): human review of >=100 real oracle-fired cases per
+% family, from real Qwen2.5-VL-7B + Gemini-2.5-Flash-Lite model chains on real
+% data; precision = real violations / (real violations + false positives).
+% NOT YET RUN for the 3 DFT families -- see Pending column.
+
+\begin{table}[t]
+\centering
+\caption{Experiment 1 (the gate): positive control and precision audit, by oracle
+family. Half-A false-negative rate is the maximum observed across three planted
+violation rates (10\%, 30\%, 50\%); all three rates gave 0.0000 for every family.
+Half-B precision is the fraction of real oracle-fired cases, drawn from real
+Qwen2.5-VL-7B and Gemini-2.5-Flash-Lite model outputs on real data, that a human
+reviewer judged to be genuine physical violations. Half-B for the three
+DFT-grounded families is deliberately withheld pending the domain co-author's
+sign-off on the DFT reference protocol (functional, tolerances); Half-A for
+those families is pure software-correctness testing and does not require that
+review.}
+\label{tab:exp1}
+{\scriptsize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llccl}
+\toprule
+Oracle family & Data source & Half-A FN rate & Half-B precision & Status \\
+\midrule
+Diffraction (XRD)       & opXRD (real, CNRS+HKUST subset)     & 0.0000 & 77.2\% (n=101) & Gate passed \\
+Microscopy (SEM)        & NFFA-EUROPE (real)                   & 0.0000 & 88.6\% (n=105) & Gate passed \\
+Spectra (Raman)         & RRUFF (real, excellent-grade)        & 0.0000 & 72.8\% (n=103) & Gate passed \\
+Stability (hull)        & Materials Project (real, n=3000)     & 0.0000 & \rplace{pending} & Awaiting Dr. Mustafa \\
+Metallicity (band gap)  & Materials Project (real, n=3000)     & 0.0000 & \rplace{pending} & Awaiting Dr. Mustafa \\
+Property sign/magnitude & Materials Project (real, n=3000)     & 0.0000 & \rplace{pending} & Awaiting Dr. Mustafa \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+% \rplace is already defined elsewhere in matpcr_snjnl.tex for placeholder
+% cells; if this fragment is compiled standalone, define it first:
+% \newcommand{\rplace}[1][]{[#1]}
+
+% Supporting notes for the manuscript text / SI, not for the table itself:
+%
+% - Diffraction: positive control restricted to opXRD's CNRS and HKUST
+%   institution subsets; the other five institution folders (EMPA, IKFT, INT,
+%   LBNL, USC) did not yield structures with usable lattice+basis metadata in
+%   this sampling and were excluded, not silently dropped.
+% - Diffraction false positives in the Half-B audit were predominantly a
+%   tolerance effect: 16 of 23 disagreed cases fell within 1.0 degree of a
+%   real reference peak, many within 0.5-0.7 degrees, just outside the 0.5
+%   degree tolerance used -- consistent with the tolerance being tighter than
+%   a reasonable human read of a plotted peak position, not a broken oracle.
+% - Spectrum false positives were a different, more substantive gap: only 5
+%   of 28 disagreed cases were near the oracle's 5%-of-global-range
+%   prominence threshold; the remaining 23 had low or negative computed
+%   prominence at the human-judged peak position. This suggests the
+%   prominence criterion itself may not match human judgement of "a peak is
+%   present" for noisy, baseline-drifting real Raman spectra, and is flagged
+%   for revisiting rather than treated as resolved by the gate decision.
+% - The precision values for XRD/SEM/spectrum were judged sufficient to
+%   proceed past the gate by the team (no fixed threshold is specified by
+%   design); this is a recorded decision, not evidence that the oracles are
+%   error-free.
+% - Target property for the sign/magnitude oracle: total magnetization,
+%   chosen for 100% coverage in Materials Project and a real, balanced sign
+%   split (unlike formation energy, which is negative in ~99.6% of a random
+%   sample and would barely test sign at all; bulk/shear modulus have ~0%
+%   coverage in a random sample and would starve the audit of data).
+% - A real bug in property_sign_magnitude_consistent (matpcr_metrics.py) was
+%   found and fixed during Half-A: the function compared the reference value
+%   to zero with exact float equality, but real DFT-computed magnetization
+%   values are essentially never exactly 0.0 (numerical noise leaves values
+%   like 1e-7). 82 of 3000 real materials hit this, producing false positives
+%   before the fix. Fixed with an absolute-tolerance zero check
+%   (zero_atol=1e-6). This was in-scope for Half-A (software correctness of
+%   the oracle's own comparison logic) and did not require the co-author's
+%   sign-off, which is reserved for the DFT protocol/tolerance choices
+%   themselves (Half-B).

@@ -1,0 +1,30 @@
+{
+  "metadata_leakage": {
+    "n_records_checked": 2152,
+    "n_leakage_hits": 0,
+    "hits": []
+  },
+  "model_cutoffs": {
+    "Qwen2.5-VL-7B-Instruct (local)": "2024-XX (base Qwen2.5 series; exact cutoff not published by Alibaba)",
+    "google/gemini-2.5-flash-lite": "not publicly documented by Google for this snapshot",
+    "openai/gpt-4o": "2023-10 primary documented cutoff (some sources report a later 2024-06 extension); either way predates opXRD's 2025-04-28 publication",
+    "anthropic/claude-sonnet-4.5": "not publicly documented per-snapshot by Anthropic",
+    "anthropic/claude-opus-4.6": "not publicly documented per-snapshot by Anthropic",
+    "openai/gpt-5.6-terra": "not publicly documented per-snapshot by OpenAI",
+    "qwen/qwen3-vl-8b-instruct": "not publicly documented per-snapshot by Alibaba",
+    "qwen/qwen3-vl-8b-thinking": "not publicly documented per-snapshot by Alibaba"
+  },
+  "dataset_publication_dates": {
+    "opXRD (Zenodo record 15298026)": "2025-04-28 (confirmed directly via Zenodo record page, 2026-07-19)",
+    "RRUFF": "rolling/continuously updated database, no single release date; individual spectra dated per-sample in file headers",
+    "NFFA-EUROPE (B2SHARE qtq9v-ys023)": "dataset predates this project; exact first-publication date not independently re-confirmed this session",
+    "Materials Project (via mp-api, DB version 2026.04.13 per mp_provenance.json)": "rolling database, continuously updated; this project's specific 3000-material pull is dated 2026-07-16"
+  },
+  "local_perplexity_check": {
+    "n_real_opxrd_scored": 30,
+    "real_opxrd_mean_logprob": -0.1823915975789229,
+    "n_control_scored": 30,
+    "control_mean_logprob": -1.9096870104471841
+  },
+  "scope_limitation": "Cross-model perplexity comparison was NOT attempted for the API models (Gemini/GPT-4o/Claude/Qwen3 via OpenRouter) -- logprobs support is model/provider-dependent on OpenRouter and not guaranteed, confirmed via provider documentation rather than assumed. No public contamination index exists for opXRD/RRUFF/NFFA-EUROPE/Materials Project specifically, so a direct 'was this exact file in model X's training set' answer is not obtainable for any model in this benchmark."
+}

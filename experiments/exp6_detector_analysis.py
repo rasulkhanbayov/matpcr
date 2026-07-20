@@ -119,8 +119,11 @@ def main():
     print(f"Modalities where it is NOT reliably better than chance (AUC<0.6): "
           f"{[MODALITY_LABELS[m] for m in poor] or 'none'}")
     print("\nConclusion: the verifier's score is a genuine, usable detector of violations")
-    print("ONLY within-distribution or for modalities it has seen in training (magnetism")
-    print("being the one held-out exception, consistent with Experiment 5's finding).")
+    print("ONLY within-distribution. After fixing the record-level split leakage (BL2) and")
+    print("the spectrum oracle staleness bug, EVERY held-out modality -- including magnetism,")
+    print("previously reported as an exception with AUC=0.867 -- drops to chance (AUC 0.44-0.58).")
+    print("The earlier 'magnetism generalizes' finding did not survive the corrected")
+    print("methodology and should be retracted, not reported as a caveat-with-exception.")
     print("It should NOT be marketed as a general-purpose, modality-agnostic detector.")
 
 

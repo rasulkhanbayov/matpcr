@@ -1,0 +1,27 @@
+[xrd] tol_deg=0.25: api=0.378(n=74), local=0.383(n=107)
+[xrd] tol_deg=0.5: api=0.595(n=74), local=0.495(n=107)
+[xrd] tol_deg=0.75: api=0.743(n=74), local=0.589(n=107)
+[xrd] tol_deg=1.0: api=0.770(n=74), local=0.654(n=107)
+[xrd] rank agreement vs default (tol=0.5): 0.0
+[spectrum] x_tol=20.0 prom=0.05: api=0.696(n=280), local=0.508(n=295)
+[spectrum] x_tol=10.0 prom=0.03: api=0.439(n=280), local=0.302(n=295)
+[spectrum] x_tol=10.0 prom=0.05: api=0.404(n=280), local=0.278(n=295)
+[spectrum] x_tol=10.0 prom=0.08: api=0.386(n=280), local=0.254(n=295)
+[spectrum] x_tol=20.0 prom=0.03: api=0.729(n=280), local=0.546(n=295)
+[spectrum] x_tol=20.0 prom=0.08: api=0.682(n=280), local=0.475(n=295)
+[spectrum] x_tol=30.0 prom=0.03: api=0.882(n=280), local=0.712(n=295)
+[spectrum] x_tol=30.0 prom=0.05: api=0.854(n=280), local=0.685(n=295)
+[spectrum] x_tol=30.0 prom=0.08: api=0.843(n=280), local=0.654(n=295)
+[spectrum] rank agreement vs default (x_tol=20, prom=0.05): 1.0
+[stability] tol_eV_atom=0.05: api=0.708(n=185), local=0.748(n=210)
+[stability] tol_eV_atom=0.0: api=0.735(n=185), local=0.895(n=210)
+[stability] tol_eV_atom=0.025: api=0.730(n=185), local=0.824(n=210)
+[stability] tol_eV_atom=0.1: api=0.600(n=185), local=0.595(n=210)
+[stability] rank agreement vs default (tol=0.05): 0.6666666666666666
+
+Written to: /home/ubuntu/nature_submission/experiments/exp9_results.json
+
+SEM excluded (exact-threshold oracle, no ambiguity window to sweep).
+Metallicity/magnetism excluded (metallicity already has a preregistered
+dead-zone rather than a single continuous tolerance; magnetism's threshold
+sensitivity is a separate, not-yet-scoped question).

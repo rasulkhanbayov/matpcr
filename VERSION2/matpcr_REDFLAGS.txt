@@ -1,0 +1,169 @@
+========================================================================
+ MatPCR -- CONSOLIDATED RED-FLAG + AUDIT LIST (updated 2026-07-12)
+========================================================================
+Post deep-audit (overclaim / hallucination / soundness). Items are grouped
+into (A) BLOCKING findings needing reanalysis or raw data, (B) the visible
+red flags in the PDF, (C) fixes already applied this pass, and (D) reviewer
+risks. The 12 \redflag{...} items are all visible in red in the manuscript.
+
+------------------------------------------------------------------------
+ A. BLOCKING (resolve before submission; need raw data / reanalysis)
+------------------------------------------------------------------------
+BL1. UNIT OF ANALYSIS (seed pseudoreplication). The S=3 seeds run on the
+     same 30 items, yet the McNemar tests and bootstrap CIs are computed over
+     pooled "records" (e.g. 555, 2,026), treating seed replicates of one item
+     as independent. This makes every p-value anti-conservative and every CI
+     too narrow. Re-run all McNemar p-values and bootstrap CIs at the ITEM
+     level (aggregate seeds within item, then cluster/bootstrap by item and,
+     where items share a source, by source). The large CGSV effects will
+     likely survive; the reported p=3e-8-type values will not stand as-is.
+     LOCATION: Results/CGSV, Table 3, Methods protocol (red-flagged).
+
+BL2. VERIFIER IN-DISTRIBUTION SPLIT LEAKAGE. The "random 80/20" verifier
+     split is record-level, so seed replicates and same-chain claims of one
+     item can land in both train and test, inflating the in-distribution
+     AUC (0.858) that anchors contribution (4). Re-split disjoint at the
+     item/parent-source level and re-report P/R/F1/AUC/ECE. The held-out
+     numbers are unaffected. LOCATION: Results/Verifier (red-flagged).
+
+BL3. DFT-ORACLE VALIDITY INCOMPLETE + CO-AUTHOR SIGN-OFF. The DFT precision
+     audit (Exp 1 Half-B) is done only for the 3 geometric families; the 3
+     DFT families and the DFT reference protocol are unvalidated. All
+     DFT/All-column numbers, the stability accuracy arm, and the
+     metallicity/magnetism verifier arms are provisional until M.K. signs
+     off. Also confirm the magnetization sign convention (total magnetization
+     is conventionally >=0, so the "sign" check may be a magnitude check) and
+     that zero_atol matches real DFT noise (~1e-3, not 1e-6).
+     LOCATION: Table 1 [pending], Methods DFT oracles (red-flagged).
+
+BL4. CGSV MECHANISM NOT ISOLATED. CGSV is scored by the same oracle that
+     supplies its feedback, so a PCR gain (and b=0) is consistent with the
+     model RETRACTING/hedging a flagged claim as much as correcting the
+     physics. Report the checkable-claim counts c_i before and after CGSV to
+     separate correction from retraction. Until then CGSV is an
+     oracle-actionability control, not a demonstrated correction capability.
+     LOCATION: Results/CGSV (red-flagged).
+
+------------------------------------------------------------------------
+ B. RED FLAGS visible in the PDF (author-supplied facts to fill)
+------------------------------------------------------------------------
+ 1-3. Table 1, DFT precision cells (stability/metallicity/magnetism): "[pending]".
+      ENTER audited precision once Half-B runs and M.K. signs off (ties to BL3).
+ 4.   Table 2 caption: provide Supplementary Table S1 (per-cell 95% CIs and
+      per-constraint rates, incl. the magnetism 0.50-0.57 values quoted in text).
+ 5.   Methods/DFT oracles: DFT protocol settings (functional, cutoff, k-mesh,
+      pseudopotentials, MP version/date), epsilon, metallicity thresholds,
+      sensitivity analysis, magnetization convention, zero tolerance (ties BL3).
+ 6.   Methods/protocol: exact model versions + API snapshot dates + experiment
+      date; and the LLaVA/MatterChat question (add rows or leave the 4-model set).
+ 7.   Methods/protocol: decoding config (temperature, top-p) and bootstrap B.
+ 8.   Methods/protocol: UNIT OF ANALYSIS statement + item-level reanalysis (BL1).
+ 9.   Results/Verifier: confirm the in-distribution split is source-disjoint (BL2).
+ 10.  Results/CGSV: report c_i before/after CGSV (BL4).
+ 11.  Results/Accuracy: report balanced accuracy / class-conditional rates for
+      the stability arm (raw accuracy there is base-rate-confounded).
+ 12.  Acknowledgements: funding + grant numbers, compute/hardware (GPU, GPU-hours).
+ (not in .tex) Cover letter: [DATE] + both corresponding ORCIDs. Availability
+      statements: repository DOIs at acceptance.
+
+------------------------------------------------------------------------
+ C. FIXES APPLIED THIS AUDIT PASS (no action needed)
+------------------------------------------------------------------------
+ - Corrected the theory-to-experiment link: the precision audit measures the
+   false-discovery rate (1-precision), NOT the false-alarm rate f-hat; the
+   understatement under d-hat~1 is (1-precision)(1-PCR). (Was a real error.)
+ - Removed the math/code "verifiable domain" parity overclaim (contributions +
+   intro); reframed as imperfect-precision necessary conditions.
+ - Softened the abstract/contributions: "exact guarantees" -> exact bias
+   identity + high-probability sampling bound; added the verifier's
+   partial-transfer caveat.
+ - Fixed a factual error: microscopy held-out AUC is significantly BELOW chance
+   (CI [0.350,0.465]), not "straddling 0.5."
+ - Reconciled "modality" (image vs structure) vs "constraint type" everywhere;
+   removed dangling "Experiment 1-4 / 6" numbering; fixed Table 4 ECE caption.
+ - Reframed the stability accuracy~1.0 as a base-rate artifact (not "not a
+   modelling artifact").
+ - Title: "DFT-Grounded" -> "Physics- and DFT-Grounded" (DFT arm is provisional).
+ - Added NFFA-EUROPE (Aversa 2018) and RRUFF (Lafuente 2015) data-source
+   citations (were used but uncited); filled Mat-Pref and CrystalXRD-Bench
+   real author lists.
+ - Code: metallicity oracle now implements the clearly-gapped/clearly-gapless
+   dead zone (excludes the ambiguous band) the Methods describes; spectrum
+   oracle now requires a genuine local maximum with a defined prominence
+   (rejects a monotonic rise). Both verified by the smoke test.
+ - Proposition 2: stated the item-generating-process target, the balanced-source
+   assumption, and the base-rate caveat; verifier-substitution bound now noted
+   as tight only in-distribution. Tightened Prop 2 numbering/appendix Hoeffding.
+
+------------------------------------------------------------------------
+ D. REVIEWER RISKS (address in cover letter / rebuttal; not blocking)
+------------------------------------------------------------------------
+ - Baseline currency: GPT-4o / Gemini 2.5 Flash Lite / Claude Sonnet 4.5 /
+   Qwen2.5-VL-7B are 1-2 generations behind mid-2026 frontier (GPT-5.x,
+   Gemini 3.x, Claude Opus 4.5+, Qwen3-VL-8B). Add a current model + Qwen3-VL-8B
+   or justify the snapshot date.
+ - NFFA-EUROPE public JPEGs have stripped metadata; confirm the SEM images used
+   carry a readable IN-IMAGE (burned-in) scale bar the oracle can read, and say so.
+ - Novelty is a conjunction (label-free + chain-level + multi-oracle + materials
+   + loop + verifier); each part has precedent. Re-run a focused arXiv search at
+   submission (Mat-Pref, CrystalXRD-Bench, Sci-PRM, VPRMs are the closest).
+ - Three-decimal cell values with n=30 imply false precision; consider 2 sig figs
+   and only use "markedly/hardest" where CIs separate (needs SI Table S1).
+
+------------------------------------------------------------------------
+ E. EXPERIMENT COMPLETENESS FOR THE VENUE (SOTA baselines + necessary experiments)
+------------------------------------------------------------------------
+ Verified vs recent comparable top-venue papers (ProcessBench, CompassVerifier,
+ Sci-PRM, VPRMs, GenPRM, MatCha, MatSciBench, AtomWorld). MatPCR's positive control,
+ bootstrap+McNemar, and held-out split are AHEAD of these neighbors -- keep them
+ foregrounded. The missing comparison set, ranked by reviewer demand. All are now in the
+ manuscript's new "Baselines, ablations, and controls" Methods subsection as red flags;
+ none can be run here (need model access + the raw pipeline).
+
+ BLOCKING (contribution not defensible without these):
+ EX1. VERIFIER BASELINES -- the released detector has ZERO comparators. Compare vs a
+      zero-shot LLM-as-judge (frontier model), self-confidence/log-prob, and an
+      off-the-shelf PRM, on identical items + shared metric. AUC 0.858 alone is
+      uninterpretable; every verifier neighbor reports this.
+ EX2. CGSV MECHANISM-ISOLATION CONTROLS -- unaided self-refine (no oracle), generic
+      re-prompting at equal compute, best-of-N +/- verifier. Without these the McNemar
+      gain is not attributable to the oracle vs. extra sampling (Phase-E3 gate; the
+      literature shows self-correction fails without an external signal).
+
+ REQUIRED (a reviewer will very likely demand):
+ EX3. Refresh models to current gen: >=1 frontier (GPT-5.x / Gemini 3.x Pro / Claude
+      Opus 4.x) + current open (Qwen3-VL-8B). Set is 1-2 gens stale; Gemini Flash-Lite
+      and Claude Sonnet are the weak tiers of their families.
+ EX4. Reasoning-first condition: the paper scores reasoning chains but tests no reasoning
+      model. Add a thinking mode or open reasoning VLM (Qwen3-VL-Thinking, GLM-4.x-
+      Thinking, Kimi-VL-Thinking).
+ EX5. Materials-domain evaluee: >=1 domain model on the arm it fits (MatterChat on the
+      DFT/structure arms; MicroscopyGPT/ChemVLM on the image arms).
+ EX6. Precision-audit human agreement: >=2 annotators, Cohen's kappa, n and CI on each
+      precision (currently single-annotator point estimates).
+ EX7. Tolerance + prompt sensitivity of PCR (rankings must survive reasonable tolerance
+      changes); a tolerance FIX was recorded, not a SWEEP.
+ EX8. Violation error taxonomy + annotated qualitative examples (universal in comparables).
+ EX9. Contamination check (n-gram/perplexity overlap with pretraining) + per-family,
+      per-modality item counts with provenance.
+ EX10. Multiple-comparisons correction (Holm/BH) across the sweep and the 4 CGSV tests;
+       effect sizes with CIs (ties to BL1 unit-of-analysis).
+
+ RECOMMENDED (differentiators, lower cost):
+ EX11. Detector calibration: reliability diagram / ECE + a recommended operating point
+       per split (beyond the single in-distribution ECE=0.084).
+ EX12. Downstream utility of the verifier beyond CGSV: best-of-N reranking, or PCR
+       predicting downstream task failure.
+ EX13. Capability/scaling trend (size ladder or reasoning-vs-not) so PCR is shown to
+       track capability.
+
+------------------------------------------------------------------------
+ INTEGRITY / NEXT STEPS (unchanged, still required)
+------------------------------------------------------------------------
+ [ ] M.K. independently validates all physics + the DFT protocol (BL3).
+ [ ] Item-level reanalysis of all p-values/CIs (BL1) and source-disjoint
+     verifier split (BL2); report c_i before/after CGSV (BL4).
+ [ ] Independently re-derive Propositions 1-4.
+ [ ] Fill every red-flag item above.
+ [ ] Get 2-3 independent human mock reviews; treat unresolved findings as blocking.
+========================================================================

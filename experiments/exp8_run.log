@@ -1,0 +1,192 @@
+    [judge] 20/431 (parsed 19, cost=$0.0025)
+    [judge] 40/431 (parsed 39, cost=$0.0047)
+    [judge] 60/431 (parsed 59, cost=$0.0066)
+    [judge] 80/431 (parsed 79, cost=$0.0084)
+    [judge] 100/431 (parsed 99, cost=$0.0098)
+    [judge] 120/431 (parsed 119, cost=$0.0113)
+    [judge] 140/431 (parsed 138, cost=$0.0132)
+    [judge] 160/431 (parsed 157, cost=$0.0154)
+    [judge] 180/431 (parsed 176, cost=$0.0172)
+    [judge] 220/431 (parsed 213, cost=$0.0220)
+    [judge] 240/431 (parsed 232, cost=$0.0238)
+    [judge] 260/431 (parsed 249, cost=$0.0266)
+    [judge] 280/431 (parsed 269, cost=$0.0283)
+    [judge] 300/431 (parsed 289, cost=$0.0300)
+    [judge] 320/431 (parsed 308, cost=$0.0325)
+    [judge] 340/431 (parsed 324, cost=$0.0355)
+    [judge] 360/431 (parsed 344, cost=$0.0374)
+    [judge] 380/431 (parsed 364, cost=$0.0392)
+    [judge] 400/431 (parsed 384, cost=$0.0414)
+    [judge] 420/431 (parsed 403, cost=$0.0443)
+[judge/random] n_parsed=414/431 AUC=0.447 [0.400,0.493] P=0.416 R=0.192 F1=0.262 ECE=0.461 cost=$0.0455 (432.2s)
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 82241.25it/s]
+Loading weights:   0%|          | 0/729 [00:00<?, ?it/s]Loading weights:   0%|          | 2/729 [00:00<01:03, 11.40it/s]Loading weights:   2%|▏         | 16/729 [00:00<00:10, 66.17it/s]Loading weights:   4%|▍         | 29/729 [00:00<00:08, 81.49it/s]Loading weights:   7%|▋         | 51/729 [00:00<00:05, 121.83it/s]Loading weights:   9%|▉         | 66/729 [00:00<00:05, 128.02it/s]Loading weights:  12%|█▏        | 90/729 [00:00<00:04, 154.17it/s]Loading weights:  16%|█▌        | 113/729 [00:00<00:03, 170.63it/s]Loading weights:  19%|█▊        | 136/729 [00:00<00:03, 182.02it/s]Loading weights:  22%|██▏       | 162/729 [00:01<00:02, 199.16it/s]Loading weights:  25%|██▌       | 184/729 [00:01<00:02, 197.56it/s]Loading weights:  29%|██▉       | 210/729 [00:01<00:02, 208.98it/s]Loading weights:  32%|███▏      | 234/729 [00:01<00:02, 212.37it/s]Loading weights:  35%|███▌      | 258/729 [00:01<00:02, 212.82it/s]Loading weights:  39%|███▊      | 281/729 [00:01<00:02, 211.37it/s]Loading weights:  42%|████▏     | 305/729 [00:01<00:02, 209.07it/s]Loading weights:  45%|████▍     | 326/729 [00:01<00:02, 186.56it/s]Loading weights:  50%|████▉     | 361/729 [00:01<00:01, 228.55it/s]Loading weights:  73%|███████▎  | 533/729 [00:02<00:00, 631.61it/s]Loading weights:  95%|█████████▍| 690/729 [00:02<00:00, 890.30it/s]Loading weights: 100%|██████████| 729/729 [00:02<00:00, 324.95it/s]
+    [selfconf] 50/431
+    [selfconf] 100/431
+    [selfconf] 150/431
+    [selfconf] 200/431
+    [selfconf] 250/431
+    [selfconf] 300/431
+    [selfconf] 350/431
+    [selfconf] 400/431
+[selfconf/random] n_scored=431/431 AUC=0.315 [0.264,0.365] P=0.457 R=1.000 F1=0.627 ECE=0.489 (24.0s)
+    [judge] 20/205 (parsed 20, cost=$0.0016)
+    [judge] 40/205 (parsed 40, cost=$0.0032)
+    [judge] 60/205 (parsed 60, cost=$0.0052)
+    [judge] 80/205 (parsed 79, cost=$0.0071)
+    [judge] 100/205 (parsed 99, cost=$0.0088)
+    [judge] 120/205 (parsed 119, cost=$0.0104)
+    [judge] 140/205 (parsed 138, cost=$0.0125)
+    [judge] 160/205 (parsed 158, cost=$0.0141)
+    [judge] 180/205 (parsed 178, cost=$0.0157)
+    [judge] 200/205 (parsed 196, cost=$0.0174)
+[judge/modality:xrd] n_parsed=201/205 AUC=0.489 [0.438,0.541] P=0.389 R=0.070 F1=0.119 ECE=0.502 cost=$0.0179 (175.9s)
+    [selfconf] 50/205
+    [selfconf] 100/205
+    [selfconf] 150/205
+    [selfconf] 200/205
+[selfconf/modality:xrd] n_scored=205/205 AUC=0.523 [0.445,0.602] P=0.493 R=1.000 F1=0.660 ECE=0.454 (6.2s)
+    [judge] 20/481 (parsed 19, cost=$0.0026)
+    [judge] 40/481 (parsed 36, cost=$0.0062)
+    [judge] 60/481 (parsed 55, cost=$0.0088)
+    [judge] 80/481 (parsed 74, cost=$0.0108)
+    [judge] 100/481 (parsed 94, cost=$0.0131)
+    [judge] 120/481 (parsed 112, cost=$0.0157)
+    [judge] 140/481 (parsed 131, cost=$0.0182)
+    [judge] 160/481 (parsed 148, cost=$0.0212)
+    [judge] 180/481 (parsed 166, cost=$0.0236)
+    [judge] 200/481 (parsed 185, cost=$0.0258)
+    [judge] 220/481 (parsed 203, cost=$0.0282)
+    [judge] 280/481 (parsed 254, cost=$0.0369)
+    [judge] 300/481 (parsed 273, cost=$0.0390)
+    [judge] 320/481 (parsed 291, cost=$0.0416)
+    [judge] 340/481 (parsed 308, cost=$0.0444)
+    [judge] 360/481 (parsed 327, cost=$0.0463)
+    [judge] 380/481 (parsed 346, cost=$0.0483)
+    [judge] 400/481 (parsed 364, cost=$0.0511)
+    [judge] 420/481 (parsed 382, cost=$0.0534)
+    [judge] 440/481 (parsed 398, cost=$0.0567)
+    [judge] 460/481 (parsed 418, cost=$0.0593)
+    [judge] 480/481 (parsed 434, cost=$0.0626)
+[judge/modality:sem] n_parsed=435/481 AUC=0.735 [0.682,0.790] P=0.492 R=0.670 F1=0.568 ECE=0.188 cost=$0.0627 (579.2s)
+    [selfconf] 50/481
+    [selfconf] 100/481
+    [selfconf] 150/481
+    [selfconf] 200/481
+    [selfconf] 250/481
+    [selfconf] 300/481
+    [selfconf] 350/481
+    [selfconf] 400/481
+    [selfconf] 450/481
+[selfconf/modality:sem] n_scored=481/481 AUC=0.246 [0.197,0.298] P=0.218 R=1.000 F1=0.358 ECE=0.709 (14.7s)
+    [judge] 20/575 (parsed 20, cost=$0.0013)
+    [judge] 40/575 (parsed 40, cost=$0.0027)
+    [judge] 60/575 (parsed 60, cost=$0.0040)
+    [judge] 80/575 (parsed 80, cost=$0.0054)
+    [judge] 100/575 (parsed 100, cost=$0.0067)
+    [judge] 120/575 (parsed 120, cost=$0.0080)
+    [judge] 140/575 (parsed 140, cost=$0.0094)
+    [judge] 160/575 (parsed 160, cost=$0.0108)
+    [judge] 180/575 (parsed 180, cost=$0.0120)
+    [judge] 200/575 (parsed 200, cost=$0.0131)
+    [judge] 220/575 (parsed 220, cost=$0.0145)
+    [judge] 240/575 (parsed 240, cost=$0.0158)
+    [judge] 260/575 (parsed 260, cost=$0.0171)
+    [judge] 280/575 (parsed 280, cost=$0.0185)
+    [judge] 300/575 (parsed 300, cost=$0.0199)
+    [judge] 320/575 (parsed 320, cost=$0.0212)
+    [judge] 340/575 (parsed 340, cost=$0.0224)
+    [judge] 360/575 (parsed 360, cost=$0.0239)
+    [judge] 380/575 (parsed 380, cost=$0.0252)
+    [judge] 400/575 (parsed 400, cost=$0.0265)
+    [judge] 420/575 (parsed 420, cost=$0.0278)
+    [judge] 440/575 (parsed 440, cost=$0.0292)
+    [judge] 460/575 (parsed 460, cost=$0.0304)
+    [judge] 480/575 (parsed 480, cost=$0.0318)
+    [judge] 500/575 (parsed 500, cost=$0.0330)
+    [judge] 520/575 (parsed 520, cost=$0.0343)
+    [judge] 540/575 (parsed 540, cost=$0.0356)
+    [judge] 560/575 (parsed 560, cost=$0.0370)
+[judge/modality:spectrum] n_parsed=574/575 AUC=0.520 [0.512,0.529] P=1.000 R=0.008 F1=0.016 ECE=0.852 cost=$0.0384 (427.6s)
+    [selfconf] 50/575
+    [selfconf] 100/575
+    [selfconf] 150/575
+    [selfconf] 200/575
+    [selfconf] 250/575
+    [selfconf] 300/575
+    [selfconf] 350/575
+    [selfconf] 400/575
+    [selfconf] 450/575
+    [selfconf] 500/575
+    [selfconf] 550/575
+[selfconf/modality:spectrum] n_scored=575/575 AUC=0.445 [0.376,0.516] P=0.861 R=1.000 F1=0.925 ECE=0.041 (16.4s)
+    [judge] 20/395 (parsed 20, cost=$0.0015)
+    [judge] 40/395 (parsed 39, cost=$0.0033)
+    [judge] 60/395 (parsed 59, cost=$0.0047)
+    [judge] 80/395 (parsed 79, cost=$0.0062)
+    [judge] 100/395 (parsed 99, cost=$0.0076)
+    [judge] 120/395 (parsed 119, cost=$0.0091)
+    [judge] 140/395 (parsed 139, cost=$0.0106)
+    [judge] 160/395 (parsed 159, cost=$0.0121)
+    [judge] 180/395 (parsed 179, cost=$0.0136)
+    [judge] 200/395 (parsed 198, cost=$0.0152)
+    [judge] 220/395 (parsed 218, cost=$0.0167)
+    [judge] 240/395 (parsed 238, cost=$0.0182)
+    [judge] 260/395 (parsed 258, cost=$0.0196)
+    [judge] 280/395 (parsed 278, cost=$0.0211)
+    [judge] 300/395 (parsed 297, cost=$0.0231)
+    [judge] 320/395 (parsed 317, cost=$0.0247)
+    [judge] 340/395 (parsed 337, cost=$0.0260)
+    [judge] 360/395 (parsed 357, cost=$0.0278)
+    [judge] 380/395 (parsed 377, cost=$0.0294)
+[judge/modality:stability] n_parsed=392/395 AUC=0.511 [0.447,0.574] P=0.354 R=0.271 F1=0.307 ECE=0.266 cost=$0.0305 (357.7s)
+    [selfconf] 50/395
+    [selfconf] 100/395
+    [selfconf] 150/395
+    [selfconf] 200/395
+    [selfconf] 250/395
+    [selfconf] 300/395
+    [selfconf] 350/395
+[selfconf/modality:stability] n_scored=395/395 AUC=0.484 [0.419,0.552] P=0.271 R=1.000 F1=0.426 ECE=0.720 (11.7s)
+    [judge] 20/255 (parsed 20, cost=$0.0017)
+    [judge] 40/255 (parsed 40, cost=$0.0035)
+    [judge] 60/255 (parsed 59, cost=$0.0052)
+    [judge] 80/255 (parsed 79, cost=$0.0070)
+    [judge] 100/255 (parsed 99, cost=$0.0089)
+    [judge] 120/255 (parsed 119, cost=$0.0111)
+    [judge] 140/255 (parsed 138, cost=$0.0139)
+    [judge] 160/255 (parsed 158, cost=$0.0156)
+    [judge] 180/255 (parsed 178, cost=$0.0177)
+    [judge] 200/255 (parsed 198, cost=$0.0196)
+    [judge] 220/255 (parsed 218, cost=$0.0219)
+    [judge] 240/255 (parsed 238, cost=$0.0239)
+[judge/modality:metallicity] n_parsed=253/255 AUC=0.563 [0.501,0.624] P=0.600 R=0.188 F1=0.286 ECE=0.359 cost=$0.0259 (248.8s)
+    [selfconf] 50/255
+    [selfconf] 100/255
+    [selfconf] 150/255
+    [selfconf] 200/255
+    [selfconf] 250/255
+[selfconf/modality:metallicity] n_scored=255/255 AUC=0.505 [0.435,0.579] P=0.447 R=1.000 F1=0.618 ECE=0.532 (8.8s)
+    [judge] 20/241 (parsed 18, cost=$0.0045)
+    [judge] 40/241 (parsed 36, cost=$0.0081)
+    [judge] 60/241 (parsed 54, cost=$0.0126)
+    [judge] 80/241 (parsed 73, cost=$0.0172)
+    [judge] 100/241 (parsed 91, cost=$0.0214)
+    [judge] 120/241 (parsed 110, cost=$0.0257)
+    [judge] 140/241 (parsed 126, cost=$0.0308)
+    [judge] 160/241 (parsed 145, cost=$0.0353)
+    [judge] 180/241 (parsed 165, cost=$0.0391)
+    [judge] 200/241 (parsed 180, cost=$0.0439)
+    [judge] 240/241 (parsed 216, cost=$0.0533)
+[judge/modality:magnetism] n_parsed=217/241 AUC=0.622 [0.546,0.695] P=0.558 R=0.733 F1=0.634 ECE=0.317 cost=$0.0535 (436.5s)
+    [selfconf] 50/241
+    [selfconf] 100/241
+    [selfconf] 150/241
+    [selfconf] 200/241
+[selfconf/modality:magnetism] n_scored=241/241 AUC=0.396 [0.327,0.467] P=0.477 R=1.000 F1=0.646 ECE=0.484 (11.9s)
+
+Total API cost: $0.2745
+Written to: experiments/exp8_results.jsonl
+
+NOTE: a third baseline (off-the-shelf process reward model / PRM) was intentionally not attempted -- no general-purpose or physics/materials PRM is publicly available; every widely-used open PRM is math- or medicine-specific, and applying one to these chains would be an uninterpretable domain mismatch, not a meaningful comparison. Report this as 'not applicable' in the manuscript, not as a skipped/missing result.

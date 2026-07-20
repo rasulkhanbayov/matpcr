@@ -101,7 +101,11 @@ def check_stability_both(parsed: str, material: dict):
     claimed_stable = parsed == "STABLE"
     consistent = stability_claim_consistent(claimed_stable, material["energy_above_hull"], tol_eV_atom=0.05)
     accurate = claimed_stable == material["is_stable"]  # MP's own strict flag
-    return accurate, consistent
+    # Raw label + true class kept on the record (not just the accurate bool) so
+    # balanced accuracy / class-conditional rates can be computed downstream --
+    # per the audit, raw accuracy on this arm is base-rate-confounded (most
+    # sampled materials are MP-labeled unstable), so a single scalar hides that.
+    return accurate, consistent, claimed_stable, bool(material["is_stable"])
 
 
 def run_cell(modality: str, model_key: str, n: int, seed: int, api_key: str, materials_pool=None, mp_cursor=None):
@@ -120,7 +124,10 @@ def run_cell(modality: str, model_key: str, n: int, seed: int, api_key: str, mat
             accurate, consistent = check_xrd_both(item, parsed)
             if accurate is None:
                 continue
-            records.append({"modality": modality, "model": model_key, "seed": seed, "accurate": accurate, "consistent": consistent})
+            records.append({
+                "modality": modality, "model": model_key, "seed": seed,
+                "source_id": item["source_file"], "accurate": accurate, "consistent": consistent,
+            })
 
     elif modality == "spectrum":
         items = pilot.MODALITY_BUILDERS["spectrum"](n, seed=3000 + seed * 100)
@@ -136,7 +143,10 @@ def run_cell(modality: str, model_key: str, n: int, seed: int, api_key: str, mat
             accurate, consistent = check_spectrum_both(item, parsed)
             if accurate is None:
                 continue
-            records.append({"modality": modality, "model": model_key, "seed": seed, "accurate": accurate, "consistent": consistent})
+            records.append({
+                "modality": modality, "model": model_key, "seed": seed,
+                "source_id": item["source_file"], "accurate": accurate, "consistent": consistent,
+            })
 
     elif modality == "stability":
         batch = materials_pool[mp_cursor[0] : mp_cursor[0] + n]
@@ -151,8 +161,12 @@ def run_cell(modality: str, model_key: str, n: int, seed: int, api_key: str, mat
             parsed = pilot_dft.parse_dft_chain(chain_text)
             if parsed is None:
                 continue
-            accurate, consistent = check_stability_both(parsed, material)
-            records.append({"modality": modality, "model": model_key, "seed": seed, "accurate": accurate, "consistent": consistent})
+            accurate, consistent, claimed_stable, true_stable = check_stability_both(parsed, material)
+            records.append({
+                "modality": modality, "model": model_key, "seed": seed,
+                "source_id": material["material_id"], "accurate": accurate, "consistent": consistent,
+                "claimed_stable": claimed_stable, "true_stable": true_stable,
+            })
 
     return records
 
