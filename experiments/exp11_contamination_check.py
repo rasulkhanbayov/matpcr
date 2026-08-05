@@ -64,7 +64,10 @@ import os
 import random
 import sys
 
-os.environ.setdefault("HF_HOME", "/ephemeral/matpcr/hf_cache")
+# MATPCR_DATA_ROOT is host-specific -- set it in the environment before
+# running on a new host; see experiments/slurm/README.md.
+MATPCR_DATA_ROOT = os.environ.get("MATPCR_DATA_ROOT", "/ephemeral/matpcr")
+os.environ.setdefault("HF_HOME", os.path.join(MATPCR_DATA_ROOT, "hf_cache"))
 
 REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

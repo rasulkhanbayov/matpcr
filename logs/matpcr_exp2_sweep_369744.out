@@ -1,0 +1,48 @@
+Loaded OPENROUTER_API_KEY from /export/home/rakh90100/matpcr/.env (73 chars)
+Wed Aug  5 14:13:48 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.57.08              Driver Version: 575.57.08      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100 80GB PCIe          On  |   00000000:D8:00.0 Off |                    0 |
+| N/A   37C    P0             46W /  300W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+=== Experiment 2 PCR sweep: n=30/cell, seeds=3, modalities=xrd,sem,spectrum ===
+=== Results -> experiments/exp2_results_panther.jsonl ===
+Resuming: 24 cells already have >=50% of n_items, will skip them.
+  [skip] xrd/local/seed=0 already complete
+  [skip] xrd/local/seed=1 already complete
+  [skip] xrd/local/seed=2 already complete
+  [skip] xrd/gemini/seed=0 already complete
+  [skip] xrd/gemini/seed=1 already complete
+  [skip] xrd/gemini/seed=2 already complete
+  [skip] xrd/gpt4o/seed=0 already complete
+  [skip] xrd/gpt4o/seed=1 already complete
+  [skip] xrd/gpt4o/seed=2 already complete
+  [skip] xrd/claude/seed=0 already complete
+  [skip] xrd/claude/seed=1 already complete
+  [skip] xrd/claude/seed=2 already complete
+  [skip] xrd/opus46/seed=0 already complete
+  [skip] xrd/opus46/seed=1 already complete
+  [skip] xrd/opus46/seed=2 already complete
+  [skip] xrd/gpt56/seed=0 already complete
+  [skip] xrd/gpt56/seed=1 already complete
+  [skip] xrd/gpt56/seed=2 already complete
+  [skip] xrd/qwen3vl/seed=0 already complete
+  [skip] xrd/qwen3vl/seed=1 already complete
+  [skip] xrd/qwen3vl/seed=2 already complete
+  [skip] xrd/qwen3vl_thinking/seed=0 already complete
+  [skip] xrd/qwen3vl_thinking/seed=1 already complete
+  [skip] xrd/qwen3vl_thinking/seed=2 already complete

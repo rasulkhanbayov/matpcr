@@ -1,0 +1,131 @@
+Loaded OPENROUTER_API_KEY from /export/home/rakh90100/matpcr/.env (73 chars)
+Wed Aug  5 11:28:16 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 575.57.08              Driver Version: 575.57.08      CUDA Version: 12.9     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100 80GB PCIe          On  |   00000000:AF:00.0 Off |                    0 |
+| N/A   32C    P0             43W /  300W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+=== Running pilot: n=15 per modality, xrd/sem/spectrum, local+api ===
+=== Results -> experiments/pilot_results_panther_20260805.jsonl ===
+xrd: built 15 items
+sem: built 15 items
+spectrum: built 15 items
+[xrd/local] parsed=None cost=$0.000000 t=61.8s
+[xrd/api] parsed={'value': 1.0, 'unit': 'deg', 'was_range': False} cost=$0.000453 t=6.3s
+[xrd/local] parsed=None cost=$0.000000 t=0.0s
+[xrd/api] parsed={'value': 1.0, 'unit': 'deg', 'was_range': False} cost=$0.000250 t=3.7s
+[xrd/local] parsed=None cost=$0.000000 t=0.0s
+[xrd/api] parsed={'value': 10.0, 'unit': 'deg', 'was_range': False} cost=$0.000216 t=2.9s
+[xrd/local] parsed=None cost=$0.000000 t=0.0s
+[xrd/api] parsed={'value': 2.8, 'unit': 'deg', 'was_range': False} cost=$0.000253 t=2.7s
+[xrd/local] parsed=None cost=$0.000000 t=0.0s
+[xrd/api] parsed={'value': 13.4, 'unit': 'deg', 'was_range': False} cost=$0.000224 t=3.3s
+[xrd/local] parsed=None cost=$0.000000 t=0.0s
+[xrd/api] parsed={'value': 29.2, 'unit': 'deg', 'was_range': False} cost=$0.000241 t=2.8s
+[xrd/local] parsed=None cost=$0.000000 t=0.0s
+[xrd/api] parsed={'value': 18.0, 'unit': 'deg', 'was_range': False} cost=$0.000231 t=2.4s
+[xrd/local] parsed=None cost=$0.000000 t=0.0s
+[xrd/api] parsed={'value': 12.4, 'unit': 'deg', 'was_range': False} cost=$0.000229 t=3.2s
+[xrd/local] parsed=None cost=$0.000000 t=0.0s
+[xrd/api] parsed={'value': 5.0, 'unit': 'deg', 'was_range': False} cost=$0.000270 t=2.6s
+[xrd/local] parsed=None cost=$0.000000 t=0.0s
+[xrd/api] parsed={'value': 1.5, 'unit': 'deg', 'was_range': False} cost=$0.000236 t=2.6s
+[xrd/local] parsed=None cost=$0.000000 t=0.0s
+[xrd/api] parsed={'value': 15.0, 'unit': 'deg', 'was_range': False} cost=$0.000259 t=3.5s
+[xrd/local] parsed=None cost=$0.000000 t=0.0s
+[xrd/api] parsed={'value': 29.8, 'unit': 'deg', 'was_range': False} cost=$0.000226 t=2.4s
+[xrd/local] parsed=None cost=$0.000000 t=0.0s
+[xrd/api] parsed={'value': 28.4, 'unit': 'deg', 'was_range': False} cost=$0.000243 t=3.1s
+[xrd/local] parsed=None cost=$0.000000 t=0.0s
+[xrd/api] parsed={'value': 29.7, 'unit': 'deg', 'was_range': False} cost=$0.000233 t=3.4s
+[xrd/local] parsed=None cost=$0.000000 t=0.0s
+[xrd/api] parsed={'value': 31.8, 'unit': 'deg', 'was_range': False} cost=$0.000219 t=3.1s
+[sem/local] parsed=None cost=$0.000000 t=0.1s
+[sem/api] parsed={'value': 500.0, 'unit': 'nm', 'was_range': False} cost=$0.000182 t=4.5s
+[sem/local] parsed=None cost=$0.000000 t=0.0s
+[sem/api] parsed={'value': 40.0, 'unit': 'um', 'was_range': False} cost=$0.000180 t=2.8s
+[sem/local] parsed=None cost=$0.000000 t=0.0s
+[sem/api] parsed={'value': 2.5, 'unit': 'um', 'was_range': False} cost=$0.000177 t=2.7s
+[sem/local] parsed=None cost=$0.000000 t=0.0s
+[sem/api] parsed={'value': 200.0, 'unit': 'nm', 'was_range': False} cost=$0.000168 t=2.9s
+[sem/local] parsed=None cost=$0.000000 t=0.0s
+[sem/api] parsed={'value': 4.5, 'unit': 'um', 'was_range': False} cost=$0.000408 t=4.6s
+[sem/local] parsed=None cost=$0.000000 t=0.0s
+[sem/api] parsed={'value': 4.0, 'unit': 'um', 'was_range': False} cost=$0.000180 t=2.2s
+[sem/local] parsed=None cost=$0.000000 t=0.0s
+[sem/api] parsed={'value': 300.0, 'unit': 'nm', 'was_range': False} cost=$0.000184 t=3.1s
+[sem/local] parsed=None cost=$0.000000 t=0.0s
+[sem/api] parsed={'value': 300.0, 'unit': 'nm', 'was_range': False} cost=$0.000175 t=3.8s
+[sem/local] parsed=None cost=$0.000000 t=0.0s
+[sem/api] parsed={'value': 4.0, 'unit': 'um', 'was_range': False} cost=$0.000180 t=3.0s
+[sem/local] parsed=None cost=$0.000000 t=0.0s
+[sem/api] parsed={'value': 700.0, 'unit': 'nm', 'was_range': False} cost=$0.000181 t=2.9s
+[sem/local] parsed=None cost=$0.000000 t=0.0s
+[sem/api] parsed={'value': 800.0, 'unit': 'nm', 'was_range': False} cost=$0.000188 t=1.9s
+[sem/local] parsed=None cost=$0.000000 t=0.0s
+[sem/api] parsed={'value': 20.0, 'unit': 'nm', 'was_range': False} cost=$0.000169 t=2.1s
+[sem/local] parsed=None cost=$0.000000 t=0.0s
+[sem/api] parsed={'value': 8.0, 'unit': 'um', 'was_range': False} cost=$0.000170 t=3.6s
+[sem/local] parsed=None cost=$0.000000 t=0.0s
+[sem/api] parsed={'value': 100.0, 'unit': 'nm', 'was_range': False} cost=$0.000184 t=3.3s
+[sem/local] parsed=None cost=$0.000000 t=0.0s
+[sem/api] parsed={'value': 70.0, 'unit': 'nm', 'was_range': False} cost=$0.000175 t=1.8s
+[spectrum/local] parsed=None cost=$0.000000 t=0.0s
+[spectrum/api] parsed={'value': 375.0, 'unit': 'cm-1', 'was_range': False} cost=$0.000214 t=1.4s
+[spectrum/local] parsed=None cost=$0.000000 t=0.0s
+[spectrum/api] parsed={'value': 700.0, 'unit': 'cm-1', 'was_range': False} cost=$0.000208 t=2.0s
+[spectrum/local] parsed=None cost=$0.000000 t=0.0s
+[spectrum/api] parsed={'value': 380.0, 'unit': 'cm-1', 'was_range': False} cost=$0.000208 t=1.5s
+[spectrum/local] parsed=None cost=$0.000000 t=0.0s
+[spectrum/api] parsed={'value': 820.0, 'unit': 'cm-1', 'was_range': False} cost=$0.000218 t=1.5s
+[spectrum/local] parsed=None cost=$0.000000 t=0.0s
+[spectrum/api] parsed={'value': 460.0, 'unit': 'cm-1', 'was_range': False} cost=$0.000213 t=1.4s
+[spectrum/local] parsed=None cost=$0.000000 t=0.0s
+[spectrum/api] parsed={'value': 830.0, 'unit': 'cm-1', 'was_range': False} cost=$0.000207 t=12.2s
+[spectrum/local] parsed=None cost=$0.000000 t=0.0s
+[spectrum/api] parsed={'value': 180.0, 'unit': 'cm-1', 'was_range': False} cost=$0.000205 t=1.3s
+[spectrum/local] parsed=None cost=$0.000000 t=0.0s
+[spectrum/api] parsed={'value': 650.0, 'unit': 'cm-1', 'was_range': False} cost=$0.000207 t=1.6s
+[spectrum/local] parsed=None cost=$0.000000 t=0.0s
+[spectrum/api] parsed={'value': 220.0, 'unit': 'cm-1', 'was_range': False} cost=$0.000218 t=2.0s
+[spectrum/local] parsed=None cost=$0.000000 t=0.0s
+[spectrum/api] parsed={'value': 480.0, 'unit': 'cm-1', 'was_range': False} cost=$0.000213 t=3.0s
+[spectrum/local] parsed=None cost=$0.000000 t=0.0s
+[spectrum/api] parsed={'value': 490.0, 'unit': 'cm-1', 'was_range': False} cost=$0.000211 t=1.3s
+[spectrum/local] parsed=None cost=$0.000000 t=0.0s
+[spectrum/api] parsed={'value': 230.0, 'unit': 'cm-1', 'was_range': False} cost=$0.000211 t=1.2s
+[spectrum/local] parsed=None cost=$0.000000 t=0.0s
+[spectrum/api] parsed={'value': 400.0, 'unit': 'cm-1', 'was_range': False} cost=$0.000207 t=2.5s
+[spectrum/local] parsed=None cost=$0.000000 t=0.0s
+[spectrum/api] parsed={'value': 850.0, 'unit': 'cm-1', 'was_range': False} cost=$0.000212 t=1.3s
+[spectrum/local] parsed=None cost=$0.000000 t=0.0s
+[spectrum/api] parsed={'value': 220.0, 'unit': 'cm-1', 'was_range': False} cost=$0.000208 t=1.4s
+
+======================================================================
+PILOT summary: parser-extraction success rate per (modality, model)
+======================================================================
+  sem        / api   : 15/15 (100%) chains exposed a parseable claim
+  sem        / local : 0/15 (0%) chains exposed a parseable claim
+  spectrum   / api   : 15/15 (100%) chains exposed a parseable claim
+  spectrum   / local : 0/15 (0%) chains exposed a parseable claim
+  xrd        / api   : 15/15 (100%) chains exposed a parseable claim
+  xrd        / local : 0/15 (0%) chains exposed a parseable claim
+
+Total API cost this run: $0.0098
+Results written to: experiments/pilot_results_panther_20260805.jsonl
+=== Done. Check parse-success rate per (modality, model) in experiments/pilot_results_panther_20260805.jsonl before
+    trusting the pipeline is working end-to-end on this new host. ===

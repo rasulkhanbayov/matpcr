@@ -1,4 +1,4 @@
-[DATE]
+[AUTHOR: fill submission date]
 
 Dear Editors of npj Computational Materials,
 
@@ -20,9 +20,20 @@ right.
 What we contribute. We introduce a DFT-grounded, label-free way to measure and
 improve the physical consistency of materials reasoning: programmatic and
 first-principles oracles that require no human annotation, the Physical-Consistency
-Rate metric, a label-free agentic self-verification loop, and an open released
-verifier. The approach applies to both image and structure or text inputs and is
-built entirely from public data, making it broadly reusable.
+Rate metric, a label-free agentic self-verification loop whose gain we isolate from
+generic self-refinement and re-prompting controls, and an open released
+verifier, benchmarked against zero-shot LLM-judge and self-confidence baselines. The approach applies to both image and structure or text inputs and is
+built entirely from public data, making it broadly reusable. We report the released
+verifier's limitations as directly as its strengths: it is a useful in-distribution
+detector but does not transfer to any held-out constraint type in our tests, a finding
+we verified is not an artifact of train/test leakage after correcting an earlier split
+that had allowed it.
+
+Status of DFT-grounded numbers. Every number derived from Materials Project reference
+values (the stability, metallicity, and magnetism arms) is real and measured but not
+yet independently reviewed by our domain co-author (M.K.), who is validating the DFT
+protocol; we flag this explicitly in the manuscript and will revise or withdraw any
+claim that review does not support before final submission.
 
 Fit for the journal. The work is computational, reproducible, and provides an open
 artifact for the computational-materials community, consistent with the journal's
@@ -43,7 +54,7 @@ Sincerely,
 Hasan Kurban and Mustafa Kurban (co-corresponding authors)
 Hasan Kurban -- College of Science and Engineering, Hamad Bin Khalifa University, Doha, Qatar; hkurban@hbku.edu.qa
 Mustafa Kurban -- Ankara University, Ankara, Turkey; mkurbanphys@gmail.com
-ORCIDs: [add before final submission]
+ORCIDs: [AUTHOR: add both corresponding authors' ORCIDs before final submission]
 on behalf of all authors
 
 ------------------------------------------------------------------------------
@@ -52,8 +63,8 @@ shared with referees; use it to declare conflicts, related/in-press work, and
 suggested or excluded referees. Per the journal, manuscripts need NOT meet
 formatting requirements at initial submission (only at acceptance), so this LaTeX
 draft is acceptable as-is for first submission; at acceptance you may drop the text
-into the official Springer Nature template. Before sending: fill [DATE] and both
-corresponding authors' ORCIDs above; the experimental scaffolding is now resolved, but
-the red-flag items still visible in the manuscript PDF (see matpcr_REDFLAGS.txt) and the
-domain co-author's sign-off on the DFT reference protocol must be completed first, and
-the DFT-grounded numbers remain provisional until that sign-off.
+into the official Springer Nature template. Fill every remaining [AUTHOR: ...]
+placeholder in this letter and in the manuscript's Acknowledgements section (funding,
+grant numbers, GPU-hours, ORCIDs, submission date) before sending; get Mustafa's
+DFT-protocol sign-off and 2-3 independent human mock reviews first (standing project
+rule, unaffected by how complete the experiments now are).

@@ -56,7 +56,10 @@ from matpcr_metrics import (  # noqa: E402
     bootstrap_ci,
 )
 
-MP_DATA_PATH = "/ephemeral/matpcr/mp_data/mp_reference_batch.jsonl"
+# MATPCR_DATA_ROOT is host-specific -- set it in the environment before
+# running on a new host; see experiments/slurm/README.md.
+MATPCR_DATA_ROOT = os.environ.get("MATPCR_DATA_ROOT", "/ephemeral/matpcr")
+MP_DATA_PATH = os.path.join(MATPCR_DATA_ROOT, "mp_data", "mp_reference_batch.jsonl")
 PLANTED_RATES = [0.1, 0.3, 0.5]
 SEED = 0
 

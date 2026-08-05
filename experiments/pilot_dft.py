@@ -23,7 +23,10 @@ from __future__ import annotations
 
 import os
 
-os.environ["HF_HOME"] = "/ephemeral/matpcr/hf_cache"
+# MATPCR_DATA_ROOT is host-specific -- set it in the environment before
+# running on a new host; see experiments/slurm/README.md.
+MATPCR_DATA_ROOT = os.environ.get("MATPCR_DATA_ROOT", "/ephemeral/matpcr")
+os.environ["HF_HOME"] = os.path.join(MATPCR_DATA_ROOT, "hf_cache")
 
 import argparse
 import json
@@ -34,7 +37,7 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import pilot  # noqa: E402  reuse run_local_qwen / run_api_openrouter
 
-MP_DATA_PATH = "/ephemeral/matpcr/mp_data/mp_reference_batch.jsonl"
+MP_DATA_PATH = os.path.join(MATPCR_DATA_ROOT, "mp_data", "mp_reference_batch.jsonl")
 
 PROMPTS = {
     "stability": (
@@ -61,7 +64,10 @@ PROMPTS = {
         "MAGNETIC, also give your best estimate of the magnitude of the total magnetization "
         "per atom, in Bohr magnetons per atom (a rough order-of-magnitude guess is fine -- "
         "state only the MAGNITUDE, never a sign, since the sign of a computed magnetic moment "
-        "is an arbitrary choice of axis, not a physical property to guess). Give brief "
+        "is an arbitrary choice of axis, not a physical property to guess). Keep your reasoning "
+        "SHORT (2-4 sentences) -- give your best judgment even for chemically ambiguous cases "
+        "(e.g. a rare-earth/lanthanide element next to a transition metal), do not extensively "
+        "hedge or discuss what data would be needed. Give brief "
         "reasoning, then end with EXACTLY one line in one of these two formats: "
         "FINAL_ANSWER: NONMAGNETIC  or  FINAL_ANSWER: MAGNETIC, <value> muB/atom "
         "(e.g. 'FINAL_ANSWER: MAGNETIC, 1.5 muB/atom')"
@@ -147,13 +153,21 @@ def run_text_local_qwen(prompt: str, max_new_tokens: int = 700) -> str:
     return result[0]
 
 
-def run_text_api_openrouter(prompt: str, api_key: str, model: str = "google/gemini-2.5-flash-lite"):
+def run_text_api_openrouter(prompt: str, api_key: str, model: str = "google/gemini-2.5-flash-lite",
+                             max_tokens: int = 1500):
     import requests
 
+    # max_tokens raised 1000->1500 (2026-08-01): Gemini's magnetism prompt in
+    # particular was truncating before FINAL_ANSWER on chemically ambiguous
+    # formulas (rare-earth + transition-metal compositions -- the model
+    # hedges much more there, same failure class as the earlier
+    # stability-prompt truncation). The prompt wording above now also asks
+    # explicitly for short, non-hedging reasoning; this token bump is
+    # defense-in-depth, matching the two-part fix that worked for stability.
     payload = {
         "model": model,
         "messages": [{"role": "user", "content": prompt}],
-        "max_tokens": 1000,
+        "max_tokens": max_tokens,
     }
     # See pilot.py's run_api_openrouter for why requests' (connect, read)
     # timeout tuple is used instead of urllib -- urllib's timeout did not

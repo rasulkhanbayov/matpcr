@@ -37,7 +37,10 @@ from __future__ import annotations
 
 import os
 
-os.environ["HF_HOME"] = "/ephemeral/matpcr/hf_cache"
+# MATPCR_DATA_ROOT is host-specific -- set it in the environment before
+# running on a new host; see experiments/slurm/README.md.
+MATPCR_DATA_ROOT = os.environ.get("MATPCR_DATA_ROOT", "/ephemeral/matpcr")
+os.environ["HF_HOME"] = os.path.join(MATPCR_DATA_ROOT, "hf_cache")
 
 import argparse
 import json

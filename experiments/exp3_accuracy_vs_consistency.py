@@ -41,7 +41,10 @@ from __future__ import annotations
 
 import os
 
-os.environ["HF_HOME"] = "/ephemeral/matpcr/hf_cache"
+# MATPCR_DATA_ROOT is host-specific -- set it in the environment before
+# running on a new host; see experiments/slurm/README.md.
+MATPCR_DATA_ROOT = os.environ.get("MATPCR_DATA_ROOT", "/ephemeral/matpcr")
+os.environ["HF_HOME"] = os.path.join(MATPCR_DATA_ROOT, "hf_cache")
 
 import argparse
 import json
@@ -57,7 +60,7 @@ import pilot_dft  # noqa: E402
 from halfB_collect import xrd_reference_peaks, spectrum_signal  # noqa: E402
 from exp2_pcr_sweep import MODELS, run_one_image_item, run_one_dft_item  # noqa: E402
 
-MP_DATA_PATH = "/ephemeral/matpcr/mp_data/mp_reference_batch.jsonl"
+MP_DATA_PATH = os.path.join(MATPCR_DATA_ROOT, "mp_data", "mp_reference_batch.jsonl")
 
 XRD_ACCURACY_TOL_DEG = 0.1
 SPECTRUM_ACCURACY_TOL = 2.0

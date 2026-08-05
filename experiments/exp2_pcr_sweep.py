@@ -33,7 +33,10 @@ from __future__ import annotations
 
 import os
 
-os.environ["HF_HOME"] = "/ephemeral/matpcr/hf_cache"
+# MATPCR_DATA_ROOT is host-specific -- set it in the environment before
+# running on a new host; see experiments/slurm/README.md.
+MATPCR_DATA_ROOT = os.environ.get("MATPCR_DATA_ROOT", "/ephemeral/matpcr")
+os.environ["HF_HOME"] = os.path.join(MATPCR_DATA_ROOT, "hf_cache")
 
 import argparse
 import json
@@ -111,7 +114,7 @@ MODELS = {
 
 REFRESH_MODELS = ["opus46", "gpt56", "qwen3vl", "qwen3vl_thinking"]
 
-MP_DATA_PATH = "/ephemeral/matpcr/mp_data/mp_reference_batch.jsonl"
+MP_DATA_PATH = os.path.join(MATPCR_DATA_ROOT, "mp_data", "mp_reference_batch.jsonl")
 
 
 def check_image_oracle(modality: str, item: dict, parsed: dict):
@@ -254,17 +257,25 @@ def main():
         completed_cells = {cell for cell, count in cell_counts.items() if count >= args.n * 0.5}
         print(f"Resuming: {len(completed_cells)} cells already have >=50% of n_items, will skip them.")
 
-    with open(MP_DATA_PATH) as f:
-        materials_pool = [json.loads(line) for line in f]
+    # Only load Materials Project data if a DFT-grounded modality was
+    # actually requested -- previously this was unconditional, so a
+    # geometric-only run (e.g. --modalities xrd sem spectrum) crashed with
+    # FileNotFoundError even though it never touches materials_pool at all
+    # (confirmed as a real bug on Panther, 2026-08-05, running Tier 1 work
+    # before an MP_API_KEY was available).
+    materials_pool = []
+    if any(m in DFT_CLAIM_TYPES for m in args.modalities):
+        with open(MP_DATA_PATH) as f:
+            materials_pool = [json.loads(line) for line in f]
 
-    # The raw file is NOT randomly ordered -- confirmed directly: the first
-    # ~20 rows skew heavily toward small energy_above_hull values (0.0006 to
-    # 0.12), which produced a degenerate all-UNSTABLE-claim dry run that
-    # looked like a bug but was actually a sampling bias. Shuffle once with a
-    # fixed seed so cursor-based, without-replacement draws across
-    # modalities/seeds are representative of the full 3000-material range.
-    import random as _random
-    _random.Random(42).shuffle(materials_pool)
+        # The raw file is NOT randomly ordered -- confirmed directly: the first
+        # ~20 rows skew heavily toward small energy_above_hull values (0.0006 to
+        # 0.12), which produced a degenerate all-UNSTABLE-claim dry run that
+        # looked like a bug but was actually a sampling bias. Shuffle once with a
+        # fixed seed so cursor-based, without-replacement draws across
+        # modalities/seeds are representative of the full 3000-material range.
+        import random as _random
+        _random.Random(42).shuffle(materials_pool)
 
     total_cost = 0.0
     all_records = []

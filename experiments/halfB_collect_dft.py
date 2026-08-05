@@ -33,7 +33,10 @@ from __future__ import annotations
 
 import os
 
-os.environ["HF_HOME"] = "/ephemeral/matpcr/hf_cache"
+# MATPCR_DATA_ROOT is host-specific -- set it in the environment before
+# running on a new host; see experiments/slurm/README.md.
+MATPCR_DATA_ROOT = os.environ.get("MATPCR_DATA_ROOT", "/ephemeral/matpcr")
+os.environ["HF_HOME"] = os.path.join(MATPCR_DATA_ROOT, "hf_cache")
 
 import argparse
 import json
@@ -50,7 +53,7 @@ from matpcr_metrics import (  # noqa: E402
 
 import pilot_dft  # noqa: E402  reuse PROMPTS, parse_dft_chain, parse_magnetism_chain, run_text_local_qwen, run_text_api_openrouter
 
-MP_DATA_PATH = "/ephemeral/matpcr/mp_data/mp_reference_batch.jsonl"
+MP_DATA_PATH = os.path.join(MATPCR_DATA_ROOT, "mp_data", "mp_reference_batch.jsonl")
 MAGNETIC_THRESHOLD_MUB_PER_ATOM = 0.05
 METALLICITY_METAL_MAX_EV = 0.05
 METALLICITY_GAP_MIN_EV = 0.20

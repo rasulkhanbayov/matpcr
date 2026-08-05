@@ -1,5 +1,12 @@
 # MatPCR (DFT-grounded, cross-modal) — Student README (start here)
 
+> ⚠️ **SUPERSEDED — this root-level README/manuscript predate the Phase 1-3 revision
+> round (supervisor audit + Dr. Mustafa's DFT review response).** The current,
+> submission-track manuscript, oracle code, and README live in `VERSION2/` —
+> see `VERSION2/matpcr_README.md`. Do NOT submit `matpcr_snjnl.tex` from this
+> directory; it still contains pre-correction numbers and a retracted finding.
+> This file is kept only as the historical pre-revision draft.
+
 Your entry point to the project. Plain-language summary of what the paper claims,
 how to build it, what to run, and what to do next. The detailed protocol is in
 `matpcr_runbook.txt`.
@@ -169,7 +176,7 @@ This process maximizes the probability your research deserves; it cannot
 manufacture it. The results are the ceiling, and they are yours to produce.
 
 ## Official npj / Springer Nature template (sn-jnl)
-`matpcr_snjnl.tex` is the **venue-correct** source, written for the official Springer Nature class: `\documentclass[pdflatex,sn-nature]{sn-jnl}` with proper `\title/\author/\affil/\abstract/\keywords` macros. This is the file to submit to npj Computational Materials.
+`matpcr_snjnl.tex` (in this directory) is written for the official Springer Nature class: `\documentclass[pdflatex,sn-nature]{sn-jnl}` with proper `\title/\author/\affil/\abstract/\keywords` macros. **However, per the SUPERSEDED banner above, this is NOT the file to submit.** The current, correct submission source is `VERSION2/matpcr_snjnl.tex` — use that one and its accompanying `VERSION2/matpcr_submission.zip`.
 
 Recommended path:
 1. Open the official **Springer Nature LaTeX template** on Overleaf (it ships the current, complete `sn-jnl.cls` and `sn-nature.bst`).

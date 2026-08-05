@@ -1,0 +1,5 @@
+NOTE: /export/home/rakh90100/.matpcr_secrets/mp_api_key not found -- MP_API_KEY not set.
+DFT-grounded oracle scripts (stability/metallicity/magnetism) need this;
+everything else (XRD/SEM/spectrum) works fine without it.
+To set it up: mkdir -p ~/.matpcr_secrets && echo '<your-mp-key>' > /export/home/rakh90100/.matpcr_secrets/mp_api_key && chmod 600 /export/home/rakh90100/.matpcr_secrets/mp_api_key
+/cm/local/apps/slurm/var/spool/job369651/slurm_script: line 33: MATPCR_DATA_ROOT: Set MATPCR_DATA_ROOT before submitting

@@ -236,6 +236,44 @@ def mcnemar_exact(before_consistent: Sequence[bool], after_consistent: Sequence[
     return {"b_regressions": b, "c_fixes": c, "p_value": float(p)}
 
 
+def holm_bonferroni(p_values: Sequence[float]) -> list:
+    """Holm-Bonferroni step-down correction (FWER control).
+
+    Returns adjusted p-values in the SAME order as the input. Adjusted
+    p-value for the i-th smallest raw p is max over all j<=i of
+    p_(j) * (m - j + 1), enforced monotone non-decreasing (the running-max
+    step), then clipped to 1.0.
+    """
+    p = np.asarray(p_values, dtype=float)
+    m = len(p)
+    order = np.argsort(p)
+    adjusted = np.empty(m)
+    running_max = 0.0
+    for rank, idx in enumerate(order):
+        val = p[idx] * (m - rank)
+        running_max = max(running_max, val)
+        adjusted[idx] = min(running_max, 1.0)
+    return adjusted.tolist()
+
+
+def benjamini_hochberg(p_values: Sequence[float]) -> list:
+    """Benjamini-Hochberg step-up correction (FDR control).
+
+    Returns adjusted p-values (q-values) in the SAME order as the input.
+    """
+    p = np.asarray(p_values, dtype=float)
+    m = len(p)
+    order = np.argsort(p)
+    adjusted = np.empty(m)
+    running_min = 1.0
+    for rank in range(m - 1, -1, -1):
+        idx = order[rank]
+        val = p[idx] * m / (rank + 1)
+        running_min = min(running_min, val)
+        adjusted[idx] = running_min
+    return adjusted.tolist()
+
+
 # ----------------------------------------------------------------------------
 # 5. Detector AUC: does an internal flag predict an actual violation?
 # ----------------------------------------------------------------------------
@@ -522,6 +560,23 @@ def _smoke_test() -> None:
     print(f"\n[CGSV McNemar] fixes(c)={mc['c_fixes']} "
           f"regressions(b)={mc['b_regressions']} p={mc['p_value']:.2e}")
     print(f"[CGSV] PCR before={before.mean():.3f}  after={after.mean():.3f}")
+
+    # --- multiple-comparisons correction (Holm, Benjamini-Hochberg) ---
+    raw_p = [0.001, 0.02, 0.03, 0.5, 0.9]
+    holm_adj = holm_bonferroni(raw_p)
+    bh_adj = benjamini_hochberg(raw_p)
+    # Both corrections must never REDUCE a p-value below its raw value.
+    assert all(h >= r - 1e-12 for h, r in zip(holm_adj, raw_p))
+    assert all(b >= r - 1e-12 for b, r in zip(bh_adj, raw_p))
+    # Holm is at least as conservative as BH pointwise (Holm controls FWER,
+    # a stricter criterion than BH's FDR).
+    assert all(h >= b - 1e-12 for h, b in zip(holm_adj, bh_adj))
+    # A p-value of exactly 1.0 must stay at 1.0 under both.
+    assert abs(holm_bonferroni([1.0, 0.5])[0] - 1.0) < 1e-12
+    assert abs(benjamini_hochberg([1.0, 0.5])[0] - 1.0) < 1e-12
+    print(f"\n[multiplicity] raw p={raw_p}")
+    print(f"[multiplicity] Holm-adjusted={[f'{x:.4f}' for x in holm_adj]}")
+    print(f"[multiplicity] BH-adjusted  ={[f'{x:.4f}' for x in bh_adj]}")
 
     # --- detector AUC ---
     scores = np.array([1.0 if it.flagged else 0.0 for it in items])

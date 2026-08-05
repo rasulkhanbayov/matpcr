@@ -39,7 +39,10 @@ from __future__ import annotations
 
 import os
 
-os.environ["HF_HOME"] = "/ephemeral/matpcr/hf_cache"
+# MATPCR_DATA_ROOT is host-specific -- set it in the environment before
+# running on a new host; see experiments/slurm/README.md.
+MATPCR_DATA_ROOT = os.environ.get("MATPCR_DATA_ROOT", "/ephemeral/matpcr")
+os.environ["HF_HOME"] = os.path.join(MATPCR_DATA_ROOT, "hf_cache")
 
 import argparse
 import json
@@ -56,7 +59,9 @@ DATA_PATH = os.environ.get(
 MODEL_ID = "Qwen/Qwen2.5-0.5B-Instruct"
 MODALITIES = ["xrd", "sem", "spectrum", "stability", "metallicity", "magnetism"]
 
-WEIGHTS_ROOT = "/ephemeral/matpcr/verifier_weights"
+WEIGHTS_ROOT = os.environ.get(
+    "MATPCR_WEIGHTS_ROOT", os.path.join(MATPCR_DATA_ROOT, "verifier_weights")
+)
 
 
 def load_records():
@@ -101,11 +106,17 @@ def make_split(records, mode, held_out=None, seed=0):
     raise ValueError(mode)
 
 
-def train_and_eval(train_records, test_records, run_name: str):
+def train_and_eval(train_records, test_records, run_name: str, train_seed: int = 0):
     import torch
-    from transformers import AutoTokenizer, AutoModelForSequenceClassification, TrainingArguments, Trainer
+    from transformers import AutoTokenizer, AutoModelForSequenceClassification, TrainingArguments, Trainer, set_seed
     from peft import LoraConfig, get_peft_model, TaskType
     from torch.utils.data import Dataset
+
+    # Pins torch/cuda/transformers RNG state so the released verifier is
+    # bit-reproducible across re-runs, not just "equivalent" -- previously
+    # only make_split()'s numpy RNG was seeded, leaving model init/LoRA
+    # adapter init/dropout/data-loader shuffling all unpinned.
+    set_seed(train_seed)
 
     tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
     if tokenizer.pad_token is None:
@@ -198,6 +209,8 @@ def main():
     ap.add_argument("--split", choices=["random", "modality", "constraint", "all"], default="all")
     ap.add_argument("--held_out", default=None, help="modality/constraint name for a single held-out run")
     ap.add_argument("--out", default="experiments/exp5_results.jsonl")
+    ap.add_argument("--train_seed", type=int, default=0,
+                     help="Seeds torch/transformers training for bit-reproducible weights.")
     args = ap.parse_args()
 
     records = load_records()
@@ -222,7 +235,7 @@ def main():
             print(f"\n=== Training run: {run_name} ===")
             train_records, test_records = make_split(records, mode, held_out=held_out)
             print(f"  train={len(train_records)} test={len(test_records)}")
-            result = train_and_eval(train_records, test_records, run_name)
+            result = train_and_eval(train_records, test_records, run_name, train_seed=args.train_seed)
             result["mode"] = mode
             result["held_out"] = held_out
             results.append(result)

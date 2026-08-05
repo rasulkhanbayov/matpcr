@@ -347,9 +347,11 @@ that a human reviewer judged to be genuine physical violations. The spectrum fig
 from the pre-revision oracle (a windowed-maximum check); the revised oracle (a genuine
 local-maximum-with-prominence check, Methods) has not yet had a fresh precision audit and
 we do not carry the old figure forward as its precision. The three DFT-grounded
-families' precision audit is withheld pending the domain co-author's sign-off on the DFT
-reference protocol; their positive control is software-correctness testing and does not
-require that review.}
+families' precision audit (this table) was completed under the corrected oracle
+(magnitude-only magnetism check, metallicity abstention band, near-hull stability
+framing, Methods) after the domain co-author's conditional protocol approval; report these
+as real, measured precision on standardized computational references (Methods), not yet
+independently re-validated by the domain co-author on this specific reviewed batch.}
 \label{tab:exp1}
 {\scriptsize\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.12}
 \begin{tabular}{l l S[table-format=1.4] c}
@@ -363,10 +365,10 @@ Diffraction (XRD)       & opXRD                & 0.0000 & 77.2\%\ \ ($n{=}101$) 
 Microscopy (SEM)        & NFFA-EUROPE          & 0.0000 & 88.6\%\ \ ($n{=}105$) \\
 Spectra (Raman)         & RRUFF                & 0.0000 & 72.8\%$^{\dagger}$ ($n{=}103$) \\
 \addlinespace
-\multicolumn{4}{l}{\itshape DFT-grounded oracles (precision audit pending co-author sign-off)}\\
-Stability (hull)        & Materials Project    & 0.0000 & pending human review \\
-Metallicity (band gap)  & Materials Project    & 0.0000 & pending human review \\
-Magnetism (magnitude)   & Materials Project    & 0.0000 & pending human review \\
+\multicolumn{4}{l}{\itshape DFT-grounded oracles (gate passed; provisional, see caption)}\\
+Stability (hull)        & Materials Project    & 0.0000 & 95.3\%\ \ ($n{=}107$) \\
+Metallicity (band gap)  & Materials Project    & 0.0000 & 94.7\%\ \ ($n{=}114$) \\
+Magnetism (magnitude)   & Materials Project    & 0.0000 & 92.2\%\ \ ($n{=}115$) \\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -378,25 +380,25 @@ four current-generation frontier or open models and four of the originally evalu
 models across diffraction, microscopy, spectra, and
 DFT-grounded constraints, separately for image (VLM) and structure or text (LLM)
 inputs (Table~\ref{tab:main}, Fig.~\ref{fig:results}a), $n=30$ items per (model, constraint-type) cell, $S=3$ seeds
-pooled per cell (3{,}841 checkable records in total across the 8 models). These numbers
+pooled per cell (3{,}973 checkable records in total across the 8 models). These numbers
 supersede an earlier pass: the spectrum oracle was revised mid-project from a
 windowed-maximum check to a genuine-local-maximum-with-prominence check (Methods), which
 lowered every model's spectra column substantially, and the magnetism oracle was
 redesigned to a per-atom-normalized magnitude check that never compares sign (Methods);
 both changes are oracle corrections, not model regressions, and every number below
-reflects the corrected oracles. Overall PCR ranges from 0.513
-(Qwen2.5-VL-7B, local) to 0.800 (GPT-5.6-Terra); models are
-markedly more consistent on microscopy (0.65--0.98) than on spectra (0.10--0.88) or
-diffraction (0.38--0.80), and the DFT-grounded column is more tightly clustered
-(0.59--0.72) than any single geometric constraint, without one constraint type standing
+reflects the corrected oracles. Overall PCR ranges from 0.555
+(Qwen3-VL-8B-Instruct) to 0.774 (GPT-5.6-Terra); models are
+markedly more consistent on microscopy (0.67--1.00) than on spectra (0.07--0.83) or
+diffraction (0.47--0.80), and the DFT-grounded column is more tightly clustered
+(0.64--0.74) than any single geometric constraint, without one constraint type standing
 out as uniformly hardest once the corrected oracles are applied. API models trained after mid-2026 (GPT-5.6-Terra, Claude Opus 4.6) do not
 uniformly outperform their earlier siblings: GPT-5.6-Terra improves clearly over GPT-4o
-overall (0.800 vs.\ 0.648, bootstrap 95\% CIs $[0.762,0.835]$ vs.\ $[0.605,0.692]$, not
-overlapping), but Claude Opus 4.6 does not improve over Claude Sonnet 4.5 (0.625 vs.\
-0.637, CIs overlapping), and the reasoning-mode Qwen3-VL-8B-Thinking does not improve over
-its non-reasoning sibling (0.546 vs.\ 0.538, CIs overlapping) --- so explicit reasoning
+overall (0.774 vs.\ 0.687, bootstrap 95\% CIs $[0.736,0.810]$ vs.\ $[0.643,0.728]$, not
+overlapping), but Claude Opus 4.6 does not improve over Claude Sonnet 4.5 (0.655 vs.\
+0.656, CIs overlapping), and the reasoning-mode Qwen3-VL-8B-Thinking does not improve over
+its non-reasoning sibling (0.579 vs.\ 0.555, CIs overlapping) --- so explicit reasoning
 mode alone does not reliably raise PCR in this sample. API models substantially outperform the local model on
-microscopy specifically (0.778--0.978 versus 0.652); we do not yet know whether this
+microscopy specifically (0.802--1.000 versus 0.667); we do not yet know whether this
 reflects genuine scale-bar-reading skill or a difference in how each model handles the
 info-bar layout variety in the source micrographs, and do not claim more than the
 measured gap. The high absolute microscopy rates should also be read against the
@@ -423,15 +425,15 @@ originally evaluated models; the last four are the current-generation refresh
 \cmidrule(lr){2-6}
 Model & {Diffraction} & {Microscopy} & {Spectra} & {DFT$^{*}$} & {All$^{*}$} \\
 \midrule
-Qwen2.5-VL-7B \textit{(open)} & 0.516 & 0.652 & 0.148 & 0.586 & 0.513 \\
-Gemini 2.5 Flash Lite & 0.385 & 0.977 & 0.184 & 0.678 & 0.602 \\
-GPT-4o                & 0.581 & 0.933 & 0.103 & 0.649 & 0.648 \\
-Claude Sonnet 4.5     & 0.532 & 0.978 & 0.178 & 0.705 & 0.637 \\
+Qwen2.5-VL-7B \textit{(open)} & 0.500 & 0.667 & 0.148 & 0.685 & 0.565 \\
+Gemini 2.5 Flash Lite & 0.517 & \bfseries 1.000 & 0.278 & 0.641 & 0.622 \\
+GPT-4o                & 0.625 & 0.954 & 0.068 & 0.717 & 0.687 \\
+Claude Sonnet 4.5     & 0.547 & 0.977 & 0.189 & \bfseries 0.736 & 0.656 \\
 \addlinespace
-Claude Opus 4.6            & 0.531 & 0.888 & 0.244 & 0.696 & 0.625 \\
-GPT-5.6-Terra              & \bfseries 0.797 & 0.940 & \bfseries 0.878 & \bfseries 0.724 & \bfseries 0.800 \\
-Qwen3-VL-8B-Instruct       & 0.550 & 0.778 & 0.167 & 0.588 & 0.538 \\
-Qwen3-VL-8B-Thinking       & 0.540 & 0.784 & 0.115 & 0.614 & 0.546 \\
+Claude Opus 4.6            & 0.578 & 0.954 & 0.244 & 0.714 & 0.655 \\
+GPT-5.6-Terra              & \bfseries 0.797 & 0.951 & \bfseries 0.833 & 0.694 & \bfseries 0.774 \\
+Qwen3-VL-8B-Instruct       & 0.468 & 0.802 & 0.133 & 0.642 & 0.555 \\
+Qwen3-VL-8B-Thinking       & 0.578 & 0.885 & 0.092 & 0.639 & 0.579 \\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -529,23 +531,26 @@ and spectra, $n=30$ items per (model, constraint-type) cell, $S=3$ seeds, $K=2$ 
 under the corrected spectrum oracle (Methods).
 $\Delta$: PCR gain (after minus before); $b$: regressions (before-consistent,
 after-inconsistent); $c$: fixes (before-inconsistent, after-consistent); $p$: exact
-two-sided McNemar test on $(b,c)$.}
+two-sided McNemar test on $(b,c)$; $p_{\mathrm{Holm}}$: Holm-Bonferroni-adjusted $p$ over
+this table's 6-test family (Methods, Statistics paragraph;
+\texttt{experiments/exp15\_multiplicity\_correction.py}). All four CGSV effects survive
+this strictest correction; both controls remain non-significant.}
 \label{tab:cgsv}
 {\scriptsize\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.12}
-\begin{tabular}{l S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] S[table-format=1.0] S[table-format=2.0] c}
+\begin{tabular}{l S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] S[table-format=1.0] S[table-format=2.0] c c}
 \toprule
-& \multicolumn{3}{c}{Physical-Consistency Rate} & \multicolumn{2}{c}{Discordant items} & \\
+& \multicolumn{3}{c}{Physical-Consistency Rate} & \multicolumn{2}{c}{Discordant items} & & \\
 \cmidrule(lr){2-4}\cmidrule(lr){5-6}
-Model & {before} & {after} & {$\Delta$} & {$b$} & {$c$} & {McNemar $p$} \\
+Model & {before} & {after} & {$\Delta$} & {$b$} & {$c$} & {McNemar $p$} & {$p_{\mathrm{Holm}}$} \\
 \midrule
-Qwen2.5-VL-7B (open)  & 0.338 & 0.439 & 0.101 & 0 & 16 & $3.1\times10^{-5}$ \\
-Gemini 2.5 Flash Lite & 0.521 & 0.632 & 0.111 & 0 & 13 & $2.4\times10^{-4}$ \\
-GPT-4o                & 0.434 & 0.593 & \bfseries 0.159 & 0 & 18 & $7.6\times10^{-6}$ \\
-Claude Sonnet 4.5     & 0.373 & 0.639 & \bfseries 0.266 & 0 & 42 & $4.6\times10^{-13}$ \\
+Qwen2.5-VL-7B (open)  & 0.338 & 0.439 & 0.101 & 0 & 16 & $3.1\times10^{-5}$ & $1.2\times10^{-4}$ \\
+Gemini 2.5 Flash Lite & 0.521 & 0.632 & 0.111 & 0 & 13 & $2.4\times10^{-4}$ & $7.3\times10^{-4}$ \\
+GPT-4o                & 0.434 & 0.593 & \bfseries 0.159 & 0 & 18 & $7.6\times10^{-6}$ & $3.8\times10^{-5}$ \\
+Claude Sonnet 4.5     & 0.373 & 0.639 & \bfseries 0.266 & 0 & 42 & $4.6\times10^{-13}$ & $2.7\times10^{-12}$ \\
 \midrule
-\multicolumn{7}{l}{\itshape Mechanism-isolation controls (pooled across models and both constraint types)}\\
-Self-refinement (no oracle) & 0.349 & 0.339 & -0.010 & 34 & 29 & 0.615 \\
-Generic re-prompting        & 0.358 & 0.342 & -0.016 & 24 & 15 & 0.20 \\
+\multicolumn{8}{l}{\itshape Mechanism-isolation controls (pooled across models and both constraint types)}\\
+Self-refinement (no oracle) & 0.349 & 0.339 & -0.010 & 34 & 29 & 0.615 & 0.615 \\
+Generic re-prompting        & 0.358 & 0.342 & -0.016 & 24 & 15 & 0.20 & 0.399 \\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -632,14 +637,14 @@ Magnetism$^{*}$        & 0.468 & 0.635 & 0.539 & 0.503 & {[}0.430, 0.576{]} \\
 \foreach \cx/\lab in {2.0/Diffraction,3.3/Microscopy,4.6/Spectra,5.9/{DFT$^{*}$},7.2/{All$^{*}$}}
   \node[font=\fontsize{6.6}{7}\selectfont,rotate=30,anchor=south west] at (\cx-0.42,5.56){\lab};
 \foreach \x/\y/\v/\f/\tc in {%
-  2.0/5.10/0.516/12/black, 3.3/5.10/0.652/34/black, 4.6/5.10/0.148/2/black, 5.9/5.10/0.586/29/black, 7.2/5.10/0.513/13/black,
-  2.0/4.38/0.385/6/black, 3.3/4.38/0.977/91/white, 4.6/4.38/0.184/4/black, 5.9/4.38/0.678/38/black, 7.2/4.38/0.602/20/black,
-  2.0/3.66/0.581/23/black, 3.3/3.66/0.933/82/white, 4.6/3.66/0.103/1/black, 5.9/3.66/0.649/33/black, 7.2/3.66/0.648/25/black,
-  2.0/2.94/0.532/13/black, 3.3/2.94/0.978/91/white, 4.6/2.94/0.178/4/black, 5.9/2.94/0.705/40/black, 7.2/2.94/0.637/24/black,
-  2.0/2.22/0.531/13/black, 3.3/2.22/0.888/70/white, 4.6/2.22/0.244/8/black, 5.9/2.22/0.696/39/black, 7.2/2.22/0.625/23/black,
-  2.0/1.50/0.797/57/white, 3.3/1.50/0.940/85/white, 4.6/1.50/0.878/72/white, 5.9/1.50/0.724/42/black, 7.2/1.50/0.800/57/white,
-  2.0/0.78/0.550/16/black, 3.3/0.78/0.778/54/white, 4.6/0.78/0.167/4/black, 5.9/0.78/0.588/29/black, 7.2/0.78/0.538/14/black,
-  2.0/0.06/0.540/15/black, 3.3/0.06/0.784/55/white, 4.6/0.06/0.115/2/black, 5.9/0.06/0.614/32/black, 7.2/0.06/0.546/15/black}
+  2.0/5.10/0.500/18/black, 3.3/5.10/0.667/36/black, 4.6/5.10/0.148/1/black, 5.9/5.10/0.685/39/black, 7.2/5.10/0.565/24/black,
+  2.0/4.38/0.517/19/black, 3.3/4.38/1.000/100/white, 4.6/4.38/0.278/4/black, 5.9/4.38/0.641/33/black, 7.2/4.38/0.622/31/black,
+  2.0/3.66/0.625/31/black, 3.3/3.66/0.954/89/white, 4.6/3.66/0.068/0/black, 5.9/3.66/0.717/44/black, 7.2/3.66/0.687/39/black,
+  2.0/2.94/0.547/22/black, 3.3/2.94/0.977/94/white, 4.6/2.94/0.189/2/black, 5.9/2.94/0.736/46/black, 7.2/2.94/0.656/35/black,
+  2.0/2.22/0.578/25/black, 3.3/2.22/0.954/89/white, 4.6/2.22/0.244/3/black, 5.9/2.22/0.714/43/black, 7.2/2.22/0.655/35/black,
+  2.0/1.50/0.797/57/black, 3.3/1.50/0.951/88/white, 4.6/1.50/0.833/63/white, 5.9/1.50/0.694/40/black, 7.2/1.50/0.774/53/black,
+  2.0/0.78/0.468/15/black, 3.3/0.78/0.802/58/black, 4.6/0.78/0.133/1/black, 5.9/0.78/0.642/33/black, 7.2/0.78/0.555/23/black,
+  2.0/0.06/0.578/25/black, 3.3/0.06/0.885/74/white, 4.6/0.06/0.092/0/black, 5.9/0.06/0.639/33/black, 7.2/0.06/0.579/26/black}
   \node[minimum width=1.30cm,minimum height=0.68cm,fill=npblue!\f,draw=white,line width=1pt,inner sep=0,font=\fontsize{7.5}{8}\selectfont,text=\tc] at (\x,\y){\v};
 \foreach \y/\lab in {5.10/Qwen2.5-VL-7B,4.38/Gemini 2.5 FL,3.66/GPT-4o,2.94/Claude Sonnet 4.5,2.22/Claude Opus 4.6,1.50/GPT-5.6-Terra,0.78/Qwen3-VL-8B-I,0.06/Qwen3-VL-8B-T}
   \node[font=\fontsize{6.8}{8}\selectfont,anchor=east] at (1.30,\y){\lab};
@@ -730,12 +735,12 @@ split), is indistinguishable from chance.}
 % =====================================================================
 Across eight models spanning two capability generations and six label-free constraint
 types, current models are far from
-uniformly consistent (overall PCR 0.513--0.800), ruling out the scenario in which the
+uniformly consistent (overall PCR 0.555--0.774), ruling out the scenario in which the
 benchmark would be uninformative because every model already satisfies the physics we
 check; spectra and diffraction, in particular, remain hard and highly model-dependent
 under the corrected oracles (Methods). Capability scaling within a provider family is not
-automatic: the current-generation GPT-5.6-Terra improves clearly over GPT-4o (0.800 vs.\
-0.648, non-overlapping bootstrap CIs), but Claude Opus 4.6 does not improve over Claude
+automatic: the current-generation GPT-5.6-Terra improves clearly over GPT-4o (0.774 vs.\
+0.687, non-overlapping bootstrap CIs), but Claude Opus 4.6 does not improve over Claude
 Sonnet 4.5, and an explicit reasoning mode (Qwen3-VL-8B-Thinking) does not improve over its
 non-reasoning sibling, in this sample. The accuracy-versus-consistency gap (a mean 22.2\% disagreement across 12 cells, revised
 downward from an earlier 41.8\% once the spectrum oracle was corrected) shows
@@ -795,12 +800,17 @@ or withdraw any claim that review does not support before final submission.
 \section*{Methods}
 % =====================================================================
 \subsection*{Data sources}
-MatPCR draws only on public data for reproducibility and license clarity: simulated
-and experimental powder diffraction with known structures;\cite{simxrd2024,opxrd2025}
-public SEM/TEM corpora that include scale bars;\cite{aversa2018nffa} open Raman and
-infrared spectra;\cite{lafuente2015rruff} and public first-principles data (computed
-energies, convex hulls, band gaps) from established databases,\cite{matproj2013}
-supplemented by the authors' own DFT where a reference value is required.
+MatPCR draws only on public data for reproducibility and license clarity: experimental
+powder diffraction patterns with known structures;\cite{opxrd2025} public SEM/TEM corpora
+that include scale bars;\cite{aversa2018nffa} open Raman and infrared
+spectra;\cite{lafuente2015rruff} and public first-principles data (computed energies,
+convex hulls, band gaps) from established databases,\cite{matproj2013} supplemented by
+the authors' own DFT where a reference value is required. We also surveyed the simulated
+diffraction dataset SimXRD-4M\cite{simxrd2024} as a candidate diffraction source, but its
+schema (units of the tabulated lattice-distance field; the meaning of its integer label)
+could not be resolved against its documentation with confidence, so it was not used in
+any reported result; all diffraction numbers in this paper are from real experimental
+patterns only.
 
 \subsection*{Tasks, modalities, and exposed constraints}
 Each item pairs an input with a question whose faithful answer requires at least one
@@ -1149,12 +1159,11 @@ confidence intervals on all rates, and the exact McNemar test for paired before/
 comparisons. Each seed draws a fresh, independently sampled subset of items (verified
 directly: zero duplicate source files across seeds in every (constraint-type, model) cell
 checked), so the $S=3$ seeds are not the same items re-scored, and pooling records across
-seeds within a cell does not pool literal duplicates. This does not, however, resolve the
-separate, still-open concern that the full sweep runs $8\times6\times3=144$ (model,
-constraint-type, seed) cells and 4 CGSV comparisons without a multiple-comparisons
-correction (Baselines subsection, Statistics paragraph); that correction has not yet been
-applied and every reported $p$-value below should be read as uncorrected for the family of
-tests it belongs to.
+seeds within a cell does not pool literal duplicates. The separate concern that the six
+McNemar tests in Table~\ref{tab:cgsv} (four per-model CGSV comparisons plus two
+mechanism-isolation controls) needed a multiple-comparisons correction is now resolved: we
+applied Holm and Benjamini--Hochberg correction directly (Baselines subsection, Statistics
+paragraph) and every CGSV effect survives.
 
 \subsection*{Baselines, ablations, and controls}
 Three of the study's controls are stronger than those reported in several comparable
@@ -1179,7 +1188,7 @@ redrew with shuffling before reporting). MatterChat reaches PCR 0.783 (stability
 across materials rather than defaulting to one class, confirmed directly). We did not run a
 domain-specific model on the image arms (no comparably released microscopy-specific VLM was
 identified). On reasoning mode: Qwen3-VL-8B-Thinking does not improve over
-Qwen3-VL-8B-Instruct overall (0.546 vs.\ 0.538, bootstrap CIs overlapping), so explicit
+Qwen3-VL-8B-Instruct overall (0.579 vs.\ 0.555, bootstrap CIs overlapping), so explicit
 reasoning mode alone does not reliably raise PCR in this sample (Results).
 
 \noindent\emph{Verifier baselines.} We compare the released verifier against a zero-shot
@@ -1283,13 +1292,21 @@ NFFA-EUROPE), 575 (spectra, RRUFF), 395 (stability), 255 (metallicity), and 241 
 real oracle-checked items underlie the Half-B population reported throughout (Table~S1).
 
 \noindent\emph{Statistics.} The model-by-constraint-type sweep ($8\times6\times3=144$ cells)
-and the four CGSV per-model comparisons have not yet been corrected for multiple
-comparisons (Holm or Benjamini--Hochberg); every $p$-value and bootstrap CI reported in this
-paper should be read as uncorrected for the family of tests it belongs to until that
-correction is applied. We separately checked the specific unit-of-analysis mechanism raised
-above and found it does not apply as stated (seeds draw independent item subsets, verified
-directly), but this does not substitute for the still-owed multiplicity correction, which
-remains a genuine, unresolved limitation.
+reports bootstrap confidence intervals, not a family of significance tests, so a
+Holm/Benjamini--Hochberg correction (designed for hypothesis tests) does not apply to those
+144 cells in the same sense. The actual family of significance tests in this paper is
+Table~\ref{tab:cgsv}'s six exact McNemar tests (four per-model CGSV comparisons plus the two
+mechanism-isolation controls); we corrected this family directly
+(\texttt{matpcr\_metrics.holm\_bonferroni}, \texttt{benjamini\_hochberg}, verified against a
+synthetic case and applied to the real before/after records in
+\texttt{experiments/exp15\_multiplicity\_correction.py}). All four CGSV effects survive the
+strictest (Holm) correction (adjusted $p<10^{-3}$ for every model, most far smaller), and
+both negative controls remain non-significant under either correction (Holm-adjusted
+$p=0.615$ and $0.399$); the qualitative finding, that CGSV works while generic
+self-refinement and re-prompting do not, is robust to multiplicity correction, not an
+artifact of testing six things at once. We separately checked the specific unit-of-analysis
+mechanism raised above and found it does not apply as stated (seeds draw independent item
+subsets, verified directly).
 
 \subsection*{Use of AI assistance}
 In line with the journal's policy that large language models do not satisfy
@@ -1301,7 +1318,7 @@ full responsibility for the work. No AI system is an author.
 \section*{Data availability}
 % =====================================================================
 The benchmark is derived entirely from the public datasets cited in
-Methods.\cite{simxrd2024,opxrd2025,matproj2013} The assembled MatPCR items, the oracle
+Methods.\cite{opxrd2025,matproj2013} The assembled MatPCR items, the oracle
 reference values with their provenance, and the item-construction code will be made
 available in a permanent public repository upon publication, with a private link
 provided to reviewers during peer review.
@@ -1353,61 +1370,61 @@ violation rate $\rho_t=1-\mathrm{PCR}$ for every cell below and is not tabulated
 \toprule
 Model & Constraint type & {$n$} & {PCR} & {95\% CI} \\
 \midrule
-Qwen2.5-VL-7B & Diffraction & 62 & 0.516 & [0.403, 0.645] \\
-Qwen2.5-VL-7B & Microscopy & 89 & 0.652 & [0.551, 0.753] \\
+Qwen2.5-VL-7B & Diffraction & 64 & 0.500 & [0.375, 0.625] \\
+Qwen2.5-VL-7B & Microscopy & 87 & 0.667 & [0.563, 0.759] \\
 Qwen2.5-VL-7B & Spectra & 88 & 0.148 & [0.080, 0.227] \\
-Qwen2.5-VL-7B & Stability$^{*}$ & 90 & 0.700 & [0.600, 0.789] \\
-Qwen2.5-VL-7B & Metallicity$^{*}$ & 86 & 0.570 & [0.465, 0.674] \\
-Qwen2.5-VL-7B & Magnetism$^{*}$ & 90 & 0.489 & [0.389, 0.589] \\
+Qwen2.5-VL-7B & Stability$^{*}$ & 90 & 0.744 & [0.656, 0.833] \\
+Qwen2.5-VL-7B & Metallicity$^{*}$ & 87 & 0.540 & [0.437, 0.644] \\
+Qwen2.5-VL-7B & Magnetism$^{*}$ & 90 & 0.767 & [0.678, 0.856] \\
 \addlinespace
-Gemini 2.5 Flash Lite & Diffraction & 52 & 0.385 & [0.250, 0.519] \\
-Gemini 2.5 Flash Lite & Microscopy & 86 & 0.977 & [0.942, 1.000] \\
-Gemini 2.5 Flash Lite & Spectra & 87 & 0.184 & [0.103, 0.264] \\
-Gemini 2.5 Flash Lite & Stability$^{*}$ & 85 & 0.671 & [0.565, 0.765] \\
-Gemini 2.5 Flash Lite & Metallicity$^{*}$ & 77 & 0.766 & [0.662, 0.857] \\
-Gemini 2.5 Flash Lite & Magnetism$^{*}$ & 40 & 0.525 & [0.375, 0.675] \\
+Gemini 2.5 Flash Lite & Diffraction & 60 & 0.517 & [0.400, 0.650] \\
+Gemini 2.5 Flash Lite & Microscopy & 86 & 1.000 & [1.000, 1.000] \\
+Gemini 2.5 Flash Lite & Spectra & 90 & 0.278 & [0.189, 0.378] \\
+Gemini 2.5 Flash Lite & Stability$^{*}$ & 89 & 0.730 & [0.640, 0.820] \\
+Gemini 2.5 Flash Lite & Metallicity$^{*}$ & 84 & 0.702 & [0.607, 0.798] \\
+Gemini 2.5 Flash Lite & Magnetism$^{*}$ & 89 & 0.494 & [0.382, 0.596] \\
 \addlinespace
-GPT-4o & Diffraction & 62 & 0.581 & [0.452, 0.710] \\
-GPT-4o & Microscopy & 89 & 0.933 & [0.876, 0.978] \\
-GPT-4o & Spectra & 39 & 0.103 & [0.026, 0.205] \\
-GPT-4o & Stability$^{*}$ & 90 & 0.756 & [0.667, 0.844] \\
-GPT-4o & Metallicity$^{*}$ & 88 & 0.580 & [0.477, 0.682] \\
-GPT-4o & Magnetism$^{*}$ & 90 & 0.611 & [0.511, 0.711] \\
+GPT-4o & Diffraction & 64 & 0.625 & [0.500, 0.750] \\
+GPT-4o & Microscopy & 87 & 0.954 & [0.908, 0.989] \\
+GPT-4o & Spectra & 44 & 0.068 & [0.000, 0.159] \\
+GPT-4o & Stability$^{*}$ & 90 & 0.800 & [0.711, 0.878] \\
+GPT-4o & Metallicity$^{*}$ & 85 & 0.671 & [0.565, 0.765] \\
+GPT-4o & Magnetism$^{*}$ & 90 & 0.678 & [0.578, 0.778] \\
 \addlinespace
-Claude Sonnet 4.5 & Diffraction & 62 & 0.532 & [0.403, 0.661] \\
-Claude Sonnet 4.5 & Microscopy & 89 & 0.978 & [0.944, 1.000] \\
-Claude Sonnet 4.5 & Spectra & 90 & 0.178 & [0.100, 0.256] \\
-Claude Sonnet 4.5 & Stability$^{*}$ & 90 & 0.767 & [0.678, 0.856] \\
-Claude Sonnet 4.5 & Metallicity$^{*}$ & 81 & 0.704 & [0.605, 0.802] \\
-Claude Sonnet 4.5 & Magnetism$^{*}$ & 90 & 0.644 & [0.544, 0.744] \\
+Claude Sonnet 4.5 & Diffraction & 64 & 0.547 & [0.422, 0.672] \\
+Claude Sonnet 4.5 & Microscopy & 87 & 0.977 & [0.943, 1.000] \\
+Claude Sonnet 4.5 & Spectra & 90 & 0.189 & [0.111, 0.267] \\
+Claude Sonnet 4.5 & Stability$^{*}$ & 90 & 0.756 & [0.667, 0.844] \\
+Claude Sonnet 4.5 & Metallicity$^{*}$ & 85 & 0.694 & [0.600, 0.788] \\
+Claude Sonnet 4.5 & Magnetism$^{*}$ & 90 & 0.756 & [0.666, 0.844] \\
 \addlinespace
-Claude Opus 4.6 & Diffraction & 64 & 0.531 & [0.406, 0.656] \\
-Claude Opus 4.6 & Microscopy & 89 & 0.888 & [0.820, 0.944] \\
+Claude Opus 4.6 & Diffraction & 64 & 0.578 & [0.453, 0.703] \\
+Claude Opus 4.6 & Microscopy & 87 & 0.954 & [0.908, 0.989] \\
 Claude Opus 4.6 & Spectra & 90 & 0.244 & [0.156, 0.333] \\
-Claude Opus 4.6 & Stability$^{*}$ & 90 & 0.733 & [0.644, 0.822] \\
-Claude Opus 4.6 & Metallicity$^{*}$ & 85 & 0.600 & [0.494, 0.706] \\
-Claude Opus 4.6 & Magnetism$^{*}$ & 65 & 0.769 & [0.662, 0.862] \\
+Claude Opus 4.6 & Stability$^{*}$ & 90 & 0.722 & [0.633, 0.811] \\
+Claude Opus 4.6 & Metallicity$^{*}$ & 86 & 0.721 & [0.628, 0.814] \\
+Claude Opus 4.6 & Magnetism$^{*}$ & 90 & 0.700 & [0.600, 0.789] \\
 \addlinespace
 GPT-5.6-Terra & Diffraction & 64 & 0.797 & [0.703, 0.891] \\
-GPT-5.6-Terra & Microscopy & 84 & 0.940 & [0.881, 0.988] \\
-GPT-5.6-Terra & Spectra & 90 & 0.878 & [0.811, 0.944] \\
-GPT-5.6-Terra & Stability$^{*}$ & 87 & 0.724 & [0.632, 0.816] \\
-GPT-5.6-Terra & Metallicity$^{*}$ & 81 & 0.716 & [0.617, 0.815] \\
-GPT-5.6-Terra & Magnetism$^{*}$ & 78 & 0.731 & [0.628, 0.821] \\
+GPT-5.6-Terra & Microscopy & 81 & 0.951 & [0.901, 0.988] \\
+GPT-5.6-Terra & Spectra & 90 & 0.833 & [0.756, 0.911] \\
+GPT-5.6-Terra & Stability$^{*}$ & 90 & 0.656 & [0.556, 0.756] \\
+GPT-5.6-Terra & Metallicity$^{*}$ & 85 & 0.659 & [0.553, 0.753] \\
+GPT-5.6-Terra & Magnetism$^{*}$ & 90 & 0.767 & [0.678, 0.844] \\
 \addlinespace
-Qwen3-VL-8B-Instruct & Diffraction & 60 & 0.550 & [0.417, 0.683] \\
-Qwen3-VL-8B-Instruct & Microscopy & 81 & 0.778 & [0.691, 0.864] \\
-Qwen3-VL-8B-Instruct & Spectra & 90 & 0.167 & [0.100, 0.244] \\
-Qwen3-VL-8B-Instruct & Stability$^{*}$ & 90 & 0.656 & [0.556, 0.744] \\
-Qwen3-VL-8B-Instruct & Metallicity$^{*}$ & 88 & 0.545 & [0.443, 0.648] \\
-Qwen3-VL-8B-Instruct & Magnetism$^{*}$ & 84 & 0.560 & [0.452, 0.667] \\
+Qwen3-VL-8B-Instruct & Diffraction & 62 & 0.468 & [0.355, 0.597] \\
+Qwen3-VL-8B-Instruct & Microscopy & 86 & 0.802 & [0.709, 0.884] \\
+Qwen3-VL-8B-Instruct & Spectra & 90 & 0.133 & [0.067, 0.200] \\
+Qwen3-VL-8B-Instruct & Stability$^{*}$ & 87 & 0.713 & [0.621, 0.805] \\
+Qwen3-VL-8B-Instruct & Metallicity$^{*}$ & 77 & 0.688 & [0.584, 0.792] \\
+Qwen3-VL-8B-Instruct & Magnetism$^{*}$ & 90 & 0.533 & [0.433, 0.633] \\
 \addlinespace
-Qwen3-VL-8B-Thinking & Diffraction & 63 & 0.540 & [0.413, 0.667] \\
-Qwen3-VL-8B-Thinking & Microscopy & 88 & 0.784 & [0.693, 0.864] \\
-Qwen3-VL-8B-Thinking & Spectra & 87 & 0.115 & [0.057, 0.184] \\
-Qwen3-VL-8B-Thinking & Stability$^{*}$ & 90 & 0.711 & [0.611, 0.800] \\
-Qwen3-VL-8B-Thinking & Metallicity$^{*}$ & 81 & 0.691 & [0.593, 0.790] \\
-Qwen3-VL-8B-Thinking & Magnetism$^{*}$ & 80 & 0.425 & [0.325, 0.537] \\
+Qwen3-VL-8B-Thinking & Diffraction & 64 & 0.578 & [0.453, 0.703] \\
+Qwen3-VL-8B-Thinking & Microscopy & 87 & 0.885 & [0.816, 0.943] \\
+Qwen3-VL-8B-Thinking & Spectra & 87 & 0.092 & [0.034, 0.161] \\
+Qwen3-VL-8B-Thinking & Stability$^{*}$ & 90 & 0.767 & [0.678, 0.856] \\
+Qwen3-VL-8B-Thinking & Metallicity$^{*}$ & 87 & 0.644 & [0.540, 0.736] \\
+Qwen3-VL-8B-Thinking & Magnetism$^{*}$ & 89 & 0.506 & [0.404, 0.607] \\
 \bottomrule
 \end{tabular}}
 \end{table}

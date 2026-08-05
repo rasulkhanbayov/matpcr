@@ -41,8 +41,11 @@ import os
 
 from mp_api.client import MPRester
 
-OUT_PATH = "/ephemeral/matpcr/mp_data/mp_reference_batch.jsonl"
-PROVENANCE_PATH = "/ephemeral/matpcr/mp_data/mp_provenance.json"
+# MATPCR_DATA_ROOT is host-specific -- set it in the environment before
+# running on a new host; see experiments/slurm/README.md.
+MATPCR_DATA_ROOT = os.environ.get("MATPCR_DATA_ROOT", "/ephemeral/matpcr")
+OUT_PATH = os.path.join(MATPCR_DATA_ROOT, "mp_data", "mp_reference_batch.jsonl")
+PROVENANCE_PATH = os.path.join(MATPCR_DATA_ROOT, "mp_data", "mp_provenance.json")
 
 # All fields actually consumed by the 3 DFT-grounded oracles. "nsites" is the
 # atom count needed to convert MP's raw total_magnetization (Bohr magnetons,

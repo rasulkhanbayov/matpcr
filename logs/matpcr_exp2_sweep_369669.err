@@ -1,0 +1,10 @@
+NOTE: /export/home/rakh90100/.matpcr_secrets/mp_api_key not found -- MP_API_KEY not set.
+DFT-grounded oracle scripts (stability/metallicity/magnetism) need this;
+everything else (XRD/SEM/spectrum) works fine without it.
+To set it up: mkdir -p ~/.matpcr_secrets && echo '<your-mp-key>' > /export/home/rakh90100/.matpcr_secrets/mp_api_key && chmod 600 /export/home/rakh90100/.matpcr_secrets/mp_api_key
+Traceback (most recent call last):
+  File "/export/home/rakh90100/matpcr/experiments/exp2_pcr_sweep.py", line 343, in <module>
+    main()
+  File "/export/home/rakh90100/matpcr/experiments/exp2_pcr_sweep.py", line 260, in main
+    with open(MP_DATA_PATH) as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/export/home/rakh90100/matpcr_data/mp_data/mp_reference_batch.jsonl'

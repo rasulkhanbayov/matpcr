@@ -1,0 +1,65 @@
+# Main MatPCR environment (pilot.py, pilot_dft.py, exp1-exp14, halfB_collect*.py,
+# sem_scalebar_extractor.py, mp_fetch_reference_data.py). Validated on Python 3.10.
+#
+# Install:
+#   pip install -r experiments/slurm/requirements-main.txt --extra-index-url https://download.pytorch.org/whl/cu121
+#
+# torch MUST be pinned to a CUDA-12.x build, not left to resolve to the
+# latest PyPI default -- confirmed as a real bug on Panther (2026-08-05):
+# plain `pip install torch` pulled torch==2.13.0+cu130 (built against CUDA
+# 13.0), but Panther's A100/P100 nodes report driver-reported CUDA 12.9
+# (`nvidia-smi` header) via a 575.57.08 driver -- too old for a cu130 torch
+# build. Every local-model call silently failed with `torch.cuda.is_available()
+# == False` and a "NVIDIA driver on your system is too old" warning, which
+# LOOKS like a model/prompt problem (chains came back as an error string,
+# parsed as None) but is actually an environment mismatch. Pinned to
+# torch==2.5.1+cu121 here, which matches the cuda12.1/toolkit/12.1.1 module
+# this project's sbatch scripts already load. Re-check this pin if Panther's
+# driver is ever upgraded cluster-wide.
+#
+# torchvision is ALSO required and was missing entirely from this file --
+# found immediately after the torch fix above (2026-08-05): Qwen2.5-VL's
+# AutoProcessor needs it, and without it every local-model call failed with
+# "Qwen2VLVideoProcessor requires the Torchvision library but it was not
+# found" (a second, different-looking failure that was masked by the CUDA
+# bug until that was fixed first). Pinned to the exact torchvision build
+# matching torch==2.5.1+cu121.
+
+numpy
+scipy
+matplotlib
+
+# XRD oracle (pymatgen builds reference diffraction patterns from lattice+basis)
+pymatgen==2025.10.7
+ase==3.29.0
+
+# Materials Project client for the 3 DFT-grounded oracles.
+# emmet-core MUST be pinned below mp-api's default pull -- the latest mp-api
+# (as of 2026-07) pulls emmet-core==0.86.0rc1, a release candidate that
+# imports `NotRequired` from the stdlib `typing` module (Python 3.11+ only).
+# This breaks `from mp_api.client import MPRester` on Python 3.10 with
+# "ImportError: cannot import name 'NotRequired' from 'typing'" even though
+# typing_extensions (which has the correct backport) is already installed --
+# the bug is emmet-core importing from the wrong module, not a missing dep.
+# Re-check this pin if mp-api is ever upgraded; a newer stable emmet-core
+# release may make it unnecessary.
+mp-api
+emmet-core==0.85.1
+
+# SEM scale-bar extractor
+opencv-python
+pytesseract
+
+# Local VLM/LLM inference (Qwen2.5-VL-7B-Instruct, Qwen2.5-0.5B-Instruct)
+# torch/torchvision pinned to matching CUDA-12.1 builds -- see notes at top
+# of this file. Install with
+# --extra-index-url https://download.pytorch.org/whl/cu121
+# (setup_env.sh does this automatically).
+torch==2.5.1
+torchvision==0.20.1
+transformers
+peft
+accelerate
+
+# API model calls (OpenRouter)
+requests

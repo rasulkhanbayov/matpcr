@@ -2,7 +2,8 @@
 sem_scalebar_extractor.py
 ==========================
 Scale-bar extractor for the NFFA-EUROPE SEM dataset (real_scale, materials
-micrographs downloaded to /ephemeral/matpcr/nffa/extracted/).
+micrographs downloaded to $MATPCR_DATA_ROOT/nffa/extracted/, default
+/ephemeral/matpcr/nffa/extracted/).
 
 Real, confirmed-by-direct-inspection fact this is built around (see CLAUDE.md
 section 9, "NFFA-EUROPE SEM dataset"): the scale bar is NEVER structured
@@ -49,7 +50,10 @@ import cv2
 import numpy as np
 import pytesseract
 
-NFFA_ROOT = "/ephemeral/matpcr/nffa/extracted"
+# MATPCR_DATA_ROOT is host-specific -- set it in the environment before
+# running on a new host; see experiments/slurm/README.md.
+MATPCR_DATA_ROOT = os.environ.get("MATPCR_DATA_ROOT", "/ephemeral/matpcr")
+NFFA_ROOT = os.path.join(MATPCR_DATA_ROOT, "nffa", "extracted")
 
 # unit -> nanometers, for normalizing whatever unit OCR reads
 UNIT_TO_NM = {

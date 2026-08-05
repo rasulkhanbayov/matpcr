@@ -16,22 +16,28 @@ vision–language or language model's *reasoning chain* is physically consistent
 human labels**, deepen that check with **DFT-computed references**, release a **verifier**
 that predicts violations, and use the same signal to make models self-correct.
 
-**Headline results as reported (verified for internal consistency; see §5 on provenance):**
+**Headline results as reported (current, post-Phase-1-3 corrected numbers — verified
+against `matpcr_snjnl.tex` directly; see §5 on provenance):**
 - **Oracle-validity gate (Table 1).** The positive control recovered every planted
-  violation for all six oracle families (false-negative rate 0.0000). Audited precision on
-  real oracle-fired cases: XRD 77.2% (n=101), SEM 88.6% (n=105), Raman 72.8% (n=103). The
-  three DFT-grounded families' precision audit is **pending** the co-author's DFT sign-off.
-- **Physical-Consistency Rate (Table 2).** Overall PCR ranges 0.635 (Qwen2.5-VL-7B) to
-  0.734 (Gemini 2.5 Flash Lite); microscopy easiest, diffraction and magnetism hardest.
-- **Accuracy vs consistency.** Accuracy and PCR disagree on a mean 41.8% of items across
-  12 cells — PCR is not answer accuracy under another name.
-- **CGSV (Table 2, self-verification).** Never regressed a consistent item (b=0 in all 8
-  cells); raised PCR significantly for 3 of 4 models (McNemar p from 4.9e-4 to 1.2e-7),
-  Gemini directional but not significant (p=0.063), reported honestly.
-- **Verifier (Table 3).** Useful in-distribution (AUC 0.858); cross-modality transfer is
-  the paper's clearest negative result (5 of 6 held-out constraint types at or near
-  chance), with magnetism the lone exception (AUC 0.867). Reported as a limitation, not
-  hidden.
+  violation for all six oracle families (false-negative rate 0.0000) at every tolerance
+  tested. The three DFT-grounded families' precision audit under the corrected oracle is
+  **still pending** manual re-review (the old 90.8%/93.1%/85.9% numbers were audited
+  under the pre-correction oracle and are stale — do not reuse them).
+- **Physical-Consistency Rate (Table 1, 8 models).** Overall PCR ranges 0.513
+  (Qwen2.5-VL-7B) to 0.800 (GPT-5.6-Terra); microscopy easiest, spectra hardest after the
+  corrected spectrum oracle (a genuine, expected collapse — see manuscript Results).
+- **Accuracy vs consistency.** Accuracy and PCR disagree on a mean 22.2% of items across
+  the accuracy-checkable cells — PCR is not answer accuracy under another name.
+- **CGSV (self-verification).** Zero regressions (b=0) in every cell; raised PCR
+  significantly for 3 of 4 original models (McNemar p from 3.1e-5 to 4.6e-13 pooled),
+  reported honestly per-model.
+- **Verifier (Table 2/3).** Useful in-distribution (AUC 0.850, source-disjoint split).
+  Cross-constraint-type transfer is the paper's clearest negative result: **all six**
+  held-out constraint types are at or near chance (AUC 0.44–0.58) under the corrected,
+  source-disjoint split. **The earlier "magnetism generalizes well" claim (AUC 0.867) is
+  retracted** — it was an artifact of a record-level train/test leak; the corrected,
+  source-disjoint magnetism AUC is 0.503 (chance), confirmed under both held-out-modality
+  and held-out-constraint-type variants. There is no longer an exception to hedge around.
 
 **The contribution (5 parts):** (1) reframe evaluation to physical consistency of the
 reasoning chain, label-free, across image and structure inputs; (2) MatPCR programmatic

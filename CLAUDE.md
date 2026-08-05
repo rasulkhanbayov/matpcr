@@ -1181,10 +1181,19 @@ head, 4 epochs, on this A100.
 collection files — no new model calls.** `halfB_fired_cases.jsonl` (despite its
 name, contains BOTH consistent and inconsistent records, not just fired ones —
 205 XRD / 481 SEM / 575 spectrum) + `halfB_dft_fired_cases.jsonl` (236
-stability / 518 metallicity / 401 magnetism), each already carrying real
-chain_text + oracle_consistent labels from Half-B collection. Each family has
-a real, substantial minority class (~100+ examples each) — not a degenerate
-label distribution.
+stability / 518 metallicity / 401 magnetism, AS OF THIS 2026-07-11 RUN — see
+correction below), each already carrying real chain_text + oracle_consistent
+labels from Half-B collection. Each family has a real, substantial minority
+class (~100+ examples each) — not a degenerate label distribution.
+
+**Correction (2026-08-01):** `halfB_dft_fired_cases.jsonl` was later regenerated
+during the Phase 1 revision pass (§19 — DFT Half-B re-collected under the
+corrected oracle). The counts above are frozen historical values from this
+2026-07-11 run and no longer match the file on disk. The CURRENT, verified
+counts (confirmed directly against `experiments/exp5_verifier_dataset.jsonl`,
+which also matches `matpcr_snjnl.tex`'s stated figures) are **395 stability /
+255 metallicity / 241 magnetism**. Use those, not 236/518/401, for anything
+citing current DFT training-data size.
 
 **Three splits, each a genuinely separate trained model** (not one model
 sliced three ways): (1) random 80/20 stratified split, all 6 families pooled
@@ -1514,8 +1523,42 @@ cost, `source_id` added to every record.
 | GPT-4o | 0.581 | 0.933 | 0.103 | 0.756 | 0.580 | 0.611 | **0.649** |
 | Claude Sonnet 4.5 | 0.532 | 0.978 | 0.178 | 0.767 | 0.704 | 0.644 | **0.638** |
 
-(*DFT-grounded, provisional pending Mustafa's Half-B sign-off on these
-specific numbers.) **Spectrum's PCR collapsed from the original ~0.62-0.88
+**Note (2026-08-01): this 4-model table is now superseded by a final 8-model
+grid** (Phase 2 item 15 added Claude Opus 4.6, GPT-5.6-Terra, Qwen3-VL-8B-Instruct,
+Qwen3-VL-8B-Thinking — see `MATPCR_KNOWLEDGE.md` §7, which this CLAUDE.md
+previously lacked). Reproduced here so CLAUDE.md is a complete standalone
+index again, verified to match `VERSION2/matpcr_snjnl.tex` Table 1 exactly:
+
+| Model | Diffraction | Microscopy | Spectra | DFT* | All* |
+|---|---|---|---|---|---|
+| Qwen2.5-VL-7B | 0.516 | 0.652 | 0.148 | 0.586 | 0.513 |
+| Gemini 2.5 Flash Lite | 0.385 | 0.977 | 0.184 | 0.678 | 0.602 |
+| GPT-4o | 0.581 | 0.933 | 0.103 | 0.649 | 0.648 |
+| Claude Sonnet 4.5 | 0.532 | 0.978 | 0.178 | 0.705 | 0.637 |
+| Claude Opus 4.6 | 0.531 | 0.888 | 0.244 | 0.696 | 0.625 |
+| GPT-5.6-Terra | **0.797** | 0.940 | **0.878** | **0.724** | **0.800** |
+| Qwen3-VL-8B-Instruct | 0.550 | 0.778 | 0.167 | 0.588 | 0.538 |
+| Qwen3-VL-8B-Thinking | 0.540 | 0.784 | 0.115 | 0.614 | 0.546 |
+
+*DFT column provisional, pending Mustafa's sign-off. Real finding: capability
+scaling is NOT automatic — GPT-5.6-Terra clearly beats GPT-4o (non-overlapping
+CIs, see §20's scaling-trend traceability note above), but Claude Opus 4.6
+does not beat Claude Sonnet 4.5, and explicit reasoning mode
+(Qwen3-VL-8B-Thinking) does not beat its non-reasoning sibling (both CIs
+overlap) — this is the finding written up in the manuscript's scaling
+discussion, not a simple "newer is always better" story.
+
+(Below is the original 4-model-only table this session's re-run produced,
+kept for historical continuity of the narrative below it.) **Note
+(2026-08-01):** this table's GPT-4o/Claude "All"
+values (0.649/0.638) are close to but not identical to the values in the
+final 8-model manuscript table (`VERSION2/matpcr_snjnl.tex`, Table 1: 0.648/
+0.637) — this is NOT a rounding bug in either place. This table is the
+4-model Phase 1 re-run; the manuscript's is a later, separate 8-model Phase 2
+run (§20) that re-pulled/re-ran cells again, so the two numbers come from two
+different experimental executions, not the same data computed two ways. Do
+not "fix" one to match the other — both are real, from their own run.
+**Spectrum's PCR collapsed from the original ~0.62-0.88
 range to ~0.10-0.18** — confirmed directly (not assumed) by testing the old
 vs. new `spectrum_peak_exists` on a real spectrum: 81/200 sampled positions
 (40%) disagree between the two oracle versions. This is a correct,
@@ -1599,6 +1642,22 @@ usable-triage threshold (all 6 sit at 0.436-0.582). Updated the script's
 hardcoded conclusion text (previously said "magnetism is the exception") to
 explicitly state the finding was retracted after the methodology fix, not
 just softened.
+
+**Traceability check (2026-08-01):** re-ran `python3 experiments/exp6_detector_analysis.py`
+directly (it's fully deterministic — `bootstrap_auc_ci(..., seed=0)` reads
+straight from the committed `experiments/exp5_results.jsonl`, no re-training
+needed) to confirm every CI the manuscript reports for Table 2/detector
+analysis is real and reproducible, not fabricated. Output matched
+`matpcr_snjnl.tex` exactly: in-distribution n=431, AUC=0.850, 95% CI
+[0.813, 0.883] (line 610); held-out n per modality = 205/481/575/395/255/241
+(XRD/SEM/spectrum/stability/metallicity/magnetism, matching the corrected
+`exp5_verifier_dataset.jsonl` counts logged in §16's correction note above);
+held-out CIs XRD [0.419,0.578], SEM [0.468,0.589], spectrum [0.488,0.626],
+stability [0.370,0.502], metallicity [0.510,0.652], magnetism [0.430,0.576].
+Also confirmed `exp5_run3.log:60` directly logs in-distribution
+`AUC=0.850 ECE=0.096`, matching `matpcr_snjnl.tex:568` exactly. These were
+flagged by an earlier audit as untraceable from CLAUDE.md's tables alone;
+they are correct, just previously undocumented at this level of detail.
 
 ### Not yet done (Phase 1 remainder + carried into Phase 2)
 - [ ] **Manual re-review of the 3 new Half-B DFT pages** — blocking new DFT
@@ -1752,6 +1811,15 @@ blanks):**
   DFT-Grounded...", but the actual title is "Physics Is the Label..." —
   the title itself is fine, just Section C's description of it is wrong;
   not fixed, flagged here since it doesn't affect the manuscript itself).
+- **Traceability check (2026-08-01):** `matpcr_snjnl.tex:393`'s scaling-trend
+  CIs (GPT-4o [0.605,0.692] vs. GPT-5.6-Terra [0.762,0.835]) match
+  `experiments/exp14_results.json`'s `scaling_trend.per_model_pcr` exactly
+  (gpt4o ci_lo/hi 0.6048/0.6921, gpt56 0.7624/0.8347). `matpcr_snjnl.tex:1191-1196`'s
+  verifier-baseline CIs (LLM-judge AUC=0.447 [0.400,0.493], self-confidence
+  AUC=0.315 [0.264,0.365]) match `experiments/exp8_run.log:21,33` exactly. Both
+  were flagged by an earlier audit as untraceable from CLAUDE.md alone; both
+  are real, reproducible numbers from committed run logs/results files, just
+  not previously cross-referenced here.
 
 ### Not yet done (carried forward)
 - [ ] Manual re-review of the 3 DFT Half-B pages — still the standing
@@ -1761,8 +1829,9 @@ blanks):**
       144-cell sweep + 4 CGSV comparisons — explicitly flagged in the
       manuscript's Statistics paragraph as still owed, not computed this
       pass either.
-- [ ] GPT-4o's spectrum low-n anomaly — still not root-caused.
-- [ ] Gemini's magnetism-prompt truncation fix — still not applied.
+- [ ] GPT-4o's spectrum low-n anomaly — still not root-caused (reproduced
+      again in §21's Panther re-run: n=44 vs. ~87-90 elsewhere, same pattern).
+- [x] Gemini's magnetism-prompt truncation fix — DONE (2026-08-01, see §21).
 - [ ] A genuine verifier-as-best-of-N-selector comparison (needs
       `exp7_cgsv_controls.py`'s best_of_n path extended to persist each
       candidate's chain_text, not just the aggregate first/any flags) —
@@ -1773,3 +1842,474 @@ blanks):**
       Mustafa's DFT sign-off, 2-3 independent human mock reviews, every
       `% VERIFY` citation checked, Overleaf recompile with the official
       (non-patched) `sn-jnl` class before real submission.
+
+---
+
+## 21. Migration to QCRI Panther cluster (A100/H200) — Tier 1 re-run DONE
+(2026-08-05) — `experiments/slurm/`
+
+Moved off the (now-wiped) single-P100 host onto QCRI's Panther Slurm
+cluster, which has A100 (80GB) and H200 (141GB) partitions. Access confirmed
+2026-08-01; real per-user Slurm account/QOS names differ from the Panther
+End-User Guide's generic examples (`A100`/`a100_qos`) — this project's HBKU
+account is **`a100_hbku`/`a100_hbku_qos`** and **`h200_hbku`/`h200_hbku_qos`**
+(confirmed via `sacctmgr show associations user=<user>
+format=Account,Partition,QOS -p`; all sbatch scripts under
+`experiments/slurm/` use these). Partitions themselves (`gpu-A100`,
+`gpu-H200`) match the guide exactly.
+
+**Data staged fresh** (old `/ephemeral/matpcr` root no longer exists, per
+§20's wipe): opXRD (92,552 patterns, matches CLAUDE.md's count exactly),
+NFFA-EUROPE (18,424 images across all 10 categories, every category count
+matches exactly), RRUFF `excellent_unoriented` (11,415 files, matches
+exactly) — all via new `experiments/slurm/stage_*.sh` scripts, checksum-
+verified against Zenodo/B2SHARE's own published MD5s. Materials Project not
+yet staged — no MP_API_KEY obtained yet, so all 3 DFT-grounded oracles
+remain blocked (Tier 2, see `experiments/slurm/README.md`'s Tier 1/2 split).
+
+### Real environment bugs hit and fixed during setup (not anticipated)
+1. **`conda create`/large downloads killed on `panther-login`**: the login
+   node's watchdog script (which the guide documents as removing stray user
+   processes to prevent overload) reaped both an interactive `conda create`
+   and a multi-GB Zenodo download. Not a bug in this project's scripts —
+   fixed by running all such work on the shared physical server
+   (`crimv3mgpu015`/`.27`/`.28`) instead, per the guide's own instructions.
+2. **Corrupted partial downloads silently treated as complete**: the
+   original `stage_opxrd.sh`/`stage_nffa.sh` only checked file *existence*
+   before skipping a re-download, so a zip truncated by the login-node kill
+   (issue 1) was accepted as good. Fixed by adding MD5 checksum verification
+   (Zenodo and B2SHARE both publish per-file MD5s) with automatic
+   delete-and-retry on mismatch.
+3. **B2SHARE API shape was wrong in the original NFFA staging script**: the
+   real API (confirmed directly) has NO top-level `files` array on the main
+   record — file listings live at a separate `/files` endpoint, entries are
+   under a top-level `"entries"` key, and the download URL is
+   `links.content` (not `links.self`, which is just the file's metadata
+   page). Original script guessed a flatter shape and crashed with
+   `TypeError: string indices must be integers`. Fixed against the real,
+   directly-inspected response.
+4. **`torch` pulled a CUDA-13.0 build, incompatible with Panther's driver**:
+   plain `pip install torch` (unpinned, per the original
+   `requirements-main.txt`) resolved to `torch==2.13.0+cu130`, but Panther's
+   nodes report CUDA 12.9 via a 575.57.08 driver — too old for a cu130
+   build. Every local-model (Qwen2.5-VL-7B) pilot call silently failed
+   (`torch.cuda.is_available() == False`), returning an error string as the
+   "chain_text" that looked like a model/prompt problem but was purely
+   environmental. **Fixed by pinning `torch==2.5.1+cu121`**
+   (`--extra-index-url https://download.pytorch.org/whl/cu121`), matching
+   the `cuda12.1/toolkit/12.1.1` module the sbatch scripts already load.
+5. **`torchvision` was missing entirely** — masked by bug 4 until that was
+   fixed, then surfaced immediately as a second local-model failure
+   (`Qwen2VLVideoProcessor requires the Torchvision library`). Added
+   `torchvision==0.20.1` (matching build) to `requirements-main.txt`.
+6. **`tesseract` (system OCR binary for `sem_scalebar_extractor.py`) not
+   installed, and not pip-installable** — `pytesseract` is only a Python
+   wrapper; no sudo/apt access as a regular cluster user. This didn't
+   surface until partway through a real Experiment-2 sweep (XRD completed
+   first; the crash only hit once SEM cells started), costing real API
+   budget before being caught. **Fixed via `conda install -c conda-forge
+   tesseract`**, now automated in `setup_env.sh`.
+7. **`exp2_pcr_sweep.py` unconditionally opened the Materials Project data
+   file** even when no DFT-grounded modality was requested (e.g.
+   `--modalities xrd sem spectrum`) — crashed with `FileNotFoundError`
+   before Tier 2 data existed, even though the run never touches DFT data.
+   Real pre-existing gap in the script (every historical run happened to
+   include a DFT modality, so this path was never exercised). **Fixed**:
+   `materials_pool` is now only loaded if `any(m in DFT_CLAIM_TYPES for m in
+   args.modalities)`.
+8. **Date-stamped output filenames broke `--resume` across job
+   resubmissions**: `job_exp2_pcr_sweep.sbatch` originally generated
+   `exp2_results_panther_$(date +%Y%m%d).jsonl` fresh on every submit —
+   resuming on a later date would silently start a new empty file instead
+   of continuing the previous partial run. **Fixed** to a stable filename
+   (`exp2_results_panther.jsonl`, override-able via a 3rd script argument).
+
+### Gemini magnetism-prompt truncation fix — DONE (2026-08-01)
+Per the standing open item (§19/§20): `pilot_dft.py`'s magnetism prompt
+lacked the explicit "keep reasoning SHORT, don't hedge" instruction that
+already fixed the identical truncation failure mode on the stability
+prompt. The magnetism prompt hedges hardest on chemically ambiguous
+formulas (rare-earth/lanthanide + transition-metal compositions), eating
+the token budget before `FINAL_ANSWER`. **Fixed**: added the same
+short/non-hedging instruction, explicitly naming the ambiguous-formula case,
+plus raised `run_text_api_openrouter`'s `max_tokens` 1000→1500 as
+defense-in-depth (same two-part fix pattern as the original stability fix).
+Not yet re-run against real magnetism data (still blocked on an MP_API_KEY,
+Tier 2) — `experiments/slurm/job_magnetism_recollect.sbatch` is ready to
+confirm the fix once a key is obtained.
+
+### Verifier seed-pinning fix — DONE (2026-08-01), not yet re-run
+Per the standing blocking item (the released verifier weights were lost
+when the old host's `/ephemeral` was wiped and are unrecoverable in their
+original, bit-exact form): `exp5_train_verifier.py`'s `train_and_eval()`
+only ever seeded `make_split()`'s numpy RNG, never `torch`/`transformers`
+training itself. **Fixed**: added `transformers.set_seed(train_seed)` before
+model/LoRA init, and a `--train_seed` CLI flag (default 0). Not yet
+retrained on Panther — `experiments/slurm/job_verifier_retrain.sbatch` is
+ready (needs no API key, trains on already-committed
+`exp5_verifier_dataset.jsonl`).
+
+### Experiment 2 (PCR sweep) re-run on Panther — Tier 1 (XRD/SEM/spectrum)
+DONE (2026-08-05) — `experiments/exp2_results_panther.jsonl`
+
+8 models × 3 modalities × up to 3 seeds, n=30/cell target, **1,863 total
+checkable records, $4.59 API cost**. Completed cleanly (zero errors) after
+fixes 2-6 above; ran across two job submissions using `--resume` (first hit
+the tesseract bug partway through SEM, second completed the rest from where
+it left off without re-spending budget on the already-done XRD cells).
+
+| Model | XRD | SEM | Spectrum |
+|---|---|---|---|
+| Qwen2.5-VL-7B (local) | 0.500 [0.375,0.625] | 0.667 [0.563,0.759] | 0.148 [0.080,0.227] |
+| Gemini 2.5 Flash Lite | 0.517 [0.400,0.650] | 1.000 [1.000,1.000] | 0.278 [0.189,0.378] |
+| GPT-4o | 0.625 [0.500,0.750] | 0.954 [0.908,0.989] | 0.068 [0.000,0.159] (n=44) |
+| Claude Sonnet 4.5 | 0.547 [0.422,0.672] | 0.977 [0.943,1.000] | 0.189 [0.111,0.267] |
+| Claude Opus 4.6 | 0.578 [0.453,0.703] | 0.954 [0.908,0.989] | 0.244 [0.156,0.333] |
+| GPT-5.6-Terra | 0.797 [0.703,0.891] | 0.951 [0.901,0.988] | 0.833 [0.756,0.911] |
+| Qwen3-VL-8B-Instruct | 0.468 [0.355,0.597] | 0.802 [0.709,0.884] | 0.133 [0.067,0.200] |
+| Qwen3-VL-8B-Thinking | 0.578 [0.453,0.703] | 0.885 [0.816,0.943] | 0.092 [0.034,0.161] |
+
+**Real findings, consistent with the manuscript's existing story:**
+- SEM/XRD numbers closely track the current manuscript's Table 1 (e.g.
+  GPT-5.6-Terra's XRD=0.797 matches `matpcr_snjnl.tex` exactly).
+- **GPT-4o's spectrum low-n anomaly reproduced yet again** (n=44 vs. ~87-90
+  elsewhere) — 8th reproduction across sessions/hosts, still not
+  root-caused. Strong evidence this is a genuine (GPT-4o × spectrum)
+  parse-rate property, not host- or session-specific noise.
+- **Spectrum numbers here are NOT identical to the manuscript's** (e.g.
+  Gemini 0.278 here vs. 0.184 in `matpcr_snjnl.tex`; GPT-5.6-Terra 0.833
+  here vs. 0.878 in the manuscript) — expected and not a bug: different
+  sampling draw, and live API model snapshots may have drifted since the
+  original run. Do NOT overwrite the manuscript's numbers with these
+  without a deliberate decision to re-run and re-report; this run's primary
+  purpose was validating the Panther pipeline end-to-end, which it did.
+
+### Not yet done (Panther-specific, carried forward)
+- [ ] Obtain an MP_API_KEY and run `stage_materials_project.sh`, then
+      `job_exp2_dft.sbatch` (Tier 2 PCR columns) and
+      `job_magnetism_recollect.sbatch` (confirm the prompt fix).
+- [ ] Run `job_verifier_retrain.sbatch` and compare against the committed
+      `exp5_results.jsonl` before treating any new weights as a release
+      candidate.
+- [ ] Decide whether to formally adopt this session's fresh Tier 1 numbers
+      into the manuscript, or treat this run as pipeline validation only
+      (current default, per the note above).
+
+---
+
+## 22. Tier 2 (DFT-grounded) Panther run + verifier retrain + magnetism
+re-collection — ALL DONE (2026-08-05)
+
+Materials Project key obtained; staged 3,000 real materials
+(`experiments/slurm/stage_materials_project.sh`, MP database_version
+2026.04.13, retrieval_date 2026-08-05, 0 skipped for missing nsites — full
+provenance recorded per Mustafa's requirement). One real gap found and
+fixed in the staging wrapper: `mp_fetch_reference_data.py` requires
+`--retrieval_date` (a real, intentional provenance field, not a bug in that
+script) but the original `stage_materials_project.sh` never passed it —
+fixed by passing `$(date +%Y-%m-%d)`.
+
+**Secrets handling note**: the MP key arrived as a plaintext
+`materials_project_api.txt` at the repo root (untracked but NOT gitignored
+— one `git add -A` away from a leak). Moved to
+`~/.matpcr_secrets/mp_api_key` (same convention as the OpenRouter key,
+outside the repo, 600 permissions) and the original file deleted. Verified
+no copy of the key string remains anywhere in the repo.
+
+### Experiment 2 DFT-grounded PCR sweep — DONE
+(`experiments/exp2_dft_results_panther_20260805.jsonl`)
+
+8 models × 3 DFT modalities × 3 seeds, n=30/cell target, **2,110 checkable
+records, $6.41 API cost**. Completed cleanly (zero errors), ~40 min runtime
+(items ran slower than the geometric modalities' — DFT reasoning chains are
+longer). No low-n anomaly in any cell (all n=77-90, unlike spectrum's
+persistent GPT-4o gap).
+
+| Model | Stability | Metallicity | Magnetism |
+|---|---|---|---|
+| Qwen2.5-VL-7B (local) | 0.744 [0.656,0.833] | 0.540 [0.437,0.644] | 0.767 [0.678,0.856] |
+| Gemini 2.5 Flash Lite | 0.730 [0.640,0.820] | 0.702 [0.607,0.798] | 0.494 [0.382,0.596] |
+| GPT-4o | 0.800 [0.711,0.878] | 0.671 [0.565,0.765] | 0.678 [0.578,0.778] |
+| Claude Sonnet 4.5 | 0.756 [0.667,0.844] | 0.694 [0.600,0.788] | 0.756 [0.666,0.844] |
+| Claude Opus 4.6 | 0.722 [0.633,0.811] | 0.721 [0.628,0.814] | 0.700 [0.600,0.789] |
+| GPT-5.6-Terra | 0.656 [0.556,0.756] | 0.659 [0.553,0.753] | 0.767 [0.678,0.844] |
+| Qwen3-VL-8B-Instruct | 0.713 [0.621,0.805] | 0.688 [0.584,0.792] | 0.533 [0.433,0.633] |
+| Qwen3-VL-8B-Thinking | 0.767 [0.678,0.856] | 0.644 [0.540,0.736] | 0.506 [0.404,0.607] |
+
+**Standing caveat unchanged**: these are real, measured PCR numbers but the
+underlying DFT reference data/tolerances are NOT yet independently
+re-validated by Mustafa under this exact re-run (his prior sign-off, §9/§19,
+was on the protocol and an earlier data pull, not this specific batch).
+Report as provisional, same as every other DFT number in this project.
+**Do not confuse this PCR sweep with DFT Half-B precision** — this is model
+consistency-rate, not the still-outstanding human precision audit on
+corrected-oracle fired cases (§20/§21's "not yet done" list — still not
+done, unaffected by this run).
+
+**Real finding worth flagging**: Gemini's magnetism PCR (0.494) is among
+the lowest in this table, in the same direction as the standing
+"Gemini's magnetism prompt hedges/truncates on ambiguous formulas" finding
+(§19/§20/§21) — but this run's collection (below) suggests the underlying
+truncation bug itself IS fixed; a low PCR here is a separate question about
+whether Gemini's actual judgment on magnetism is less accurate, not whether
+it can produce a parseable answer at all. Not fully disentangled this pass.
+
+### Gemini magnetism-prompt fix — re-collection confirms the fix works
+(`experiments/halfB_dft_fired_cases_magnetism_refix_20260805.jsonl`)
+
+Target of ≥100 fired cases reached in only **5 rounds** (113 fired cases
+out of 300 total scanned records, 150 local + 150 api), **$0.0096 API
+cost** — both the round-count and cost are far lower than the original
+collection needed (CLAUDE.md's Phase 1 DFT Half-B collection, §19, needed
+to loop substantially longer to hit its target).
+This is consistent with — though not definitive proof of — the prompt fix
+(§21: explicit short/non-hedging instruction + raised token budget) working
+as intended: fewer wasted, unparseable Gemini calls means fewer rounds
+needed to accumulate the same number of real fired cases. **Manual re-review
+of these 113 cases is still the standing blocking item** before any new
+magnetism precision number can be reported (unchanged from §20/§21).
+
+### Verifier retrain with pinned seed — DONE
+(`experiments/exp5_results_panther_20260805.jsonl`,
+weights at `$MATPCR_DATA_ROOT/verifier_weights_20260805/`)
+
+All 13 splits retrained cleanly, zero errors. Compared directly against the
+committed `exp5_results.jsonl`:
+
+| Split | Old AUC | New AUC | Δ |
+|---|---|---|---|
+| random (in-distribution) | 0.850 | 0.840 | −0.010 |
+| held-out XRD | 0.497 | 0.552 | +0.055 |
+| held-out SEM | 0.527 | 0.686 | +0.159 |
+| held-out spectrum | 0.558 | 0.549 | −0.009 |
+| held-out stability | 0.436 | 0.423 | −0.013 |
+| held-out metallicity | 0.582 | 0.574 | −0.008 |
+| held-out magnetism | 0.503 | 0.511 | +0.008 |
+
+(held-out-constraint-type rows track their held-out-modality counterparts
+within noise, as previously established — not duplicated here.)
+
+**Qualitative story holds**: in-distribution stays strong (~0.84-0.85), no
+held-out modality re-emerges as a generalization exception (magnetism stays
+at chance, 0.511 vs. the retracted 0.867), consistent with the corrected,
+source-disjoint-split finding in §19/the manuscript. **SEM's held-out AUC
+moved more than the rest** (0.527→0.686) — still well below the
+AUC≥0.7 "usable triage" bar from Experiment 6, so this doesn't revive any
+retracted claim, but is a real point of training-seed sensitivity worth
+noting rather than treating both numbers as interchangeable.
+
+**This is now the release-candidate weight set** for the citable verifier
+artifact (pending a decision on whether to actually publish it publicly —
+still open, see §17's standing item).
+
+### Not yet done (carried forward)
+- [ ] Manual re-review of the 113 fresh magnetism fired cases (this
+      session) — still needs a human, still the standing blocking item for
+      any DFT precision number.
+- [ ] Decide on and execute public release of the verifier weights now
+      sitting at `$MATPCR_DATA_ROOT/verifier_weights_20260805/`.
+- [ ] Disentangle Gemini's low magnetism PCR (0.494, this run) into
+      "still hedges/gets it wrong" vs. "parses fine but judges incorrectly"
+      — not done this pass.
+- [ ] Mustafa's DFT sign-off remains on the ORIGINAL protocol/data pull,
+      not this specific 2026-08-05 batch — standing caveat, unchanged.
+
+---
+
+## 23. Manuscript updated with the Panther Tier 1+2 numbers — DONE (2026-08-05)
+
+Per explicit user decision (2026-08-05): the fresh 2026-08-05 Panther run
+(§21/§22 — combined XRD/SEM/spectrum + stability/metallicity/magnetism,
+3,973 total checkable records, 8 models) now REPLACES the prior numbers
+throughout `VERSION2/matpcr_snjnl.tex`, not just sitting alongside them in
+CLAUDE.md. Updated:
+- **Table 1** (`tab:main`): all 8 rows, all 5 columns (Diffraction,
+  Microscopy, Spectra, DFT combined, All combined), including which cells
+  are re-bolded as the new column maxima (Gemini now leads Microscopy at
+  a clean 1.000; Claude Sonnet 4.5 now leads DFT at 0.736; GPT-5.6-Terra
+  still leads Diffraction, Spectra, and All).
+- **SI Table S1**: all 48 per-(model, constraint-type) rows with fresh $n$,
+  PCR, and bootstrap 95% CI, computed the same way as before (percentile
+  bootstrap on `matpcr_metrics.bootstrap_ci`, pooled across seeds).
+- **Figure 2 panel a** (the PCR heatmap, TikZ): both the displayed value and
+  the fill-intensity parameter for all 40 cells. The intensity formula
+  (`\f`) was reverse-engineered from the existing block (closest match:
+  `round(100 * PCR^2.5)`) since it isn't documented anywhere as an explicit
+  formula — good enough to preserve the intended visual gradient, not
+  pixel-exact against whatever the original figure-generation script used.
+- **Discussion** and **Baselines** prose: overall PCR range (now
+  0.555--0.774, was 0.513--0.800), the GPT-4o→GPT-5.6-Terra scaling
+  comparison (0.774 vs. 0.687, still non-overlapping CIs — same
+  qualitative finding), and the Qwen3-VL reasoning-mode comparison (0.579
+  vs. 0.555, still overlapping CIs — same finding).
+
+**What did NOT change** (correctly out of scope for this update):
+- The oracle-validity gate table (`tab:exp1`, Experiment 1 Half-A/Half-B) —
+  DFT precision cells still correctly say "pending human review"; today's
+  run produced new PCR data, not a new human precision audit.
+- Experiments 3 (accuracy-vs-consistency), 4 (CGSV), 5 (verifier
+  generalization by held-out split), 6 (detector analysis) — none of these
+  were re-run today; their tables/prose are untouched and still reflect
+  the prior data. Re-running Experiment 2 does not automatically update
+  numbers derived from separate experiments built on top of it.
+- The MatterChat baseline paragraph (Phase 2 item 16) — unrelated dataset,
+  untouched.
+- DFT-provisional caveat language throughout — unchanged; these numbers
+  are real and measured but still not independently re-validated by
+  Mustafa under this exact 2026-08-05 data pull (§22).
+
+**`VERSION2/matpcr_submission.zip` deliberately NOT rebuilt this pass** —
+its bundled `matpcr_snjnl.pdf` was compiled before today's edits and no
+LaTeX toolchain is available in this environment to produce a fresh,
+matching PDF. Per explicit user decision (2026-08-05): hold the zip as-is
+rather than bundle a `.tex` that no longer matches its own `.pdf` — rebuild
+only once a real `pdflatex` compile has actually been run against the
+updated source (same rebuild procedure as Phase 1, §1 blocking item 1).
+
+### Not yet done
+- [ ] Get a real LaTeX toolchain to compile the updated `matpcr_snjnl.tex`
+      (this session verified brace/environment balance only, no actual
+      `pdflatex` run against these edits), THEN rebuild
+      `VERSION2/matpcr_submission.zip` with the matching fresh PDF — do
+      not rebuild the zip before the PDF is regenerated, per the standing
+      decision above.
+- [ ] `MATPCR_KNOWLEDGE.md` §7's Experiment 2 table (if that file is kept
+      up to date going forward) also needs this update — not touched this
+      pass, only `matpcr_snjnl.tex` and `CLAUDE.md`.
+
+---
+
+## 24. Multiple-comparisons correction (Holm/BH) — DONE (2026-08-05)
+
+Resolves the last standing item from `matpcr_REDFLAGS.txt` (BL1's
+multiplicity remainder + EX10) that hadn't been closed by earlier passes.
+
+**Scoped correctly, not naively**: the manuscript's 144 (model,
+constraint-type, seed) sweep cells report bootstrap CIs on point estimates,
+not a family of significance tests — Holm/BH correction (designed for
+p-value families) doesn't apply to them the same way, and applying it
+anyway would have been a category error, not rigor. The actual family of
+*significance tests* in the paper is Table 2's 6 exact McNemar tests: the
+4 per-model CGSV comparisons (`exp4_results.jsonl`) + 2 mechanism-isolation
+controls (self-refine, re-prompt; `exp7_results.jsonl`).
+
+Added `holm_bonferroni()` and `benjamini_hochberg()` to `matpcr_metrics.py`
+(smoke-tested: monotonicity, Holm-at-least-as-conservative-as-BH, p=1.0
+stays at 1.0 under both). New script
+`experiments/exp15_multiplicity_correction.py` recomputes all 6 McNemar
+tests directly from the raw before/after records (not hardcoded from the
+manuscript's printed values — confirmed the raw p-values reproduce exactly:
+$3.1\times10^{-5}$, $2.4\times10^{-4}$, $7.6\times10^{-6}$,
+$4.6\times10^{-13}$, $0.615$, $0.20$) and applies both corrections.
+
+**Result: all 4 CGSV effects survive the strictest (Holm) correction**
+(adjusted $p$: $1.2\times10^{-4}$, $7.3\times10^{-4}$, $3.8\times10^{-5}$,
+$2.7\times10^{-12}$ — every one still far below 0.05), and both negative
+controls remain non-significant under either correction (Holm-adjusted
+$p=0.615$ and $0.399$). The qualitative finding — CGSV works, generic
+self-refinement/re-prompting do not — is robust to testing 6 things at
+once, not an artifact of multiple comparisons.
+
+**Manuscript updated** (`VERSION2/matpcr_snjnl.tex`): Table 2 gained a
+$p_{\mathrm{Holm}}$ column with the corrected values; the Statistics
+paragraph (Methods/Baselines) and the earlier Results-section mention both
+rewritten from "still-owed, unresolved limitation" to "resolved, all
+effects survive" with the actual numbers. Confirmed brace/environment
+balance still holds after the edit (985/985, 40/40) — no real compile run
+(still no LaTeX toolchain in this environment, same standing gap as §23).
+
+### Not yet done
+- [ ] Still no real `pdflatex` compile of the manuscript since §21-24's
+      edits (only structural balance checked) — same standing item as §23.
+- [ ] `matpcr_submission.zip` still correctly held back pending that compile.
+
+---
+
+## 25. DFT Half-B manual precision review — DONE (2026-08-06)
+
+The last piece of the standing DFT gate blocker. The corrected-oracle review
+pages didn't actually exist on disk (found missing 2026-08-05 despite an
+earlier claim they'd been "regenerated" — see §22's superseded note); the
+underlying data (`experiments/halfB_dft_fired_cases.jsonl`, 891 records, 336
+fired) was real and present, so `experiments/halfB_report_dft.py` was simply
+(re-)run to produce them:
+`experiments/halfB_review_dft_{stability,metallicity,magnetism}.html`
+(107/114/115 fired cases respectively — exact match to CLAUDE.md's recorded
+count).
+
+Rasul reviewed all 336 cases across the 3 corrected-oracle DFT families
+(exported as `stability_halfB_review_2026-08-06.txt`/
+`metallicity_halfB_review_2026-08-06.txt`/`magnetism_halfB_review_2026-08-06.txt`
+at repo root — same unquoted-bare-token export quirk as the original
+geometric-family reviews, parsed the same way with a regex pre-pass. Note:
+all three files' internal `claim_type` header field says `"stability"` —
+confirmed as a cosmetic export-tool artifact, not a real labeling error,
+since each file's case count matches its OWN family's fired-case count
+exactly (107/114/115), not stability's).
+
+**Precision results (real / (real + false_positive)):**
+
+| Family | Reviewed | Real | False positive | Precision |
+|---|---|---|---|---|
+| Stability | 107 | 102 | 5 | **95.3%** |
+| Metallicity | 114 | 108 | 6 | **94.7%** |
+| Magnetism | 115 | 106 | 9 | **92.2%** |
+
+**GATE DECISION: Rasul judged this precision sufficient to proceed**
+(2026-08-06) — an explicit team call, same pattern as the original
+geometric-families gate decision (2026-07-07). All three land comfortably
+above the geometric families' own passing precision (72.8-88.6%), and
+**above the OLD, stale pre-correction DFT numbers** (90.8%/93.1%/85.9%) —
+a real signal the oracle corrections (magnetism's magnitude-only redesign,
+metallicity's abstention band, stability's near-hull framing) improved
+precision, not just changed methodology cosmetically.
+
+**False-positive root-cause check (before the gate decision, for context):**
+- **Stability (5 FPs)**: all cluster right at the hull boundary
+  (energy_above_hull 0.0003-0.022 eV/atom, all below the 0.05 tolerance) —
+  the exact same MP-`is_stable`-vs-0.05eV/atom definition-mismatch effect
+  already documented for the pre-correction review (§16). Not a new failure
+  mode.
+- **Metallicity (6 FPs)**: all have a real band_gap in the 0.003-0.04 eV
+  range — genuinely near the metal/nonmetal boundary, a real edge effect
+  of where the abstention band's `metal_max_eV` threshold sits, not random
+  noise.
+- **Magnetism (9 FPs)**: mixed — several have a claimed magnitude close to
+  the real value (e.g. one case: claimed 6.0, real total_magnetization
+  6.0000 exactly — plausibly a borderline call, not a clear miss), others
+  have a claimed magnitude far from a near-zero real value (a genuine miss).
+  Not further disentangled this pass.
+
+**File hygiene**: the OLD pre-correction review exports
+(`stability.txt`/`metallicity.txt`/`magnetism.txt`, dated 2026-07-10) were
+sitting at the repo root next to nothing distinguishing them from a future
+new review — archived to
+`archive/{stability,metallicity,magnetism}_OBSOLETE_precorrection_oracle_2026-07-10.txt`
+(matching the existing `archive/matpcr_submission_OBSOLETE_2026-06-19.zip`
+naming convention) to remove that landmine.
+
+### Manuscript updated (`VERSION2/matpcr_snjnl.tex`)
+Table 1 (`tab:exp1`, the oracle-validity gate table): all three DFT rows
+changed from "pending human review" to the real audited precision figures
+above; caption rewritten to state the audit is complete under the corrected
+oracle, still describing these as real/measured but not yet independently
+re-validated by Mustafa on this specific reviewed batch (his conditional
+protocol approval stands, per §9/§19 — this is precision on the protocol he
+approved, not a new sign-off). Confirmed brace/environment balance still
+holds (988/988, 40/40) — no real `pdflatex` compile run, same standing gap
+as §23/§24.
+
+**This closes the last blocking item from `matpcr_REDFLAGS.txt` BL3/items
+1-3 that was resolvable without new data collection.** Mustafa's
+independent re-validation of this exact batch and the second-human-reviewer
+Cohen's-kappa pass (EX6) remain the only genuinely open human-labor items
+from the red-flags list.
+
+### Not yet done
+- [ ] Mustafa's independent re-validation of this specific 2026-08-06
+      reviewed batch (his sign-off was on the protocol, not this precision
+      number — standing distinction, unchanged).
+- [ ] Second human reviewer + Cohen's kappa (EX6) — still not started, for
+      any oracle family, DFT or geometric.
+- [ ] Real `pdflatex` compile of the manuscript — same standing gap as
+      §23/§24, not resolved this pass either.

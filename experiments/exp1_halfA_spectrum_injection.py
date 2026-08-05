@@ -28,7 +28,10 @@ from scipy.signal import find_peaks
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from matpcr_metrics import spectrum_peak_exists, bootstrap_ci  # noqa: E402
 
-RRUFF_ROOT = "/ephemeral/matpcr/rruff/extracted"
+# MATPCR_DATA_ROOT is host-specific -- set it in the environment before
+# running on a new host; see experiments/slurm/README.md.
+MATPCR_DATA_ROOT = os.environ.get("MATPCR_DATA_ROOT", "/ephemeral/matpcr")
+RRUFF_ROOT = os.path.join(MATPCR_DATA_ROOT, "rruff", "extracted")
 X_TOL = 5.0  # cm^-1, reasonable read-off tolerance for a real Raman shift
 PLANTED_RATES = [0.1, 0.3, 0.5]
 N_FILES = 300  # keep runtime reasonable; RRUFF files parse fast (no pymatgen)

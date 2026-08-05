@@ -32,13 +32,17 @@ from __future__ import annotations
 import os
 
 # Must be set before any huggingface_hub/transformers import, and set here
-# explicitly rather than relying on shell env -- this machine has conflicting
-# HF_HOME exports from prior sessions/other users (confirmed: ~/.bashrc had
-# two different paths, and the actual env resolved to a THIRD, unrelated
-# path, /data/hf_cache, that doesn't even exist as a distinct mount). Setting
-# it here is the only reliable way to guarantee the local model downloads to
-# /ephemeral (614GB free) instead of failing or landing on the tiny root disk.
-os.environ["HF_HOME"] = "/ephemeral/matpcr/hf_cache"
+# explicitly rather than relying on shell env -- an earlier host had
+# conflicting HF_HOME exports from prior sessions/other users (confirmed:
+# ~/.bashrc had two different paths, and the actual env resolved to a THIRD,
+# unrelated path that didn't even exist as a distinct mount). Setting it here
+# is the only reliable way to guarantee the local model downloads somewhere
+# with real space instead of failing or landing on a small root disk.
+# MATPCR_DATA_ROOT is host-specific (the old /ephemeral/matpcr root was on a
+# machine that no longer exists) -- set it in the environment before running
+# on a new host; see experiments/slurm/README.md.
+MATPCR_DATA_ROOT = os.environ.get("MATPCR_DATA_ROOT", "/ephemeral/matpcr")
+os.environ["HF_HOME"] = os.path.join(MATPCR_DATA_ROOT, "hf_cache")
 
 import argparse
 import glob
@@ -68,10 +72,12 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, REPO_ROOT)
 
 OPXRD_ROOT = os.path.join(REPO_ROOT, "opxrd")
-NFFA_ROOT = "/ephemeral/matpcr/nffa/extracted"
-RRUFF_ROOT = "/ephemeral/matpcr/rruff/extracted"
+NFFA_ROOT = os.path.join(MATPCR_DATA_ROOT, "nffa", "extracted")
+RRUFF_ROOT = os.path.join(MATPCR_DATA_ROOT, "rruff", "extracted")
 
-SCRATCH_IMG_DIR = "/tmp/claude-1000/-home-ubuntu-nature-submission/df4a988c-ac17-4275-bb10-e68e591e9581/scratchpad/pilot_images"
+SCRATCH_IMG_DIR = os.environ.get(
+    "MATPCR_SCRATCH_IMG_DIR", os.path.join(MATPCR_DATA_ROOT, "pilot_images")
+)
 os.makedirs(SCRATCH_IMG_DIR, exist_ok=True)
 
 

@@ -1,0 +1,28 @@
+# Isolated venv for the MatterChat domain-evaluee baseline (CLAUDE.md/
+# MATPCR_KNOWLEDGE.md §16 item 16 / §9). Keep this in a SEPARATE venv from
+# requirements-main.txt -- MatterChat pins old dependency versions that
+# conflict with the main env's (different pymatgen/ase/transformers majors).
+#
+# Setup:
+#   python3 -m venv ~/matpcr_matterchat_venv
+#   source ~/matpcr_matterchat_venv/bin/activate
+#   pip install -r experiments/slurm/requirements-matterchat.txt
+#
+# Real dependency issues hit and fixed when this was first built (not
+# scripted here individually -- re-discover via CLAUDE.md/MATPCR_KNOWLEDGE.md
+# §16/EX5 notes if a new issue surfaces on Panther, since these were fixed
+# one at a time against a specific CUDA/driver combination that may differ
+# here): CUDA build mismatch against pytorch-lightning; missing
+# pkg_resources/timm/protobuf; ase's ExpCellFilter rename between versions;
+# cross-version MPID pickling when loading the CHGNet checkpoint.
+#
+# Model/checkpoint sources (both CC-BY-4.0, from the MatterChat paper's own
+# Zenodo records): Mistral-7B-Instruct-v0.3 (HF) + CHGNet checkpoint
+# (Zenodo record 18735961/18735881).
+
+transformers==4.42.4
+pytorch-lightning==2.3.3
+pymatgen==2024.4.13
+ase==3.22.1
+torch
+numpy
