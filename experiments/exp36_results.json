@@ -1,0 +1,116 @@
+{
+ "xrd": {
+  "n_decided": 30,
+  "missed": 1,
+  "clean": 29,
+  "unsure": 0,
+  "unlabelled": 0,
+  "miss_rate": 0.03333333333333333,
+  "miss_rate_ci95": [
+   0.005908590316197976,
+   0.16670391146115726
+  ],
+  "population_fired": 101,
+  "population_silent": 104,
+  "implied_recall": 0.9668155711550733,
+  "implied_recall_ci95": [
+   0.8534931889812172,
+   0.9939526993407457
+  ]
+ },
+ "sem": {
+  "n_decided": 30,
+  "missed": 2,
+  "clean": 28,
+  "unsure": 0,
+  "unlabelled": 0,
+  "miss_rate": 0.06666666666666667,
+  "miss_rate_ci95": [
+   0.018477023624516822,
+   0.21323458516874166
+  ],
+  "population_fired": 105,
+  "population_silent": 376,
+  "implied_recall": 0.8072783188108662,
+  "implied_recall_ci95": [
+   0.5670274998547058,
+   0.9379408247945163
+  ]
+ },
+ "spectrum": {
+  "n_decided": 30,
+  "missed": 1,
+  "clean": 29,
+  "unsure": 0,
+  "unlabelled": 0,
+  "miss_rate": 0.03333333333333333,
+  "miss_rate_ci95": [
+   0.005908590316197976,
+   0.16670391146115726
+  ],
+  "population_fired": 495,
+  "population_silent": 80,
+  "implied_recall": 0.9946416610850636,
+  "implied_recall_ci95": [
+   0.973764784104509,
+   0.9990459873218382
+  ]
+ },
+ "stability": {
+  "n_decided": 29,
+  "missed": 0,
+  "clean": 29,
+  "unsure": 0,
+  "unlabelled": 0,
+  "miss_rate": 0.0,
+  "miss_rate_ci95": [
+   0.0,
+   0.11696980012918376
+  ],
+  "population_fired": 57,
+  "population_silent": 274,
+  "implied_recall": 1.0,
+  "implied_recall_ci95": [
+   0.6400918121793719,
+   1.0
+  ]
+ },
+ "metallicity": {
+  "n_decided": 30,
+  "missed": 0,
+  "clean": 30,
+  "unsure": 0,
+  "unlabelled": 0,
+  "miss_rate": 0.0,
+  "miss_rate_ci95": [
+   0.0,
+   0.11351339476145204
+  ],
+  "population_fired": 114,
+  "population_silent": 141,
+  "implied_recall": 1.0,
+  "implied_recall_ci95": [
+   0.8768867288797141,
+   1.0
+  ]
+ },
+ "magnetism": {
+  "n_decided": 29,
+  "missed": 0,
+  "clean": 29,
+  "unsure": 1,
+  "unlabelled": 0,
+  "miss_rate": 0.0,
+  "miss_rate_ci95": [
+   0.0,
+   0.11696980012918376
+  ],
+  "population_fired": 115,
+  "population_silent": 126,
+  "implied_recall": 1.0,
+  "implied_recall_ci95": [
+   0.8864004941864039,
+   1.0
+  ]
+ }
+}

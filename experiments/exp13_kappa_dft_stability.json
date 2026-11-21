@@ -1,0 +1,74 @@
+{
+  "family": "dft_stability",
+  "n_cases": 30,
+  "raw_agreement": 0.5666666666666667,
+  "cohens_kappa": 0.1772151898734176,
+  "qualitative_band": "slight",
+  "disagreements": [
+    {
+      "case": 4,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 8,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 16,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 20,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 30,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 32,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 56,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 57,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 59,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 71,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 91,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 102,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 107,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    }
+  ]
+}

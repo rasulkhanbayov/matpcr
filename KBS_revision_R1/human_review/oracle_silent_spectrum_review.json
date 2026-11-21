@@ -1,0 +1,156 @@
+{
+  "family": "spectrum",
+  "audit": "oracle_silent",
+  "reviews": [
+    {
+      "case": 1,
+      "key": "Faheyite__R100084__Raman__532______Raman_Data_Processed__defea60b8a13140eadc38a0eac55.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 2,
+      "key": "Dickite__R060298__Raman__532______Raman_Data_Processed__6c8b09b85d954705249621eb948f.txt",
+      "verdict": "missed_violation"
+    },
+    {
+      "case": 3,
+      "key": "Barylite__R060606__Raman__780______Raman_Data_Processed__9d606d3001ac701d55eb2e2e0f58.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 4,
+      "key": "Hydroboracite__R060866__Raman__785______Raman_Data_Processed__c525b795251ac04ae2793144f348.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 5,
+      "key": "Fairfieldite__R070630__Raman__532______Raman_Data_Processed__c0e457c1f126c268be5649843273.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 6,
+      "key": "Titanite__R100025__Raman__532______Raman_Data_Processed__6aab47313abcfea9c8c4b5db6a68.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 7,
+      "key": "Tridymite__R040143__Raman__785______Raman_Data_Processed__ed4523edcbfa499ad135e641de2d.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 8,
+      "key": "Kamchatkite__R070039__Raman__532______Raman_Data_Processed__927e53b53def612233d1bcefadf0.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 9,
+      "key": "Alstonite__R050483__Raman__780______Raman_Data_Processed__b466df3b610988b42076d5859a38.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 10,
+      "key": "Xanthoconite__R070746__Raman__532______Raman_Data_Processed__9c6d0b320d9e6853b6b1d33d063d.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 11,
+      "key": "Chistyakovaite__R070024__Raman__785______Raman_Data_Processed__5955134e906ca61c8348d42b0258.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 12,
+      "key": "Anorthite__R070510__Raman__785______Raman_Data_Processed__0e617304ac7028ec3c697168229d.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 13,
+      "key": "Dawsonite__R050641__Raman__780______Raman_Data_Processed__e404eafa5058e87247e1829b369a.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 14,
+      "key": "Nordstrandite__R050592__Raman__780______Raman_Data_Processed__f1aa0945f94b7923efeaa58a781f.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 15,
+      "key": "AlSO4(OH)__R141118__Raman__532______Raman_Data_Processed__6fd30e1a9e6541db16e80330c969.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 16,
+      "key": "Robertsite__R130045__Raman__532______Raman_Data_Processed__48bfcb1bfce65ba19d7f20110a3f.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 17,
+      "key": "Starkeyite__R060321__Raman__780______Raman_Data_Processed__022e2abde9ec895730d4e532c8a2.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 18,
+      "key": "Roeblingite__R140328__Raman__780______Raman_Data_Processed__03562ff2c18d07fb8474ea0c753a.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 19,
+      "key": "Xanthoconite__R070746__Raman__532______Raman_Data_Processed__9c6d0b320d9e6853b6b1d33d063d.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 20,
+      "key": "Greenockite__R090045__Raman__532______Raman_Data_Processed__83ca349df13e6887a387fa9eca8a.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 21,
+      "key": "Bobjonesite__R060530__Raman__532______Raman_Data_Processed__dd9e953409df8eb22b499c00cb75.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 22,
+      "key": "Anorthite__R050104__Raman__514______Raman_Data_Processed__fd5d5d5bef9c7cc74ec9dbf1652f.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 23,
+      "key": "Bismutite__R060665__Raman__532______Raman_Data_Processed__d860a229a8dc102b2cd0758fadce.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 24,
+      "key": "Perovskite__R120121__Raman__780______Raman_Data_Processed__8c05eaa060b37c92ac1566e702b0.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 25,
+      "key": "Whewellite__R050240__Raman__780______Raman_Data_Processed__7ff9973abc3654c8f28d3c79b8cd.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 26,
+      "key": "Serandite__R040056__Raman__785______Raman_Data_Processed__8dac46b5a7cc44a1e7e649eb7191.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 27,
+      "key": "Argentojarosite__R060097__Raman__780______Raman_Data_Processed__1c9f44a00a76cfd9453a2b42bec7.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 28,
+      "key": "Si3N4-beta__R120129__Raman__780______Raman_Data_Processed__43a84b4b67470818ec1ae9f4fbf8.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 29,
+      "key": "Xanthoconite__R070746__Raman__532______Raman_Data_Processed__9c6d0b320d9e6853b6b1d33d063d.txt",
+      "verdict": "clean"
+    },
+    {
+      "case": 30,
+      "key": "Pectolite__R120024__Raman__780______Raman_Data_Processed__e40db08198f218fcd2f3bef9c332.txt",
+      "verdict": "clean"
+    }
+  ]
+}

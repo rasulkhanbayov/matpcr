@@ -1,0 +1,19 @@
+models with complete common-set responses: Qwen2.5-VL-7B, Gemini 2.5 Flash Lite, GPT-4o, Claude Sonnet 4.5, Claude Opus 4.6, GPT-5.6-Terra, GPT-5.6-Sol, Qwen3-VL-8B-Instruct
+
+Comparisons stated in the Article, pooled over the three DFT types (Holm over these):
+  GPT-5.6-Terra - GPT-4o: +0.021 [-0.042,+0.085] n=236 p=0.609 p_Holm=1 MDE80=0.093
+  Claude Opus 4.6 - Claude Sonnet 4.5: +0.021 [-0.030,+0.072] n=236 p=0.511 p_Holm=1 MDE80=0.072
+  GPT-5.6-Sol - GPT-5.6-Terra: +0.030 [-0.013,+0.072] n=236 p=0.248 p_Holm=0.743 MDE80=0.061
+
+All 28 pairs pooled: 3 significant after Holm; MDE80 0.062-0.105
+  Gemini 2.5 Flash Lite  - Claude Opus 4.6        -0.123 p_Holm=0.00229
+  Gemini 2.5 Flash Lite  - GPT-5.6-Sol            -0.128 p_Holm=0.00271
+  Gemini 2.5 Flash Lite  - Claude Sonnet 4.5      -0.102 p_Holm=0.0479
+  Gemini 2.5 Flash Lite  - GPT-5.6-Terra          -0.098 p_Holm=0.169
+  GPT-5.6-Sol            - Qwen3-VL-8B-Instruct   +0.089 p_Holm=0.18
+  Claude Opus 4.6        - Qwen3-VL-8B-Instruct   +0.085 p_Holm=0.209
+  Gemini 2.5 Flash Lite  - GPT-4o                 -0.077 p_Holm=0.21
+  Claude Sonnet 4.5      - Qwen3-VL-8B-Instruct   +0.064 p_Holm=1
+stability   : 0 of 28 pairs significant after Holm; median MDE80 0.179
+metallicity : 0 of 28 pairs significant after Holm; median MDE80 0.131
+magnetism   : 0 of 28 pairs significant after Holm; median MDE80 0.143

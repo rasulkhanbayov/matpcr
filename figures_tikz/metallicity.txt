@@ -1,0 +1,39 @@
+Case #43:
+
+Formula	KCaTbNbO6
+Model's claim	NONMETALLIC
+Oracle verdict	INCONSISTENT (fired)
+Reference values	hull=0.1690 eV/atom, is_stable=False, band_gap=0.0000 eV, is_metal=True, total_magnetization=1.000000 muB, nsites=10
+Claim-type note	Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap <= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.
+Full reasoning chain
+The material KCaTbNbO6 is a perovskite-type oxide, which typically exhibits insulating properties due to strong ionic bonding and the presence of heavy metal ions like Nb5+. The large ionic radii and high electronegativity differences between the elements suggest that the material will have a significant band gap, making it a semiconductor or insulator rather than metallic.
+
+FINAL_ANSWER: NONMETALLIC
+
+Case #87:
+
+
+Formula	Ca(H8O5)2
+Model's claim	METALLIC
+Oracle verdict	INCONSISTENT (fired)
+Reference values	hull=0.0094 eV/atom, is_stable=False, band_gap=4.4694 eV, is_metal=False, total_magnetization=0.000000 muB, nsites=54
+Claim-type note	Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap <= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 4.4694 eV (Materials Project is_metal flag: False). Model claimed: METALLIC.
+Full reasoning chain
+The material with the chemical composition Ca(H8O5)2 can be analyzed based on its structure and the nature of its constituent elements. Calcium (Ca) is a metal, and the hydrogen-oxygen groups (H8O5) suggest the presence of water molecules or hydroxyl groups, which are typically non-metallic in their ionic form.
+
+Given that calcium is a metal and the hydroxyl groups are likely to be in an ionic form, the overall material would have metallic properties due to the presence of the metallic calcium ions. The presence of these ionic groups might introduce some insulating behavior, but the dominant contribution from the metallic calcium would likely result in a material with a zero or near-zero electronic band gap, making it metallic.
+
+Final Answer: METALLIC
+
+Case #19:
+
+
+Formula	KMgMn16O32
+Model's claim	NONMETALLIC
+Oracle verdict	INCONSISTENT (fired)
+Reference values	hull=0.0571 eV/atom, is_stable=False, band_gap=0.0000 eV, is_metal=True, total_magnetization=51.012983 muB, nsites=50
+Claim-type note	Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap <= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.
+Full reasoning chain
+The material with the chemical composition KMgMn16O32 is likely to be a semiconductor/insulator rather than metallic. The presence of transition metal ions like manganese (Mn) in the structure suggests that it may have a finite band gap due to the d-electron transitions between different energy levels. Additionally, the complex oxide structure and the presence of potassium (K) and magnesium (Mg) suggest a more insulating behavior typical of oxides.
+
+FINAL_ANSWER: NONMETALLIC

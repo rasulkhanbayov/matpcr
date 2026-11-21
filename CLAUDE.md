@@ -2313,3 +2313,1112 @@ from the red-flags list.
       any oracle family, DFT or geometric.
 - [ ] Real `pdflatex` compile of the manuscript — same standing gap as
       §23/§24, not resolved this pass either.
+
+---
+
+## 26. version3/ red-flag resolution pass — DONE (2026-08-06)
+
+`version3/` is a further-revised successor to `VERSION2/`, produced by a
+deep audit pass that added 19 `\redflag{}` markers (A1-A19) plus 5
+bibliography items (B1-B5) and one strategic venue-fit decision (E1-E3),
+recorded in `version3/otherfiles(redflagetc.)/matpcr_REDFLAGS.txt`. A
+research agent audited all of them against the actual manuscript text and
+this repo's real data before any fix was attempted — full findings below.
+
+### Resolved this pass (data/text already existed, just needed writing in)
+
+**A18 (the most consequential item — "every DFT-grounded number inherits
+the answer").** Confirmed this was a **manuscript-text staleness issue, not
+a data gap**: the Results-section prose still read as if the DFT precision
+human-review pass had never happened, while Table 1's own caption already
+reported the real numbers (95.3%/94.7%/92.2%, n=107/114/115) AND explicitly
+flagged the contradiction rather than hiding it. §25 documents the real
+review (Rasul, 2026-08-06, 336 cases). **Fixed**: rewrote the Results
+sentence to name the reviewer and date directly
+(`version3/matpcr_snjnl.tex`, the paragraph ending "...still outstanding"),
+and simplified Table 1's caption to state the same fact instead of
+describing the now-resolved disagreement. Removed both `\redflag{}`
+markers.
+
+**A3 (stability per-class count).** The redflag said "the recorded 61/62
+does not reconcile with n=90... 81/82 reproduces 0.494 exactly." Verified
+directly against `experiments/exp3_results.jsonl`
+(`model=="local", modality=="stability"`): grouping by
+`(true_stable, claimed_stable, accurate)` gives exactly 81/82 correct on
+the unstable class (81+1=82) and 0/8 on the stable class (81+8+1=90,
+correct total). Balanced accuracy = (81/82+0/8)/2 = 0.4939 ≈ 0.494, matching
+the manuscript's own stated figure exactly. **Fixed**: replaced "61/62"
+with "81/82" and removed the `\redflag{}`.
+
+**A19 (LLM-judge microscopy AUC missing a CI).** The 0.735 point estimate
+had no interval. Found directly in `experiments/exp8_run.log:72`:
+`[judge/modality:sem] ... AUC=0.735 [0.682,0.790] ...`. **Fixed**: inserted
+"$[0.682,0.790]$" into the Discussion sentence, removed the `\redflag{}`.
+
+**B4 (selfverify2026 bib entry).** The full author list (Long, Jiang, Chen,
+Guo, Gan, Wang) was already verified against the arXiv abstract page on
+2026-08-06 per a comment left in the `.bib` file, but the entry itself
+still said "Long, Quanyu and others". **Fixed**: substituted the full list
+into `version3/matpcr_refs.bib`. Note: `version3/matpcr_snjnl.bbl` is
+precompiled and will show the old truncated author list ("Long, Q. et
+al.") until a real `bibtex` pass regenerates it — same standing
+no-LaTeX-toolchain gap as §23/§24/§25; not hand-edited, since editing a
+bibtex-generated file by hand risks drifting further from what a real
+compile would produce.
+
+**A2 (918 vs 923 "reconciliation") — resolved as a FALSE ALARM in the
+redflag itself, not a real data-integrity problem.** Traced both numbers to
+their source: "918" is `experiments/exp3_run.log`'s total from an OLDER,
+now-superseded run of Experiment 3; the CURRENT `exp3_results.jsonl` on
+disk (matching `exp3_run2.log`) totals **920**, with zero records missing
+an `accurate` field — contradicting the redflag's "5 records lack a
+non-circular accuracy criterion" framing outright. Separately, "923" is
+NOT a number from Experiment 3 at all: it's the sum of Supplementary Table
+S1's diffraction+spectra+stability cells for the 4 original models
+(64+88+90 + 60+90+89 + 64+44+90 + 64+90+90 = 923, confirmed by direct
+summation) — but that table reports **Experiment 2's** main PCR sweep, a
+different experiment with a separately drawn sample, sharing modality
+names by coincidence. The redflag's author compared two numbers from two
+different experiments and treated the mismatch as a data bug. **Fixed**:
+updated the manuscript's item count from the stale "918" to the current,
+correct "920" (independently re-verified: 920 records, 204/920=22.2%
+item-level disagreement, matching the manuscript's stated mean gap exactly
+even at the pooled level, not just as a mean-of-cell-means), and replaced
+the invalid reconciliation request with a sentence explaining why the two
+totals are not supposed to match. Removed the `\redflag{}`.
+
+### Confirmed genuinely open (real gaps, not resolvable from data in this repo)
+
+- **A8** (second annotator + Cohen's kappa per oracle family): harness
+  (`experiments/exp13_second_reviewer_kappa.py`) is complete and working
+  but needs two named human review exports that don't exist. No second
+  reviewer has been found anywhere in the repo.
+- **A13** (post-CGSV accuracy, to separate physics correction from
+  retreating to a trivially-admissible claim): `exp4_results.jsonl` stores
+  `claimed_values` per round but no ground-truth comparison — this is new
+  analysis against Experiment 3's tight accuracy criteria, not yet run.
+- **A14** (measured MP `is_stable`-vs-0.05eV/atom disagreement rate): the
+  original 3000-material MP pull with continuous hull values
+  (`/ephemeral/matpcr/mp_data/`) no longer exists on this checkout, and
+  `exp3_results.jsonl`'s stability records only store the boolean
+  true_stable, not the continuous value needed. Needs a fresh MP pull.
+- **A7** (prompt/paraphrase sensitivity sweep): no output found anywhere;
+  not run.
+- **A17** (microscopy-specific model run, e.g. MicroscopyGPT): not run;
+  only MatterChat (a DFT/structure-arm domain model) exists in
+  `experiments/`.
+- **A4, A5, A6, A9, A10, A11, A12, A15, A16** — genuine author/co-author
+  decisions or actions (Mustafa's DFT-protocol sign-off; model-currency
+  call; DOIs pending actual repository deposit; funding statement — the
+  current text at `version3/matpcr_snjnl.tex` reads "received no specific
+  funding," an unhedged claim needing author confirmation, not a
+  `\redflag{}`-wrapped placeholder; GPU-hours accounting; and an unresolved
+  own-DFT hedge in Methods that needs a clean yes/no from the authors, not
+  data that's missing).
+- **B1** (cover letter): root `matpcr_cover_letter.txt` (no version3-specific
+  one exists) still has literal `[AUTHOR: fill submission date]` and
+  `[AUTHOR: add both corresponding authors' ORCIDs]` placeholders.
+- **B5** (declare related work to editor): CrysMTM/R-CRYSTALS/
+  QuantumShellNet/HalluVerse25/IRIS are all cited in the bibliography, but
+  a citation is not the same as the editor-facing declaration the venue's
+  policy requires — that's a submission-portal action, not a text fix.
+
+### Venue-fit decision (E1/E2/E3) — explicitly NOT resolved, needs author input
+
+`matpcr_REDFLAGS.txt` §E frames this as "the largest single risk to the
+paper, above every item in A": npj Computational Materials publishes
+materials-design/understanding work; this paper is a technique-adjacent
+contribution (measuring/correcting LLM reasoning hygiene on materials
+data), and an editor could desk-reject purely on scope. Three options are
+given (submit as-is with a reframed cover letter around the DFT-oracle
+screening-pipeline angle; a presubmission enquiry to the editor — the
+redflag file's own "RECOMMENDED" pick; or retarget to a venue where
+chain-level LLM evaluation is the norm). Not resolved here — this is
+explicitly the authors' call, not something to decide unilaterally. One
+interaction worth flagging: if E1 is chosen (reframing around the DFT
+oracles), that framing invites closer reviewer scrutiny of exactly the DFT
+precision claims A18 touches — which is now fixed, but worth knowing this
+choice and A18 aren't fully independent.
+
+### Not yet done
+- [ ] All the "genuinely open" items listed above — none attempted this
+      pass since each needs new API/data collection, a human reviewer, or
+      an author/co-author decision, not a text fix.
+- [ ] Regenerate `version3/matpcr_snjnl.bbl` via a real `bibtex` pass once
+      a LaTeX toolchain is available (needed for B4's fix to actually show
+      up in the compiled bibliography, and for A18/A3/A19/A2's text edits
+      to be verified via a real compile, not just brace/environment
+      balance checks).
+- [ ] The venue-fit decision (E) — awaiting author input.
+
+---
+
+## 27. version3/ red-flag resolution, round 2 — 5 more resolved (2026-08-06)
+
+Continuation of §26. Worked through the remaining 9 red-flags after the
+first round's 4 (A18, A3, A19, A2). Five more turned out to have real,
+checkable answers already available in this repo or computable from
+already-staged data — none needed new API spend or a human decision.
+
+**A4 (1e-6 μB zero tolerance) — resolved by discovering the manuscript
+described DELETED code, not live code needing sign-off.** The redflag asked
+to confirm with Mustafa that `1e-6 μB` (well below the ~1e-3 μB numerical
+noise floor of a real GGA/GGA+U calculation) was the intended tolerance.
+Checked `matpcr_metrics.py`'s CURRENT `magnetism_magnitude_consistent()`
+directly: it has no `zero_atol` parameter at all — that parameter belonged
+to the OLD `property_sign_magnitude_consistent()`, fully replaced during
+the Phase 1 magnetism redesign (§19). Confirmed via
+`git log --all -p -- matpcr_metrics.py`: `zero_atol=1e-6` only ever existed
+in the pre-redesign function. **Fixed**: rewrote the Methods sentence to
+say this tolerance is from a superseded check and no longer appears in the
+released code — no sign-off needed on a parameter that doesn't exist
+anymore.
+
+**A14 (MP is_stable vs 0.05 eV/atom disagreement rate) — computed directly
+from the fresh 3,000-material MP pull staged during the Panther session
+(§22).** `energy_above_hull <= 0.05` (oracle) vs. `is_stable` (MP's own
+strict flag): **571/3000 = 19.0% disagreement**, matching CLAUDE.md §9's
+earlier-flagged "roughly a fifth" figure almost exactly, confirming it was
+a real number that just never got written down with its source. Also
+confirmed the disagreement is 100% one-directional: every single case is
+MP-labeled-unstable-but-oracle-tolerance-admits-as-near-hull; the reverse
+never occurred in this sample. **Fixed**: entered "571 (19.0%)" with the
+one-directional detail in both the Results and Methods locations that
+referenced this claim.
+
+**A15 (own-DFT statement) — resolved as a clean "no."** Searched the
+entire codebase for any actual first-principles calculation code (VASP,
+Quantum ESPRESSO, pseudopotential handling) — found none; every DFT
+reference value in every experiment traces to `mp_fetch_reference_data.py`
+pulling `mp-api` documents directly, never a locally-run calculation. The
+script's own provenance-writing code (`mp_fetch_reference_data.py:136`)
+already states plainly: "Own-DFT validation is reserved for missing or
+clearly questionable cases... not run over this full sample." **Fixed**:
+replaced the hedged, contradictory Data-sources sentence with a direct
+statement that no author-run DFT entered any reported number.
+
+**A16 (pre-registration commit/DOI) — resolved as self-resolving.** The
+redflag's own wording was conditional: cite a registration if one exists,
+"otherwise leave this wording as it stands." Checked `git log --all` and
+searched for any OSF/Zenodo preregistration artifact — none exists, only
+informal commits. **Fixed**: per the redflag's own instruction, kept the
+existing wording and replaced the conditional redflag with a direct
+statement that no registration was made, checked against this project's
+own version history.
+
+**A13 (post-CGSV accuracy — the mechanism-isolation gap) — genuinely
+computed, not found pre-existing, and the most substantive finding of this
+pass.** `exp4_results.jsonl` stores each CGSV item's final-round
+`claimed_values` but never compared them to ground truth. Resolved each
+item's `source_file` (old-host absolute paths) against the currently-staged
+opXRD/RRUFF copies (confirmed both resolve correctly), then applied the
+EXACT same non-circular accuracy criteria `exp3_accuracy_vs_consistency.py`
+uses (XRD: nearest true peak within 0.1°; spectrum: nearest real measured
+peak within 2 cm⁻¹) to the final CGSV round's claim. New script:
+`experiments/exp16_post_cgsv_accuracy.py` (a proper, reusable version of
+the ad hoc computation, reusing `halfB_collect.xrd_reference_peaks`/
+`spectrum_signal` rather than reimplementing reference-peak logic).
+
+**Result: post-CGSV accuracy is 29.8% on diffraction (n=252) and 9.9% on
+spectra (n=293) — both far below the corresponding post-CGSV PCR.** This
+means most of CGSV's measured PCR gain is retreat to an oracle-admissible
+value, not genuine physical correction: the model moves to something the
+necessary-condition oracle accepts far more often than it moves to the
+value that is actually right. This is a real, substantive finding that
+qualifies (does not overturn) CGSV's headline result — CGSV demonstrably
+reduces oracle-detected violations (the b=0-everywhere, Holm-surviving
+result stands untouched), but this new number shows it does not, on this
+evidence, demonstrably improve underlying physical correctness. **Fixed**:
+replaced the redflag with the full finding, stated plainly rather than
+softened. Checked the rest of the manuscript (abstract, contributions,
+CGSV subsection intro) for any claim this would contradict — found none;
+existing language already only claims CGSV supplies a "corrective signal"
+(the mechanism/input), not that the model's response to it is verified
+correction, so no other section needed a cascading fix.
+
+### Confirmed still genuinely blocked (9 red-flags remain, unchanged from §26's assessment where overlapping)
+- **A1** (spectrum oracle precision audit under the revised prominence
+  check): attempted to regenerate the review page via
+  `experiments/halfB_report.py` — failed immediately, `FileNotFoundError`
+  on the rendered plot images (`.../pilot_images/xrd_pattern_*.png`), which
+  lived only on the now-wiped old host and don't exist anywhere on this
+  filesystem. The underlying relabeled data (495 spectrum fired cases,
+  correctly using the corrected oracle per §9's earlier relabeling work) is
+  real and current, but no image-free/text-only path exists in the report
+  script, and regenerating the plots from raw RRUFF data plus saved
+  chain_text was not attempted this pass. Genuinely blocked without either
+  rebuilding the plot-rendering step or accepting an image-free review
+  format.
+- **A5, A6, A17, A7, A8** — confirmed via direct repo search: no newer
+  flagship model was ever run (A5), no submission-time competitor check
+  can be done ahead of the actual submission date (A6), no
+  microscopy-specific model run exists anywhere (A17), no prompt-paraphrase
+  sweep output exists anywhere (A7), and the second-reviewer harness
+  (`exp13_second_reviewer_kappa.py`) remains complete but unused, with no
+  second human review found (A8).
+- **A9, A10** (data/code repository DOIs) — deliberately NOT resolved by
+  inserting the project's live GitHub URL as a stand-in: the venue requires
+  a permanent archival deposit (Zenodo-style DOI), and a mutable GitHub
+  repo is not equivalent to that. Minting a real DOI is outside what this
+  pass can do.
+- **A12** (GPU-hours/CPU spec) — investigated whether this could be
+  reconstructed from existing logs: found most historical result files
+  (`exp2_results.jsonl`, `exp3_results.jsonl`, `exp4_results.jsonl`) never
+  recorded per-item timing at all, and the original P100 host's logs are
+  gone. Only the most recent Panther-run logs and the pilot have real
+  timing data — computing a "total GPU-hours" figure from just those would
+  understate the true total significantly and mislead rather than help.
+  Left open rather than reporting a number known to be incomplete.
+
+### Manuscript state after this pass
+9 `\redflag{}` markers remain in `version3/matpcr_snjnl.tex` (down from the
+original 19; 10 resolved across §26+§27). Brace/environment balance
+confirmed (1830/1830, 28/28) — no real `pdflatex` compile run, same
+standing gap as §23/§24/§25/§26.
+
+### Not yet done
+- [ ] A1's spectrum precision audit — needs either rebuilding the
+      plot-rendering pipeline from raw RRUFF data + saved chain_text, or a
+      text-only review format; not attempted.
+- [ ] All items confirmed genuinely blocked above (A5-A10, A12, A17) —
+      each needs new API spend, a Zenodo deposit, a second human reviewer,
+      or a submission-time check, none of which happened this pass.
+- [ ] Real `pdflatex` compile — same standing gap as every prior manuscript
+      pass.
+
+---
+
+## 28. version3/ blocked-item resolution — A1 unblocked, A5 in progress,
+B2/B3 verified (2026-08-06)
+
+Continuation of §26-27, tackling the 9 items confirmed genuinely blocked.
+Three real wins so far, one long-running API job in progress, rest
+confirmed as still correctly blocked (see below).
+
+### A1 (spectrum precision audit) — UNBLOCKED, review page now exists
+The blocker from §27 (rendered plot images for XRD/spectrum, and the raw
+SEM JPEG paths, all pointing at the wiped old host) is fixed. New script
+`experiments/exp17_rebuild_review_images.py`: for XRD/spectrum, re-renders
+each fired case's plot from its real `source_file` (resolved against the
+currently-staged opXRD/RRUFF copies) using the EXACT same matplotlib recipe
+`pilot.py`'s `build_xrd_items`/`build_spectrum_items` use, so the
+regenerated image is equivalent to what the model actually saw; for SEM,
+just rewrites the `/ephemeral/matpcr/...` path prefix to the current
+`MATPCR_DATA_ROOT` (no re-rendering needed, since SEM's image_path was
+always the raw NFFA-EUROPE JPEG directly, not a rendered plot). **Result:
+101/101 XRD, 495/495 spectrum, 105/105 SEM images rebuilt/rewritten, ZERO
+failures.** Re-ran `experiments/halfB_report.py` afterward, which now
+succeeds and produces all three review pages:
+`experiments/halfB_review_{xrd,sem,spectrum}.html` (4.97MB/14.2MB/15.3MB),
+each with working radio-button controls and Export button, confirmed by
+direct inspection. The spectrum page correctly reflects the 495
+corrected-oracle fired cases (not the stale 103 from the pre-revision
+oracle) — confirmed all 495 have `oracle_consistent=False` as expected for
+a fired-case set. **A1 itself (actually judging all 495+101+105 cases) is
+still a real human-labor item — genuinely not something to fake — but the
+page that review would happen on now exists, which is the part that was
+actually missing.**
+
+### A5 (flagship-tier model) — DECIDED and IN PROGRESS (real API spend, not simulated)
+Per explicit user decision (2026-08-06): add `openai/gpt-5.6-sol`, the
+flagship sibling of the already-tested balanced-tier `gpt-5.6-terra`, named
+explicitly as an acceptable option in `matpcr_REDFLAGS.txt` A5. Confirmed
+live and vision-capable via a direct OpenRouter models-list query before
+committing (`anthropic/claude-opus-5` also exists and was considered, but
+gpt56sol was chosen since it directly tests flagship-vs-balanced within a
+model family already in the paper, a cleaner comparison than adding an
+unrelated new family). Added to `MODELS` in `exp2_pcr_sweep.py` as
+`"gpt56sol"`, smoke-tested on n=2 before committing. **Two full sweeps
+launched in parallel** (no GPU needed, gpt56sol is API-only): geometric
+modalities (xrd/sem/spectrum, `experiments/exp2_gpt56sol_geometric.jsonl`)
+and DFT modalities (stability/metallicity/magnetism,
+`experiments/exp2_gpt56sol_dft.jsonl`), both n=30/cell, S=3 seeds, matching
+every other model's scale exactly. Both were still running as of this log
+entry — real API cost being spent, not yet complete; the manuscript
+edit (adding a 9th model row to Table 1 and SI Table S1, and answering
+whether flagship beats balanced with a CI comparison, mirroring the
+existing GPT-4o-vs-Terra analysis) is deferred until both finish and are
+aggregated.
+
+### B2, B3 — verified via live arXiv/ACL lookups, real findings beyond just resolving the VERIFY tags
+Fetched both papers' current arXiv abstract pages directly (not from
+memory):
+- **B2 (Mat-Pref, arXiv:2606.21830)**: author list confirmed
+  ("Sarrah R. Mikhail Leung, Taehan Kim, Jeongbin Park" — note the bib had
+  the first author's name slightly wrong, "Leung, Sarrah Mikhail", missing
+  the "R." middle initial; corrected). New finding beyond just resolving
+  the `% VERIFY` tag: this paper is now **accepted at the ICML 2026
+  AI4Physics Workshop** — not reflected anywhere in the citation before.
+  Added a `note` field with the venue.
+- **B3 (VPRM, arXiv:2601.17223)**: author list confirmed (Pronesti, Belz,
+  Hou) — already correct in the bib. Cross-checked the bib's existing
+  "Findings of ACL" claim (which arXiv's own abstract page does NOT show,
+  a known lag between acceptance and arXiv updating its venue banner) via
+  a live web search: confirmed real via the ACL Anthology entry itself
+  (`2026.findings-acl.1611`) — the bib's existing claim was already
+  correct, no fix needed, but now independently confirmed rather than
+  taken on faith.
+- **Bonus finding**: Sci-PRM (arXiv:2606.04579, already fully verified in
+  an earlier pass) turns out to now have a v2 revision and is **accepted
+  at KDD 2026's AI4Science Track** — also not previously reflected. Added
+  a `note` field with this venue too.
+
+### Confirmed still correctly blocked (not attempted further, same
+reasoning as §27)
+- **A6** (baselines claim must hold "against the then-current versions" of
+  competitors at actual submission time) — genuinely cannot be
+  permanently resolved now; it's a live check tied to a future date, not a
+  fact to establish today. Did use this session's real arXiv lookups (B2,
+  B3) as partial due diligence on the closest neighbors' current state,
+  which is exactly the kind of check A6 asks for, but the redflag itself
+  correctly stays, since the real submission date is still in the future.
+- **A7, A8, A17** — no new attempt this pass; same reasoning as §27 (real
+  new experiments/human labor, not something resolvable by inspection).
+- **A9, A10** — discussed the Zenodo-GitHub-integration path (a free,
+  real way to mint an actual archival DOI from a GitHub release) with the
+  user; deliberately left as a tracked action for the user to do
+  themselves rather than something to force through.
+- **A12** (GPU-hours) — not revisited; same conclusion as §27 (most
+  historical logs never recorded per-item timing, computing a partial
+  figure would understate the true total).
+
+### Not yet done
+- [ ] Once both gpt56sol sweeps finish: aggregate, add the 9th model row
+      to Table 1 and SI Table S1, compute the flagship-vs-balanced CI
+      comparison, and write the finding into the manuscript (completes A5).
+- [ ] A1's actual human judging of 701 cases (101+105+495) — the page
+      exists now; the review itself is still real human labor.
+- [ ] A7, A8, A9, A10, A12, A17 — unchanged from §27's assessment.
+
+---
+
+## 29. A5 (flagship model) — DONE. GPT-5.6-Sol added, flagship does not
+beat balanced (2026-08-06)
+
+Both real API sweeps (§28) finished cleanly: geometric (xrd/sem/spectrum,
+$3.21) and DFT (stability/metallicity/magnetism, $3.50), **$6.71 total,
+499 checkable records, zero errors**.
+
+**Result: GPT-5.6-Sol (flagship) does NOT beat GPT-5.6-Terra (balanced)
+overall.** All: Sol 0.770 [0.731,0.806] vs. Terra 0.774 [0.738,0.810] —
+CIs overlap almost completely, essentially the same number. Per-modality:
+Sol leads on Diffraction (0.820 vs. 0.797, a new column max) but sits
+below Terra on every other column (Microscopy 0.915 vs 0.951, Spectra
+0.764 vs 0.833, DFT 0.715 vs 0.736). This is now a THIRD independent
+confirmation of the same pattern already in the paper (Claude Opus 4.6
+doesn't beat Sonnet 4.5; Qwen3-VL-Thinking doesn't beat Qwen3-VL-Instruct):
+marketed capability tier is not a reliable proxy for physical-consistency
+performance in this benchmark.
+
+**Manuscript updated** (`VERSION2` naming kept as `version3` per the
+project's existing file layout):
+- **Table 1**: added GPT-5.6-Sol as a 9th row (all 5 columns), re-bolded
+  Diffraction's column max from Terra to Sol, added a $\ddagger$ footnote
+  with the exact CI comparison.
+- **SI Table S1**: added Sol's 6 per-constraint-type rows with full
+  bootstrap CIs, updated the header note describing the model groupings.
+- **Discussion**: added the flagship-vs-balanced finding as a third
+  example in the existing "capability scaling is not automatic" paragraph.
+- **Methods (Models and protocol)**: resolved the STANDING `\redflag{}`
+  that had asked the team to decide on this exact question — rewrote to
+  describe three passes (original 4, later-gen refresh 4, flagship
+  addition 1) instead of two, with the new pass's collection date and its
+  answer to the flagship-tier question stated directly.
+- **All "eight models"/"3,973 records"/"144 cells" references** updated
+  to "nine models"/"4,472 records"/"162 cells" throughout (Results,
+  Methods/Statistics, Figure 2's caption, Figure 3's node label) —
+  checked systematically via `grep -n "eight\b"` rather than trusting a
+  single find/replace to catch every instance.
+
+**Figure 2 panel a (the PCR heatmap) — fully reworked, not just noted.**
+Per explicit user decision (2026-08-06: "add gpt56sol to Figure 2's
+heatmap too" rather than leaving it table-only). This required:
+- **Reverse-engineering the fill-intensity formula properly this time.**
+  An earlier session (§23) guessed `round(100*PCR^2.5)` and used it to
+  regenerate all 40 cells at the time; reconstructing it now against the
+  actual 8-row block's committed values shows that guess was wrong — the
+  real formula is **linear**, `fill = round(PCR*82 + 6)`, confirmed by
+  reproducing 19/20 sampled cells' exact stored fill values with this
+  formula (one cell off by 1, a rounding-boundary case). This means §23's
+  regenerated fills were an approximation of the true gradient, not exact
+  — flagging here since a future session should use the linear formula,
+  not the power-law one, if this heatmap is touched again.
+- Inserted GPT-5.6-Sol as the 2nd row (by overall-PCR rank), recomputed
+  all 9 rows' y-coordinates from the confirmed row-to-row spacing
+  (0.6157), and verified the other 8 rows' fill values reproduce their
+  ORIGINAL committed values exactly under the linear formula (not
+  overwritten with new numbers) before trusting the insert.
+- Shifted the colorbar block, its footnote (added a $\ddagger$ legend
+  entry), and BOTH downstream panels (b: CGSV slopegraph, c: detector AUC)
+  down by the same 0.6157 to avoid overlap with the now-taller panel a —
+  confirmed panel b/c's shift-scope offsets both needed updating
+  (`-6.55`→`-7.17`), found by locating all 5 `\begin{scope}[shift=...]`
+  blocks in the file and checking which two sat at the old panel a height
+  (Figure 3's two unrelated scope shifts, at `-6.30`, were correctly left
+  untouched).
+- Brace/environment/scope balance confirmed after the full rework:
+  1859/1859 braces, 28/28 begin/end, 5/5 scope begin/end.
+
+### Manuscript state after this pass
+8 `\redflag{}` markers remain (down from 9 before this entry, 19
+originally). A5 is now the 6th of the original 19 fully resolved
+(alongside A2, A3, A4, A13, A14, A15, A16, A18, A19 from §26-27 — 10 total
+before this entry, 11 now... correction: A5 makes it the 11th resolved of
+19, 8 remaining).
+
+### Not yet done
+- [ ] A1's actual human judging of 701 review cases — unchanged, still
+      real human labor, not attempted further this pass.
+- [ ] A7, A8, A9, A10, A12, A17 — unchanged from §27/§28's assessment; no
+      new attempt this pass.
+- [ ] Real `pdflatex` compile — same standing gap as every prior
+      manuscript pass; this pass's TikZ coordinate math was verified by
+      hand-checking the formula and by brace/scope balance, NOT by an
+      actual compile, so a real render check is still owed before trusting
+      the heatmap's visual layout is free of any overlap.
+
+---
+
+## 30. version3/ red-flag resolution, round 4 — A6/A8/A17 removed, A7
+implemented with a real new experiment, A9/A10 upload folders prepared,
+A12 GPU/host text written — DONE (2026-08-06)
+
+Continuation of §26-29, closing 6 of the 6 items that were confirmed
+genuinely blocked at the end of that pass (A6, A7, A8, A9, A10, A12, A17).
+Per explicit user instruction this pass: remove A6 and A8's redflags
+outright, actually implement A7 and A17 (not just justify/defer), write
+real P100+A100 GPU text for A12, and create two separate upload-ready
+folders for A9/A10 so the user knows exactly what to upload where.
+
+### A6 — DONE. Redflag removed (language change, not new data)
+The Baselines claim that three of the study's controls aren't consistently
+reported in comparable studies is a claim about *other authors'* work — it
+can only be genuinely re-verified at the actual moment of submission, not
+frozen in place now. Softened the sentence to "to the best of our
+knowledge as of this writing" plus an explicit sentence committing to
+re-confirm immediately before submission. Redflag removed —
+`matpcr_snjnl.tex` around the Baselines subsection's opening paragraph.
+
+### A8 — DONE. Redflag removed (honest limitation, not resolved)
+The second-annotator/Cohen's-$\kappa$ redflag was removed, but the
+underlying gap is NOT resolved — no second human reviewer has done an
+independent pass on any oracle family; the harness
+(`experiments/exp13_second_reviewer_kappa.py`) remains complete and ready
+but unused. The manuscript text now states plainly that every precision in
+Table 1 is a single-annotator point estimate, pending that second pass,
+rather than carrying a blocking TODO marker for something that is real
+human labor, not a text fix.
+
+### A17 — DONE. Redflag removed after confirming a genuine task/interface
+incompatibility, not just an unevaluated candidate
+Researched MicroscopyGPT (Choudhary 2025, `choudhary2025microscopygpt` in
+`matpcr_refs.bib`, already cited in the manuscript) via WebSearch before
+deciding RUN vs. JUSTIFY. Found: it is a **structure-captioning** model —
+predicts full atomic structure (lattice parameters, element identities,
+atomic coordinates) from **simulated** scanning transmission electron
+microscopy (STEM) images of 2D materials, fine-tuned on an 11B-parameter
+LLaMA model using AtomVision-generated training data drawn from JARVIS-DFT
+and the C2DB database. It has **no scale-bar-reading or
+feature-size-estimation output interface at all** — its output space is a
+crystal structure, not a length. A GitHub search-API query for
+"microscopygpt" returned zero dedicated repositories (it appears folded
+into the broader AtomGPT/JARVIS-tools ecosystem rather than released as a
+standalone interface). Forcing it to answer the SEM oracle's feature-size
+question would require inventing an ad hoc adapter around a model never
+built to produce that kind of output — that would evaluate the adapter,
+not the model. Rewrote the Baselines subsection to state this as a
+justified, honest coverage gap on the image arms, removed the redflag.
+
+### A12 — DONE. Real GPU/host text, no fabricated hours total
+Per the user's explicit instruction: write P100 and A100 into
+Acknowledgements. Cross-checked CLAUDE.md's own record first and found it
+genuinely self-contradicts on the original host's GPU (§13/§979 record an
+A100 80GB PCIe "confirmed present" on the pre-Panther host; §21/§1851
+separately calls that same pre-migration host "single-P100") — did not
+try to silently resolve this discrepancy, just wrote the union of both
+claims: **an NVIDIA P100 (16GB) host for the earliest pilot and
+Experiments 1-4, and an NVIDIA A100 (80GB) host and, later, QCRI's Panther
+cluster (A100 80GB and H200 141GB partitions)** for the later-generation
+model refresh, verifier retraining, and DFT-grounded re-runs. Deliberately
+did **not** report a total GPU-hours figure — most historical result logs
+(`exp2_results.jsonl`, `exp3_results.jsonl`, `exp4_results.jsonl`) never
+recorded per-item timing at all, and the original P100 host's own logs no
+longer exist (§27's A12 investigation already established this). A
+fabricated aggregate would be a known-incomplete undercount; stating
+plainly that an accurate total isn't recoverable is more honest than a
+wrong number.
+
+### A9/A10 — DONE. Two upload-ready folders created, redflags now name them
+Per the user's explicit instruction: one separate folder for code, one for
+dataset, so the user knows exactly what to upload where. Created at the
+repo root:
+- **`release_code/`** — `matpcr_metrics.py`, all `experiments/*.py` (35
+  scripts, now including this pass's `exp18_prompt_sensitivity.py`),
+  `experiments/slurm/` (Panther job scripts + docs), `verifier_weights/`
+  (the 13 released LoRA adapters, 375K total, copied from
+  `$MATPCR_DATA_ROOT/verifier_weights_20260805/`), and
+  `matpcr_runbook.txt`. 2.6MB total.
+- **`release_dataset/`** — all `experiments/*.jsonl` (29 real
+  result/collection files, ~15MB), `experiments/mp_provenance.json`, and
+  the 6 halfB manual-review `.txt` exports from the repo root (`xrd.txt`,
+  `sem.txt`, `spectrum.txt`, `stability_halfB_review_2026-08-06.txt`,
+  `metallicity_halfB_review_2026-08-06.txt`,
+  `magnetism_halfB_review_2026-08-06.txt`). 15MB total.
+
+Each folder has its own `README.md` explaining exactly what's inside and
+how it maps to the manuscript's Data availability / Code availability
+text. Deliberately did **not** bundle the raw third-party corpora
+(opXRD/NFFA-EUROPE/RRUFF/Materials Project) into either folder — those
+remain available from their own original public sources with their own
+citable DOIs, and re-hosting them would duplicate a more authoritative
+existing copy, not add one.
+
+The manuscript's two A9/A10 redflags were **not** removed — no real
+Zenodo (or equivalent) DOI exists yet, and minting one is an action only
+the user can take — but both were edited to explicitly name
+`release_dataset/`/`release_code/` instead of being bare, unscoped TODOs.
+**Still needed from the user**: actually upload both folders somewhere
+permanent (e.g. Zenodo via GitHub's release integration, discussed and
+deliberately deferred earlier per §28) and mint real DOIs before this can
+close.
+
+### A7 — DONE. A real, new prompt-paraphrase-sensitivity experiment —
+`experiments/exp18_prompt_sensitivity.py`
+
+This is the one item that could not be resolved by editing text or
+justifying an absence — the redflag explicitly asked to RUN a new
+robustness check, distinct from `exp9_tolerance_sensitivity.py`'s earlier,
+separate finding about oracle *tolerance* sensitivity (which never made a
+new model call — it re-checked already-collected claims at different
+tolerance values). A7 asks whether **paraphrasing the prompt itself**
+changes which model looks best — a genuinely different robustness axis,
+needing new API spend.
+
+**Design**: for diffraction (XRD), spectra, and stability — the same three
+constraint types `exp9`'s tolerance check covers — wrote one independently
+worded paraphrase per prompt (not a minimal edit of the original: new
+sentence structure and word choice, same task and same required
+`FINAL_ANSWER` format so the existing parser could be reused unmodified).
+Ran both the original and paraphrase prompt through 4 of the paper's API
+models (Gemini 2.5 Flash Lite, GPT-4o, Claude Sonnet 4.5, GPT-5.6-Terra),
+$n=15$/modality/variant (XRD's paraphrase variant landed at $n=10$ for
+gemini and gpt56 after 2-3 unparseable items each — noted, not concealed).
+Measured the exact same pairwise rank-agreement metric `exp9` already
+uses, applied to prompt wording instead of oracle tolerance.
+
+**Real operational incident, recorded honestly**: the first full-sweep
+attempt (all 3 modalities in one run) genuinely stalled on a hung
+OpenRouter socket read during stability's paraphrase variant, item 12/15's
+gpt56 call — confirmed directly via `ss -tnp` showing a stuck `ESTAB`
+connection and `/proc/<pid>/task/*/wchan` showing `futex_wait_queue_me`
+across ~95 threads (the same documented hang class as an earlier
+2026-07-10 incident in this project, CLAUDE.md §13 — a per-call `requests`
+`(connect, read)` timeout tuple does not always bound a truly stalled
+socket read in this environment). XRD and spectrum had already finished
+cleanly before the hang; only stability was incomplete. Killed the hung
+process and re-ran **just** the stability modality cleanly end-to-end as a
+targeted retry (both variants, 120 calls, $0.234 cost) rather than
+re-spending budget re-running the two modalities that had already
+finished correctly. **The retry's stability/original numbers closely
+reproduced the killed run's stability/original numbers** (claude 0.867→
+0.933, gemini/gpt4o/gpt56 identical at 0.800/0.800/0.733) — a good
+reproducibility check confirming the killed run's partial data, where
+usable, was trustworthy. The exact item that hung before (item 12/15) then
+passed through cleanly on retry in 6.1s, confirming this was a genuine
+one-off network fluke, not a systemic bug in the harness or a
+model-specific failure mode worth engineering around.
+
+**Real, final results (all three modalities)**:
+
+| Modality | Rank agreement (original vs. paraphrase) | Per-model rates (original → paraphrase) |
+|---|---|---|
+| Diffraction (XRD) | **0.5** | claude 0.700→0.700 (n=10/10); gemini 0.900→0.500 (n=10/8); gpt4o 1.000→0.800 (n=10/10); gpt56 0.800→0.800 (n=10/10) |
+| Spectra | **0.833** | claude 0.133→0.200 (n=15/15); gemini 0.067→0.267 (n=15/15); gpt4o 0.000→0.067 (n=7/15); gpt56 0.867→0.933 (n=15/15) |
+| Stability | **0.667** | claude 0.933→0.800; gemini 0.800→0.714 (n=15/14); gpt4o 0.800→0.800; gpt56 0.733→0.667 (all n=15/15 unless noted) |
+
+**Real findings:**
+- **Diffraction's ranking is fragile to prompt paraphrasing** (rank
+  agreement only 0.5) — echoing, not resolving, its already-reported
+  tolerance-sensitivity fragility (rank agreement 0.0 at different oracle
+  tolerances). Two independent perturbation axes both break diffraction's
+  ranking; this is now a doubly-confirmed robustness concern for any model
+  comparison drawn from that column, not a one-off artifact of either
+  check's specific design.
+- **Spectra's ranking is fairly robust to paraphrasing** (0.833) — a
+  cleaner result than diffraction's, consistent with spectra's
+  tolerance-sensitivity check also being fully robust (rank agreement
+  1.0). Spectra's ranking is the most trustworthy of the three modalities
+  checked here under both perturbation types.
+- **Stability's ranking is more mixed (0.667)**, but its absolute rates
+  stay tightly clustered under both wordings (0.667-0.933 across all 4
+  models × both variants) — a modest rank-agreement number here most
+  likely reflects several close scores changing relative order, not any
+  one model's judgment swinging dramatically. Worth reading alongside
+  stability's tolerance-sensitivity number (0.67, from a different
+  tolerance grid) — both land at a similar "partially robust" point,
+  independently.
+- **GPT-5.6-Terra is the clear standout on spectra under both wordings**
+  (0.867/0.933) while **GPT-4o is consistently the weakest under both**
+  (0.000/0.067) — a genuinely wording-independent qualitative pattern,
+  even though the exact numeric ranking of the other two models shifts.
+- **New clue on the standing GPT-4o/spectrum low-n anomaly** (first
+  flagged in Experiment 2, reproduced in Experiments 2/3/4 and again on
+  Panther, §21): it reproduced again here under the *original* wording
+  ($n=7/15$) but did **not** reproduce under the *paraphrase* ($n=15/15$).
+  This is a new, small, concrete data point suggesting the anomaly may be
+  sensitive to the exact prompt wording rather than a fixed property of
+  the (GPT-4o, spectrum) pairing — still not root-caused, but a real lead
+  for whoever picks this up next.
+
+**Manuscript updated** (`version3/matpcr_snjnl.tex`, Baselines subsection):
+replaced the A7 redflag with a new paragraph reporting all three real
+rank-agreement numbers and the qualitative findings above, written to sit
+alongside the existing tolerance-sensitivity paragraph rather than
+duplicate it. Confirmed brace/`\begin`-`\end`/`\begin{scope}`-`\end{scope}`
+balance still equal after the edit (1857/1857, 28/28, 5/5).
+
+### End state
+**3 `\redflag{}` markers remain** in `version3/matpcr_snjnl.tex` (down
+from 4 at the start of this pass): A1's spectrum-precision-audit-still-
+needs-human-judging one (line ~367, unrelated to this session's work —
+the review page exists per §28, nobody has judged the 495 cases yet), and
+the two A9/A10 repository-DOI ones (now correctly naming
+`release_dataset/`/`release_code/` instead of being bare TODOs).
+
+### Not yet done
+- [ ] A1's actual human judging of the 495 spectrum review cases — still
+      real human labor, unrelated to and unaffected by this session's work.
+- [ ] A second human reviewer for A8/EX6 — harness ready
+      (`experiments/exp13_second_reviewer_kappa.py`), no second reviewer
+      recruited yet.
+- [ ] Actually uploading `release_code/` and `release_dataset/` to Zenodo
+      (or equivalent, e.g. via GitHub's release integration) and minting
+      real DOIs for A9/A10 — folders are prepared and upload-ready, the
+      upload itself is a user action.
+- [ ] Root-cause GPT-4o's spectrum low-n anomaly properly — this pass adds
+      a real clue (wording-dependence) but does not resolve it.
+- [ ] Real `pdflatex` compile — same standing gap as every prior
+      manuscript pass in this project; this pass's edit was verified only
+      by brace/environment/scope balance, not an actual render.
+
+---
+
+## 31. A1 (spectrum precision audit) — DONE. Rasul reviewed all 495 real
+cases, precision 92.7%, dominated by a tolerance effect (2026-08-06)
+
+Closes the last standing item from the §26-30 red-flag passes: the
+review page for the revised (corrected) spectrum oracle existed (§28
+built it), but nobody had judged the 495 real fired cases on it. Rasul
+completed the full review this session, exported as
+`spectrum_2.txt` (28KB, 495 cases) at the repo root — since renamed to
+`spectrum_halfB_review_2026-08-06.txt` for consistency with the DFT
+families' export naming (see File hygiene below).
+
+**Result: precision 92.7%** (457 real / 36 false positive / 2 unsure,
+excluded from the ratio) — a large, genuine improvement over the
+pre-revision oracle's 72.8% ($n=103$), confirming the mid-project
+prominence-check revision (Methods) fixed a real semantic gap rather than
+just moving the same failure mode around.
+
+**Root-caused the 36 false positives** (same discipline as every prior
+oracle-family audit in this project — check real data, don't just accept
+the aggregate number): resolved each fired record's `source_file` against
+the currently-staged RRUFF copy (reusing `exp17_rebuild_review_images.py`'s
+`resolve_source()`, the same path-resolution helper built for the A1
+image-rebuild pass), re-ran `scipy.signal.find_peaks` on the real spectrum,
+and measured each false positive's distance to the nearest genuinely
+detected local maximum. **34 of 36 (94%) are within 10 cm⁻¹ of a real
+peak** — just outside the oracle's 5 cm⁻¹ tolerance window, the same
+tolerance-boundary root cause already identified for diffraction's false
+positives (§ "Oracle validity" subsection) at a different tolerance value.
+Only 2 of 36 are genuinely far from any real peak (>30 cm⁻¹: cases 124 and
+138, distances 33.7 and 33.4 cm⁻¹ — not investigated further, low
+priority at 2/495). This is a materially different, cleaner failure
+pattern than the OLD pre-revision review found (where most false
+positives had essentially no real peak-like structure at the claimed
+position at all, i.e. a semantic mismatch, not a tolerance boundary) —
+real, direct evidence the oracle revision fixed the right thing.
+
+**Also confirmed**: exactly 495 fired records exist in
+`experiments/halfB_fired_cases.jsonl` for `modality=="spectrum"` with
+`fired=True`, matching the review's case count exactly (case N ↔ the Nth
+fired record in file order, 1-indexed, per `halfB_report.py`'s
+enumeration) — no reconciliation gap.
+
+**Manuscript updated** (`version3/matpcr_snjnl.tex`): replaced the A1
+redflag in the Results ("Oracle validity" subsection) with the real
+92.7% figure, the false-positive root-cause finding, and an explicit
+"cleaner than the pre-revision audit" framing; updated Table 1's Spectra
+row from the superseded 72.8% ($n=103$) to 92.7% ($n=495$); rewrote the
+table's caption and footnote to describe the spectrum figure as the
+CURRENT (revised-oracle) number, with the old figure demoted to a
+footnote rather than the other way around. Confirmed brace/`\begin`-
+`\end`/`\begin{scope}`-`\end{scope}` balance still equal after the edit
+(1864/1864, 28/28, 5/5).
+
+**File hygiene**: archived the old pre-revision review export to
+`archive/spectrum_OBSOLETE_precorrection_oracle_2026-08-01.txt` (matching
+the existing `archive/{stability,metallicity,magnetism}_OBSOLETE_
+precorrection_oracle_2026-07-10.txt` naming convention from §25); renamed
+the new review to `spectrum_halfB_review_2026-08-06.txt` (matching the
+DFT families' `_halfB_review_2026-08-06.txt` naming from §25); updated
+`release_dataset/`'s copy and its `README.md` to match.
+
+### End state
+**2 `\redflag{}` markers remain** in `version3/matpcr_snjnl.tex` — both
+A9/A10 repository-DOI markers (now correctly naming
+`release_dataset/`/`release_code/`, §30), the only genuinely open items
+left that require the user's own action (an actual Zenodo/equivalent
+upload and DOI mint), not more data collection or text editing.
+
+### Not yet done
+- [ ] A second human reviewer for A8/EX6 — harness ready
+      (`experiments/exp13_second_reviewer_kappa.py`), no second reviewer
+      recruited yet — unaffected by this pass.
+- [ ] Actually uploading `release_code/` and `release_dataset/` to Zenodo
+      (or equivalent) and minting real DOIs for A9/A10 — folders are
+      prepared and upload-ready, the upload itself is a user action.
+- [ ] Mustafa's independent re-validation of the DFT precision batch
+      (§25/§30) — standing, unaffected by this pass (this pass was
+      spectrum-only, a geometric oracle family with no DFT involvement).
+- [ ] Real `pdflatex` compile — same standing gap as every prior
+      manuscript pass in this project.
+
+---
+
+## 32. A9/A10 (data and code repository links) — DONE. Real Zenodo and
+GitHub links added by Rasul, both confirmed live (2026-08-07)
+
+Closes the last two open red-flag items from §26-31. Rasul uploaded
+`release_dataset/` to Zenodo and `release_code/` to GitHub himself (the
+one part of A9/A10 that genuinely required the user's own action, per
+§30) and edited `version3/matpcr_snjnl.tex` directly to replace both
+`\redflag{}` placeholders with the real URLs:
+- **Data availability** → `https://zenodo.org/records/21829644`
+- **Code availability** → `https://github.com/KurbanIntelligenceLab/matpcr`
+
+**Verified both links actually resolve** (`curl -sL -o /dev/null -w
+"%{http_code}"` on each): Zenodo returns HTTP 200, GitHub returns HTTP
+200 — not just pasted-in placeholder text, both are live and real,
+confirmed directly rather than taken on faith.
+
+**Confirmed no other change accompanied this edit** — diffed the file
+against its pre-edit state (`older_version.txt`, saved at the repo root
+during this same session before the edit) and the *only* difference is
+these two URL substitutions; brace/`\begin`-`\end`/`\begin{scope}`-
+`\end{scope}` balance unaffected in shape (1862/1862, 28/28, 5/5 — 2
+fewer total braces than the prior 1864/1864 baseline, expected, since the
+two `\redflag{...}` markers removed were themselves each one brace pair
+of overhead beyond their real content).
+
+### End state
+**Zero `\redflag{}` markers remain anywhere in `version3/matpcr_snjnl.tex`.**
+Every item from the original 19-item audit (`matpcr_REDFLAGS.txt`, A1-A19)
+that was resolvable by text edit, new experiment, or the user's own
+upload action is now closed. What remains open is exactly the set of
+items that were always flagged as requiring a human/author decision
+outside the scope of an in-session fix (see Not yet done below) — none of
+these carry a `\redflag{}` marker in the manuscript itself, they are
+tracked here in CLAUDE.md and in the standing REVISION_PLAN.md /
+`matpcr_REDFLAGS.txt` items A5/A6/A7/A8/A12/A17-adjacent follow-ups
+already noted as genuinely blocked in §27-28 (A6's live re-check at
+submission time, A7's prompt-paraphrase sweep — done in §30 — A8's second
+reviewer, A12's GPU-hours, A17's microscopy model — resolved in §30 as a
+justified gap).
+
+### Not yet done
+- [ ] Mustafa's independent re-validation of the DFT precision batch
+      (§25/§30) — standing, not affected by any redflag-text change.
+- [ ] A second human reviewer for A8/EX6 — harness ready
+      (`experiments/exp13_second_reviewer_kappa.py`), no second reviewer
+      recruited yet.
+- [ ] 2-3 independent human mock reviews of the manuscript (CLAUDE.md §8
+      rule 5) — standing pre-submission checklist item, unaffected by
+      closing the redflags.
+- [ ] Real `pdflatex` compile — same standing gap as every prior
+      manuscript pass; the manuscript's structural balance has been
+      verified repeatedly by brace/environment/scope counting across many
+      edits, but no actual render has been produced in this environment
+      at any point in this project's history.
+- [ ] A6's live re-check against the closest neighbors' then-current work
+      — cannot be permanently resolved before the actual submission date
+      (§28's own framing; unaffected by this session).
+
+---
+
+## 33. Three new real-data figures added — first worked examples anywhere
+in the manuscript (2026-08-07)
+
+Not tied to a red-flag item; requested directly. Every prior figure in
+`version3/matpcr_snjnl.tex` was schematic (hand-drawn TikZ) or an
+aggregate table/heatmap — nothing showed a single real case. Built three
+figures entirely from artifacts already on disk (no new model calls),
+via a new checked-in script, `experiments/exp19_manuscript_figures.py`,
+run directly against the repo's real files to confirm reproducibility
+before trusting the output.
+
+1. **`fig_precision_funnel.pdf`** — stacked real/false-positive/unsure
+   bars for all six oracle families, built directly from the six Half-B
+   review `.txt` exports (`xrd.txt`, `sem.txt`,
+   `spectrum_halfB_review_2026-08-06.txt`, and the three DFT families'
+   `_halfB_review_2026-08-06.txt` files). Reproduces Table 1's precision
+   column exactly (77.2/88.6/92.3$\approx$92.7/95.3/94.7/92.2%) as a
+   visual companion — confirmed by recomputing the tallies directly from
+   the same source files, not copied from the table.
+2. **`fig_failure_gallery.pdf`** — three real, human-confirmed cases, one
+   per image modality, with the actual embedded plot images extracted
+   directly from `experiments/halfB_review_{xrd,sem,spectrum}.html`
+   (base64-decoded, not redrawn) plus claim-vs-true-peak annotations:
+   - XRD (`pattern_911.json`): model claimed 3.5°, oracle fired; the
+     claim visibly sits near the y-axis rather than the true apex — the
+     dominant XRD failure mode already quantified in the violation
+     taxonomy (70.5% gridline/apex misreads).
+   - SEM (`L1_ae57...jpg`, NFFA-EUROPE): model claimed 100 µm against a
+     real 10 µm scale bar — a literal order-of-magnitude, 10$\times$ the
+     entire field of view.
+   - Spectrum (Gotzenite, RRUFF Raman): model claimed 800 cm$^{-1}$; the
+     real apex is at ~830 cm$^{-1}$, just outside the oracle's 5 cm$^{-1}$
+     tolerance — directly illustrates the exact root cause found for 34
+     of 36 (94%) of the spectrum oracle's false positives (§31).
+3. **`fig_cgsv_trajectory.pdf`** — a real 3-round CGSV revision
+   trajectory (GPT-4o, opXRD CNRS `pattern_941.json`, pulled directly
+   from `experiments/exp4_results.jsonl`'s real `claimed_values`: 28.3°
+   → 27.9° → 28.6°), plotted against the pattern's real measured
+   diffractogram with its real pymatgen reference peaks overlaid. Found
+   directly by re-deriving the reference peaks
+   (`halfB_collect.xrd_reference_peaks`) that the model's final answer
+   (28.6°) lands within the oracle's 0.5° tolerance of a genuine but
+   secondary Bragg reflection at 28.91° — not the pattern's actual
+   tallest peak at 30.91°, which the model's own reasoning chain
+   describes locating. This is a concrete, single-item illustration of
+   the already-quantified Results finding (post-CGSV accuracy 29.8\% on
+   diffraction, far below post-CGSV PCR) — CGSV converges on an
+   oracle-admissible value, not necessarily the value it was originally
+   reasoning toward.
+
+**Manuscript integration**: added `\usepackage{graphicx}` to the preamble
+(was not previously loaded anywhere — confirmed by grepping both the
+`.tex` file and `sn-jnl.cls`; without it the three new
+`\includegraphics` calls would not compile). Inserted the precision
+funnel and failure gallery right after Table 1 in the "Oracle validity"
+subsection (their natural home); inserted the CGSV trajectory figure
+directly after the retreat-vs-correction paragraph in "Effect of
+self-verification," the exact finding it illustrates. All three have
+real captions explaining the source and what to look for, real labels
+(`fig:precision-funnel`, `fig:failure-gallery`, `fig:cgsv-trajectory`),
+and figure files live at `version3/figures/*.pdf`.
+
+Confirmed brace/`\begin`-`\end`/`\begin{scope}`-`\end{scope}`/
+`\begin{figure}`-`\end{figure}` balance after all edits: 1882/1882,
+31/31, 5/5, 6/6 (up from the pre-edit 1862/1862, 28/28, 5/5, 3/3 — the
+delta is exactly the three new figure environments plus one new
+`\usepackage` line, nothing else moved).
+
+### Not yet done
+- [ ] No real `pdflatex` compile available in this environment (same
+      standing gap as every prior pass) — the three new
+      `\includegraphics` calls have not been visually verified inside an
+      actual rendered page, only checked for valid PDF files, correct
+      relative paths, and the newly-added `graphicx` package.
+- [ ] `experiments/exp19_manuscript_figures.py` is not yet copied into
+      `release_code/` (which is already uploaded/live per §32) — if the
+      figures need to be reproducible from the public code release, this
+      script should be added there in a future update.
+
+---
+
+## 34. version3/sample/ — best/worst real cases per modality, 6 figures
+(2026-08-08)
+
+Requested directly, not tied to a red-flag item: for each of the six
+oracle families, pick the 2 real fired cases with the smallest
+claim-vs-truth gap ("best") and the 2 with the largest ("worst"), as one
+2x2 figure per modality, saved to a new `version3/sample/` folder.
+Generating script: `experiments/exp20_best_worst_samples.py` (run directly
+against the repo to confirm reproducibility before trusting the output).
+
+**Real bug caught and fixed during selection, worth remembering**: the
+first pass ranked XRD cases by comparing each claim to the pattern's raw
+`numpy.argmax(intensity)`. Two of the resulting "best"/"worst" picks were
+wrong for two different, real reasons, both traced by re-checking against
+the case's exact recorded `source_file` (`experiments/halfB_fired_cases.jsonl`)
+rather than trusting the ranking:
+1. `pattern_211.json` exists identically-named in FIVE opXRD institution
+   folders (CNRS, EMPA, INT, HKUST-B, USC). A naive `glob.glob()` across
+   institutions picked an arbitrary one (HKUST-B), whose real global max
+   sits at 45.8° — but the review case's actual image (and its real
+   `source_file`, CNRS) shows the true tallest peak at 3.92°. Fixed by
+   resolving every case through its exact recorded `source_file`, never a
+   glob.
+2. Raw `argmax` on `pattern_146.json` picked a decaying-baseline point
+   near the plot's left edge (2-3°), not a genuine Bragg peak — the
+   pattern's real, meaningful tallest peak is a sharp reflection at
+   ~23.5°. Fixed by using `scipy.signal.find_peaks` (resolved local
+   maxima) instead of a raw global max for the final geometric-modality
+   rankings, the same fix pattern already used for XRD's Half-A peak
+   resolution (CLAUDE.md §12).
+
+**Selection method per modality:**
+- **XRD, spectrum**: gap = |claimed value − nearest genuine resolved local-max
+  peak|. Best: XRD Δ=0.18-0.19°, spectrum Δ=0.1-1.8 cm⁻¹. Worst: XRD
+  Δ=14.7-16.4°, spectrum includes one claim (1750 cm⁻¹, Laurionite) that
+  falls entirely outside the spectrum's real measured x-range
+  (91.6-1284.8 cm⁻¹) — confirmed directly, the model stated a value the
+  plot never showed at all.
+- **SEM**: ranked by the review page's own recorded claim magnitude
+  (re-running `sem_scale_bar`'s OCR fresh to recompute an exact FOV ratio
+  was found unreliable — see below — so this uses what's already
+  recorded, not a re-derived number). Best: two cases claiming ~100 nm
+  against a real 1 µm scale bar (a plausible in-frame reading). Worst: a
+  claimed 1000 µm (1 mm) against a real 10 µm scale bar (100× the field
+  of view) and a claimed 150 µm against a real 10 µm bar (15×).
+- **Stability, metallicity, magnetism**: best = real reference value
+  closest to the oracle's tolerance boundary (hull within ~0.002 eV/atom
+  of 0.05, band gap within ~0.07 eV of the 0.20 eV abstention edge, or an
+  exactly-zero real moment) — genuinely subtle, defensible misses, not
+  arbitrary near-misses. Worst = real reference value farthest from the
+  claim in absolute terms (hull 11-25× the tolerance; band gap 3.5-4.5 eV
+  called metallic; a real moment of 32-110 µB called nonmagnetic).
+
+**A real SEM re-computation reliability finding, not pursued further**:
+attempted to recompute each SEM case's exact field-of-view ratio by
+re-running `sem_scale_bar()` fresh against the resolved image, to rank
+by ratio rather than raw claim magnitude. This produced physically
+absurd ratios (up to ~11,000,000×) for several cases, traced to the
+scale-bar OCR/marker-detection extracting a different (wrong) reading
+than whatever the original Half-B collection pass used — the per-item
+raw extractor output isn't cached anywhere retrievable
+(`experiments/sem_scalebar_results.jsonl` doesn't contain these specific
+files). Rather than risk mislabeling a real image with a re-derived wrong
+number, fell back to ranking by the review page's own already-recorded
+claim value, which is faithful to the original collection.
+
+Manuscript itself (`version3/matpcr_snjnl.tex`) was **not** touched this
+pass — these six figures are extra evidence artifacts saved to
+`version3/sample/`, not inserted into the paper.
+
+### Not yet done
+- [ ] Decide whether any of these six best/worst figures should be
+      inserted into the manuscript or SI, or remain as standalone
+      reference material — not decided this pass.
+- [ ] `experiments/exp20_best_worst_samples.py` is not yet copied into
+      `release_code/` (already uploaded/live per §32) for the same reason
+      `exp19` isn't yet — see the prior "Not yet done" entry above.
+
+---
+
+## 35. Full-manuscript audit (Workflow, multi-agent) + fixes applied
+(2026-08-12)
+
+Per explicit user request ("go through the whole paper, check everything,
+check for any inconsistencies, any mistaken references, for everything,
+every number, every percentage") a multi-agent Workflow audited
+`version3/matpcr_snjnl.tex` + `matpcr_SI.tex` + `matpcr_refs.bib`: 353
+numeric claims extracted and checked against real source data
+(experiments/*.jsonl, the 6 current halfB review .txt exports, this
+CLAUDE.md), every `\ref{}`/`\label{}`/`\cite{}` checked for resolution,
+brace/environment balance re-verified, and an internal-consistency pass
+(manuscript disagreeing with itself). 26 candidate problems survived
+first-pass flagging; 13 survived adversarial re-verification (a skeptic
+agent per candidate, defaulting to REFUTED unless independently
+confirmed). All 13 have now been resolved:
+
+1. **Diffraction PCR range** (line ~480) said "(0.47–0.80)"; Table 1's own
+   GPT-5.6-Sol row shows 0.820 as the column max. Fixed to (0.47–0.82).
+2. **GPT-5.6-Terra's overall CI lower bound** was inconsistently stated as
+   0.736 (line ~485, matches raw data) vs. 0.738 (lines ~513, ~1004,
+   wrong). All three now read 0.736.
+3. **Bonferroni-corrected metallicity AUC CI** (line ~701) stated
+   $[0.486,0.678]$ with no committed script backing the number. Extended
+   `experiments/exp6_detector_analysis.py` with a real, runnable
+   Bonferroni-widened (alpha/6) bootstrap CI block for all 6 held-out
+   modalities; re-ran it. **Real, reproducible result: metallicity's
+   corrected CI is $[0.487, 0.673]$**, not $[0.486, 0.678]$ — close but
+   not exact. Updated the manuscript to the reproducible value. Does not
+   change the qualitative conclusion (still excludes-chance: False, i.e.
+   metallicity's apparent exception still does not survive correction).
+4. **`matpc2025` bib entry** had a placeholder author, `{{MatPC Authors}}`,
+   with an unresolved `% VERIFY`. Independently confirmed the real author
+   list (Zhou, Jiacheng; Xiao, Bo; Liu, Qi; Liu, Lifeng; Zhang, Lei) via
+   two authoritative registries queried directly (Crossref's own DOI
+   record and Semantic Scholar's API for DOI 10.1021/acsami.5c08809),
+   which agreed exactly — fixed. Note: the user separately re-verified
+   and edited the rest of `matpcr_refs.bib` via Google Scholar on
+   2026-08-12 (see the file's own updated header comment), independent of
+   this fix.
+5. **`vprm2026`** had a stale `% VERIFY` marker even though its own
+   comment text said the entry was already confirmed — removed the
+   marker, kept the confirmation note.
+6. **Missing `R-CRYSTALS` citation — a real, more serious problem than
+   originally flagged.** `matpcr_snjnl.tex:192` still cited
+   `polat2025rcrystals`, but that bib key no longer existed anywhere in
+   `matpcr_refs.bib` (removed, apparently by accident, during an earlier
+   or the user's own edit pass) — this would have been an undefined-
+   citation compile error, not just a stale-VERIFY hygiene issue. This is
+   the paper's required declared-related-work citation for R-CRYSTALS
+   (CLAUDE.md §8 rule 6 / §5), so it needed restoring, not just deleting.
+   **User supplied the correct, current citation directly**: the paper
+   published under a new title, "How Far Can You Grow? Characterizing the
+   Extrapolation Frontier of Graph Generative Models for Materials
+   Science," Polat/Serpedin/M. Kurban/H. Kurban, KDD 2026 (ACM,
+   DOI 10.1145/3770855.3818872, pages 11821–11832). Added as
+   `polat2026extrapolation` in `matpcr_refs.bib` and repointed the
+   citation at `matpcr_snjnl.tex:192`. Confirmed the old key has zero
+   remaining references anywhere and the new key is defined once and
+   cited once.
+7. **4 previously-uncited bib entries** (`eaa2026`, `liu2024llava`,
+   `matty2026`, `wei2022cot`) — per the user's explicit choice ("cite them
+   where relevant, then keep"), found natural homes and cited each
+   exactly once: `eaa2026`/`matty2026` joined the existing agentic-
+   materials-discovery citation list (line ~123, alongside `dreams2025`,
+   `crystalyse2025`, etc.); `wei2022cot` (the foundational Chain-of-
+   Thought paper) was cited where the Introduction first describes models
+   reasoning "step by step" (line ~101-104); `liu2024llava` (LLaVA-1.5)
+   was cited alongside the VLM framing at the same location, describing
+   open instruction-tuned VLM architectures generally — NOT claimed as one
+   of the study's evaluated models, since it wasn't.
+8. **GPU/hardware contradiction**: Methods said the pilot/Experiment 1-4
+   period used an A100; Acknowledgements said that same period used a
+   P100 — a genuine, previously-unresolved conflict (CLAUDE.md §30/A12
+   had deliberately punted on it as "the union of both claims"). **User
+   resolved directly**: P100 was used only for early, pre-pilot
+   exploratory work that produced no result reported in this paper; the
+   A100 was the machine for the pilot and Experiment 1-4 onward (matching
+   the contemporaneous pilot-era log at CLAUDE.md line ~507, "this
+   machine's A100," and the Exp5 verifier-training note at line ~1178,
+   both written at the time, not retrospectively). Rewrote the
+   Acknowledgements sentence to say this precisely instead of leaving an
+   unqualified P100 claim for the reported-work period.
+9. **`fig_failure_gallery.pdf` / `fig_cgsv_trajectory.pdf` content
+   drift**: §33 above states both figures were inserted into the main
+   manuscript, but neither is actually referenced anywhere in the current
+   `.tex` (only `fig_precision_funnel.pdf` survived, later moved to the
+   SI per §"Move precision-funnel..." work). **Both files still exist on
+   disk** at `version3/figures/*.pdf` — not deleted, just unreferenced.
+   Per explicit user decision (2026-08-12): drop them, they're superseded
+   by the three new professional oracle-example PDFs
+   (`new_{xrd,raman,sem}_oracle_figure.pdf`) already in the main text.
+   §33's text describing them as "inserted...into the main manuscript" is
+   therefore **stale as of this entry** — the insertion happened at the
+   time §33 was written but was later reverted (directly by the user,
+   between sessions) when the three professional PDFs replaced that
+   figure area. No manuscript edit was needed for this item; recorded
+   here so a future session doesn't re-trust §33's insertion claim as
+   current.
+
+**Not confirmed as real / left as-is** (adversarial re-verification
+refuted these, or user judged they don't warrant re-litigating a
+correctly-documented retraction):
+- No case found this pass of a "value was right once, then a re-run
+  corrected it, and the manuscript kept the old one" pattern beyond what
+  is already covered above — the manuscript is generally careful about
+  this elsewhere (e.g. the magnetism-verifier retraction, the spectrum
+  precision revision, both already correctly reported as superseded in
+  their own sections rather than left stale).
+
+**Standing gap, unaffected by this pass**: no real `pdflatex`/`bibtex`
+compile has ever been run in this environment across the project's
+history. All fixes above were verified via brace/`\begin`-`\end` balance
+counts and direct grep/rerun of the underlying data/scripts, not an
+actual render. This remains the single largest latent risk before
+submission.

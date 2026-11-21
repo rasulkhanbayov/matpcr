@@ -1,0 +1,121 @@
+{
+ "random": {
+  "reported_auc": 0.8495054015358584,
+  "released_auc": 0.8504598897999913,
+  "released_ci95": [
+   0.8136442517116294,
+   0.8837119173363253
+  ],
+  "released_bonferroni6_ci": [
+   0.801389635599194,
+   0.8955656157551105
+  ],
+  "reported_f1": 0.7354497354497355,
+  "released_f1": 0.7371273712737126,
+  "released_precision": 0.7906976744186046,
+  "released_recall": 0.6903553299492385,
+  "released_ece": 0.08735997869214203
+ },
+ "modality_heldout_xrd": {
+  "reported_auc": 0.49747715156131,
+  "released_auc": 0.531559405940594,
+  "released_ci95": [
+   0.45111593948027995,
+   0.6138192966925587
+  ],
+  "released_bonferroni6_ci": [
+   0.4235339706910802,
+   0.6362455356094786
+  ],
+  "reported_f1": 0.056603773584905655,
+  "released_f1": 0.019047619047619046,
+  "released_precision": 0.25,
+  "released_recall": 0.009900990099009901,
+  "released_ece": 0.4269573666246199
+ },
+ "modality_heldout_sem": {
+  "reported_auc": 0.5273302938196556,
+  "released_auc": 0.6020390070921986,
+  "released_ci95": [
+   0.5420657229301301,
+   0.6623560871037985
+  ],
+  "released_bonferroni6_ci": [
+   0.5187632979219157,
+   0.6820973321866234
+  ],
+  "reported_f1": 0.3784860557768924,
+  "released_f1": 0.32472324723247237,
+  "released_precision": 0.26506024096385544,
+  "released_recall": 0.41904761904761906,
+  "released_ece": 0.23382898063830676
+ },
+ "modality_heldout_spectrum": {
+  "reported_auc": 0.5583080808080808,
+  "released_auc": 0.5356691919191919,
+  "released_ci95": [
+   0.46492871137514524,
+   0.603625665104374
+  ],
+  "released_bonferroni6_ci": [
+   0.43610825526736563,
+   0.6275755737477031
+  ],
+  "reported_f1": NaN,
+  "released_f1": 0.9232209737827715,
+  "released_precision": 0.8603839441535777,
+  "released_recall": 0.9959595959595959,
+  "released_ece": 0.07215356655742806
+ },
+ "modality_heldout_stability": {
+  "reported_auc": 0.4360397196261682,
+  "released_auc": 0.38278816199376947,
+  "released_ci95": [
+   0.3218665335833944,
+   0.4454210413899031
+  ],
+  "released_bonferroni6_ci": [
+   0.3036189339518144,
+   0.46702208974660864
+  ],
+  "reported_f1": 0.15942028985507245,
+  "released_f1": 0.03252032520325203,
+  "released_precision": 0.125,
+  "released_recall": 0.018691588785046728,
+  "released_ece": 0.19376369050197026
+ },
+ "modality_heldout_metallicity": {
+  "reported_auc": 0.5817780266268509,
+  "released_auc": 0.5421177056115466,
+  "released_ci95": [
+   0.4703409328186407,
+   0.6146809411874071
+  ],
+  "released_bonferroni6_ci": [
+   0.44640019932871144,
+   0.6404404960981048
+  ],
+  "reported_f1": 0.2384105960264901,
+  "released_f1": 0.23776223776223773,
+  "released_precision": 0.5862068965517241,
+  "released_recall": 0.14912280701754385,
+  "released_ece": 0.275384064057988
+ },
+ "modality_heldout_magnetism": {
+  "reported_auc": 0.5025534851621808,
+  "released_auc": 0.5015182884748102,
+  "released_ci95": [
+   0.4290628059364433,
+   0.5780144205655576
+  ],
+  "released_bonferroni6_ci": [
+   0.4060158260375785,
+   0.5977341341819302
+  ],
+  "reported_f1": 0.5387453874538746,
+  "released_f1": 0.5830508474576271,
+  "released_precision": 0.4777777777777778,
+  "released_recall": 0.7478260869565218,
+  "released_ece": 0.23189458459097875
+ }
+}

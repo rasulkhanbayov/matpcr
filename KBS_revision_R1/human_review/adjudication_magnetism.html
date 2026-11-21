@@ -1,0 +1,150 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Adjudication: magnetism</title><style>
+  body { font-family: -apple-system, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px;
+         background: #fafafa; color: #1a1a1a; }
+  h1 { font-size: 1.4rem; }
+  .summary { position: sticky; top: 0; background: white; padding: 12px 16px; border-radius: 8px;
+              box-shadow: 0 1px 4px rgba(0,0,0,0.15); margin-bottom: 20px; z-index: 10; }
+  .summary strong { font-size: 1.1rem; }
+  .case { background: white; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+           overflow: hidden; }
+  .case-header { background: #f0f0f0; padding: 8px 16px; display: flex; gap: 12px; align-items: center;
+                   font-size: 0.85rem; }
+  .case-num { font-weight: 600; }
+  .model-badge { background: #333; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+  .source { color: #666; font-family: monospace; font-size: 0.75rem; }
+  .case-body { display: flex; gap: 16px; padding: 16px; flex-wrap: wrap; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+  th { text-align: left; padding: 4px 8px; color: #555; font-size: 0.85rem; white-space: nowrap; vertical-align: top; }
+  td { padding: 4px 8px; font-size: 0.85rem; }
+  .claim { font-weight: 600; }
+  .verdict-fired { color: #c0392b; font-weight: 600; }
+  .chain { background: #f7f7f7; padding: 10px; border-radius: 4px; font-size: 0.8rem;
+            white-space: pre-wrap; max-height: 300px; overflow-y: auto; }
+  .review-controls { margin-top: 10px; padding: 10px; background: #fff8e1; border-radius: 4px; }
+  .review-label { font-weight: 600; display: block; margin-bottom: 6px; }
+  .review-controls label { display: inline-block; margin-right: 16px; font-size: 0.85rem; cursor: pointer; }
+  button { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 4px;
+            cursor: pointer; font-size: 0.9rem; }
+  button:hover { background: #2471a3; }
+  #export-output { width: 100%; height: 100px; margin-top: 10px; font-family: monospace; font-size: 0.75rem; }
+</style>
+<style>.labels{background:#fff7e0;border:1px solid #e0c060;border-radius:6px;padding:6px 10px;margin:8px 16px}
+.note{width:95%;margin:4px 0}</style></head><body>
+<h1>Adjudication: magnetism (2 disagreements)</h1>
+<div class="summary"><p>The two annotators labelled each case below differently. Discuss each case together,
+using LABELING_GUIDELINES.md, and choose ONE consensus label. Add a short reason if useful.</p>
+<span id="tally">Decided: 0 / 2</span> &nbsp;<button onclick="exportReview()">Export consensus</button>
+<textarea id="export-output" rows="6" style="width:100%"></textarea></div>
+<div class="case" id="case-4">
+      <div class="case-header">
+        <span class="case-num">Case #5</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2217120 — MgTi3O6</span>
+      </div>
+      <div class="labels"><b>Annotator 1:</b> False positive &nbsp;&nbsp; <b>Annotator 2:</b> Real violation</div><div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgTi3O6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 3.0}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.2091 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=2.016470 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 2.016470 muB over 10 atoms = 0.2016 muB/atom. Model classified: MAGNETIC, claimed magnitude 3.0 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if MgTi3O6 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Electronic Structure Analysis**:
+   - Magnesium (Mg) typically forms divalent ions (Mg²⁺), which means its outermost shell is filled with 2 electrons.
+   - Titanium (Ti) can form trivalent ions (Ti³⁺), meaning it has 3 valence electrons.
+   - Oxygen (O) forms oxide ions (O²⁻), contributing 2 electrons each to the bonding.
+
+2. **Spin States**:
+   - The Ti³⁺ ion has a configuration of 3d², where the d-orbitals can hold up to 10 electrons. In Ti³⁺, the 3d orbitals are partially filled, but the ground state is often considered as having 2 electrons in the 3d orbitals, leaving 1 electron in a higher energy level.
+   - This single unpaired electron in the 3d orbital of Ti³⁺ can contribute to a magnetic moment due to its spin.
+
+3. **Magnetic Moment Contribution**:
+   - Each Ti³⁺ ion contributes a magnetic moment due to the unpaired electron in the 3d orbital.
+   - Since there are three Ti³⁺ ions in the formula unit (MgTi₃O₆), the total magnetic moment from the Ti³⁺ ions would be three times the magnetic moment of a single Ti³⁺ ion.
+
+4. **Final Assessment**:
+   - Given that Ti³⁺ ions have a single unpaired electron, each Ti³⁺ ion contributes approximately 1 Bohr magneton (μB) to the total magnetic moment.
+   - Therefore, the total magnetic moment for the three Ti³⁺ ions would be 3 μB.
+
+Considering the above points, the material MgTi₃O₆ is expected to have a non-zero net magnetic moment.
+
+**Final Answer**: MAGNETIC, 3 muB/atom</pre>
+          </details>
+          <div class="review-controls"><label class="review-label">Consensus:</label><label><input type="radio" name="consensus-5" value="real" onchange="updateTally()"> Real violation</label><label><input type="radio" name="consensus-5" value="false_positive" onchange="updateTally()"> False positive</label><input class="note" id="note-5" placeholder="reason (optional)"></div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-11">
+      <div class="case-header">
+        <span class="case-num">Case #12</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1638951 — Co2O3F</span>
+      </div>
+      <div class="labels"><b>Annotator 1:</b> Real violation &nbsp;&nbsp; <b>Annotator 2:</b> False positive</div><div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Co2O3F</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 4.0}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0917 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=8.192417 muB,
+                nsites=24</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 8.192417 muB over 24 atoms = 0.3414 muB/atom. Model classified: MAGNETIC, claimed magnitude 4.0 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The chemical formula Co2O3F suggests cobalt in its common oxidation states. Cobalt commonly exists as Co$^{2+}$ (d$^7$) and Co$^{3+}$ (d$^6$). Oxygen is typically O$^{2-}$, and fluorine is F$^{-}$.
+
+Let&#x27;s consider the possible oxidation states for cobalt that would lead to a neutral compound.
+Case 1: Both cobalt ions are Co$^{3+}$.  The total charge would be 2*(+3) + 3*(-2) + 1*(-1) = 6 - 6 - 1 = -1. This is not neutral.
+Case 2: One cobalt ion is Co$^{2+}$ and the other is Co$^{3+}$. The total charge would be 1*(+2) + 1*(+3) + 3*(-2) + 1*(-1) = 2 + 3 - 6 - 1 = -2. This is not neutral.
+Case 3: Both cobalt ions are Co$^{2+}$. The total charge would be 2*(+2) + 3*(-2) + 1*(-1) = 4 - 6 - 1 = -3. This is not neutral.
+
+It&#x27;s possible that the oxidation states are not as straightforward or that the formula represents a mixed-valence compound. However, cobalt oxides and oxyfluorides are often magnetic due to the unpaired electrons in cobalt ions.
+
+Let&#x27;s assume a hypothetical scenario where cobalt is present and contributes to a magnetic moment. If we assume a scenario where there are cobalt ions with unpaired electrons, it will be magnetic. Given the common magnetic nature of cobalt compounds, it&#x27;s more likely to be magnetic.
+
+For instance, if we consider a scenario with an average oxidation state of cobalt that leads to unpaired electrons:
+If we consider Co$^{2+}$ (d$^7$), it has 3 unpaired electrons in the low spin state and 5 unpaired electrons in the high spin state.
+If we consider Co$^{3+}$ (d$^6$), it has 0 unpaired electrons in the low spin state and 4 unpaired electrons in the high spin state.
+
+Without knowing the exact electronic configuration and spin state, it&#x27;s difficult to pinpoint a precise value. However, even with one unpaired electron per cobalt atom, it would be magnetic. If we consider a simplified scenario where, on average, there are a few unpaired electrons per cobalt atom, the material would exhibit a magnetic moment. Given that we have two cobalt atoms, and assuming they contribute unpaired electrons, a nonzero net magnetic moment is expected.
+
+A rough estimate: if we assume an average of 2 unpaired electrons per cobalt atom, then for 2 cobalt atoms, we would have 4 unpaired electrons contributing to the magnetic moment.
+
+FINAL_ANSWER: MAGNETIC, 4 muB/atom</pre>
+          </details>
+          <div class="review-controls"><label class="review-label">Consensus:</label><label><input type="radio" name="consensus-12" value="real" onchange="updateTally()"> Real violation</label><label><input type="radio" name="consensus-12" value="false_positive" onchange="updateTally()"> False positive</label><input class="note" id="note-12" placeholder="reason (optional)"></div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<script>
+const CASES = [5, 12];
+function updateTally() {
+  let k = 0; for (const c of CASES) { for (const r of document.getElementsByName('consensus-' + c)) if (r.checked) k++; }
+  document.getElementById('tally').textContent = 'Decided: ' + k + ' / ' + CASES.length;
+}
+function exportReview() {
+  const out = [];
+  for (const c of CASES) {
+    let v = null; for (const r of document.getElementsByName('consensus-' + c)) if (r.checked) v = r.value;
+    out.push({case: c, verdict: v, note: document.getElementById('note-' + c).value});
+  }
+  document.getElementById('export-output').value = JSON.stringify({family: "magnetism", stage: "adjudication", reviews: out}, null, 2);
+}
+</script></body></html>

@@ -1,0 +1,8 @@
+{
+  "family": "dft_metallicity",
+  "n_cases": 30,
+  "raw_agreement": 1.0,
+  "cohens_kappa": 1.0,
+  "qualitative_band": "almost perfect",
+  "disagreements": []
+}

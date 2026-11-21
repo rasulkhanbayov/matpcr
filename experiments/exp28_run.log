@@ -1,0 +1,87 @@
+{
+ "n_formulas": 1869,
+ "n_polymorphic_formulas": 540,
+ "n_entries_in_polymorphic_formulas": 1671,
+ "stability": {
+  "polymorphic_formulas_scored": 540,
+  "label_disagreement": 59,
+  "share": 0.10925925925925926
+ },
+ "metallicity": {
+  "polymorphic_formulas_scored": 539,
+  "label_disagreement": 84,
+  "share": 0.15584415584415584
+ },
+ "magnetism": {
+  "polymorphic_formulas_scored": 540,
+  "label_disagreement": 87,
+  "share": 0.16111111111111112
+ }
+}
+Retrieving SummaryDoc documents:   0%|          | 0/317 [00:00<?, ?it/s]Retrieving SummaryDoc documents: 100%|██████████| 317/317 [00:00<00:00, 1717822.18it/s]
+  queried 100/1491 formulas
+Retrieving SummaryDoc documents:   0%|          | 0/213 [00:00<?, ?it/s]Retrieving SummaryDoc documents: 100%|██████████| 213/213 [00:00<00:00, 1123756.92it/s]
+  queried 200/1491 formulas
+Retrieving SummaryDoc documents:   0%|          | 0/378 [00:00<?, ?it/s]Retrieving SummaryDoc documents: 100%|██████████| 378/378 [00:00<00:00, 3229016.11it/s]
+  queried 300/1491 formulas
+Retrieving SummaryDoc documents:   0%|          | 0/404 [00:00<?, ?it/s]Retrieving SummaryDoc documents: 100%|██████████| 404/404 [00:00<00:00, 3465232.75it/s]
+  queried 400/1491 formulas
+Retrieving SummaryDoc documents:   0%|          | 0/284 [00:00<?, ?it/s]Retrieving SummaryDoc documents: 100%|██████████| 284/284 [00:00<00:00, 1622864.22it/s]
+  queried 500/1491 formulas
+Retrieving SummaryDoc documents:   0%|          | 0/358 [00:00<?, ?it/s]Retrieving SummaryDoc documents: 100%|██████████| 358/358 [00:00<00:00, 2973387.79it/s]
+  queried 600/1491 formulas
+Retrieving SummaryDoc documents:   0%|          | 0/1381 [00:00<?, ?it/s]Retrieving SummaryDoc documents:  96%|█████████▌| 1329/1381 [00:00<00:00, 4629.85it/s]Retrieving SummaryDoc documents: 100%|██████████| 1381/1381 [00:00<00:00, 2864.54it/s]
+  queried 700/1491 formulas
+Retrieving SummaryDoc documents:   0%|          | 0/363 [00:00<?, ?it/s]Retrieving SummaryDoc documents: 100%|██████████| 363/363 [00:00<00:00, 3069621.68it/s]
+  queried 800/1491 formulas
+Retrieving SummaryDoc documents:   0%|          | 0/400 [00:00<?, ?it/s]Retrieving SummaryDoc documents: 100%|██████████| 400/400 [00:00<00:00, 2882683.16it/s]
+  queried 900/1491 formulas
+Retrieving SummaryDoc documents:   0%|          | 0/616 [00:00<?, ?it/s]Retrieving SummaryDoc documents: 100%|██████████| 616/616 [00:00<00:00, 5665989.61it/s]
+  queried 1000/1491 formulas
+Retrieving SummaryDoc documents:   0%|          | 0/338 [00:00<?, ?it/s]Retrieving SummaryDoc documents: 100%|██████████| 338/338 [00:00<00:00, 4133162.54it/s]
+  queried 1100/1491 formulas
+Retrieving SummaryDoc documents:   0%|          | 0/296 [00:00<?, ?it/s]Retrieving SummaryDoc documents: 100%|██████████| 296/296 [00:00<00:00, 2492999.97it/s]
+  queried 1200/1491 formulas
+Retrieving SummaryDoc documents:   0%|          | 0/290 [00:00<?, ?it/s]Retrieving SummaryDoc documents: 100%|██████████| 290/290 [00:00<00:00, 2394386.14it/s]
+  queried 1300/1491 formulas
+Retrieving SummaryDoc documents:   0%|          | 0/237 [00:00<?, ?it/s]Retrieving SummaryDoc documents: 100%|██████████| 237/237 [00:00<00:00, 1553203.20it/s]
+  queried 1400/1491 formulas
+Retrieving SummaryDoc documents:   0%|          | 0/495 [00:00<?, ?it/s]Retrieving SummaryDoc documents: 100%|██████████| 495/495 [00:00<00:00, 3823536.80it/s]
+  queried 1491/1491 formulas
+{
+ "stability": {
+  "n_records": 1434,
+  "agree_with_ground_state_scoring": 0.902370990237099,
+  "changed_by_any_polymorph_scoring": 0.1192468619246862,
+  "transitions_entry_to_groundstate": {
+   "True->True": 910,
+   "False->False": 384,
+   "True->False": 92,
+   "False->True": 48
+  }
+ },
+ "metallicity": {
+  "n_records": 1272,
+  "agree_with_ground_state_scoring": 0.8962264150943396,
+  "changed_by_any_polymorph_scoring": 0.12735849056603774,
+  "transitions_entry_to_groundstate": {
+   "False->False": 384,
+   "False->True": 72,
+   "True->True": 756,
+   "False->None": 13,
+   "True->False": 37,
+   "True->None": 10
+  }
+ },
+ "magnetism": {
+  "n_records": 1077,
+  "agree_with_ground_state_scoring": 0.9266480965645311,
+  "changed_by_any_polymorph_scoring": 0.10306406685236769,
+  "transitions_entry_to_groundstate": {
+   "True->True": 683,
+   "False->False": 315,
+   "False->True": 46,
+   "True->False": 33
+  }
+ }
+}

@@ -1,0 +1,7 @@
+family       prec A (full)  consensus  95% CI          n_sub  adjudicated  sided A/B
+xrd                  0.772      0.602  [0.441, 0.754]     30           9   0/9
+sem                  0.886      0.886  [0.818, 0.939]     30           2   2/0
+spectrum             0.927      0.608  [0.436, 0.763]     30          11   0/11
+stability            1.000      1.000  [0.843, 1.000]     14           0   0/0
+metallicity          0.947      0.947  [0.868, 0.970]     30           0   0/0
+magnetism            0.922      0.914  [0.799, 0.965]     30           2   0/2

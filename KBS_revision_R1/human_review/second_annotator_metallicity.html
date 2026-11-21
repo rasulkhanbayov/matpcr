@@ -1,0 +1,1234 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>Second-annotator review: metallicity</title><style>
+  body { font-family: -apple-system, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px;
+         background: #fafafa; color: #1a1a1a; }
+  h1 { font-size: 1.4rem; }
+  .summary { position: sticky; top: 0; background: white; padding: 12px 16px; border-radius: 8px;
+              box-shadow: 0 1px 4px rgba(0,0,0,0.15); margin-bottom: 20px; z-index: 10; }
+  .summary strong { font-size: 1.1rem; }
+  .case { background: white; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+           overflow: hidden; }
+  .case-header { background: #f0f0f0; padding: 8px 16px; display: flex; gap: 12px; align-items: center;
+                   font-size: 0.85rem; }
+  .case-num { font-weight: 600; }
+  .model-badge { background: #333; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+  .source { color: #666; font-family: monospace; font-size: 0.75rem; }
+  .case-body { display: flex; gap: 16px; padding: 16px; flex-wrap: wrap; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+  th { text-align: left; padding: 4px 8px; color: #555; font-size: 0.85rem; white-space: nowrap; vertical-align: top; }
+  td { padding: 4px 8px; font-size: 0.85rem; }
+  .claim { font-weight: 600; }
+  .verdict-fired { color: #c0392b; font-weight: 600; }
+  .chain { background: #f7f7f7; padding: 10px; border-radius: 4px; font-size: 0.8rem;
+            white-space: pre-wrap; max-height: 300px; overflow-y: auto; }
+  .review-controls { margin-top: 10px; padding: 10px; background: #fff8e1; border-radius: 4px; }
+  .review-label { font-weight: 600; display: block; margin-bottom: 6px; }
+  .review-controls label { display: inline-block; margin-right: 16px; font-size: 0.85rem; cursor: pointer; }
+  button { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 4px;
+            cursor: pointer; font-size: 0.9rem; }
+  button:hover { background: #2471a3; }
+  #export-output { width: 100%; height: 100px; margin-top: 10px; font-family: monospace; font-size: 0.75rem; }
+</style></head><body>
+<h1>Second-annotator review: metallicity oracle (30 cases)</h1>
+<div class="summary">
+<p>For each case, decide independently whether the oracle's INCONSISTENT verdict is a genuine physical
+violation of the stated constraint (<b>Real</b>), or an oracle/parsing artifact (<b>False positive</b>).
+Use <b>Unsure</b> only if you cannot decide. Do not consult the first annotator's labels.</p>
+<span id="tally">Reviewed: 0 / 30</span> &nbsp;
+<button onclick="exportReview()">Export my review</button>
+<textarea id="export-output" rows="6" style="width:100%"></textarea></div>
+<div class="case" id="case-27">
+      <div class="case-header">
+        <span class="case-num">Case #28</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-3347313 — C</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">C</td></tr>
+            <tr><th>Model's claim</th><td class="claim">METALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0000 eV/atom,
+                is_stable=True, band_gap=1.3762 eV,
+                is_metal=False, total_magnetization=0.000000 muB,
+                nsites=2</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 1.3762 eV (Materials Project is_metal flag: False). Model claimed: METALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine whether a material is metallic or nonmetallic based on its chemical composition, we need to consider the electronic structure and the nature of the bonds in the material. However, without specific details about the chemical composition &quot;C,&quot; it&#x27;s challenging to provide an accurate classification. Typically, metallic behavior is associated with materials that have a zero or near-zero electronic band gap, allowing for the free movement of electrons throughout the material. On the other hand, semiconductors and insulators have finite band gaps, which restrict the movement of electrons.
+
+If the composition &quot;C&quot; refers to a material like copper (Cu), which is known to be metallic due to its ability to conduct electricity and heat, the answer would be:
+
+FINAL_ANSWER: METALLIC
+
+If the composition &quot;C&quot; refers to a material like silicon (Si), which has a finite band gap and is classified as a semiconductor, the answer would be:
+
+FINAL_ANSWER: NONMETALLIC
+
+Since the exact chemical composition &quot;C&quot; is not specified, I cannot definitively classify it. If you could provide more information about the material, such as its atomic structure or the elements involved, I could offer a more precise answer.
+
+For the sake of this exercise, let&#x27;s assume &quot;C&quot; is a common metallic element. Therefore, the answer is:
+
+FINAL_ANSWER: METALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-28" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-28" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-28" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-82">
+      <div class="case-header">
+        <span class="case-num">Case #83</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2210632 — Mg(CuS)2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Mg(CuS)2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1198 eV/atom,
+                is_stable=False, band_gap=0.0117 eV,
+                is_metal=False, total_magnetization=0.000000 muB,
+                nsites=5</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0117 eV (Materials Project is_metal flag: False). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material with the chemical composition Mg(CuS)₂ is likely to be a semiconductor/insulator rather than metallic. The presence of sulfur (S) in the compound suggests that it could form a sulfide, which typically has a finite band gap due to the covalent bonding characteristics of sulfur. Additionally, the magnesium (Mg) and copper (Cu) ions would contribute to the electronic structure, but the overall behavior would be dominated by the sulfur&#x27;s role in forming a semiconductor-like material.
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-83" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-83" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-83" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-73">
+      <div class="case-header">
+        <span class="case-num">Case #74</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1521488 — NaCo4BiO12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">NaCo4BiO12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.3212 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=12.027807 muB,
+                nsites=18</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">NaCo$_4$BiO$_{12}$ belongs to the delafossite family of oxides. In delafossites, the electronic properties are often dictated by the transition metal. Cobalt, in particular, can exhibit a variety of electronic behaviors depending on its oxidation state and coordination.  The presence of Bi might also influence the electronic structure. However, in oxides with transition metals in high oxidation states and strong covalency, metallic behavior is less common, and a band gap is more likely. Without specific knowledge of this exact compound, a reasonable prediction for complex transition metal oxides like this is often a semiconducting or insulating state.
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-74" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-74" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-74" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-25">
+      <div class="case-header">
+        <span class="case-num">Case #26</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2218980 — K2Na2MgTi2O6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">K2Na2MgTi2O6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.2542 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=1.782115 muB,
+                nsites=13</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material with the chemical composition K2Na2MgTi2O6 is likely to be a nonmetallic semiconductor or insulator. The presence of transition metal ions like Ti4+ and Mg2+ suggests that it could have a finite band gap, as these elements often form compounds with semiconducting properties due to their ability to donate or accept electrons. Additionally, the presence of alkali metals (K and Na) in the compound can influence the electronic structure but typically does not lead to metallic behavior unless there is a significant delocalization of electrons across the entire crystal lattice, which is not evident from the given formula.
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-26" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-26" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-26" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-34">
+      <div class="case-header">
+        <span class="case-num">Case #35</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1648875 — Li7Mn5O12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Li7Mn5O12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">METALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0288 eV/atom,
+                is_stable=False, band_gap=0.7655 eV,
+                is_metal=False, total_magnetization=2.004351 muB,
+                nsites=48</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.7655 eV (Materials Project is_metal flag: False). Model claimed: METALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material Li7Mn5O12 is a lithium manganese oxide, which typically forms a perovskite-like structure. Lithium manganese oxides like this often exhibit metallic behavior due to the presence of delocalized electrons in the Mn-O framework. The high valence state of manganese (usually +4 or +3) and the presence of lithium can lead to a metallic conductivity. Additionally, the presence of lithium can contribute to a more metallic character by providing mobile charge carriers.
+
+Final Answer: METALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-35" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-35" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-35" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-61">
+      <div class="case-header">
+        <span class="case-num">Case #62</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-2217550 — MgMnPb2WO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgMnPb2WO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.3785 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=4.988245 muB,
+                nsites=11</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material MgMnPb2WO6 contains a mixture of metallic (Mg, Pb) and non-metallic (O, W) elements, along with a transition metal (Mn). The presence of oxygen, tungsten, and likely the complex octahedral coordination around tungsten indicate ionic and covalent bonding character, which typically leads to band formation. While Mg and Pb are metals, their incorporation into an oxide structure with a transition metal generally disrupts metallic band formation. The presence of d-electrons in Mn might lead to some interesting optical properties or narrow bands, but it&#x27;s unlikely to result in a zero band gap for the entire compound. Complex oxides with heavy elements like lead and tungsten are often insulators or semiconductors.
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-62" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-62" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-62" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-108">
+      <div class="case-header">
+        <span class="case-num">Case #109</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-2218749 — MgMn4O7F</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgMn4O7F</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.2296 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=15.000001 muB,
+                nsites=13</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material MgMn4O7F contains magnesium (Mg), manganese (Mn), oxygen (O), and fluorine (F). Mg, O, and F are typically found in ionic or covalent compounds. Manganese (Mn) is a transition metal with variable oxidation states. However, in the context of oxide/halide compounds like this, the constituent elements are likely to form predominantly ionic or covalent bonds, leading to localized electrons rather than a delocalized electron sea characteristic of metals. The presence of multiple electronegative elements (O and F) further suggests a high degree of ionic or covalent bonding, making a metallic character less probable.
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-109" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-109" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-109" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-11">
+      <div class="case-header">
+        <span class="case-num">Case #12</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1525363 — CaSb2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">CaSb2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0082 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=0.000000 muB,
+                nsites=6</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine whether CaSb2 is metallic or nonmetallic, we need to consider its electronic structure and the nature of the bonds in the material.
+
+1. **Chemical Bonding**: CaSb2 consists of calcium (Ca), which is a metal, and antimony (Sb), which is a nonmetal. The bonding between these elements can be complex but generally involves ionic and covalent components. Calcium typically forms ionic bonds, while antimony can form both ionic and covalent bonds depending on the environment.
+
+2. **Electronic Structure**: In CaSb2, the calcium atoms likely form ionic bonds with the antimony atoms, leading to a structure where the antimony atoms are surrounded by calcium ions. This arrangement suggests that the material might have a layered structure similar to some ionic compounds like perovskites, but with a more complex electronic configuration due to the presence of antimony.
+
+3. **Band Gap Analysis**: For a material to be metallic, it must have a zero or near-zero electronic band gap, meaning electrons can move freely throughout the material without much resistance. However, for CaSb2, the presence of antimony, which is a nonmetal, suggests that there might be a finite band gap. Antimony often forms covalent bonds, which can introduce a band gap in the material&#x27;s electronic structure.
+
+4. **Experimental Evidence**: While theoretical predictions can guide us, experimental evidence from materials science is crucial. CaSb2 has been studied experimentally, and it has been found to exhibit semiconducting behavior, indicating a finite band gap.
+
+Given this analysis, it is reasonable to conclude that CaSb2 is a semiconductor/insulator rather than a metallic material.
+
+**FINAL_ANSWER: NONMETALLIC**</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-12" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-12" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-12" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-93">
+      <div class="case-header">
+        <span class="case-num">Case #94</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-2218459 — MgW2(SCl4)2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgW2(SCl4)2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">METALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1743 eV/atom,
+                is_stable=False, band_gap=0.3814 eV,
+                is_metal=False, total_magnetization=2.000398 muB,
+                nsites=13</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.3814 eV (Materials Project is_metal flag: False). Model claimed: METALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material contains magnesium (Mg), tungsten (W), sulfur (S), and chlorine (Cl). Magnesium is an alkali earth metal, and tungsten is a transition metal, both of which tend to contribute electrons to form metallic or polar covalent bonds. The presence of sulfur and chlorine, which are electronegative nonmetals, suggests the possibility of covalent or ionic bonding. However, the formal charges and bonding in complex anions like SCl4 can be intricate. Tungsten, in higher oxidation states, can be found in compounds with significant covalent character. The SCl4 moiety can be considered a distorted tetrahedral unit. Without specific crystallographic data or more advanced computational analysis, it&#x27;s difficult to definitively predict the electronic structure. However, the presence of a transition metal like tungsten, which has accessible d-orbitals and can readily form complex ions, combined with the potential for delocalized electrons or polar covalent bonding, makes a metallic character plausible. The formula suggests a complex structure where metal-ligand interactions are significant.
+
+FINAL_ANSWER: METALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-94" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-94" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-94" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-98">
+      <div class="case-header">
+        <span class="case-num">Case #99</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1522963 — KLiNb4O12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">KLiNb4O12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1435 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=2.000000 muB,
+                nsites=18</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">This material, KLiNb4O12, is an oxide. Oxides generally form ionic and covalent bonds between metal and oxygen atoms. This bonding typically leads to a significant separation between the valence and conduction bands, resulting in a finite band gap. The presence of potassium (K) and lithium (Li), alkali metals, and niobium (Nb), a transition metal, combined with oxygen, suggests a complex oxide structure. Transition metal oxides can sometimes exhibit metallic behavior due to d-orbital contributions, but the highly electronegative oxygen atom usually pulls electrons into localized states, creating a band gap. The high charge states and the oxide environment favor non-metallic behavior.
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-99" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-99" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-99" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-38">
+      <div class="case-header">
+        <span class="case-num">Case #39</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2218688 — MgFe4(PS)4</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgFe4(PS)4</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.3672 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=0.013780 muB,
+                nsites=13</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material with the chemical composition MgFe4(PS)4 is likely to be a semiconductor/insulator rather than metallic. The presence of phosphorus (P) and sulfur (S) in the structure suggests that it may form a compound with a finite band gap, as these elements often contribute to semiconducting properties when incorporated into materials. Additionally, the presence of magnesium (Mg) and iron (Fe) can also influence the electronic structure, potentially leading to a non-metallic behavior.
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-39" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-39" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-39" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-24">
+      <div class="case-header">
+        <span class="case-num">Case #25</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1647689 — Li4TiCo5O12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Li4TiCo5O12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0982 eV/atom,
+                is_stable=False, band_gap=0.0391 eV,
+                is_metal=False, total_magnetization=0.004987 muB,
+                nsites=44</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0391 eV (Materials Project is_metal flag: False). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material Li4TiCo5O12 is a complex oxide and typically exhibits semiconductor behavior due to its ionic bonding characteristics. The presence of transition metal ions like Co in an oxide framework generally leads to a finite band gap, which is characteristic of semiconductors. Additionally, the presence of lithium and titanium in the structure does not significantly alter the overall electronic properties towards metallic behavior.
+
+Therefore, based on these considerations:
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-25" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-25" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-25" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-63">
+      <div class="case-header">
+        <span class="case-num">Case #64</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2218741 — MgV2(FeO4)2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgV2(FeO4)2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">METALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.2645 eV/atom,
+                is_stable=False, band_gap=2.1292 eV,
+                is_metal=False, total_magnetization=7.996982 muB,
+                nsites=13</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 2.1292 eV (Materials Project is_metal flag: False). Model claimed: METALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine whether the material MgV2(FeO4)2 is metallic or nonmetallic, we need to consider its electronic structure and the nature of the bonds involved.
+
+1. **Chemical Composition**: The material has a complex structure involving magnesium (Mg), vanadium (V), iron (Fe), and oxygen (O). The presence of transition metals like V and Fe suggests that there might be d-orbital participation in bonding, which can lead to metallic behavior if the electrons are delocalized over the entire crystal lattice.
+
+2. **Electronic Band Structure**: Transition metal oxides often exhibit metallic behavior due to the presence of partially filled d-orbitals. In MgV2(FeO4)2, the V and Fe atoms have d-electrons that can participate in delocalized bonding, potentially leading to a metallic state where the Fermi level lies within the band gap, allowing for free electron transport.
+
+3. **Crystal Field Splitting**: The crystal field splitting in these compounds can further influence the electronic structure. If the crystal field splitting is not strong enough to create a significant band gap, the material may remain metallic.
+
+Given these considerations, it is reasonable to infer that MgV2(FeO4)2 could be metallic due to the potential for delocalized d-electrons from the transition metals.
+
+**Final Answer:** METALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-64" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-64" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-64" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-46">
+      <div class="case-header">
+        <span class="case-num">Case #47</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2216440 — Ba2MgNb6(NO7)2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Ba2MgNb6(NO7)2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1756 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=0.000093 muB,
+                nsites=25</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine whether the material with the chemical composition Ba2MgNb6(NO7)2 is metallic or nonmetallic, we need to consider the electronic structure and bonding in the material.
+
+1. **Chemical Composition Analysis**: The material contains barium (Ba), magnesium (Mg), niobium (Nb), nitrogen (N), and oxygen (O). Barium and magnesium are typically metallic elements, while niobium is a transition metal. Nitrogen and oxygen form anions in the compound.
+
+2. **Electronic Structure**: Transition metals like niobium often have partially filled d-orbitals, which can lead to metallic behavior due to delocalized electrons. However, the presence of nitrate (NO3-) groups suggests that there might be some insulating properties due to the strong covalent character of the nitrate ions.
+
+3. **Bonding Analysis**: The nitrate groups are likely to form strong covalent bonds with the metal ions, which could create a network structure where the electrons are localized within these groups rather than being delocalized throughout the entire crystal lattice. This would suggest a more insulating behavior.
+
+4. **Overall Electronic Band Gap**: Given the presence of both metallic and covalent bonding, it is reasonable to infer that the material might have a finite band gap, making it a semiconductor or an insulator.
+
+**Final Answer:** NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-47" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-47" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-47" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-50">
+      <div class="case-header">
+        <span class="case-num">Case #51</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2218269 — Tb2MgTi2S2O5</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Tb2MgTi2S2O5</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.2769 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=1.180562 muB,
+                nsites=12</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine whether the material with the chemical composition Tb2MgTi2S2O5 is metallic or nonmetallic, we need to consider its electronic structure and the nature of the bonds involved.
+
+1. **Tb (Thulium)**: Rare earth elements like Thulium (Tb) typically form 4f electrons that are not easily delocalized due to their strong shielding by the inner 5d and 6s electrons. This generally leads to insulating behavior because the 4f electrons are localized and do not contribute significantly to conduction.
+
+2. **Mg (Magnesium)**: Magnesium forms 3s2 electrons which can participate in covalent bonding but are not typically delocalized over long distances, contributing to a finite band gap if they are involved in the conduction mechanism.
+
+3. **Ti (Titanium)**: Titanium has 3d electrons that can be delocalized under certain conditions, contributing to metallic behavior. However, in oxides like TiO2, these electrons are often localized, leading to insulating behavior.
+
+4. **S (Sulfur)**: Sulfur forms covalent bonds and can contribute to a finite band gap in compounds like sulfides.
+
+Given the presence of Thulium, which is known for its localized 4f electrons, it is highly likely that the primary electronic contribution to conductivity will come from the other elements. The magnesium and titanium may form covalent bonds, but the overall electronic structure is dominated by the localized 4f electrons of Thulium, which typically results in an insulating material.
+
+**Final Answer:** NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-51" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-51" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-51" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-41">
+      <div class="case-header">
+        <span class="case-num">Case #42</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2217644 — MgSc2(FeO3)2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgSc2(FeO3)2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">METALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1747 eV/atom,
+                is_stable=False, band_gap=0.8180 eV,
+                is_metal=False, total_magnetization=8.000000 muB,
+                nsites=11</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.8180 eV (Materials Project is_metal flag: False). Model claimed: METALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine whether the material with the chemical composition MgSc2(FeO3)2 is metallic or nonmetallic, we need to consider the electronic structure and bonding in the material.
+
+1. **Chemical Composition Analysis**:
+   - The material contains magnesium (Mg), scandium (Sc), iron (Fe), and oxygen (O).
+   - The presence of transition metals like Fe suggests that there might be d-orbital participation in the bonding, which can lead to metallic behavior.
+   - The overall stoichiometry and the nature of the bonds (likely ionic and covalent) suggest a complex structure where electrons might delocalize across the lattice.
+
+2. **Electronic Structure Considerations**:
+   - Transition metals like Fe often form compounds with metallic properties due to their ability to delocalize electrons over multiple atoms.
+   - The presence of Sc and Mg, which are less likely to form metallic bonds, might contribute to a more localized electron structure but the significant contribution from Fe could still dominate.
+
+3. **Band Gap Analysis**:
+   - If the material has a zero or near-zero electronic band gap, it would be considered metallic.
+   - If the band gap is finite, it would be classified as a semiconductor or insulator.
+
+Given the complexity of the material and the potential for delocalized electrons due to the presence of Fe, it is reasonable to infer that the material might exhibit metallic behavior.
+
+**Final Answer**: METALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-42" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-42" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-42" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-77">
+      <div class="case-header">
+        <span class="case-num">Case #78</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-2218849 — MgNb4(NO)4</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgNb4(NO)4</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.2108 eV/atom,
+                is_stable=False, band_gap=0.0168 eV,
+                is_metal=False, total_magnetization=0.000002 muB,
+                nsites=13</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0168 eV (Materials Project is_metal flag: False). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material contains the metal magnesium (Mg) and niobium (Nb), but also nitrosonium ions (NO$^+$). The NO$^+$ ion is a cation with a covalent bond between nitrogen and oxygen, and carries a significant positive charge. Magnesium is an electropositive metal, and niobium is a transition metal that can exhibit variable oxidation states. In this compound, it is likely that Mg acts as a cation (likely Mg$^{2+}$) to balance the charge from NO$^+$ and the surrounding anions. The presence of discrete, charged molecular ions (NO$^+$) tends to disrupt the extended metallic bonding network characteristic of pure metals or intermetallic compounds with simple metallic bonding. Instead, the bonding is likely to be a mix of ionic contributions (between Mg and the anion framework) and covalent contributions within the NO$^+$ units. This localized electronic structure suggests a band gap. While Nb and Mg are metals, the NO$^+$ species acts as an electron acceptor or influences the electronic structure in a way that creates a band gap. Therefore, a nonmetallic behavior is expected.
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-78" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-78" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-78" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-69">
+      <div class="case-header">
+        <span class="case-num">Case #70</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-2218857 — MgTi4O8</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgTi4O8</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0819 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=1.702992 muB,
+                nsites=13</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">MgTi$_4$O$_8$ is an oxide compound. Oxides typically have a significant ionic character in their bonding, which can lead to the formation of a band gap. Magnesium (Mg) is an alkaline earth metal and typically forms a +2 ion. Titanium (Ti) can exhibit varying oxidation states, most commonly +3 or +4 in oxides. Oxygen (O) typically forms a -2 ion.
+
+To estimate the electronic properties, we can consider the constituent elements and their typical bonding behavior. Mg is electropositive, and O is electronegative. This suggests ionic bonding. Titanium is a transition metal which can exhibit covalent bonding characteristics in oxides. In the context of oxides, particularly with a d-electron system from titanium, the formation of a band gap is quite common unless there is significant orbital overlap or delocalization that closes the gap. The presence of multiple Ti atoms in the formula unit (Ti$_4$) and the O$_8$ stoichiometry might influence the electronic structure, but in general, oxides with transition metals can be semiconductors or insulators due to the localized nature of d-orbitals and the formation of a valence band primarily from oxygen 2p states and a conduction band from transition metal d-states. The energy difference between these bands constitutes the band gap. Without specific crystallographic information and band structure calculations, it&#x27;s more probable that MgTi$_4$O$_8$ will exhibit a band gap rather than metallic conductivity.
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-70" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-70" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-70" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-8">
+      <div class="case-header">
+        <span class="case-num">Case #9</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1521652 — BaNaPrSbO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">BaNaPrSbO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0960 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=1.000000 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine whether the material with the chemical composition BaNaPrSbO6 is metallic or nonmetallic, we need to consider its electronic structure and the nature of the bonds involved.
+
+1. **Chemical Composition**: The material is composed of barium (Ba), sodium (Na), praseodymium (Pr), antimony (Sb), and oxygen (O). Barium and sodium are typically metallic elements, while praseodymium is a rare earth element, and antimony is a metalloid. Oxygen is a non-metallic element.
+
+2. **Electronic Structure**: The presence of both metallic and non-metallic elements suggests that the material might have a complex electronic structure. Metallic elements like barium and sodium can contribute to metallic bonding, which would imply a zero or near-zero band gap if the material were purely metallic. However, the presence of praseodymium and antimony introduces more complexity, as these elements often form compounds with finite band gaps due to their ionic or covalent bonding characteristics.
+
+3. **Bonding Analysis**: In compounds like this, the bonding between different elements can vary from ionic to covalent depending on the electronegativity differences. For instance, the strong ionic character in compounds involving barium and oxygen suggests some ionic bonding, while the presence of praseodymium and antimony could introduce covalent or mixed valence states, which typically result in semiconducting or insulating behavior.
+
+Given the complexity introduced by the presence of praseodymium and antimony, it is more likely that the material will exhibit semiconducting or insulating properties rather than being purely metallic.
+
+**Final Answer:** NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-9" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-9" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-9" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-62">
+      <div class="case-header">
+        <span class="case-num">Case #63</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1521763 — SrCrSnSbO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">SrCrSnSbO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">METALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1832 eV/atom,
+                is_stable=False, band_gap=0.8797 eV,
+                is_metal=False, total_magnetization=3.000001 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.8797 eV (Materials Project is_metal flag: False). Model claimed: METALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine whether SrCrSnSbO6 is metallic or nonmetallic, we need to consider its electronic structure and the nature of the bonds in the material.
+
+1. **Chemical Composition**: The material has a complex oxide structure with Sr (Strontium), Cr (Chromium), Sn (Tin), Sb (Antimony), and O (Oxygen). These elements form a mixed-valence system where the valences of the transition metals (Cr and Sb) can vary depending on their oxidation states.
+
+2. **Electronic Band Structure**: In oxides like this, the electronic properties are often determined by the overlap of d-orbitals from transition metals with the p-orbitals of oxygen. The presence of multiple transition metal ions (Cr and Sb) can lead to a complex band structure that may include both metallic and insulating regions.
+
+3. **Valence States**: Chromium typically forms +3 or +4 valence states, while Antimony can form +3 or +5 valence states. The specific valence states will influence the band structure and the overall electronic conductivity.
+
+4. **Crystal Field Splitting**: The crystal field splitting due to the surrounding oxygen ions can further complicate the band structure, potentially leading to a finite band gap if the energy levels are sufficiently separated.
+
+Given these considerations, it is challenging to definitively state whether SrCrSnSbO6 is purely metallic or nonmetallic without detailed electronic structure calculations. However, based on the typical behavior of such complex oxides, there is a possibility that it could exhibit metallic behavior due to the overlapping d-states of the transition metals.
+
+**Final Answer:** METALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-63" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-63" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-63" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-55">
+      <div class="case-header">
+        <span class="case-num">Case #56</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1521788 — KSrPrSbO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">KSrPrSbO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0619 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=1.000000 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The compound KSrPrSbO6 is a complex oxide, and its electronic properties can be inferred from the nature of the elements involved. Potassium (K), strontium (Sr), praseodymium (Pr), antimony (Sb), and oxygen (O) are all metals and non-metals respectively. The presence of transition metal ions like Pr3+ and Sb5+ suggests that the material might have some metallic character due to the delocalization of electrons in these ions. However, the overall structure and bonding in such compounds often leads to a finite band gap, making it more likely to be a semiconductor or an insulator rather than a metallic conductor.
+
+Given the complexity and the typical behavior of such compounds, it is reasonable to conclude that KSrPrSbO6 is more likely to exhibit semiconducting or insulating behavior.
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-56" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-56" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-56" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-110">
+      <div class="case-header">
+        <span class="case-num">Case #111</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1522553 — SrCaSmMnO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">SrCaSmMnO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1905 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=2.000001 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material SrCaSmMnO6 is a perovskite oxide, which typically exhibits semiconducting behavior due to the presence of transition metal ions like Mn3+ and Mn4+. The electronic structure of such materials often involves mixed valence states of the transition metals, leading to a finite band gap. Additionally, the presence of rare earth elements (Sm) can further contribute to the formation of localized states that widen the band gap.
+
+Given these considerations, it is reasonable to expect that SrCaSmMnO6 will have a finite band gap, making it a semiconductor or insulator rather than a metallic material.
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-111" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-111" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-111" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-90">
+      <div class="case-header">
+        <span class="case-num">Case #91</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-2210611 — NaMgMnO2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">NaMgMnO2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.2443 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=4.818579 muB,
+                nsites=5</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">NaMgMnO2 is likely to be a semiconductor or insulator. The presence of oxide anions (O2-) and a transition metal cation (Mn) suggests that the bonding will have a significant ionic and covalent character, leading to the formation of a band gap. Na and Mg are electropositive, while Mn is a transition metal with d-orbitals that can participate in bonding and potentially contribute to a band gap when interacting with oxygen. The specific arrangement and oxidation states of these elements would determine the precise band gap, but a metallic character is less probable than a semiconducting/insulating one.
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-91" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-91" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-91" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-74">
+      <div class="case-header">
+        <span class="case-num">Case #75</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2217728 — Tb2Mg(NiO3)2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Tb2Mg(NiO3)2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">METALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.2253 eV/atom,
+                is_stable=False, band_gap=2.5042 eV,
+                is_metal=False, total_magnetization=4.000000 muB,
+                nsites=11</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 2.5042 eV (Materials Project is_metal flag: False). Model claimed: METALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine whether the material with the chemical composition Tb2Mg(NiO3)2 is metallic or nonmetallic, we need to consider the electronic structure and bonding in the material.
+
+1. **Tb2Mg(NiO3)2** suggests a complex oxide structure where Terbium (Tb), Magnesium (Mg), Nickel (Ni), and Oxygen (O) are present.
+2. Terbium (Tb) is a rare earth element, which typically forms ionic bonds but can also exhibit some covalent character due to its d-orbitals.
+3. Magnesium (Mg) is an alkaline earth metal that forms ionic bonds.
+4. Nickel (Ni) is a transition metal that can form both ionic and covalent bonds, often exhibiting metallic behavior.
+5. Oxygen (O) is highly electronegative and forms strong covalent bonds.
+
+Given the presence of nickel, which is known for its metallic properties, and considering the overall ionic nature of the other elements, it is plausible that the Ni-O bonds could contribute to metallic behavior. However, the presence of terbium and magnesium, which are more ionic in nature, might introduce some insulating characteristics.
+
+The key factor here is the electronic band structure. If the Ni-O bonds are strong enough to create a metallic conduction path, the material could be metallic. However, if the ionic character dominates, the material might be insulating.
+
+Considering the complexity and the potential for mixed bonding, it&#x27;s challenging to definitively predict without detailed electronic structure calculations. However, based on the typical behavior of nickel in such compounds, it is reasonable to infer that the Ni-O bonds might provide a metallic pathway.
+
+**Final Answer:** METALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-75" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-75" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-75" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-37">
+      <div class="case-header">
+        <span class="case-num">Case #38</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1639391 — Li7Mn4CoO12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Li7Mn4CoO12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">METALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0312 eV/atom,
+                is_stable=False, band_gap=0.7488 eV,
+                is_metal=False, total_magnetization=25.839054 muB,
+                nsites=48</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.7488 eV (Materials Project is_metal flag: False). Model claimed: METALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material Li7Mn4CoO12 is a perovskite-type oxide, which typically exhibits metallic behavior due to the presence of transition metal ions (Mn and Co) that can form metallic-like bands. The lithium ions (Li+) in the structure are likely to be interstitial and do not significantly contribute to the electronic properties. The metallic character is often observed in oxides containing transition metals, especially when they form a continuous network of metal-oxygen bonds.
+
+Final Answer: METALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-38" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-38" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-38" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-19">
+      <div class="case-header">
+        <span class="case-num">Case #20</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-2216102 — KMgMn16O32</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">KMgMn16O32</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0571 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=51.012983 muB,
+                nsites=50</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The composition KMgMn16O32 contains potassium (K), magnesium (Mg), manganese (Mn), and oxygen (O). Oxygen is highly electronegative. Manganese, while being a transition metal, often forms oxides that are insulators or semiconductors due to the strong interaction with oxygen. Potassium and magnesium are highly electropositive and are expected to form ionic bonds, further contributing to the formation of oxide structures with ionic character, which typically leads to a band gap. The presence of multiple metal cations and oxygen suggests a complex oxide, and the common behavior of such oxides is nonmetallic. Transition metals in oxides can exhibit variable oxidation states and complex magnetic properties, but generally, their oxides are not metallic unless in very specific structural configurations or with unusual bonding. In this case, the high proportion of oxygen compared to metals, and the presence of typical electropositive elements, points towards a nonmetallic nature.
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-20" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-20" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-20" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-80">
+      <div class="case-header">
+        <span class="case-num">Case #81</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1523025 — NaCeTi4O12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">NaCeTi4O12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1741 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=2.999999 muB,
+                nsites=18</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material with the chemical composition NaCeTi4O12 is likely to be a nonmetallic semiconductor or insulator. The presence of Ce (cerium) and Ti (titanium) in an oxide framework suggests that it could have a complex electronic structure typical of oxides, which often exhibit semiconducting or insulating properties due to the presence of d-electrons from transition metals like cerium and titanium. Cerium can exist in multiple oxidation states, and its ability to form mixed valence compounds can lead to insulating behavior. Additionally, the presence of sodium (Na) as a cation may not significantly contribute to metallic conductivity in this context.
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-81" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-81" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-81" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-109">
+      <div class="case-header">
+        <span class="case-num">Case #110</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1987187 — K3V2(S2O9)2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">K3V2(S2O9)2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0091 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=2.033110 muB,
+                nsites=54</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The compound K3V2(S2O9)2 is a complex salt containing potassium (K), vanadium (V), and sulfate (S2O9). Vanadium in this context is likely in a high oxidation state, such as V^5+, which is common for vanadium in such compounds. The presence of the sulfate group (S2O9^2-) suggests that the compound is anionic, and the overall charge balance indicates that it is a neutral molecule.
+
+Given the high oxidation state of vanadium and the presence of the sulfate group, this compound is more likely to exhibit semiconductor behavior due to the finite band gap between the valence and conduction bands. The high oxidation state of vanadium typically leads to a more insulating behavior rather than metallic conductivity.
+
+Final Answer: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-110" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-110" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-110" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-48">
+      <div class="case-header">
+        <span class="case-num">Case #49</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2212268 — La6MnSb15</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">La6MnSb15</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0000 eV/atom,
+                is_stable=True, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=3.854826 muB,
+                nsites=22</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material La6MnSb15 is a complex compound that contains lanthanum (La), manganese (Mn), and antimony (Sb). The presence of lanthanum suggests it might have some metallic properties due to its ability to form metallic bonds. However, the presence of manganese and antimony introduces elements that can contribute to semiconducting behavior. Manganese often acts as a dopant in semiconductors, and antimony typically forms semiconducting compounds. Given these factors, it is more likely that La6MnSb15 will exhibit semiconducting behavior rather than metallic behavior.
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-49" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-49" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-49" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-104">
+      <div class="case-header">
+        <span class="case-num">Case #105</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1546639 — Mo15N16</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Mo15N16</td></tr>
+            <tr><th>Model's claim</th><td class="claim">NONMETALLIC</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0000 eV/atom,
+                is_stable=True, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=0.000000 muB,
+                nsites=62</td></tr>
+            <tr><th>Claim-type note</th><td>Metallicity oracle: consistent iff (claimed=='METALLIC') == (band_gap &lt;= 0.05 eV), for band_gap outside the 0.05-0.20 eV abstention band (M.K.'s review; ambiguous-band materials are excluded from collection entirely, so every case shown here is clearly gapped or clearly gapless). Real band_gap = 0.0000 eV (Materials Project is_metal flag: True). Model claimed: NONMETALLIC.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material with the chemical composition Mo15N16 is likely to be nonmetallic due to the presence of nitrogen (N), which is typically a nonmetal and forms covalent bonds in compounds. The high concentration of nitrogen suggests that it will form a network structure, which is characteristic of insulators or semiconductors rather than metals. Additionally, the presence of molybdenum (Mo), a transition metal, does not necessarily guarantee metallic behavior if it is not in a form that allows for delocalized electrons.
+
+FINAL_ANSWER: NONMETALLIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-105" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-105" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-105" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<script>
+const CASES = [28, 83, 74, 26, 35, 62, 109, 12, 94, 99, 39, 25, 64, 47, 51, 42, 78, 70, 9, 63, 56, 111, 91, 75, 38, 20, 81, 110, 49, 105];
+function updateTally() {
+  let k = 0; for (const c of CASES) { for (const r of document.getElementsByName('review-' + c)) if (r.checked) k++; }
+  document.getElementById('tally').textContent = 'Reviewed: ' + k + ' / ' + CASES.length;
+}
+function exportReview() {
+  const out = [];
+  for (const c of CASES) { let v = null; for (const r of document.getElementsByName('review-' + c)) if (r.checked) v = r.value; out.push({case: c, verdict: v}); }
+  document.getElementById('export-output').value = JSON.stringify({family: "metallicity", annotator: "second", reviews: out}, null, 2);
+}
+</script></body></html>

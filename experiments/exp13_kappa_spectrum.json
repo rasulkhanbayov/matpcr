@@ -1,0 +1,64 @@
+{
+  "family": "spectrum",
+  "n_cases": 30,
+  "raw_agreement": 0.6333333333333333,
+  "cohens_kappa": 0.12698412698412676,
+  "qualitative_band": "slight",
+  "disagreements": [
+    {
+      "case": 45,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 166,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 185,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 213,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 226,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 265,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 291,
+      "reviewer_a": "false_positive",
+      "reviewer_b": "real"
+    },
+    {
+      "case": 333,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 342,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 357,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 458,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    }
+  ]
+}

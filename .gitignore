@@ -34,3 +34,13 @@ experiments/__pycache__/
 
 # Scratch/manual-review exports already summarized into CLAUDE.md
 *.txt.bak
+
+# arXiv preprint folder and the KBS revision source (contains the response to reviewers)
+_Arxiv__Matpcr/
+_Revision___Knowledge_Based_Systems__Matpcr/
+
+# Internal review comments. These three were committed earlier; ignoring them does not
+# untrack them -- run `git rm --cached` on them once (see PUSH_GITHUB_HF.md, step 3).
+Dr_mustafas_comments
+matpcr_REDFLAGS.txt
+REVISION_PLAN.md

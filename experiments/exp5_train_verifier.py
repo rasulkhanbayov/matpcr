@@ -139,7 +139,7 @@ def train_and_eval(train_records, test_records, run_name: str, train_seed: int =
     test_ds = ChainDataset(test_records)
 
     model = AutoModelForSequenceClassification.from_pretrained(
-        MODEL_ID, num_labels=2, torch_dtype=torch.bfloat16
+        MODEL_ID, num_labels=2, torch_dtype=getattr(torch, os.environ.get("EXP5_DTYPE", "bfloat16"))
     )
     model.config.pad_token_id = tokenizer.pad_token_id
 
@@ -164,11 +164,16 @@ def train_and_eval(train_records, test_records, run_name: str, train_seed: int =
         save_strategy="no",
         eval_strategy="no",
         report_to=[],
-        bf16=True,
+        # EXP5_DTYPE=float32 for GPUs without bf16 support (e.g. P100); default unchanged.
+        bf16=os.environ.get("EXP5_DTYPE", "bfloat16") == "bfloat16",
         disable_tqdm=True,
     )
     trainer = Trainer(model=model, args=args, train_dataset=train_ds)
     trainer.train()
+    # Persist the LoRA adapter + tokenizer (the original runs used save_strategy="no"
+    # and never called save_pretrained, so no adapter weights were ever written).
+    model.save_pretrained(out_dir)
+    tokenizer.save_pretrained(out_dir)
 
     model.eval()
     probs, preds, labels = [], [], []

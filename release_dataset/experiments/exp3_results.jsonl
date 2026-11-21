@@ -1,0 +1,920 @@
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_735.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_259.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_928.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_814.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_668.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_47.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_951.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_278.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_537.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_923.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_489.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_46.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_827.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_754.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_831.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_716.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_243.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_231.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_950.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_274.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_338.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_719.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_1047.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_448.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_941.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_908.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_13.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_772.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_629.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_437.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_1040.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_719.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_33.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_609.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_1049.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_26.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_441.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_720.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_714.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_392.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_745.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_895.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_117.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_558.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_112.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_539.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_176.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_447.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_608.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_926.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_175.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_303.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_8.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_744.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_638.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_723.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_570.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_434.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_26.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_53.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_239.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "local", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_783.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_735.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_259.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_928.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_814.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_668.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_47.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_951.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_537.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_923.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_489.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_46.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_754.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_831.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_716.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_243.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_231.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_950.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_274.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_338.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_719.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_1047.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_941.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_908.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_13.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_772.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_629.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_437.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_1040.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_719.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_33.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_609.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_1049.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_26.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_441.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_720.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_714.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_745.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_895.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_117.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_558.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_112.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_539.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_176.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_447.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_608.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_926.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_175.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_303.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_8.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_744.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_638.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_723.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_570.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_434.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_26.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_53.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_239.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gemini", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_783.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_735.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_259.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_928.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_814.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_668.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_47.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_951.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_278.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_537.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_923.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_489.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_46.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_827.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_754.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_831.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_716.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_243.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_231.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_950.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_274.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_338.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_719.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_1047.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_448.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_941.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gpt4o", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_908.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_13.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gpt4o", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_772.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gpt4o", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_629.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_437.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_1040.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_719.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_33.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gpt4o", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_609.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_1049.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_26.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gpt4o", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_441.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_720.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_714.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_392.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_745.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_895.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_117.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_558.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_112.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_539.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_176.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_447.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_608.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_926.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_175.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_303.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_8.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_744.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_638.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_723.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_570.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_434.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_26.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_53.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_239.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "gpt4o", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_783.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_735.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_259.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_928.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_814.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_668.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_47.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_951.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_278.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_537.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_923.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_489.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_46.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_827.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_754.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_831.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_716.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_243.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_231.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_950.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_274.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_338.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_719.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_1047.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_448.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 0, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_941.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_908.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_13.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_772.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_629.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_437.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_1040.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_719.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_33.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_609.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_1049.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_26.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_441.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_720.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_714.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 1, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_392.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_745.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_895.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_117.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_558.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_112.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_539.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_176.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_447.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_608.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_926.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_175.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_303.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_8.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_744.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_638.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_723.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_570.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_434.json", "accurate": true, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_26.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_53.json", "accurate": false, "consistent": false}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_239.json", "accurate": false, "consistent": true}
+{"modality": "xrd", "model": "claude", "seed": 2, "source_id": "/home/ubuntu/nature_submission/opxrd/CNRS/pattern_783.json", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Crocoite__R050044__Raman__532______Raman_Data_Processed__9cfc5fb374c36cc70b9ce6868463.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Senarmontite__R060075__Raman__532______Raman_Data_Processed__2eb425a83b2da457b5cfdc18eed0.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Arseniosiderite__R150061__Raman__785______Raman_Data_Processed__1dd9ec276fc2a1f8ea1a88b93f0c.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Wendwilsonite__R180010__Raman__780______Raman_Data_Processed__9f90250863994053150f2823548e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Atencioite__R060893__Raman__532______Raman_Data_Processed__6e39d925afe6f99fc8387349d545.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Szaibelyite__R060289__Raman__532______Raman_Data_Processed__a7f393adebb20a9a488a129520a0.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Glauberite__R050350__Raman__514______Raman_Data_Processed__73f6d0a2f6a6a45d5e03f317fd85.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Retgersite__R130119__Raman__532______Raman_Data_Processed__06cef9b2e00ed2d093b21604ba3e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Davidite-(Ce)__R120009__Raman__532______Raman_Data_Processed__b0b8ee545ad2c21411296813fb35.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Ferrokesterite__R060870__Raman__785______Raman_Data_Processed__e2cf2ebef9a06ff1d07f2a165a57.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Stottite__R120089__Raman__780______Raman_Data_Processed__fbdb86597e5b1ff51e598741dddf.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Hopeite__R130562__Raman__532______Raman_Data_Processed__fac0bc54eb82301d63c3ef7e036d.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Suenoite__R250132__Raman________Raman_Data_Processed__9f86f0cc10030d83addac1a7b23d.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Variscite__R110139__Raman__780______Raman_Data_Processed__5405ecf4cbdea0ae9ec5f7bf12c4.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Keiviite-(Yb)__R060522__Raman__532______Raman_Data_Processed__0e047b60a7d242d2b31394a545b6.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Taramellite__R160011__Raman__532______Raman_Data_Processed__0b4f577cf66061b87ff38460a7b3.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Sonoraite__R070745__Raman__532______Raman_Data_Processed__9004af32f1ee8b630eb00a924890.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Perite__R060766__Raman__532______Raman_Data_Processed__4638f1afb4ecc5dbf8bb472cdd50.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Luzonite__R070247__Raman__532______Raman_Data_Processed__0a0689c6b89ae63805059e1f749b.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Turquoise__R050225__Raman__514______Raman_Data_Processed__7b5f92747531ed066b25a63d3e7d.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Fluorapophyllite-(K)__R050021__Raman__785______Raman_Data_Processed__1f670cceaa9c856ccc8276cf2df8.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Talc__R050087__Raman__785______Raman_Data_Processed__454d7d7ab60f11c5483f92d670c1.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Mottramite__R050521__Raman__780______Raman_Data_Processed__ae6fb8cd56086c65d7ad8d8660b2.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Augite__R061086__Raman__785______Raman_Data_Processed__4cabc1b4075e1116435c63221ee4.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Nordenskioldine__R061079__Raman__532______Raman_Data_Processed__b728c4f83b2d9374c1f4eaba48e2.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Vanadinite__R050376__Raman__780______Raman_Data_Processed__90e47bbbc83108f4dd99218b8271.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Churchite-(Y)__R060424__Raman__780______Raman_Data_Processed__de6aa16f93b132faad4d682d78a5.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Bartelkeite__R070114__Raman__532______Raman_Data_Processed__2ce5a288df1b833c0a9149a5af2f.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Diopside__R040009__Raman__514______Raman_Data_Processed__11bbd6690199116c0586745c0a60.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Xanthoconite__R070746__Raman__532______Raman_Data_Processed__9c6d0b320d9e6853b6b1d33d063d.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Linarite__R120094__Raman__780______Raman_Data_Processed__09ed58b7255ab3ea728cd036adf4.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Ussingite__R070562__Raman__532______Raman_Data_Processed__5b93721c987a4378fa9f0909efe9.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Forsterite__R040052__Raman__514______Raman_Data_Processed__49a04c618c52bd07c4fabf3cf2be.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Eosphorite__R130480__Raman__532______Raman_Data_Processed__b44a9b391c14e1d4357a68a01155.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Pyrope__R040159__Raman__532______Raman_Data_Processed__7ea59fdacfa71ff4a21def5e7738.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Nitrobarite__R060622__Raman__532______Raman_Data_Processed__ffc1237cf85eb7da896930b42727.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Hornesite__R060724__Raman__785______Raman_Data_Processed__aff53f80dd7259d147234a167c1f.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Rickardite__R140500__Raman__532______Raman_Data_Processed__9be6918ed70d53c5cd2cd5f597a6.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Stellerite__R060483__Raman__780______Raman_Data_Processed__e9fd5408dad053739103f3b825f8.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Beryl__R040002__Raman__514______Raman_Data_Processed__4edaf89cf85cfe40ef5a74285542.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Burkeite__R060112__Raman__532______Raman_Data_Processed__8833e4ba7537885a724dc4fb6774.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Kettnerite__R130113__Raman__532______Raman_Data_Processed__64b2c35dc33e194ccb910536bc3b.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Elbaite__R100137__Raman__780______Raman_Data_Processed__927de299d228794affb5190b4ea0.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Grossular__R060499__Raman__780______Raman_Data_Processed__55509ebe5344bb8353770ae861c9.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Tungstenite__R070616__Raman__532______Raman_Data_Processed__48a198717f219c8b9573c8ec2d42.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Macdonaldite__R060770__Raman__532______Raman_Data_Processed__a8fcfab852aa02e587c868746ff7.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Trona__R050228__Raman__514______Raman_Data_Processed__632e84b042062fbff96c760b238f.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Aurichalcite__R050297__Raman__514______Raman_Data_Processed__03afbf9916f60965a28bd10ed5bb.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Malayaite__R080024__Raman__532______Raman_Data_Processed__1092d08e979eacb8e79f69ba1657.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Diamond__R150088__Raman__532______Raman_Data_Processed__1a1aa8a1c7c909f1435f85631bff.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Thenardite__R040183__Raman__785______Raman_Data_Processed__9699065f23f34498aa51e233a60e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Vesuvianite__R070226__Raman__532______Raman_Data_Processed__3c857800d78cb664fd4afc78874c.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Gerhardtite__R120082__Raman__532______Raman_Data_Processed__8cfea741b1122a01032ff015b066.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Rosasite__R050294__Raman__780______Raman_Data_Processed__4f7bb7369dc3bc8fc9ef167b9a1e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Stibnite__R050016_a__Raman__532______Raman_Data_Processed__87f151b6e69b34f815c4ed30da88.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Vertumnite__R070063__Raman__785______Raman_Data_Processed__2de4adb59b30c5d491f0d6267e42.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Hemimorphite__R040117__Raman__532______Raman_Data_Processed__21469411029c952bb6057a1c72b8.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Schoepite__R100188__Raman__780______Raman_Data_Processed__9440a634d3626967f77b02774189.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Anatase__R060277__Raman__780______Raman_Data_Processed__b2038e16a28f243609c20d27eb23.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Faheyite__R100084__Raman__780______Raman_Data_Processed__679694a7375485480e4d266c6566.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Baotite__R060251__Raman__532______Raman_Data_Processed__c1dfd7165d9c24153e6d0ef07817.txt", "accurate": true, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Strontioginorite__R110149__Raman__532______Raman_Data_Processed__358e2b7e9087bb64190f6a8c6d6b.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Actinolite__R040063__Raman__532______Raman_Data_Processed__9f9addc451303a7939a8e118c57b.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Gerdtremmelite__R100224__Raman__532______Raman_Data_Processed__2506083ddbb001b4290d0ca3f231.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Spodumene__R040050__Raman__532______Raman_Data_Processed__eb1b0fec46dc180ca634b887bdf1.txt", "accurate": true, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Fillowite__R110143__Raman__780______Raman_Data_Processed__29d7474b101c0f1b2431ad61614c.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Pyromorphite__R050085__Raman__532______Raman_Data_Processed__2c95a060982e7bda4ec3d7bc280d.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Blodite__R050317__Raman__532______Raman_Data_Processed__0172462eb29da63990448b91e26a.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Natrolite__R040112__Raman__785______Raman_Data_Processed__109ae24a4d3f3e3eb7e3f9fb1951.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Erionite-Ca__R061110__Raman__532______Raman_Data_Processed__e64f3a3e39c84edfa09913dd77b2.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Antigorite__R070228__Raman__532______Raman_Data_Processed__33cd09da917b7d86840de183044c.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Whiteite-(CaMnMg)__R140770__Raman__532______Raman_Data_Processed__a44db84490b8c20e9f559dfa5089.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Rutile__R050031__Raman__532______Raman_Data_Processed__b62729c945757b082c20d3e47128.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Belovite-(Ce)__R070163__Raman__532______Raman_Data_Processed__fbc402666c66ecedec0b2bfa406e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Colemanite__R050102__Raman__514______Raman_Data_Processed__9fe1e43537bb6482001e061e00f3.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Eskebornite__R060791__Raman__532______Raman_Data_Processed__cf0e10855265c1e7b4339d907cf2.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Cornetite__R050151__Raman__514______Raman_Data_Processed__9bf21fd2f43aa4ce9d1f1c571c5c.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Axinite-(Mn)__R050299__Raman__780______Raman_Data_Processed__84a2147b6fc33ad331d047bd81d0.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Zunyite__R050553__Raman__532______Raman_Data_Processed__34508fdbbdd3c503d898d3914463.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Likasite__R060327__Raman__532______Raman_Data_Processed__5e6e24afd0f0fdb0314c475a190b.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Lizardite__R060006__Raman__780______Raman_Data_Processed__38aa9e36dc973eead89b8dea84c9.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Leightonite__R050211__Raman__532______Raman_Data_Processed__31bbf0f0a0a2ce2448a25b35131a.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Alterite__R180005__Raman__532______Raman_Data_Processed__df04c496d4679e3edf6e6530fc57.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Brookite__R050363__Raman__780______Raman_Data_Processed__aff7db1b3120761f4a1cf02112c4.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Rosemaryite__R140519__Raman__532______Raman_Data_Processed__29f03723b93a341c117e04751ac6.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Eucryptite__R070248__Raman__532______Raman_Data_Processed__d3dd3746a57d53b49309c966c371.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Liebenbergite__R120062__Raman__780______Raman_Data_Processed__d3abfc99d622f17d490325f6b581.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Blodite__R050317__Raman__514______Raman_Data_Processed__bbb116b41a93fca25110345fed18.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Scheelite__R040172__Raman__785______Raman_Data_Processed__5de741723f483c9009b0e861ab71.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "local", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Montgomeryite__R140625__Raman__780______Raman_Data_Processed__b33961555da75bef045fb1f9caad.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Crocoite__R050044__Raman__532______Raman_Data_Processed__9cfc5fb374c36cc70b9ce6868463.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Senarmontite__R060075__Raman__532______Raman_Data_Processed__2eb425a83b2da457b5cfdc18eed0.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Arseniosiderite__R150061__Raman__785______Raman_Data_Processed__1dd9ec276fc2a1f8ea1a88b93f0c.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Wendwilsonite__R180010__Raman__780______Raman_Data_Processed__9f90250863994053150f2823548e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Atencioite__R060893__Raman__532______Raman_Data_Processed__6e39d925afe6f99fc8387349d545.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Szaibelyite__R060289__Raman__532______Raman_Data_Processed__a7f393adebb20a9a488a129520a0.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Glauberite__R050350__Raman__514______Raman_Data_Processed__73f6d0a2f6a6a45d5e03f317fd85.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Retgersite__R130119__Raman__532______Raman_Data_Processed__06cef9b2e00ed2d093b21604ba3e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Davidite-(Ce)__R120009__Raman__532______Raman_Data_Processed__b0b8ee545ad2c21411296813fb35.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Ferrokesterite__R060870__Raman__785______Raman_Data_Processed__e2cf2ebef9a06ff1d07f2a165a57.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Stottite__R120089__Raman__780______Raman_Data_Processed__fbdb86597e5b1ff51e598741dddf.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Hopeite__R130562__Raman__532______Raman_Data_Processed__fac0bc54eb82301d63c3ef7e036d.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Suenoite__R250132__Raman________Raman_Data_Processed__9f86f0cc10030d83addac1a7b23d.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Variscite__R110139__Raman__780______Raman_Data_Processed__5405ecf4cbdea0ae9ec5f7bf12c4.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Keiviite-(Yb)__R060522__Raman__532______Raman_Data_Processed__0e047b60a7d242d2b31394a545b6.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Taramellite__R160011__Raman__532______Raman_Data_Processed__0b4f577cf66061b87ff38460a7b3.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Sonoraite__R070745__Raman__532______Raman_Data_Processed__9004af32f1ee8b630eb00a924890.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Perite__R060766__Raman__532______Raman_Data_Processed__4638f1afb4ecc5dbf8bb472cdd50.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Luzonite__R070247__Raman__532______Raman_Data_Processed__0a0689c6b89ae63805059e1f749b.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Turquoise__R050225__Raman__514______Raman_Data_Processed__7b5f92747531ed066b25a63d3e7d.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Fluorapophyllite-(K)__R050021__Raman__785______Raman_Data_Processed__1f670cceaa9c856ccc8276cf2df8.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Talc__R050087__Raman__785______Raman_Data_Processed__454d7d7ab60f11c5483f92d670c1.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Mottramite__R050521__Raman__780______Raman_Data_Processed__ae6fb8cd56086c65d7ad8d8660b2.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Augite__R061086__Raman__785______Raman_Data_Processed__4cabc1b4075e1116435c63221ee4.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Nordenskioldine__R061079__Raman__532______Raman_Data_Processed__b728c4f83b2d9374c1f4eaba48e2.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Vanadinite__R050376__Raman__780______Raman_Data_Processed__90e47bbbc83108f4dd99218b8271.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Churchite-(Y)__R060424__Raman__780______Raman_Data_Processed__de6aa16f93b132faad4d682d78a5.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Bartelkeite__R070114__Raman__532______Raman_Data_Processed__2ce5a288df1b833c0a9149a5af2f.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Diopside__R040009__Raman__514______Raman_Data_Processed__11bbd6690199116c0586745c0a60.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Xanthoconite__R070746__Raman__532______Raman_Data_Processed__9c6d0b320d9e6853b6b1d33d063d.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Linarite__R120094__Raman__780______Raman_Data_Processed__09ed58b7255ab3ea728cd036adf4.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Ussingite__R070562__Raman__532______Raman_Data_Processed__5b93721c987a4378fa9f0909efe9.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Forsterite__R040052__Raman__514______Raman_Data_Processed__49a04c618c52bd07c4fabf3cf2be.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Eosphorite__R130480__Raman__532______Raman_Data_Processed__b44a9b391c14e1d4357a68a01155.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Pyrope__R040159__Raman__532______Raman_Data_Processed__7ea59fdacfa71ff4a21def5e7738.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Nitrobarite__R060622__Raman__532______Raman_Data_Processed__ffc1237cf85eb7da896930b42727.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Hornesite__R060724__Raman__785______Raman_Data_Processed__aff53f80dd7259d147234a167c1f.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Rickardite__R140500__Raman__532______Raman_Data_Processed__9be6918ed70d53c5cd2cd5f597a6.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Stellerite__R060483__Raman__780______Raman_Data_Processed__e9fd5408dad053739103f3b825f8.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Beryl__R040002__Raman__514______Raman_Data_Processed__4edaf89cf85cfe40ef5a74285542.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Burkeite__R060112__Raman__532______Raman_Data_Processed__8833e4ba7537885a724dc4fb6774.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Kettnerite__R130113__Raman__532______Raman_Data_Processed__64b2c35dc33e194ccb910536bc3b.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Elbaite__R100137__Raman__780______Raman_Data_Processed__927de299d228794affb5190b4ea0.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Grossular__R060499__Raman__780______Raman_Data_Processed__55509ebe5344bb8353770ae861c9.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Tungstenite__R070616__Raman__532______Raman_Data_Processed__48a198717f219c8b9573c8ec2d42.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Macdonaldite__R060770__Raman__532______Raman_Data_Processed__a8fcfab852aa02e587c868746ff7.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Trona__R050228__Raman__514______Raman_Data_Processed__632e84b042062fbff96c760b238f.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Aurichalcite__R050297__Raman__514______Raman_Data_Processed__03afbf9916f60965a28bd10ed5bb.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Malayaite__R080024__Raman__532______Raman_Data_Processed__1092d08e979eacb8e79f69ba1657.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Diamond__R150088__Raman__532______Raman_Data_Processed__1a1aa8a1c7c909f1435f85631bff.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Thenardite__R040183__Raman__785______Raman_Data_Processed__9699065f23f34498aa51e233a60e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Vesuvianite__R070226__Raman__532______Raman_Data_Processed__3c857800d78cb664fd4afc78874c.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Gerhardtite__R120082__Raman__532______Raman_Data_Processed__8cfea741b1122a01032ff015b066.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Rosasite__R050294__Raman__780______Raman_Data_Processed__4f7bb7369dc3bc8fc9ef167b9a1e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Stibnite__R050016_a__Raman__532______Raman_Data_Processed__87f151b6e69b34f815c4ed30da88.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Vertumnite__R070063__Raman__785______Raman_Data_Processed__2de4adb59b30c5d491f0d6267e42.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Hemimorphite__R040117__Raman__532______Raman_Data_Processed__21469411029c952bb6057a1c72b8.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Schoepite__R100188__Raman__780______Raman_Data_Processed__9440a634d3626967f77b02774189.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Anatase__R060277__Raman__780______Raman_Data_Processed__b2038e16a28f243609c20d27eb23.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Faheyite__R100084__Raman__780______Raman_Data_Processed__679694a7375485480e4d266c6566.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Baotite__R060251__Raman__532______Raman_Data_Processed__c1dfd7165d9c24153e6d0ef07817.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Strontioginorite__R110149__Raman__532______Raman_Data_Processed__358e2b7e9087bb64190f6a8c6d6b.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Actinolite__R040063__Raman__532______Raman_Data_Processed__9f9addc451303a7939a8e118c57b.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Gerdtremmelite__R100224__Raman__532______Raman_Data_Processed__2506083ddbb001b4290d0ca3f231.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Spodumene__R040050__Raman__532______Raman_Data_Processed__eb1b0fec46dc180ca634b887bdf1.txt", "accurate": true, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Fillowite__R110143__Raman__780______Raman_Data_Processed__29d7474b101c0f1b2431ad61614c.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Pyromorphite__R050085__Raman__532______Raman_Data_Processed__2c95a060982e7bda4ec3d7bc280d.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Blodite__R050317__Raman__532______Raman_Data_Processed__0172462eb29da63990448b91e26a.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Natrolite__R040112__Raman__785______Raman_Data_Processed__109ae24a4d3f3e3eb7e3f9fb1951.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Erionite-Ca__R061110__Raman__532______Raman_Data_Processed__e64f3a3e39c84edfa09913dd77b2.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Antigorite__R070228__Raman__532______Raman_Data_Processed__33cd09da917b7d86840de183044c.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Whiteite-(CaMnMg)__R140770__Raman__532______Raman_Data_Processed__a44db84490b8c20e9f559dfa5089.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Rutile__R050031__Raman__532______Raman_Data_Processed__b62729c945757b082c20d3e47128.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Belovite-(Ce)__R070163__Raman__532______Raman_Data_Processed__fbc402666c66ecedec0b2bfa406e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Colemanite__R050102__Raman__514______Raman_Data_Processed__9fe1e43537bb6482001e061e00f3.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Eskebornite__R060791__Raman__532______Raman_Data_Processed__cf0e10855265c1e7b4339d907cf2.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Cornetite__R050151__Raman__514______Raman_Data_Processed__9bf21fd2f43aa4ce9d1f1c571c5c.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Axinite-(Mn)__R050299__Raman__780______Raman_Data_Processed__84a2147b6fc33ad331d047bd81d0.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Zunyite__R050553__Raman__532______Raman_Data_Processed__34508fdbbdd3c503d898d3914463.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Likasite__R060327__Raman__532______Raman_Data_Processed__5e6e24afd0f0fdb0314c475a190b.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Lizardite__R060006__Raman__780______Raman_Data_Processed__38aa9e36dc973eead89b8dea84c9.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Leightonite__R050211__Raman__532______Raman_Data_Processed__31bbf0f0a0a2ce2448a25b35131a.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Brookite__R050363__Raman__780______Raman_Data_Processed__aff7db1b3120761f4a1cf02112c4.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Rosemaryite__R140519__Raman__532______Raman_Data_Processed__29f03723b93a341c117e04751ac6.txt", "accurate": true, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Eucryptite__R070248__Raman__532______Raman_Data_Processed__d3dd3746a57d53b49309c966c371.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Liebenbergite__R120062__Raman__780______Raman_Data_Processed__d3abfc99d622f17d490325f6b581.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Blodite__R050317__Raman__514______Raman_Data_Processed__bbb116b41a93fca25110345fed18.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Scheelite__R040172__Raman__785______Raman_Data_Processed__5de741723f483c9009b0e861ab71.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gemini", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Montgomeryite__R140625__Raman__780______Raman_Data_Processed__b33961555da75bef045fb1f9caad.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Crocoite__R050044__Raman__532______Raman_Data_Processed__9cfc5fb374c36cc70b9ce6868463.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Arseniosiderite__R150061__Raman__785______Raman_Data_Processed__1dd9ec276fc2a1f8ea1a88b93f0c.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Wendwilsonite__R180010__Raman__780______Raman_Data_Processed__9f90250863994053150f2823548e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Szaibelyite__R060289__Raman__532______Raman_Data_Processed__a7f393adebb20a9a488a129520a0.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Retgersite__R130119__Raman__532______Raman_Data_Processed__06cef9b2e00ed2d093b21604ba3e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Ferrokesterite__R060870__Raman__785______Raman_Data_Processed__e2cf2ebef9a06ff1d07f2a165a57.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Stottite__R120089__Raman__780______Raman_Data_Processed__fbdb86597e5b1ff51e598741dddf.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Suenoite__R250132__Raman________Raman_Data_Processed__9f86f0cc10030d83addac1a7b23d.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "gpt4o", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Variscite__R110139__Raman__780______Raman_Data_Processed__5405ecf4cbdea0ae9ec5f7bf12c4.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "gpt4o", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Taramellite__R160011__Raman__532______Raman_Data_Processed__0b4f577cf66061b87ff38460a7b3.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Sonoraite__R070745__Raman__532______Raman_Data_Processed__9004af32f1ee8b630eb00a924890.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Talc__R050087__Raman__785______Raman_Data_Processed__454d7d7ab60f11c5483f92d670c1.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Vanadinite__R050376__Raman__780______Raman_Data_Processed__90e47bbbc83108f4dd99218b8271.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Churchite-(Y)__R060424__Raman__780______Raman_Data_Processed__de6aa16f93b132faad4d682d78a5.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Diopside__R040009__Raman__514______Raman_Data_Processed__11bbd6690199116c0586745c0a60.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Xanthoconite__R070746__Raman__532______Raman_Data_Processed__9c6d0b320d9e6853b6b1d33d063d.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Linarite__R120094__Raman__780______Raman_Data_Processed__09ed58b7255ab3ea728cd036adf4.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Ussingite__R070562__Raman__532______Raman_Data_Processed__5b93721c987a4378fa9f0909efe9.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Nitrobarite__R060622__Raman__532______Raman_Data_Processed__ffc1237cf85eb7da896930b42727.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Stellerite__R060483__Raman__780______Raman_Data_Processed__e9fd5408dad053739103f3b825f8.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Beryl__R040002__Raman__514______Raman_Data_Processed__4edaf89cf85cfe40ef5a74285542.txt", "accurate": true, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Burkeite__R060112__Raman__532______Raman_Data_Processed__8833e4ba7537885a724dc4fb6774.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Elbaite__R100137__Raman__780______Raman_Data_Processed__927de299d228794affb5190b4ea0.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Grossular__R060499__Raman__780______Raman_Data_Processed__55509ebe5344bb8353770ae861c9.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Trona__R050228__Raman__514______Raman_Data_Processed__632e84b042062fbff96c760b238f.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Aurichalcite__R050297__Raman__514______Raman_Data_Processed__03afbf9916f60965a28bd10ed5bb.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Diamond__R150088__Raman__532______Raman_Data_Processed__1a1aa8a1c7c909f1435f85631bff.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Thenardite__R040183__Raman__785______Raman_Data_Processed__9699065f23f34498aa51e233a60e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Gerhardtite__R120082__Raman__532______Raman_Data_Processed__8cfea741b1122a01032ff015b066.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Rosasite__R050294__Raman__780______Raman_Data_Processed__4f7bb7369dc3bc8fc9ef167b9a1e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Vertumnite__R070063__Raman__785______Raman_Data_Processed__2de4adb59b30c5d491f0d6267e42.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Schoepite__R100188__Raman__780______Raman_Data_Processed__9440a634d3626967f77b02774189.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Actinolite__R040063__Raman__532______Raman_Data_Processed__9f9addc451303a7939a8e118c57b.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Spodumene__R040050__Raman__532______Raman_Data_Processed__eb1b0fec46dc180ca634b887bdf1.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "gpt4o", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Blodite__R050317__Raman__532______Raman_Data_Processed__0172462eb29da63990448b91e26a.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Natrolite__R040112__Raman__785______Raman_Data_Processed__109ae24a4d3f3e3eb7e3f9fb1951.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Whiteite-(CaMnMg)__R140770__Raman__532______Raman_Data_Processed__a44db84490b8c20e9f559dfa5089.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Belovite-(Ce)__R070163__Raman__532______Raman_Data_Processed__fbc402666c66ecedec0b2bfa406e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Colemanite__R050102__Raman__514______Raman_Data_Processed__9fe1e43537bb6482001e061e00f3.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Eskebornite__R060791__Raman__532______Raman_Data_Processed__cf0e10855265c1e7b4339d907cf2.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Cornetite__R050151__Raman__514______Raman_Data_Processed__9bf21fd2f43aa4ce9d1f1c571c5c.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Zunyite__R050553__Raman__532______Raman_Data_Processed__34508fdbbdd3c503d898d3914463.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "gpt4o", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Likasite__R060327__Raman__532______Raman_Data_Processed__5e6e24afd0f0fdb0314c475a190b.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Lizardite__R060006__Raman__780______Raman_Data_Processed__38aa9e36dc973eead89b8dea84c9.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Alterite__R180005__Raman__532______Raman_Data_Processed__df04c496d4679e3edf6e6530fc57.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Brookite__R050363__Raman__780______Raman_Data_Processed__aff7db1b3120761f4a1cf02112c4.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "gpt4o", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Eucryptite__R070248__Raman__532______Raman_Data_Processed__d3dd3746a57d53b49309c966c371.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "gpt4o", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Montgomeryite__R140625__Raman__780______Raman_Data_Processed__b33961555da75bef045fb1f9caad.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Crocoite__R050044__Raman__532______Raman_Data_Processed__9cfc5fb374c36cc70b9ce6868463.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Senarmontite__R060075__Raman__532______Raman_Data_Processed__2eb425a83b2da457b5cfdc18eed0.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Arseniosiderite__R150061__Raman__785______Raman_Data_Processed__1dd9ec276fc2a1f8ea1a88b93f0c.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Wendwilsonite__R180010__Raman__780______Raman_Data_Processed__9f90250863994053150f2823548e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Atencioite__R060893__Raman__532______Raman_Data_Processed__6e39d925afe6f99fc8387349d545.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Szaibelyite__R060289__Raman__532______Raman_Data_Processed__a7f393adebb20a9a488a129520a0.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Glauberite__R050350__Raman__514______Raman_Data_Processed__73f6d0a2f6a6a45d5e03f317fd85.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Retgersite__R130119__Raman__532______Raman_Data_Processed__06cef9b2e00ed2d093b21604ba3e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Davidite-(Ce)__R120009__Raman__532______Raman_Data_Processed__b0b8ee545ad2c21411296813fb35.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Ferrokesterite__R060870__Raman__785______Raman_Data_Processed__e2cf2ebef9a06ff1d07f2a165a57.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Stottite__R120089__Raman__780______Raman_Data_Processed__fbdb86597e5b1ff51e598741dddf.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Hopeite__R130562__Raman__532______Raman_Data_Processed__fac0bc54eb82301d63c3ef7e036d.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Suenoite__R250132__Raman________Raman_Data_Processed__9f86f0cc10030d83addac1a7b23d.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Variscite__R110139__Raman__780______Raman_Data_Processed__5405ecf4cbdea0ae9ec5f7bf12c4.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Keiviite-(Yb)__R060522__Raman__532______Raman_Data_Processed__0e047b60a7d242d2b31394a545b6.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Taramellite__R160011__Raman__532______Raman_Data_Processed__0b4f577cf66061b87ff38460a7b3.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Sonoraite__R070745__Raman__532______Raman_Data_Processed__9004af32f1ee8b630eb00a924890.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Perite__R060766__Raman__532______Raman_Data_Processed__4638f1afb4ecc5dbf8bb472cdd50.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Luzonite__R070247__Raman__532______Raman_Data_Processed__0a0689c6b89ae63805059e1f749b.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Turquoise__R050225__Raman__514______Raman_Data_Processed__7b5f92747531ed066b25a63d3e7d.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Fluorapophyllite-(K)__R050021__Raman__785______Raman_Data_Processed__1f670cceaa9c856ccc8276cf2df8.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Talc__R050087__Raman__785______Raman_Data_Processed__454d7d7ab60f11c5483f92d670c1.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Mottramite__R050521__Raman__780______Raman_Data_Processed__ae6fb8cd56086c65d7ad8d8660b2.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Augite__R061086__Raman__785______Raman_Data_Processed__4cabc1b4075e1116435c63221ee4.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Nordenskioldine__R061079__Raman__532______Raman_Data_Processed__b728c4f83b2d9374c1f4eaba48e2.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Vanadinite__R050376__Raman__780______Raman_Data_Processed__90e47bbbc83108f4dd99218b8271.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Churchite-(Y)__R060424__Raman__780______Raman_Data_Processed__de6aa16f93b132faad4d682d78a5.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Bartelkeite__R070114__Raman__532______Raman_Data_Processed__2ce5a288df1b833c0a9149a5af2f.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Diopside__R040009__Raman__514______Raman_Data_Processed__11bbd6690199116c0586745c0a60.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 0, "source_id": "/ephemeral/matpcr/rruff/extracted/Xanthoconite__R070746__Raman__532______Raman_Data_Processed__9c6d0b320d9e6853b6b1d33d063d.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Linarite__R120094__Raman__780______Raman_Data_Processed__09ed58b7255ab3ea728cd036adf4.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Ussingite__R070562__Raman__532______Raman_Data_Processed__5b93721c987a4378fa9f0909efe9.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Forsterite__R040052__Raman__514______Raman_Data_Processed__49a04c618c52bd07c4fabf3cf2be.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Eosphorite__R130480__Raman__532______Raman_Data_Processed__b44a9b391c14e1d4357a68a01155.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Pyrope__R040159__Raman__532______Raman_Data_Processed__7ea59fdacfa71ff4a21def5e7738.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Nitrobarite__R060622__Raman__532______Raman_Data_Processed__ffc1237cf85eb7da896930b42727.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Hornesite__R060724__Raman__785______Raman_Data_Processed__aff53f80dd7259d147234a167c1f.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Rickardite__R140500__Raman__532______Raman_Data_Processed__9be6918ed70d53c5cd2cd5f597a6.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Stellerite__R060483__Raman__780______Raman_Data_Processed__e9fd5408dad053739103f3b825f8.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Beryl__R040002__Raman__514______Raman_Data_Processed__4edaf89cf85cfe40ef5a74285542.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Burkeite__R060112__Raman__532______Raman_Data_Processed__8833e4ba7537885a724dc4fb6774.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Kettnerite__R130113__Raman__532______Raman_Data_Processed__64b2c35dc33e194ccb910536bc3b.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Elbaite__R100137__Raman__780______Raman_Data_Processed__927de299d228794affb5190b4ea0.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Grossular__R060499__Raman__780______Raman_Data_Processed__55509ebe5344bb8353770ae861c9.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Tungstenite__R070616__Raman__532______Raman_Data_Processed__48a198717f219c8b9573c8ec2d42.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Macdonaldite__R060770__Raman__532______Raman_Data_Processed__a8fcfab852aa02e587c868746ff7.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Trona__R050228__Raman__514______Raman_Data_Processed__632e84b042062fbff96c760b238f.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Aurichalcite__R050297__Raman__514______Raman_Data_Processed__03afbf9916f60965a28bd10ed5bb.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Malayaite__R080024__Raman__532______Raman_Data_Processed__1092d08e979eacb8e79f69ba1657.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Diamond__R150088__Raman__532______Raman_Data_Processed__1a1aa8a1c7c909f1435f85631bff.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Thenardite__R040183__Raman__785______Raman_Data_Processed__9699065f23f34498aa51e233a60e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Vesuvianite__R070226__Raman__532______Raman_Data_Processed__3c857800d78cb664fd4afc78874c.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Gerhardtite__R120082__Raman__532______Raman_Data_Processed__8cfea741b1122a01032ff015b066.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Rosasite__R050294__Raman__780______Raman_Data_Processed__4f7bb7369dc3bc8fc9ef167b9a1e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Stibnite__R050016_a__Raman__532______Raman_Data_Processed__87f151b6e69b34f815c4ed30da88.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Vertumnite__R070063__Raman__785______Raman_Data_Processed__2de4adb59b30c5d491f0d6267e42.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Hemimorphite__R040117__Raman__532______Raman_Data_Processed__21469411029c952bb6057a1c72b8.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Schoepite__R100188__Raman__780______Raman_Data_Processed__9440a634d3626967f77b02774189.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Anatase__R060277__Raman__780______Raman_Data_Processed__b2038e16a28f243609c20d27eb23.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 1, "source_id": "/ephemeral/matpcr/rruff/extracted/Faheyite__R100084__Raman__780______Raman_Data_Processed__679694a7375485480e4d266c6566.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Baotite__R060251__Raman__532______Raman_Data_Processed__c1dfd7165d9c24153e6d0ef07817.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Strontioginorite__R110149__Raman__532______Raman_Data_Processed__358e2b7e9087bb64190f6a8c6d6b.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Actinolite__R040063__Raman__532______Raman_Data_Processed__9f9addc451303a7939a8e118c57b.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Gerdtremmelite__R100224__Raman__532______Raman_Data_Processed__2506083ddbb001b4290d0ca3f231.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Spodumene__R040050__Raman__532______Raman_Data_Processed__eb1b0fec46dc180ca634b887bdf1.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Fillowite__R110143__Raman__780______Raman_Data_Processed__29d7474b101c0f1b2431ad61614c.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Pyromorphite__R050085__Raman__532______Raman_Data_Processed__2c95a060982e7bda4ec3d7bc280d.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Blodite__R050317__Raman__532______Raman_Data_Processed__0172462eb29da63990448b91e26a.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Natrolite__R040112__Raman__785______Raman_Data_Processed__109ae24a4d3f3e3eb7e3f9fb1951.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Erionite-Ca__R061110__Raman__532______Raman_Data_Processed__e64f3a3e39c84edfa09913dd77b2.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Antigorite__R070228__Raman__532______Raman_Data_Processed__33cd09da917b7d86840de183044c.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Whiteite-(CaMnMg)__R140770__Raman__532______Raman_Data_Processed__a44db84490b8c20e9f559dfa5089.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Rutile__R050031__Raman__532______Raman_Data_Processed__b62729c945757b082c20d3e47128.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Belovite-(Ce)__R070163__Raman__532______Raman_Data_Processed__fbc402666c66ecedec0b2bfa406e.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Colemanite__R050102__Raman__514______Raman_Data_Processed__9fe1e43537bb6482001e061e00f3.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Eskebornite__R060791__Raman__532______Raman_Data_Processed__cf0e10855265c1e7b4339d907cf2.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Cornetite__R050151__Raman__514______Raman_Data_Processed__9bf21fd2f43aa4ce9d1f1c571c5c.txt", "accurate": false, "consistent": true}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Axinite-(Mn)__R050299__Raman__780______Raman_Data_Processed__84a2147b6fc33ad331d047bd81d0.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Zunyite__R050553__Raman__532______Raman_Data_Processed__34508fdbbdd3c503d898d3914463.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Likasite__R060327__Raman__532______Raman_Data_Processed__5e6e24afd0f0fdb0314c475a190b.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Lizardite__R060006__Raman__780______Raman_Data_Processed__38aa9e36dc973eead89b8dea84c9.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Leightonite__R050211__Raman__532______Raman_Data_Processed__31bbf0f0a0a2ce2448a25b35131a.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Alterite__R180005__Raman__532______Raman_Data_Processed__df04c496d4679e3edf6e6530fc57.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Brookite__R050363__Raman__780______Raman_Data_Processed__aff7db1b3120761f4a1cf02112c4.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Rosemaryite__R140519__Raman__532______Raman_Data_Processed__29f03723b93a341c117e04751ac6.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Eucryptite__R070248__Raman__532______Raman_Data_Processed__d3dd3746a57d53b49309c966c371.txt", "accurate": true, "consistent": true}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Liebenbergite__R120062__Raman__780______Raman_Data_Processed__d3abfc99d622f17d490325f6b581.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Blodite__R050317__Raman__514______Raman_Data_Processed__bbb116b41a93fca25110345fed18.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Scheelite__R040172__Raman__785______Raman_Data_Processed__5de741723f483c9009b0e861ab71.txt", "accurate": false, "consistent": false}
+{"modality": "spectrum", "model": "claude", "seed": 2, "source_id": "/ephemeral/matpcr/rruff/extracted/Montgomeryite__R140625__Raman__780______Raman_Data_Processed__b33961555da75bef045fb1f9caad.txt", "accurate": false, "consistent": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-2218235", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-1651187", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-1522072", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-2219053", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-1521578", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-1641878", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-2214312", "accurate": false, "consistent": false, "claimed_stable": false, "true_stable": true}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-3346927", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-2217674", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-2217872", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-1521537", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-2219014", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-1522964", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-2218998", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-1522834", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-2043826", "accurate": false, "consistent": false, "claimed_stable": false, "true_stable": true}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-1521782", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-2217712", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-3346495", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-1522511", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-1661403", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-2011351", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-1643248", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-1651415", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-3346464", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-2218929", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-1541714", "accurate": false, "consistent": false, "claimed_stable": false, "true_stable": true}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-1873967", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-2218343", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 0, "source_id": "mp-2218979", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1522571", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-2214791", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-2047556", "accurate": false, "consistent": false, "claimed_stable": false, "true_stable": true}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1521652", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1522771", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-2218430", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1522883", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1521981", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1931566", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1523059", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-2218067", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1984978", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-2217660", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1523079", "accurate": false, "consistent": false, "claimed_stable": false, "true_stable": true}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1542042", "accurate": false, "consistent": false, "claimed_stable": false, "true_stable": true}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1662637", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1579563", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1639651", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-3346400", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1522863", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1523201", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1522800", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-2218972", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1522476", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1546836", "accurate": false, "consistent": false, "claimed_stable": false, "true_stable": true}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-aaaieivn", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1579309", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-2219066", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-2218499", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 1, "source_id": "mp-1661736", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-2218882", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-2217882", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-1949616", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-2210773", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-2210764", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-1522961", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-2217069", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-2218115", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-2217280", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-1641018", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-1638589", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-2216440", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-1522133", "accurate": false, "consistent": false, "claimed_stable": false, "true_stable": true}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-1522391", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-1522582", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-2217276", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-2217631", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-1567687", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-1569230", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-2217559", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-2218885", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-1666719", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-1521478", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-1522546", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-2217779", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-2218163", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-2217308", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-1521493", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-1521577", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "local", "seed": 2, "source_id": "mp-1981564", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-2218840", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-2218716", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-2218488", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-1645095", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-2217111", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-1522608", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-2217855", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-1523140", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-2053129", "accurate": false, "consistent": false, "claimed_stable": false, "true_stable": true}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-1576561", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-1842679", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-1974700", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-2218510", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-3346449", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-2218860", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-2217367", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-2218420", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-1662129", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-1985644", "accurate": false, "consistent": false, "claimed_stable": false, "true_stable": true}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-1522188", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-2217999", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-1978357", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-2217581", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-1881105", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-aaaieiuv", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-1568809", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-1522525", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-2218552", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 0, "source_id": "mp-2018774", "accurate": false, "consistent": true, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-1577058", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-2217161", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-2219005", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-3346478", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-3346526", "accurate": false, "consistent": true, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-1653394", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-1521728", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-2217680", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-2217576", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-2218165", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-2218853", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-1522156", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-2218749", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-1522103", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-2217601", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-1522351", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-2218226", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-2218599", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-2218726", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-1567941", "accurate": false, "consistent": true, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-1540429", "accurate": true, "consistent": true, "claimed_stable": true, "true_stable": true}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-2218824", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-2217652", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-2027032", "accurate": true, "consistent": true, "claimed_stable": true, "true_stable": true}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-2218403", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-1666754", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-1643980", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-1641494", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-1521558", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 1, "source_id": "mp-2217365", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-1644001", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-1642632", "accurate": false, "consistent": true, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-2217784", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-1522982", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-1522152", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-2217206", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-1521691", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-1642086", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-2217644", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-aaaieixk", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-2218629", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-1523338", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-2210703", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-1522036", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-1522372", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-1523075", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-2214978", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-1522371", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-1522773", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-1522466", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-1949606", "accurate": true, "consistent": true, "claimed_stable": true, "true_stable": true}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-2217359", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-2016753", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-2217632", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-2217252", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-aaaieirx", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-2210644", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-1522453", "accurate": false, "consistent": true, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-2217737", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gemini", "seed": 2, "source_id": "mp-1522271", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-1521869", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-3346481", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-2218936", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-1661570", "accurate": false, "consistent": true, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-2218220", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-1523415", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-2215885", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-1523312", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-1522439", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-2218894", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-1652491", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-2032711", "accurate": false, "consistent": false, "claimed_stable": false, "true_stable": true}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-1521594", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-2219022", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-2217998", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-1523371", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-2215958", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-2019638", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-1522415", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-2015815", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-1523232", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-1539446", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-1788667", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-2218652", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-1847727", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-1522905", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-1661760", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-1523362", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-2218131", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 0, "source_id": "mp-2217364", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-aaaieirp", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-1523267", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-1522506", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-2217884", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-2218916", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-2018187", "accurate": false, "consistent": false, "claimed_stable": false, "true_stable": true}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-1522970", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-1523024", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-1522529", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-2210628", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-aaaieisu", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-3347346", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-1540546", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-1521510", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-2207479", "accurate": false, "consistent": false, "claimed_stable": false, "true_stable": true}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-2217122", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-2215935", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-2218135", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-2217878", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-1522249", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-1525391", "accurate": false, "consistent": true, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-2217985", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-1522001", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-1522933", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-2218959", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-2217867", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-2216894", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-2038281", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-2204861", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 1, "source_id": "mp-2017349", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-1545138", "accurate": false, "consistent": false, "claimed_stable": false, "true_stable": true}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-1663786", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-aaaieiso", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-3347018", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-aaaiejbq", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-2217983", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-2218964", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-aaaieizj", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-1666320", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-2210763", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-2212763", "accurate": false, "consistent": true, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-2218568", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-1986938", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-1523372", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-2045219", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-1975337", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-2218601", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-1644021", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-2218443", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-1523223", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-2210654", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-2215904", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-aaaieipr", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-2218931", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-1522440", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-2046810", "accurate": false, "consistent": false, "claimed_stable": false, "true_stable": true}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-1521677", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-3346577", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-1639121", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "gpt4o", "seed": 2, "source_id": "mp-1523737", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-2219044", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-2215912", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-2215918", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-2041583", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-2219020", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-2031335", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-1521979", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-2218540", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-1643785", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-1521769", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-1544196", "accurate": true, "consistent": true, "claimed_stable": true, "true_stable": true}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-1663233", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-1652312", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-1522656", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-1638941", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-1521651", "accurate": false, "consistent": true, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-2217082", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-2218098", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-2218730", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-1521465", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-2218970", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-1641174", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-1568829", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-aaaieinu", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-1521732", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-1523172", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-1521896", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-1522105", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-2217993", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 0, "source_id": "mp-2217979", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-2217335", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-1522717", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-aaaieixh", "accurate": true, "consistent": true, "claimed_stable": true, "true_stable": true}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-1666930", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-2215954", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-1524494", "accurate": true, "consistent": true, "claimed_stable": true, "true_stable": true}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-2218416", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-2219039", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-1523257", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-2218980", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-2046031", "accurate": true, "consistent": true, "claimed_stable": true, "true_stable": true}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-1974574", "accurate": false, "consistent": true, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-2217772", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-2218822", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-2019952", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-1544973", "accurate": false, "consistent": true, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-1652820", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-1640280", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-1662331", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-2218565", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-1522402", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-1639828", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-1574529", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-1567493", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-aaaieiwz", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-1521886", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-1974654", "accurate": false, "consistent": false, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-1523256", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-2218083", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 1, "source_id": "mp-2218758", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-2023073", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1522308", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1977559", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1851458", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-2217692", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-2218061", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-2217239", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1522963", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1807788", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-2213515", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1521555", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-2218741", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-2217074", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1521599", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1521724", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1522928", "accurate": false, "consistent": true, "claimed_stable": true, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-2217326", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1662960", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-2219034", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1648875", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-2217940", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1666509", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1522191", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1661518", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1645141", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1539190", "accurate": true, "consistent": true, "claimed_stable": true, "true_stable": true}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-1650411", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-2034362", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-2012700", "accurate": true, "consistent": false, "claimed_stable": false, "true_stable": false}
+{"modality": "stability", "model": "claude", "seed": 2, "source_id": "mp-2218961", "accurate": true, "consistent": true, "claimed_stable": false, "true_stable": false}

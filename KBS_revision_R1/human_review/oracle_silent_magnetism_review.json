@@ -1,0 +1,156 @@
+{
+  "family": "magnetism",
+  "audit": "oracle_silent",
+  "reviews": [
+    {
+      "case": 1,
+      "key": "mp-2210713",
+      "verdict": "clean"
+    },
+    {
+      "case": 2,
+      "key": "mp-2218824",
+      "verdict": "clean"
+    },
+    {
+      "case": 3,
+      "key": "mp-2030706",
+      "verdict": "clean"
+    },
+    {
+      "case": 4,
+      "key": "mp-2046031",
+      "verdict": "clean"
+    },
+    {
+      "case": 5,
+      "key": "mp-2217566",
+      "verdict": "clean"
+    },
+    {
+      "case": 6,
+      "key": "mp-1524762",
+      "verdict": "clean"
+    },
+    {
+      "case": 7,
+      "key": "mp-aaaieirv",
+      "verdict": "clean"
+    },
+    {
+      "case": 8,
+      "key": "mp-2217167",
+      "verdict": "clean"
+    },
+    {
+      "case": 9,
+      "key": "mp-2217778",
+      "verdict": "clean"
+    },
+    {
+      "case": 10,
+      "key": "mp-2049132",
+      "verdict": "clean"
+    },
+    {
+      "case": 11,
+      "key": "mp-3346481",
+      "verdict": "clean"
+    },
+    {
+      "case": 12,
+      "key": "mp-2210713",
+      "verdict": "clean"
+    },
+    {
+      "case": 13,
+      "key": "mp-2210607",
+      "verdict": "clean"
+    },
+    {
+      "case": 14,
+      "key": "mp-2218389",
+      "verdict": "clean"
+    },
+    {
+      "case": 15,
+      "key": "mp-1522366",
+      "verdict": "clean"
+    },
+    {
+      "case": 16,
+      "key": "mp-1646256",
+      "verdict": "clean"
+    },
+    {
+      "case": 17,
+      "key": "mp-1881105",
+      "verdict": "clean"
+    },
+    {
+      "case": 18,
+      "key": "mp-1662331",
+      "verdict": "clean"
+    },
+    {
+      "case": 19,
+      "key": "mp-2218716",
+      "verdict": "clean"
+    },
+    {
+      "case": 20,
+      "key": "mp-2217069",
+      "verdict": "clean"
+    },
+    {
+      "case": 21,
+      "key": "mp-1522391",
+      "verdict": "clean"
+    },
+    {
+      "case": 22,
+      "key": "mp-2034510",
+      "verdict": "clean"
+    },
+    {
+      "case": 23,
+      "key": "mp-2210607",
+      "verdict": "clean"
+    },
+    {
+      "case": 24,
+      "key": "mp-1643948",
+      "verdict": "clean"
+    },
+    {
+      "case": 25,
+      "key": "mp-2218721",
+      "verdict": "unsure"
+    },
+    {
+      "case": 26,
+      "key": "mp-1542038",
+      "verdict": "clean"
+    },
+    {
+      "case": 27,
+      "key": "mp-2218221",
+      "verdict": "clean"
+    },
+    {
+      "case": 28,
+      "key": "mp-1641824",
+      "verdict": "clean"
+    },
+    {
+      "case": 29,
+      "key": "mp-2017654",
+      "verdict": "clean"
+    },
+    {
+      "case": 30,
+      "key": "mp-2210611",
+      "verdict": "clean"
+    }
+  ]
+}

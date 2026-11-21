@@ -71,16 +71,19 @@ def load_materials():
 
 def run_stability_positive_control(materials, planted_rate, seed, tol_eV_atom=0.05):
     rng = np.random.default_rng(seed)
-    truth, flags = [], []
+    truth, flags, skipped = [], [], 0
     for m in materials:
         e_hull = m["energy_above_hull"]
         true_stable = e_hull <= tol_eV_atom  # matches the oracle's own tol_eV_atom
         is_violation = rng.random() < planted_rate
         claimed_stable = (not true_stable) if is_violation else true_stable
         consistent = stability_claim_consistent(claimed_stable, e_hull, tol_eV_atom=tol_eV_atom)
+        if consistent is None:  # near-hull abstention band: not scored
+            skipped += 1
+            continue
         truth.append(1 if is_violation else 0)
         flags.append(0 if consistent else 1)
-    return _summarize(truth, flags, planted_rate, seed)
+    return _summarize(truth, flags, planted_rate, seed, n_skipped=skipped)
 
 
 def run_metallicity_positive_control(materials, planted_rate, seed, metal_max_eV=0.05, gap_min_eV=0.20):

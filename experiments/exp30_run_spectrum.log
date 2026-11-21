@@ -1,0 +1,18 @@
+prompt ok
+[spectrum] 457 human-confirmed real violations
+    Incorrect Peak Identification: 405 (88.6%)
+    Axis/Scale Misinterpretation: 26 (5.7%)
+    Incorrect Peak Measurement: 24 (5.3%)
+    Uncategorized: 1 (0.2%)
+    Other: 1 (0.2%)
+[stability] 102 human-confirmed real violations
+Traceback (most recent call last):
+  File "/export/home/rakh90100/matpcr/experiments/exp30_taxonomy_all_families.py", line 98, in <module>
+    main()
+  File "/export/home/rakh90100/matpcr/experiments/exp30_taxonomy_all_families.py", line 87, in main
+    taxonomy = tax.build_taxonomy(labeled, mapping)
+  File "/export/home/rakh90100/matpcr/experiments/exp10_violation_taxonomy.py", line 180, in build_taxonomy
+    "example_source_file": examples[0]["source_file"],
+KeyError: 'source_file'
+
+[exited with code 0]

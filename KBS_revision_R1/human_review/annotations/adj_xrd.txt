@@ -1,0 +1,51 @@
+{
+  "family": "xrd",
+  "stage": "adjudication",
+  "reviews": [
+    {
+      "case": 1,
+      "verdict": "real",
+      "note": ""
+    },
+    {
+      "case": 12,
+      "verdict": "false_positive",
+      "note": ""
+    },
+    {
+      "case": 20,
+      "verdict": "false_positive",
+      "note": ""
+    },
+    {
+      "case": 46,
+      "verdict": "false_positive",
+      "note": ""
+    },
+    {
+      "case": 52,
+      "verdict": "false_positive",
+      "note": ""
+    },
+    {
+      "case": 57,
+      "verdict": "false_positive",
+      "note": ""
+    },
+    {
+      "case": 72,
+      "verdict": "real",
+      "note": ""
+    },
+    {
+      "case": 94,
+      "verdict": "false_positive",
+      "note": ""
+    },
+    {
+      "case": 96,
+      "verdict": "false_positive",
+      "note": ""
+    }
+  ]
+}

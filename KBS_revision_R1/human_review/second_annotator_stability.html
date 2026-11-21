@@ -1,0 +1,1130 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>Second-annotator review: stability</title><style>
+  body { font-family: -apple-system, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px;
+         background: #fafafa; color: #1a1a1a; }
+  h1 { font-size: 1.4rem; }
+  .summary { position: sticky; top: 0; background: white; padding: 12px 16px; border-radius: 8px;
+              box-shadow: 0 1px 4px rgba(0,0,0,0.15); margin-bottom: 20px; z-index: 10; }
+  .summary strong { font-size: 1.1rem; }
+  .case { background: white; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+           overflow: hidden; }
+  .case-header { background: #f0f0f0; padding: 8px 16px; display: flex; gap: 12px; align-items: center;
+                   font-size: 0.85rem; }
+  .case-num { font-weight: 600; }
+  .model-badge { background: #333; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+  .source { color: #666; font-family: monospace; font-size: 0.75rem; }
+  .case-body { display: flex; gap: 16px; padding: 16px; flex-wrap: wrap; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+  th { text-align: left; padding: 4px 8px; color: #555; font-size: 0.85rem; white-space: nowrap; vertical-align: top; }
+  td { padding: 4px 8px; font-size: 0.85rem; }
+  .claim { font-weight: 600; }
+  .verdict-fired { color: #c0392b; font-weight: 600; }
+  .chain { background: #f7f7f7; padding: 10px; border-radius: 4px; font-size: 0.8rem;
+            white-space: pre-wrap; max-height: 300px; overflow-y: auto; }
+  .review-controls { margin-top: 10px; padding: 10px; background: #fff8e1; border-radius: 4px; }
+  .review-label { font-weight: 600; display: block; margin-bottom: 6px; }
+  .review-controls label { display: inline-block; margin-right: 16px; font-size: 0.85rem; cursor: pointer; }
+  button { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 4px;
+            cursor: pointer; font-size: 0.9rem; }
+  button:hover { background: #2471a3; }
+  #export-output { width: 100%; height: 100px; margin-top: 10px; font-family: monospace; font-size: 0.75rem; }
+</style></head><body>
+<h1>Second-annotator review: stability oracle (30 cases)</h1>
+<div class="summary">
+<p>For each case, decide independently whether the oracle's INCONSISTENT verdict is a genuine physical
+violation of the stated constraint (<b>Real</b>), or an oracle/parsing artifact (<b>False positive</b>).
+Use <b>Unsure</b> only if you cannot decide. Do not consult the first annotator's labels.</p>
+<span id="tally">Reviewed: 0 / 30</span> &nbsp;
+<button onclick="exportReview()">Export my review</button>
+<textarea id="export-output" rows="6" style="width:100%"></textarea></div>
+<div class="case" id="case-3">
+      <div class="case-header">
+        <span class="case-num">Case #4</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1667041 — Li7Mn4CoO12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Li7Mn4CoO12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0179 eV/atom,
+                is_stable=False, band_gap=0.5199 eV,
+                is_metal=False, total_magnetization=31.999725 muB,
+                nsites=48</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0179 eV/atom (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable') (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The presence of multiple cations (Li, Mn, Co) and oxygen in a complex oxide suggests it could form a spinel-related structure. However, deviations from ideal stoichiometric ratios and the specific ordering of these cations in a single phase are critical for thermodynamic stability. Without crystallographic information or phase diagram data, it&#x27;s difficult to definitively place this precise composition on the convex hull. The complexity of the cation mixture raises concerns about potential phase separation or the existence of more stable, lower-energy binary or ternary oxide phases. Given the high degree of freedom in cation mixing, this specific composition is more likely to be metastable or unstable relative to a more optimized phase assemblage.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-4" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-4" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-4" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-90">
+      <div class="case-header">
+        <span class="case-num">Case #91</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-2016733 — GaFe3</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">GaFe3</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0480 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=7.451956 muB,
+                nsites=4</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0480 eV/atom (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable') (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">GaFe$_3$ is not a commonly known or thermodynamically stable intermetallic compound in the Ga-Fe phase diagram. Typical stable phases include compounds like Fe$_3$Ga$_4$ and Fe$_5$Ga$_3$. The specific stoichiometry of GaFe$_3$ suggests it would likely be unstable and decompose into other, more stable phases.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-91" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-91" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-91" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-5">
+      <div class="case-header">
+        <span class="case-num">Case #6</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2035614 — Eu2Sb3</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Eu2Sb3</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0000 eV/atom,
+                is_stable=True, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=110.398820 muB,
+                nsites=40</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0000 eV/atom (Materials Project's own is_stable flag: True -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">Eu2Sb3 is a complex compound that does not appear in common databases of stable phases for binary systems like Eu-Sb. Given the rarity and complexity of such compounds, it is highly unlikely to be thermodynamically stable under normal conditions. Therefore, based on the available information, I judge it to be unstable.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-6" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-6" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-6" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-19">
+      <div class="case-header">
+        <span class="case-num">Case #20</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1639283 — Li7Mn5O12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Li7Mn5O12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0314 eV/atom,
+                is_stable=False, band_gap=0.8685 eV,
+                is_metal=False, total_magnetization=36.003378 muB,
+                nsites=48</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0314 eV/atom (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable') (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material Li7Mn5O12 appears to be a complex oxide, and its stability can be assessed by comparing it to known stable phases in the Li-Mn-O system. Given that there are no widely reported stable phases with this exact stoichiometry, it is reasonable to infer that this composition might be unstable relative to other possible stable phases. Therefore, based on the lack of experimental evidence supporting its stability, I conclude it is likely unstable.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-20" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-20" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-20" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-7">
+      <div class="case-header">
+        <span class="case-num">Case #8</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1651187 — Li7Mn5O12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Li7Mn5O12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0299 eV/atom,
+                is_stable=False, band_gap=0.9919 eV,
+                is_metal=False, total_magnetization=30.004820 muB,
+                nsites=48</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0299 eV/atom (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable') (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The Li-Mn-O ternary system is known for its complex phase diagram with several stable or metastable phases. The Li7Mn5O12 composition is an unusual stoichiometry, deviating significantly from common rock-salt or spinel structures found in related Li-Mn-O materials. Such unusual compositions often indicate a tendency to decompose into more stable, simpler phases.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-8" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-8" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-8" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-81">
+      <div class="case-header">
+        <span class="case-num">Case #82</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1541753 — Rb2MgO2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Rb2MgO2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0000 eV/atom,
+                is_stable=True, band_gap=3.1754 eV,
+                is_metal=False, total_magnetization=0.000000 muB,
+                nsites=20</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0000 eV/atom (Materials Project's own is_stable flag: True -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The existence of a stable rubidium magnesium oxide with this specific stoichiometry is unlikely. Magnesium typically forms stable oxides with oxygen, and rubidium forms stable oxides. However, the combination in a 2:1:2 ratio suggests a complex oxide that may not readily form or be stable compared to simpler binary compounds.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-82" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-82" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-82" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-29">
+      <div class="case-header">
+        <span class="case-num">Case #30</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1639391 — Li7Mn4CoO12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Li7Mn4CoO12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0312 eV/atom,
+                is_stable=False, band_gap=0.7488 eV,
+                is_metal=False, total_magnetization=25.839054 muB,
+                nsites=48</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0312 eV/atom (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable') (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material Li7Mn4CoO12 appears to be a complex oxide, and its stability can be assessed by comparing it to known stable phases in the Li-Mn-Co-O system. Given the high lithium content and the presence of transition metals like manganese and cobalt, it is likely that this compound is not thermodynamically stable due to the high energy required to form such a structure. The convex hull of stable phases typically does not include compounds with such high lithium content without additional stabilizing factors.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-30" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-30" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-30" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-16">
+      <div class="case-header">
+        <span class="case-num">Case #17</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2025230 — CeZn3</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">CeZn3</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0041 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=4.272410 muB,
+                nsites=16</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0041 eV/atom (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable') (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">CeZn3 is a rare earth metal alloy, and its stability depends on the specific conditions under which it forms. Given that CeZn3 is not a common phase in the Ce-Zn system, it is likely to be unstable relative to other known phases in the system. The convex hull of stable phases typically represents the most thermodynamically favorable compositions at a given temperature and pressure.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-17" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-17" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-17" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-84">
+      <div class="case-header">
+        <span class="case-num">Case #85</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-2218928 — MgV4O8</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgV4O8</td></tr>
+            <tr><th>Model's claim</th><td class="claim">STABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1855 eV/atom,
+                is_stable=False, band_gap=1.0647 eV,
+                is_metal=False, total_magnetization=6.000001 muB,
+                nsites=13</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.1855 eV/atom (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: STABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The composition MgV4O8 suggests a mixed valence state for vanadium. The combination of magnesium (a typical oxide-forming element) with a relatively high proportion of vanadium oxide could lead to a stable ternary oxide phase, especially if established solid solution or intergrowth structures are known for similar compositions. Without specific phase diagram information, the presence of a ternary oxide of this form seems plausible.
+
+FINAL_ANSWER: STABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-85" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-85" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-85" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-72">
+      <div class="case-header">
+        <span class="case-num">Case #73</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1522863 — BaSrNdMnO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">BaSrNdMnO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">STABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1140 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=1.999999 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.1140 eV/atom (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: STABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The composition BaSrNdMnO6 suggests a layered perovskite or related structure. The mixing of Ba and Sr on one A-site and Nd on another, coupled with Mn on the B-site, generally leads to stable solid solutions in many perovskite systems. Without contrary information about specific phase diagrams, this stoichiometry is likely a stable end-member or a stable composition within a solid solution.
+
+FINAL_ANSWER: STABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-73" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-73" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-73" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-18">
+      <div class="case-header">
+        <span class="case-num">Case #19</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1524762 — Xe</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Xe</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0219 eV/atom,
+                is_stable=False, band_gap=6.8603 eV,
+                is_metal=False, total_magnetization=0.000000 muB,
+                nsites=4</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0219 eV/atom (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable') (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">Xenon (Xe) is a noble gas and does not form stable compounds under normal conditions. It is highly unreactive and exists in its elemental form. Therefore, it is not expected to be thermodynamically stable in any compound form.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-19" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-19" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-19" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-94">
+      <div class="case-header">
+        <span class="case-num">Case #95</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1546645 — Tb8Se15</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Tb8Se15</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0000 eV/atom,
+                is_stable=True, band_gap=0.6361 eV,
+                is_metal=False, total_magnetization=0.000000 muB,
+                nsites=69</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0000 eV/atom (Materials Project's own is_stable flag: True -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The composition Tb8Se15 does not appear in common databases of stable phases for rare earth tellurides and selenides. Given the lack of experimental data and the unusual stoichiometry, it is reasonable to infer that this composition might be unstable relative to other known phases in the system.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-95" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-95" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-95" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-15">
+      <div class="case-header">
+        <span class="case-num">Case #16</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1653341 — Li7Mn4CoO12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Li7Mn4CoO12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0240 eV/atom,
+                is_stable=False, band_gap=0.6415 eV,
+                is_metal=False, total_magnetization=24.000622 muB,
+                nsites=48</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0240 eV/atom (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable') (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">This composition is a complex oxide involving lithium, manganese, and cobalt. Such multi-component oxides can form various phases, and predicting thermodynamic stability without detailed phase diagrams or computational thermodynamics is challenging. However, complex cation arrangements with multiple transition metals often lead to metastable phases rather than simple, stable oxide compositions.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-16" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-16" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-16" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-55">
+      <div class="case-header">
+        <span class="case-num">Case #56</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1522360 — BaSrTbNbO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">BaSrTbNbO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0136 eV/atom,
+                is_stable=False, band_gap=2.9826 eV,
+                is_metal=False, total_magnetization=0.000000 muB,
+                nsites=40</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0136 eV/atom (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable') (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material BaSrTbNbO6 appears to be a complex oxide, and its stability can be assessed by considering the known thermodynamic stability of its constituent elements and their typical oxidation states in oxides. Given that Ba, Sr, Tb, and Nb form oxides with well-defined structures and properties, it is plausible that BaSrTbNbO6 could be thermodynamically stable. However, without specific thermodynamic data for this particular compound, it&#x27;s difficult to definitively state its stability.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-56" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-56" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-56" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-9">
+      <div class="case-header">
+        <span class="case-num">Case #10</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1523213 — Sr2YWO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Sr2YWO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">STABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1419 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=1.000000 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.1419 eV/atom (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: STABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The compound Sr2YWO6 is a perovskite derivative. Such complex perovskites are generally known to form as stable phases when the constituent cation sizes and charges are compatible within the crystal structure, which is often the case for these ordered double perovskites.
+
+FINAL_ANSWER: STABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-10" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-10" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-10" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-70">
+      <div class="case-header">
+        <span class="case-num">Case #71</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1643948 — Li7Mn5O12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Li7Mn5O12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0291 eV/atom,
+                is_stable=False, band_gap=0.8136 eV,
+                is_metal=False, total_magnetization=36.001369 muB,
+                nsites=48</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0291 eV/atom (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable') (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material Li7Mn5O12 appears to be a complex oxide, and its stability can be assessed by comparing it to known stable phases in the Li-Mn-O system. Given that there are no widely reported stable phases with this exact stoichiometry, it is reasonable to infer that this composition might be unstable relative to other possible stable phases. Therefore, based on the lack of experimental evidence supporting its stability, I conclude it is likely unstable.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-71" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-71" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-71" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-8">
+      <div class="case-header">
+        <span class="case-num">Case #9</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1525363 — CaSb2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">CaSb2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0082 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=0.000000 muB,
+                nsites=6</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0082 eV/atom (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable') (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The compound CaSb2 is not commonly found in nature and its stability is not well-documented. Given the lack of experimental data and the unusual combination of elements, it is reasonable to assume that CaSb2 might not be thermodynamically stable under normal conditions. Therefore, based on the available information, I consider it unstable.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-9" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-9" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-9" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-58">
+      <div class="case-header">
+        <span class="case-num">Case #59</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1646256 — K2VPCO7</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">K2VPCO7</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0379 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=3.998659 muB,
+                nsites=48</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0379 eV/atom (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable') (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The composition K2VPCO7 appears to be highly unusual and likely not a known stable phase in the standard materials database. Given the complexity of the elements involved (potassium, vanadium, phosphorus, carbon, and oxygen), it&#x27;s unlikely that such a compound has been experimentally synthesized or thermodynamically characterized. Therefore, based on the lack of available data, I cannot confidently place this composition on the convex hull of stable phases.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-59" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-59" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-59" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-96">
+      <div class="case-header">
+        <span class="case-num">Case #97</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-aaaieixh — Sr2ScNbO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Sr2ScNbO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0000 eV/atom,
+                is_stable=True, band_gap=3.1532 eV,
+                is_metal=False, total_magnetization=0.000000 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0000 eV/atom (Materials Project's own is_stable flag: True -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material Sr2ScNbO6 appears to be a complex oxide, and without specific thermodynamic data for this exact composition, it&#x27;s challenging to definitively determine its stability. However, given the complexity and the lack of common oxides in this stoichiometry, it is likely that this compound is not on the convex hull of stable phases for this chemical system.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-97" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-97" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-97" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-92">
+      <div class="case-header">
+        <span class="case-num">Case #93</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2017427 — Fe2PO5</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Fe2PO5</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0000 eV/atom,
+                is_stable=True, band_gap=0.3096 eV,
+                is_metal=False, total_magnetization=0.000004 muB,
+                nsites=16</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0000 eV/atom (Materials Project's own is_stable flag: True -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">Fe2PO5 is an unusual compound that does not correspond to any common mineral or known stable phase in the iron-phosphorus-oxygen system. Given its rarity and lack of known stable forms, it is reasonable to conclude that Fe2PO5 is likely unstable under normal conditions.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-93" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-93" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-93" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-53">
+      <div class="case-header">
+        <span class="case-num">Case #54</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1542758 — SrMoO3</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">SrMoO3</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0000 eV/atom,
+                is_stable=True, band_gap=1.3088 eV,
+                is_metal=False, total_magnetization=4.000001 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0000 eV/atom (Materials Project's own is_stable flag: True -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">SrMoO3 is a perovskite structure, which is known to be thermodynamically stable in its cubic form under normal conditions. However, without specific thermodynamic data for this particular compound, it&#x27;s challenging to definitively place it on or very close to the convex hull of stable phases. Given the lack of detailed thermodynamic information, I lean towards considering it unstable.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-54" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-54" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-54" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-10">
+      <div class="case-header">
+        <span class="case-num">Case #11</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-2218824 — MgV4O8</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgV4O8</td></tr>
+            <tr><th>Model's claim</th><td class="claim">STABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1672 eV/atom,
+                is_stable=False, band_gap=0.4658 eV,
+                is_metal=False, total_magnetization=6.001798 muB,
+                nsites=13</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.1672 eV/atom (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: STABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">Magnesium and vanadium oxides can form various stable compounds like MgO, V2O3, V2O5, and MgV2O7. The complex stoichiometry MgV4O8 suggests a specific arrangement of Mg and V cations and O anions within a crystal lattice. Without specific crystallographic data or phase diagram information, predicting its precise stability is difficult. However, many complex mixed metal oxides exist as stable phases.
+
+FINAL_ANSWER: STABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-11" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-11" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-11" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-31">
+      <div class="case-header">
+        <span class="case-num">Case #32</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1639712 — Ca4Mn3SbO12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Ca4Mn3SbO12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0296 eV/atom,
+                is_stable=False, band_gap=0.1186 eV,
+                is_metal=False, total_magnetization=20.002182 muB,
+                nsites=40</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0296 eV/atom (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable') (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material Ca4Mn3SbO12 appears to be a complex oxide with multiple cations and anions, which can make it challenging to predict stability without detailed thermodynamic data. However, given the complexity and the lack of known stable phases in this specific composition, it is reasonable to assume that this material might not be on the convex hull of stable phases.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-32" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-32" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-32" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-56">
+      <div class="case-header">
+        <span class="case-num">Case #57</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1541585 — Mn2As2O7</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Mn2As2O7</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0012 eV/atom,
+                is_stable=False, band_gap=0.9921 eV,
+                is_metal=False, total_magnetization=10.000000 muB,
+                nsites=11</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0012 eV/atom (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable') (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The compound Mn2As2O7 appears to be a complex oxide, and its stability can be assessed by comparing it to known stable phases in the relevant phase diagram. Given that there are no readily available phase diagrams for this specific composition, and considering the complexity of the elements involved, it is reasonable to assume that this compound might not be thermodynamically stable without further experimental evidence.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-57" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-57" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-57" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-106">
+      <div class="case-header">
+        <span class="case-num">Case #107</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1650854 — Li7Mn5O12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Li7Mn5O12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0309 eV/atom,
+                is_stable=False, band_gap=0.8220 eV,
+                is_metal=False, total_magnetization=36.001691 muB,
+                nsites=48</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0309 eV/atom (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable') (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The Li-Mn-O ternary system is complex, with multiple known stable phases. Compositions far from known stable phases or those requiring unusual oxidation states are often metastable or unstable. The stoichiometry Li7Mn5O12 is not a commonly reported stable phase in the Li-Mn-O system, suggesting it may deviate significantly from the convex hull.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-107" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-107" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-107" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+<div class="case" id="case-91">
+      <div class="case-header">
+        <span class="case-num">Case #92</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-aaaiejdz — Mg3Sc2(GeO4)3</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Mg3Sc2(GeO4)3</td></tr>
+            <tr><th>Model's claim</th><td class="claim">STABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0974 eV/atom,
+                is_stable=False, band_gap=4.1586 eV,
+                is_metal=False, total_magnetization=0.000000 muB,
+                nsites=80</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0974 eV/atom (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: STABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">This material is a garnet structure with the general formula A3B2(XO4)3. Mg, Sc, and Ge are all common elements found in stable oxides. Garnets are known to be generally stable structures, and this combination of elements fits typical garnet compositions.
+
+FINAL_ANSWER: STABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-92" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-92" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-92" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-101">
+      <div class="case-header">
+        <span class="case-num">Case #102</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1522928 — Ba2CeNbO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Ba2CeNbO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">UNSTABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0156 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=4.000342 muB,
+                nsites=40</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.0156 eV/atom (near-hull/potentially metastable, per M.K.'s review -- not strictly 'stable') (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material Ba2CeNbO6 appears to be a complex oxide, and its stability can be assessed by comparing it to known stable phases in the Ba-O-Nb-Ce system. Given the complexity and the lack of extensive thermodynamic data for such compositions, it is challenging to definitively determine its stability without further information. However, based on general trends and the absence of strong evidence suggesting otherwise, it is reasonable to assume that this composition might be unstable relative to other known phases.
+
+FINAL_ANSWER: UNSTABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-102" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-102" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-102" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-36">
+      <div class="case-header">
+        <span class="case-num">Case #37</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1522695 — KCaTbNbO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">KCaTbNbO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">STABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1690 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=1.000000 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.1690 eV/atom (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: STABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The presence of a rare earth element (Tb) alongside an alkali metal (K), alkaline earth metal (Ca), and a transition metal in a perovskite-like structure (NbO6) suggests strong potential for complex interactions and multiple favorable low-energy arrangements. Predicting thermodynamic stability without experimental or computational data is challenging, but a compound with such diverse elemental contributions often forms a distinct, stable phase. Given the possibility of forming a unique chemical environment for Tb and the common stability of complex oxides in this class, it leans towards stability.
+
+FINAL_ANSWER: STABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-37" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-37" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-37" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-46">
+      <div class="case-header">
+        <span class="case-num">Case #47</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-2219045 — Na2MgMn2O8</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Na2MgMn2O8</td></tr>
+            <tr><th>Model's claim</th><td class="claim">STABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1797 eV/atom,
+                is_stable=False, band_gap=0.5014 eV,
+                is_metal=False, total_magnetization=1.998445 muB,
+                nsites=13</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.1797 eV/atom (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: STABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The compound Na2MgMn2O8 contains multiple cations with varying oxidation states. Specifically, manganese can exist in states like +2, +3, or +4. The presence of multiple, potentially mixed, oxidation states for Mn, coupled with the presence of Na and Mg, suggests a complex phase diagram. Without specific phase diagram data, it&#x27;s difficult to definitively say if this specific combination is on the convex hull. However, complex oxides with multiple transition metals and alkali/alkaline earth metals can often form stable phases.
+
+FINAL_ANSWER: STABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-47" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-47" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-47" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-99">
+      <div class="case-header">
+        <span class="case-num">Case #100</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1522142 — SrPrZnBiO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">SrPrZnBiO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">STABLE</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1968 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=0.000000 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull &lt;= 0.05 eV/atom). Real energy_above_hull = 0.1968 eV/atom (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: STABLE.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">This compound is a double perovskite, a class of materials known for forming stable structures. The constituent elements are common in oxide perovskites, and mixing A-site cations (Sr, Pr) and B-site cations (Zn, Bi) is a typical strategy for creating stable complex oxides. There&#x27;s no immediate indication of strong unfavorable interactions that would drive decomposition.
+
+FINAL_ANSWER: STABLE</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-100" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-100" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-100" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<script>
+const CASES = [4, 91, 6, 20, 8, 82, 30, 17, 85, 73, 19, 95, 16, 56, 10, 71, 9, 59, 97, 93, 54, 11, 32, 57, 107, 92, 102, 37, 47, 100];
+function updateTally() {
+  let k = 0; for (const c of CASES) { for (const r of document.getElementsByName('review-' + c)) if (r.checked) k++; }
+  document.getElementById('tally').textContent = 'Reviewed: ' + k + ' / ' + CASES.length;
+}
+function exportReview() {
+  const out = [];
+  for (const c of CASES) { let v = null; for (const r of document.getElementsByName('review-' + c)) if (r.checked) v = r.value; out.push({case: c, verdict: v}); }
+  document.getElementById('export-output').value = JSON.stringify({family: "stability", annotator: "second", reviews: out}, null, 2);
+}
+</script></body></html>

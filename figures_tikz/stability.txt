@@ -1,0 +1,36 @@
+Case #54:
+
+Formula	SrMoO3
+Model's claim	UNSTABLE
+Oracle verdict	INCONSISTENT (fired)
+Reference values	hull=0.0000 eV/atom, is_stable=True, band_gap=1.3088 eV, is_metal=False, total_magnetization=4.000001 muB, nsites=10
+Claim-type note	Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull <= 0.05 eV/atom). Real energy_above_hull = 0.0000 eV/atom (Materials Project's own is_stable flag: True -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.
+Full reasoning chain
+SrMoO3 is a perovskite structure, which is known to be thermodynamically stable in its cubic form under normal conditions. However, without specific thermodynamic data for this particular compound, it's challenging to definitively place it on or very close to the convex hull of stable phases. Given the lack of detailed thermodynamic information, I lean towards considering it unstable.
+
+FINAL_ANSWER: UNSTABLE
+
+Case #2:
+
+Formula	ThPbAu2
+Model's claim	UNSTABLE
+Oracle verdict	INCONSISTENT (fired)
+Reference values	hull=0.0000 eV/atom, is_stable=True, band_gap=0.0000 eV, is_metal=True, total_magnetization=0.000000 muB, nsites=4
+Claim-type note	Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull <= 0.05 eV/atom). Real energy_above_hull = 0.0000 eV/atom (Materials Project's own is_stable flag: True -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: UNSTABLE.
+Full reasoning chain
+The ternary compound ThPbAu$_2$ involves elements from distinct parts of the periodic table (actinide, post-transition metal, and noble metal). Intermetallic compounds between such diverse elements are often found to be unstable or to exist with very narrow composition ranges, suggesting they may not lie on the convex hull. The specific combination of Th, Pb, and Au does not immediately suggest a driving force for forming a stable ternary phase.
+
+FINAL_ANSWER: UNSTABLE
+
+Case #21:
+
+
+Formula	EuZrFeBiO6
+Model's claim	STABLE
+Oracle verdict	INCONSISTENT (fired)
+Reference values	hull=1.2843 eV/atom, is_stable=False, band_gap=0.0000 eV, is_metal=True, total_magnetization=7.457260 muB, nsites=40
+Claim-type note	Stability oracle: consistent iff (claimed=='STABLE') == (energy_above_hull <= 0.05 eV/atom). Real energy_above_hull = 1.2843 eV/atom (Materials Project's own is_stable flag: False -- note this can differ from the oracle's 0.05 eV/atom rule; see CLAUDE.md definition-mismatch note). Model claimed: STABLE.
+Full reasoning chain
+The presence of Eu (a rare earth) and Bi (a heavy element) in conjunction with Zr, Fe, and O suggests a complex oxide system. Without detailed phase diagram information or prior knowledge of this specific ternary or quaternary system's stability, predicting thermodynamic stability is difficult. However, these combinations often form complex perovskite-like structures, which can be stable. The specific stoichiometry (6 oxygen atoms) might also favor stability.
+
+FINAL_ANSWER: STABLE

@@ -1,0 +1,1554 @@
+<!doctype html><html><head><meta charset="utf-8">
+<title>Second-annotator review: magnetism</title><style>
+  body { font-family: -apple-system, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px;
+         background: #fafafa; color: #1a1a1a; }
+  h1 { font-size: 1.4rem; }
+  .summary { position: sticky; top: 0; background: white; padding: 12px 16px; border-radius: 8px;
+              box-shadow: 0 1px 4px rgba(0,0,0,0.15); margin-bottom: 20px; z-index: 10; }
+  .summary strong { font-size: 1.1rem; }
+  .case { background: white; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+           overflow: hidden; }
+  .case-header { background: #f0f0f0; padding: 8px 16px; display: flex; gap: 12px; align-items: center;
+                   font-size: 0.85rem; }
+  .case-num { font-weight: 600; }
+  .model-badge { background: #333; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+  .source { color: #666; font-family: monospace; font-size: 0.75rem; }
+  .case-body { display: flex; gap: 16px; padding: 16px; flex-wrap: wrap; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+  th { text-align: left; padding: 4px 8px; color: #555; font-size: 0.85rem; white-space: nowrap; vertical-align: top; }
+  td { padding: 4px 8px; font-size: 0.85rem; }
+  .claim { font-weight: 600; }
+  .verdict-fired { color: #c0392b; font-weight: 600; }
+  .chain { background: #f7f7f7; padding: 10px; border-radius: 4px; font-size: 0.8rem;
+            white-space: pre-wrap; max-height: 300px; overflow-y: auto; }
+  .review-controls { margin-top: 10px; padding: 10px; background: #fff8e1; border-radius: 4px; }
+  .review-label { font-weight: 600; display: block; margin-bottom: 6px; }
+  .review-controls label { display: inline-block; margin-right: 16px; font-size: 0.85rem; cursor: pointer; }
+  button { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 4px;
+            cursor: pointer; font-size: 0.9rem; }
+  button:hover { background: #2471a3; }
+  #export-output { width: 100%; height: 100px; margin-top: 10px; font-family: monospace; font-size: 0.75rem; }
+</style></head><body>
+<h1>Second-annotator review: magnetism oracle (30 cases)</h1>
+<div class="summary">
+<p>For each case, decide independently whether the oracle's INCONSISTENT verdict is a genuine physical
+violation of the stated constraint (<b>Real</b>), or an oracle/parsing artifact (<b>False positive</b>).
+Use <b>Unsure</b> only if you cannot decide. Do not consult the first annotator's labels.</p>
+<span id="tally">Reviewed: 0 / 30</span> &nbsp;
+<button onclick="exportReview()">Export my review</button>
+<textarea id="export-output" rows="6" style="width:100%"></textarea></div>
+<div class="case" id="case-76">
+      <div class="case-header">
+        <span class="case-num">Case #77</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2219039 — MgTe4Mo2W2(SeS)2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgTe4Mo2W2(SeS)2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 1.5}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.3777 eV/atom,
+                is_stable=False, band_gap=0.0327 eV,
+                is_metal=False, total_magnetization=0.001380 muB,
+                nsites=13</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 0.001380 muB over 13 atoms = 0.0001 muB/atom. Model classified: MAGNETIC, claimed magnitude 1.5 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if the material with the chemical composition MgTe4Mo2W2(SeS)2 is magnetic or non-magnetic, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Electronic Structure Analysis**:
+   - **Mg**: Magnesium is a divalent metal that typically forms a neutral state.
+   - **Te**: Tellurium has a valence electron configuration of 6s²6p⁴. In compounds, Te often forms bonds by donating its lone pairs, but it does not typically contribute significantly to magnetic properties due to its closed-shell nature.
+   - **Mo**: Molybdenum has a valence electron configuration of 5d⁴6s². It can form multiple oxidation states, and in some cases, it can have unpaired electrons contributing to magnetic properties.
+   - **W**: Tungsten has a valence electron configuration of 5d⁴6s². Similar to molybdenum, tungsten can also form multiple oxidation states and may have unpaired electrons.
+   - **Se**: Selenium has a valence electron configuration of 4s²4p⁴. It can form bonds by donating its lone pairs, similar to tellurium, and does not typically contribute significantly to magnetic properties.
+   - **S**: Sulfur has a valence electron configuration of 3s²3p⁴. It can form bonds by donating its lone pairs, and like selenium, it does not typically contribute significantly to magnetic properties.
+
+2. **Presence of Unpaired Electrons**:
+   - Both molybdenum and tungsten can exist in multiple oxidation states, and in some cases, they can have unpaired electrons. However, the specific oxidation state and the number of unpaired electrons depend on the chemical environment and the bonding conditions within the compound.
+   - The presence of unpaired electrons in molybdenum and tungsten suggests that the material could potentially be magnetic.
+
+3. **Estimate of Magnetization**:
+   - Given the presence of unpaired electrons in molybdenum and tungsten, we can estimate the magnetization. Typically, each unpaired electron contributes approximately 1 Bohr magneton (μB) to the total magnetic moment.
+   - Assuming there are a few unpaired electrons per atom (which is a rough estimate), the total magnetization per atom would be around 1-2 μB.
+
+Based on the above reasoning, we can conclude:
+
+**FINAL_ANSWER: MAGNETIC, 1.5 μB/atom**</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-77" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-77" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-77" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-12">
+      <div class="case-header">
+        <span class="case-num">Case #13</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2217721 — MgMn2(NiO3)2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgMn2(NiO3)2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 7.0}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.5879 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=3.122988 muB,
+                nsites=11</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 3.122988 muB over 11 atoms = 0.2839 muB/atom. Model classified: MAGNETIC, claimed magnitude 7.0 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if the material with the chemical composition MgMn2(NiO3)2 has a non-zero net magnetic moment, we need to consider the electronic structure and the magnetic properties of its constituent elements.
+
+1. **Mg (Magnesium)**:
+   - Magnesium is a d-block element.
+   - It typically forms divalent ions (Mg²⁺).
+   - The ground state configuration for Mg²⁺ is [Ne] 3s², which is fully occupied and does not contribute to magnetic moments.
+
+2. **Mn (Manganese)**:
+   - Manganese is a transition metal.
+   - It can form various oxidation states, but Mn²⁺ is common.
+   - The ground state configuration for Mn²⁺ is [Ar] 3d⁵, which means it has five unpaired electrons in the 3d orbitals, contributing to a significant magnetic moment.
+
+3. **Ni (Nickel)**:
+   - Nickel is another transition metal.
+   - It can form various oxidation states, but Ni²⁺ is common.
+   - The ground state configuration for Ni²⁺ is [Ar] 3d⁸, which means it has two unpaired electrons in the 3d orbitals, contributing to a magnetic moment.
+
+Given that both Mn²⁺ and Ni²⁺ have unpaired electrons, they will contribute to the overall magnetic moment of the material. However, the specific contribution from each element needs to be considered:
+
+- **Mn²⁺**: Each Mn²⁺ ion contributes approximately 5 μB (Bohr magnetons).
+- **Ni²⁺**: Each Ni²⁺ ion contributes approximately 2 μB (Bohr magnetons).
+
+The material&#x27;s overall magnetic moment will depend on the relative concentrations of Mn²⁺ and Ni²⁺ ions. Without specific concentration data, we can assume a typical scenario where there might be a balance between these contributions.
+
+Considering the typical magnetic behavior of these elements and their likely presence in the material, the net magnetic moment is expected to be non-zero due to the presence of unpaired electrons in Mn²⁺ and Ni²⁺.
+
+**Final Answer: MAGNETIC, 7 μB/atom**</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-13" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-13" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-13" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-39">
+      <div class="case-header">
+        <span class="case-num">Case #40</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2049132 — Cs2In3</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Cs2In3</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 3.0}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0000 eV/atom,
+                is_stable=True, band_gap=0.2163 eV,
+                is_metal=False, total_magnetization=0.000000 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 0.000000 muB over 10 atoms = 0.0000 muB/atom. Model classified: MAGNETIC, claimed magnitude 3.0 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if Cs2In3 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Chemical Composition**: The material is Cs2In3, which consists of cesium (Cs) and indium (In).
+
+2. **Electronic Configuration**:
+   - Cesium (Cs) has the electron configuration [Xe] 6s².
+   - Indium (In) has the electron configuration [Kr] 4d¹⁰ 5s² 5p¹.
+
+3. **Valence Electrons**:
+   - In the compound Cs2In3, each In atom contributes 1 valence electron from the 5p orbital.
+   - Therefore, the total number of valence electrons from the In atoms is 3 × 1 = 3.
+
+4. **Spin States**:
+   - The 5p orbital can hold up to 6 electrons, but typically, only 1 electron is present in the 5p orbital of In due to the Pauli exclusion principle.
+   - This single 5p electron can be either spin-up or spin-down, contributing to a net magnetic moment if it is unpaired.
+
+5. **Cesium Contribution**:
+   - Cesium (Cs) does not contribute any unpaired electrons because its outermost electrons are in the 6s orbital, which is fully occupied by 2 electrons.
+
+Given that there are 3 unpaired electrons from the In atoms, the material should have a non-zero net magnetic moment.
+
+**Final Answer**: FINAL_ANSWER: MAGNETIC, 3 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-40" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-40" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-40" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-11">
+      <div class="case-header">
+        <span class="case-num">Case #12</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1638951 — Co2O3F</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Co2O3F</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 4.0}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0917 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=8.192417 muB,
+                nsites=24</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 8.192417 muB over 24 atoms = 0.3414 muB/atom. Model classified: MAGNETIC, claimed magnitude 4.0 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The chemical formula Co2O3F suggests cobalt in its common oxidation states. Cobalt commonly exists as Co$^{2+}$ (d$^7$) and Co$^{3+}$ (d$^6$). Oxygen is typically O$^{2-}$, and fluorine is F$^{-}$.
+
+Let&#x27;s consider the possible oxidation states for cobalt that would lead to a neutral compound.
+Case 1: Both cobalt ions are Co$^{3+}$.  The total charge would be 2*(+3) + 3*(-2) + 1*(-1) = 6 - 6 - 1 = -1. This is not neutral.
+Case 2: One cobalt ion is Co$^{2+}$ and the other is Co$^{3+}$. The total charge would be 1*(+2) + 1*(+3) + 3*(-2) + 1*(-1) = 2 + 3 - 6 - 1 = -2. This is not neutral.
+Case 3: Both cobalt ions are Co$^{2+}$. The total charge would be 2*(+2) + 3*(-2) + 1*(-1) = 4 - 6 - 1 = -3. This is not neutral.
+
+It&#x27;s possible that the oxidation states are not as straightforward or that the formula represents a mixed-valence compound. However, cobalt oxides and oxyfluorides are often magnetic due to the unpaired electrons in cobalt ions.
+
+Let&#x27;s assume a hypothetical scenario where cobalt is present and contributes to a magnetic moment. If we assume a scenario where there are cobalt ions with unpaired electrons, it will be magnetic. Given the common magnetic nature of cobalt compounds, it&#x27;s more likely to be magnetic.
+
+For instance, if we consider a scenario with an average oxidation state of cobalt that leads to unpaired electrons:
+If we consider Co$^{2+}$ (d$^7$), it has 3 unpaired electrons in the low spin state and 5 unpaired electrons in the high spin state.
+If we consider Co$^{3+}$ (d$^6$), it has 0 unpaired electrons in the low spin state and 4 unpaired electrons in the high spin state.
+
+Without knowing the exact electronic configuration and spin state, it&#x27;s difficult to pinpoint a precise value. However, even with one unpaired electron per cobalt atom, it would be magnetic. If we consider a simplified scenario where, on average, there are a few unpaired electrons per cobalt atom, the material would exhibit a magnetic moment. Given that we have two cobalt atoms, and assuming they contribute unpaired electrons, a nonzero net magnetic moment is expected.
+
+A rough estimate: if we assume an average of 2 unpaired electrons per cobalt atom, then for 2 cobalt atoms, we would have 4 unpaired electrons contributing to the magnetic moment.
+
+FINAL_ANSWER: MAGNETIC, 4 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-12" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-12" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-12" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-1">
+      <div class="case-header">
+        <span class="case-num">Case #2</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1667041 — Li7Mn4CoO12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Li7Mn4CoO12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 19.5}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0179 eV/atom,
+                is_stable=False, band_gap=0.5199 eV,
+                is_metal=False, total_magnetization=31.999725 muB,
+                nsites=48</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 31.999725 muB over 48 atoms = 0.6667 muB/atom. Model classified: MAGNETIC, claimed magnitude 19.5 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if the material Li7Mn4CoO12 has a non-zero net magnetic moment, we need to consider the electronic configurations and spin states of the constituent elements.
+
+1. **Lithium (Li)**:
+   - Lithium typically forms +1 ions.
+   - The electronic configuration of Li is [He] 2s^1.
+   - The 2s electron can be in a spin-up or spin-down state, but due to the Pauli exclusion principle, the ground state is usually spin-up.
+   - Therefore, each Li atom contributes approximately 0.5 Bohr magnetons (muB).
+
+2. **Manganese (Mn)**:
+   - Manganese typically forms +3 ions.
+   - The electronic configuration of Mn is [Ar] 3d^5 4s^2.
+   - In the +3 oxidation state, the Mn ion has a 3d^4 configuration.
+   - The 3d electrons can be in various spin states, but the ground state is often a high-spin state with 4 unpaired electrons.
+   - Each Mn atom contributes approximately 4 Bohr magnetons (muB).
+
+3. **Cobalt (Co)**:
+   - Cobalt typically forms +3 ions.
+   - The electronic configuration of Co is [Ar] 3d^7 4s^2.
+   - In the +3 oxidation state, the Co ion has a 3d^6 configuration.
+   - The 3d electrons can be in various spin states, but the ground state is often a high-spin state with 6 unpaired electrons.
+   - Each Co atom contributes approximately 6 Bohr magnetons (muB).
+
+Now, let&#x27;s sum up the contributions from all atoms:
+
+- Lithium: 7 atoms × 0.5 muB/atom = 3.5 muB
+- Manganese: 4 atoms × 4 muB/atom = 16 muB
+- Cobalt: 0 atoms (since there is no Co in the formula)
+
+Total magnetic moment = 3.5 muB + 16 muB = 19.5 muB
+
+Since the total magnetic moment is non-zero, the material is expected to be magnetic.
+
+**Final Answer**: MAGNETIC, 19.5 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-2" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-2" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-2" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-53">
+      <div class="case-header">
+        <span class="case-num">Case #54</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1521788 — KSrPrSbO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">KSrPrSbO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 3.2}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0619 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=1.000000 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 1.000000 muB over 10 atoms = 0.1000 muB/atom. Model classified: MAGNETIC, claimed magnitude 3.2 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The magnetic properties of KSrPrSbO6 are determined by the electronic configurations of its constituent ions. We need to consider the ions Pr, K, Sr, and Sb.
+
+*   **K+ (Potassium):** Potassium in its ionic form, K+, has a closed electron shell ($[Ar]$ $4s^2$ $4p^6$), which is diamagnetic and contributes no magnetic moment.
+
+*   **Sr2+ (Strontium):** Strontium in its ionic form, Sr2+, also has a closed electron shell ($[Kr]$ $5s^2$ $5p^6$), making it diamagnetic and contributing no magnetic moment.
+
+*   **SbO6 complex:** The Sb (antimony) is likely in a high oxidation state, possibly +5, within the oxide environment. $Sb^{5+}$ has a $4d^{10}$ configuration, which is a closed shell and thus diamagnetic. The oxide ions (O2-) are also diamagnetic. Therefore, the SbO6 component is expected to be non-magnetic.
+
+*   **Pr3+ (Praseodymium):** Praseodymium is a lanthanide. The most common oxidation state for lanthanides in oxides is +3. Praseodymium has the electronic configuration $[Xe]$ $4f^2$ $6s^2$. As $Pr^{3+}$, it loses the 6s electrons, resulting in a $4f^2$ electronic configuration. The 4f electrons in lanthanides are typically well-shielded by outer shells, leading to localized magnetic moments. The $4f^2$ configuration for Pr3+ has unpaired electrons, which will give rise to a paramagnetism. The effective magnetic moment for $Pr^{3+}$ can be estimated using Hand&#x27;s rule or calculated from the J value. For Pr3+ (4f2), the ground state term is 3H4, so J=4. The magnetic moment is approximately given by $\mu_{eff} = g_J \sqrt{J(J+1)} \mu_B$. For Pr3+, $g_J \approx 0.722$ and $J=4$. Thus, $\mu_{eff} \approx 0.722 \sqrt{4(4+1)} \mu_B = 0.722 \sqrt{20} \mu_B \approx 0.722 \times 4.47 \mu_B \approx 3.23 \mu_B$.
+
+Since Pr3+ carries a significant magnetic moment, the overall compound KSrPrSbO6 is expected to be magnetic. The total magnetization per formula unit will be dominated by the Pr3+ contribution. Assuming a 1:1:1:6 ratio for K:Sr:Pr:O in the formula unit, there is one Pr atom per formula unit. Therefore, the magnetization per atom would be approximately the magnetic moment of Pr3+.
+
+FINAL_ANSWER: MAGNETIC, 3.2 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-54" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-54" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-54" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-54">
+      <div class="case-header">
+        <span class="case-num">Case #55</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2038455 — Y3Mg</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Y3Mg</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 0.5}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0371 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=0.000000 muB,
+                nsites=4</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 0.000000 muB over 4 atoms = 0.0000 muB/atom. Model classified: MAGNETIC, claimed magnitude 0.5 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine whether the material with the chemical composition Y3Mg has a non-zero net magnetic moment, we need to consider the electronic structure and the magnetic properties of its constituent elements.
+
+1. **Yttrium (Y)**:
+   - Yttrium is a rare earth element.
+   - Rare earth elements often have partially filled d-orbitals, which can lead to magnetic behavior due to the presence of unpaired electrons.
+   - The electronic configuration of yttrium is [Xe] 4f^1 5d^1 6s^2, indicating that it has a single electron in the 5d orbital, which can contribute to magnetic moments.
+
+2. **Magnesium (Mg)**:
+   - Magnesium is a transition metal.
+   - Its electronic configuration is [Ne] 3s^2, meaning it has no unpaired electrons in its valence shell.
+   - Therefore, magnesium does not contribute to the magnetic moment of the compound.
+
+Given that yttrium contributes to the magnetic moment while magnesium does not, the overall magnetic moment of the compound will be dominated by the yttrium atoms. However, the exact magnitude of the magnetic moment per atom would require detailed calculations involving the crystal field splitting and spin-orbit coupling, which are beyond the scope of a simple estimation.
+
+**Final Answer**: MAGNETIC, 0.5 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-55" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-55" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-55" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-15">
+      <div class="case-header">
+        <span class="case-num">Case #16</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2218748 — NaMgFe(SeO4)2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">NaMgFe(SeO4)2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 5.0}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.3467 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=3.897055 muB,
+                nsites=13</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 3.897055 muB over 13 atoms = 0.2998 muB/atom. Model classified: MAGNETIC, claimed magnitude 5.0 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if the material NaMgFe(SeO4)2 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Electronic Structure Analysis**:
+   - Sodium (Na) typically forms +1 ions.
+   - Magnesium (Mg) typically forms +2 ions.
+   - Iron (Fe) can exist in various oxidation states, but Fe(III) is common in many compounds and is paramagnetic due to its unpaired electron configuration (3d5).
+   - Selenium (Se) forms SeO4^2- ions, which are generally non-magnetic as they are fully occupied in their valence orbitals.
+
+2. **Magnetic Contributions**:
+   - The Fe(III) ion in the compound contributes to the magnetic properties because it has a partially filled d-orbital (3d5), leading to unpaired electrons that can contribute to a net magnetic moment.
+   - The other elements (Na, Mg, and Se) do not contribute significantly to the magnetic moment because they form stable, closed-shell configurations.
+
+Given the above points, the Fe(III) ion is the primary source of magnetic behavior in the compound. Since Fe(III) has 5 electrons in the 3d orbitals, it can have up to 5 unpaired electrons, contributing to a significant magnetic moment.
+
+**Final Answer**: MAGNETIC, 5 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-16" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-16" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-16" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-79">
+      <div class="case-header">
+        <span class="case-num">Case #80</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1851458 — CaBiMoO5</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">CaBiMoO5</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;NONMAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: None}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0370 eV/atom,
+                is_stable=False, band_gap=1.6711 eV,
+                is_metal=False, total_magnetization=7.998693 muB,
+                nsites=64</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 7.998693 muB over 64 atoms = 0.1250 muB/atom. Model classified: NONMAGNETIC (no magnitude claim; classification-only).</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if the material CaBiMoO5 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Chemical Composition**: The material CaBiMoO5 consists of Calcium (Ca), Bismuth (Bi), Molybdenum (Mo), and Oxygen (O).
+
+2. **Electronic Structure**:
+   - Calcium (Ca) typically forms divalent ions (Ca²⁺).
+   - Bismuth (Bi) can form trivalent ions (Bi³⁺) or pentavalent ions (Bi⁵⁺).
+   - Molybdenum (Mo) can form trivalent ions (Mo³⁺) or hexavalent ions (Mo⁶⁺).
+   - Oxygen (O) forms oxide ions (O²⁻).
+
+3. **Spin States**:
+   - Calcium (Ca²⁺): Likely to be diamagnetic due to its full d-orbital.
+   - Bismuth (Bi³⁺): Likely to be diamagnetic due to its full d-orbital.
+   - Molybdenum (Mo³⁺): Likely to be paramagnetic due to its partially filled d-orbital.
+   - Molybdenum (Mo⁶⁺): Likely to be diamagnetic due to its full d-orbital.
+
+4. **Overall Magnetic Moment**:
+   - The presence of Mo³⁺ suggests that there might be some paramagnetism due to the unpaired electrons in the d-orbitals.
+   - However, the diamagnetic contributions from Ca²⁺ and Bi³⁺ will dominate, potentially canceling out the paramagnetic contribution from Mo³⁺.
+
+Given the complexity and the potential for cancellation, it&#x27;s reasonable to conclude that the net magnetic moment could be close to zero.
+
+**Final Answer**: NONMAGNETIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-80" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-80" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-80" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-80">
+      <div class="case-header">
+        <span class="case-num">Case #81</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1521542 — CaNdHfTiO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">CaNdHfTiO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 0.5}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1904 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=0.003676 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 0.003676 muB over 10 atoms = 0.0004 muB/atom. Model classified: MAGNETIC, claimed magnitude 0.5 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if the material with the chemical composition CaNdHfTiO6 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the constituent elements.
+
+1. **Calcium (Ca)**: Calcium typically forms divalent ions (Ca²⁺), which means its outermost shell is filled with 8 electrons, making it non-magnetic.
+2. **Neodymium (Nd)**: Neodymium is a rare earth element that can have various oxidation states, but in compounds like Nd₂O₃, it often forms trivalent ions (Nd³⁺). The 4f electrons in Nd³⁺ can contribute to magnetic moments due to their unpaired spins.
+3. **Hafnium (Hf)**: Hafnium is another transition metal that can form trivalent ions (Hf³⁺). The 4f electrons in Hf³⁺ can also contribute to magnetic moments.
+4. **Titanium (Ti)**: Titanium can form trivalent ions (Ti³⁺) in certain compounds. The 3d electrons in Ti³⁺ can contribute to magnetic moments.
+
+Given that both Nd³⁺ and Hf³⁺ can have unpaired 4f electrons, and Ti³⁺ can have unpaired 3d electrons, it is plausible that the material could have a non-zero net magnetic moment due to the presence of these unpaired electrons.
+
+**Final Answer**: MAGNETIC, 0.5 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-81" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-81" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-81" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-51">
+      <div class="case-header">
+        <span class="case-num">Case #52</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1522824 — NaEuHfSnO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">NaEuHfSnO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;NONMAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: None}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1904 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=6.000483 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 6.000483 muB over 10 atoms = 0.6000 muB/atom. Model classified: NONMAGNETIC (no magnitude claim; classification-only).</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if the material NaEuHfSnO6 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the constituent elements.
+
+1. **Na (Sodium)**: Sodium is a group 1 element with a single valence electron in the 3s orbital. This electron is typically paired in a metallic sodium, so it does not contribute significantly to the magnetic properties.
+2. **Eu (Europium)**: Europium is a rare earth element with a complex electronic configuration. Europium can exist in various oxidation states, but in Eu(III), which is common for Eu in oxides, the electron configuration is [Xe]4f7. The 4f electrons are generally localized and do not contribute to the magnetic moment in a simple way due to their shielding by the core electrons. However, europium can exhibit magnetic behavior due to its 4f electrons, but the overall contribution from Eu in Eu(III) is often considered small in oxides.
+3. **Hf (Hafnium)**: Hafnium is a transition metal with a full d shell, typically having a high degree of delocalization of its electrons. In HfO2, hafnium forms strong covalent bonds, and the electrons are delocalized, leading to a non-magnetic behavior.
+4. **Sn (Tin)**: Tin is a group 14 element that can form covalent bonds. In SnO2, tin forms strong covalent bonds, and the electrons are delocalized, leading to a non-magnetic behavior.
+5. **O (Oxygen)**: Oxygen typically forms covalent bonds and does not contribute significantly to the magnetic properties unless it is in a paramagnetic state, which is not the case here.
+
+Given the above considerations, the primary source of magnetic behavior would come from the 4f electrons of europium. However, the overall contribution from europium in Eu(III) in oxides is often considered small. Therefore, the net magnetic moment of the material is likely to be close to zero.
+
+**Final Answer:** NONMAGNETIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-52" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-52" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-52" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-97">
+      <div class="case-header">
+        <span class="case-num">Case #98</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1521732 — BaSrCeVO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">BaSrCeVO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 2.5}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1159 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=1.000000 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 1.000000 muB over 10 atoms = 0.1000 muB/atom. Model classified: MAGNETIC, claimed magnitude 2.5 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">This material is a double perovskite, BaSrCeVO6. To determine its magnetic properties, we need to consider the oxidation states and electronic configurations of the constituent elements, particularly the transition metal ions.
+
+First, let&#x27;s assign oxidation states. Oxygen is typically -2. The sum of oxidation states must equal the charge of the compound, which is neutral.
+Ba is +2, Sr is +2.
+Let the oxidation state of V be $x$ and Ce be $y$.
+So, (+2) + (+2) + $y$ + $x$ + 6(-2) = 0
+4 + $y$ + $x$ - 12 = 0
+$y$ + $x$ = 8
+
+Common oxidation states for Ce are +3 and +4.
+If Ce is +3 ($y$=+3), then $x$ = 8 - 3 = +5. Vanadium in +5 oxidation state (V^5+) has a d^0 configuration, which is diamagnetic (no unpaired electrons). Cerium in +3 oxidation state (Ce^3+) has a 4f^1 configuration. This unpaired electron in the 4f shell is responsible for a significant magnetic moment. Calculations for Ce^3+ give a theoretical magnetic moment of around 2.54 $\mu_B$.
+
+If Ce is +4 ($y$=+4), then $x$ = 8 - 4 = +4. Vanadium in +4 oxidation state (V^4+) has a d^1 configuration, which has one unpaired electron, leading to a magnetic moment of 1.73 $\mu_B$. Cerium in +4 oxidation state (Ce^4+) has a 4f^0 configuration, which is diamagnetic.
+
+In oxides of this form, it is more common to find Ce in the +3 state and V in the +5 state. For example, in compounds like Ba$_2$Y(WO$_4$)$_2$, Y is in its common +3 state. Similarly, here, it is reasonable to expect the more stable +3 oxidation state for Ce. Therefore, the expected ionic picture is Ba$^{2+}$Sr$^{2+}$Ce$^{3+}$V$^{5+}$O$_6$.
+
+With Ce$^{3+}$ ($4f^1$) and V$^{5+}$ ($d^0$), the magnetism will arise from the Ce$^{3+}$ ion. The V$^{5+}$ is diamagnetic. The orbital contribution to the magnetic moment of Ce$^{3+}$ is substantial, leading to a total magnetic moment greater than that of a simple spin-only contribution. The ground state electronic configuration of Ce$^{3+}$ is $[Xe] 4f^1$. Using Hund&#x27;s rules for the $^2F_{5/2}$ ground state, the effective magnetic moment is approximately 2.54 $\mu_B$.
+
+FINAL_ANSWER: MAGNETIC, 2.5 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-98" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-98" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-98" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-50">
+      <div class="case-header">
+        <span class="case-num">Case #51</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1662331 — LiMnSiO4</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">LiMnSiO4</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 5.9}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0249 eV/atom,
+                is_stable=False, band_gap=1.0671 eV,
+                is_metal=False, total_magnetization=16.000773 muB,
+                nsites=28</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 16.000773 muB over 28 atoms = 0.5715 muB/atom. Model classified: MAGNETIC, claimed magnitude 5.9 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material LiMnSiO4 contains manganese (Mn), which is a transition metal element. Manganese commonly exists in various oxidation states, and in silicates, Mn²⁺ is a likely oxidation state. The electronic configuration of Mn²⁺ is [Ar] 3d⁵. This configuration has five unpaired electrons in the 3d shell. The spin-only magnetic moment per manganese ion can be calculated using the formula $\mu_s = g \sqrt{S(S+1)}$, where S is the total spin. For d⁵ (Mn²⁺), S = 5/2, and g is approximately 2. This gives a spin-only moment of approximately 5.92 $\mu_B$. Assuming that the manganese ions are the primary source of magnetism and the Li, Si, and O ions are diamagnetic, the material is expected to exhibit a magnetic moment. The exact magnetic structure and ordering (ferromagnetic, antiferromagnetic, etc.) will determine the net macroscopic magnetization, but at the atomic level, the presence of unpaired electrons in Mn²⁺ strongly suggests a magnetic character. We can estimate a rough order of magnitude based on the spin-only moment of Mn²⁺.
+
+FINAL_ANSWER: MAGNETIC, 5.9 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-51" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-51" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-51" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-104">
+      <div class="case-header">
+        <span class="case-num">Case #105</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1521905 — TiNb(SnO3)2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">TiNb(SnO3)2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 0.5}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1864 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=0.086217 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 0.086217 muB over 10 atoms = 0.0086 muB/atom. Model classified: MAGNETIC, claimed magnitude 0.5 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if the material TiNb(SnO3)2 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Titanium (Ti)**: Titanium typically forms compounds where it can have various oxidation states, but in oxides like TiO2, it often has a +4 oxidation state. The d-orbitals of Ti can contribute to magnetic properties if there are unpaired electrons.
+   
+2. **Nickel (Nb)**: Nickel can exist in different oxidation states, but in NbO3, it usually has a +5 oxidation state. The d-orbitals of Nb can also contribute to magnetic properties if there are unpaired electrons.
+
+3. **Tin (Sn)**: Tin in SnO3 typically has a +4 oxidation state. The d-orbitals of Sn can contribute to magnetic properties if there are unpaired electrons.
+
+Given that the material contains elements like Ti, Nb, and Sn, which can have unpaired electrons in their d-orbitals, it is plausible that the material could exhibit magnetic behavior due to the presence of these unpaired electrons.
+
+However, the specific arrangement and bonding in the material will determine whether the magnetic moments cancel out or not. In many cases, the presence of multiple elements with unpaired electrons can lead to a net magnetic moment if the spins are not perfectly aligned.
+
+**Final Answer**: MAGNETIC, 0.5 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-105" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-105" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-105" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-110">
+      <div class="case-header">
+        <span class="case-num">Case #111</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2215966 — MgNb3O7F</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgNb3O7F</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 0.5}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1798 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=0.000113 muB,
+                nsites=12</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 0.000113 muB over 12 atoms = 0.0000 muB/atom. Model classified: MAGNETIC, claimed magnitude 0.5 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if the material with the chemical composition MgNb3O7F has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Electronic Structure Analysis**:
+   - **Mg**: Magnesium typically forms divalent ions (Mg²⁺), which means its outermost shell is filled with 2 electrons.
+   - **Nb**: Niobium can form trivalent ions (Nb³⁺), meaning it has 5 valence electrons, but it often forms pentavalent ions (Nb⁵⁺) in certain compounds, giving it 3 valence electrons.
+   - **O**: Oxygen typically forms divalent ions (O²⁻), meaning it has 6 valence electrons.
+   - **F**: Fluorine typically forms monovalent ions (F⁻), meaning it has 7 valence electrons.
+
+2. **Spin States**:
+   - For Nb³⁺, the electron configuration is 4d², which can lead to a partially filled d-orbital, potentially leading to unpaired electrons.
+   - For Nb⁵⁺, the electron configuration is 4d², which can also lead to a partially filled d-orbital, potentially leading to unpaired electrons.
+
+3. **Crystal Field Effects**:
+   - The crystal field splitting in oxides and fluorides can further influence the spin states of the transition metal ions, potentially stabilizing high-spin configurations that can lead to magnetic moments.
+
+Given the above points, it is plausible that the Nb ions in MgNb₃O₇F could have unpaired electrons due to the partially filled d-orbitals, especially considering the possibility of Nb forming pentavalent ions. This suggests that the material might have a non-zero net magnetic moment.
+
+**Final Answer**: MAGNETIC, 0.5 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-111" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-111" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-111" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-61">
+      <div class="case-header">
+        <span class="case-num">Case #62</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2218934 — MgTe4Mo4(SeS)2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgTe4Mo4(SeS)2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 0.5}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.2969 eV/atom,
+                is_stable=False, band_gap=0.0109 eV,
+                is_metal=False, total_magnetization=0.047808 muB,
+                nsites=13</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 0.047808 muB over 13 atoms = 0.0037 muB/atom. Model classified: MAGNETIC, claimed magnitude 0.5 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if the material with the chemical composition MgTe4Mo4(SeS)2 is magnetic or non-magnetic, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Electronic Structure Analysis**:
+   - **Mg**: Magnesium is a divalent metal that typically forms a +2 ion.
+   - **Te**: Tellurium has a valence electron configuration of 5s²5p⁴. In compounds, Te often forms bonds by donating its lone pairs from the p orbitals.
+   - **Mo**: Molybdenum has a valence electron configuration of 4d⁵5s². It can form multiple oxidation states, but in compounds like this, it is likely to be in a higher oxidation state due to the presence of other elements.
+   - **Se**: Selenium has a valence electron configuration of 4s²4p⁴. Similar to Te, Se often forms bonds by donating its lone pairs from the p orbitals.
+   - **S**: Sulfur has a valence electron configuration of 3s²3p⁴. It often forms bonds by donating its lone pairs from the p orbitals.
+
+Given the presence of transition metals like Mo, which can have partially filled d-orbitals, there is a possibility of unpaired electrons contributing to a magnetic moment. However, the overall electronic structure and bonding pattern in this compound will play a crucial role in determining the net magnetic moment.
+
+2. **Bonding and Magnetic Moments**:
+   - The presence of Te, Se, and S as chalcogens suggests that they will form covalent bonds, potentially leading to delocalized electrons.
+   - The presence of Mo, which is a transition metal, suggests that it might contribute to the magnetic properties through its d-electrons.
+
+Considering the complexity of the bonding and the potential for unpaired electrons in the d-orbitals of Mo, it is reasonable to expect that this material could exhibit some degree of magnetism.
+
+**Final Answer**: MAGNETIC, 0.5 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-62" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-62" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-62" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-47">
+      <div class="case-header">
+        <span class="case-num">Case #48</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2218269 — Tb2MgTi2S2O5</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Tb2MgTi2S2O5</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 18.0}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.2769 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=1.180562 muB,
+                nsites=12</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 1.180562 muB over 12 atoms = 0.0984 muB/atom. Model classified: MAGNETIC, claimed magnitude 18.0 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if the material with the chemical composition \(\text{Tb}_2\text{MgTi}_2\text{S}_2\text{O}_5\) has a non-zero net magnetic moment, we need to consider the electronic structure and the nature of the elements involved.
+
+1. **Tb (Terbium)**: Terbium is a rare earth element that typically exhibits a high magnetic moment due to its partially filled 4f shell. The 4f electrons can contribute significantly to the magnetic properties of the material.
+2. **Mg (Magnesium)**: Magnesium is a transition metal with a full d shell (3d^10), which generally does not contribute significantly to magnetic moments because the d electrons are completely filled.
+3. **Ti (Titanium)**: Titanium is another transition metal, but in its common oxidation states (like Ti^4+ in this compound), it typically has a full d shell (3d^2) and thus does not contribute to the magnetic moment.
+4. **S (Sulfur)**: Sulfur is a non-metallic element that does not typically contribute to magnetic moments in compounds.
+5. **O (Oxygen)**: Oxygen is a non-metallic element that does not typically contribute to magnetic moments in compounds.
+
+Given that terbium is the only element in the composition that can potentially contribute to a magnetic moment due to its partially filled 4f shell, and considering that magnesium, titanium, sulfur, and oxygen do not contribute significantly to magnetic moments, the material is likely to be magnetic.
+
+The magnitude of the total magnetization per atom can be estimated by considering the number of terbium atoms and their magnetic moments. Terbium typically has a magnetic moment around 9 Bohr magnetons per atom (\(9 \mu_B\)). Since there are two terbium atoms in the formula unit, the total magnetic moment would be approximately \(2 \times 9 \mu_B = 18 \mu_B\).
+
+However, the exact value might vary slightly depending on the specific crystal field and other factors, but for a rough order-of-magnitude estimate, we can say:
+
+**FINAL_ANSWER: MAGNETIC, 18 muB/atom**</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-48" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-48" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-48" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-81">
+      <div class="case-header">
+        <span class="case-num">Case #82</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1521542 — CaNdHfTiO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">CaNdHfTiO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 3.5}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1904 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=0.003676 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 0.003676 muB over 10 atoms = 0.0004 muB/atom. Model classified: MAGNETIC, claimed magnitude 3.5 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if CaNdHfTiO6 is magnetic, we need to consider the magnetic properties of the individual ions present in the compound.
+
+The ions are:
+*   Ca$^{2+}$: Calcium in the +2 oxidation state has an electron configuration of [Ar] 3d$^0$ 4s$^0$. This is a d$^0$ configuration, meaning it has no unpaired electrons and is diamagnetic (contributes zero to the net magnetic moment).
+*   Nd$^{3+}$: Neodymium in the +3 oxidation state has an electron configuration of [Xe] 4f$^3$. The 4f electrons are typically well-shielded from their environment, and elements in the lanthanide series with unpaired f electrons are generally paramagnetic. The Hund&#x27;s rules suggest a magnetic moment. For Nd$^{3+}$, the electron configuration is [Xe] 4f$^3$. This corresponds to 3 unpaired electrons. The magnetic moment contribution can be estimated using the Van Vleck formula, but for a rough estimate, we can consider the contribution from unpaired electrons. Nd$^{3+}$ is known to have a significant magnetic moment.
+*   Hf$^{4+}$: Hafnium in the +4 oxidation state has an electron configuration of [Xe] 4f$^{14}$ 5d$^0$. This is a d$^0$ configuration, similar to Ca$^{2+}$, and is therefore diamagnetic.
+*   Ti$^{4+}$: Titanium in the +4 oxidation state has an electron configuration of [Ar] 3d$^0$. This is a d$^0$ configuration and is diamagnetic.
+*   O$^{2-}$: Oxide ions are typically diamagnetic.
+
+The only ion with unpaired electrons expected to contribute to magnetism is Nd$^{3+}$ (4f$^3$). The presence of even one paramagnetic ion in a compound will make the material as a whole exhibit a net magnetic moment.
+
+Let&#x27;s estimate the magnitude of the magnetic moment for Nd$^{3+}$:
+The Landé g-factor for Nd$^{3+}$ is approximately 0.715.
+The total angular momentum J for Nd$^{3+}$ with configuration 4f$^3$ is J = L - S = 6 - 3/2 = 9/2 (since it&#x27;s a light lanthanide where (4f)$^n$ has n &lt; 7, L-S coupling dominates).
+The theoretical magnetic moment using the formula $\mu_{eff} = g_J \sqrt{J(J+1)} \mu_B$ is approximately $0.715 \sqrt{9/2(9/2+1)} \approx 0.715 \sqrt{49.5} \approx 0.715 \times 7.035 \approx 5.03 \mu_B$.
+However, the effective magnetic moment in transition metal oxides is often lower than the theoretical free ion value due to crystal field effects and spin-orbit coupling. A more pragmatic estimate for Nd$^{3+}$ based on experimental data for similar compounds is often in the range of 3 to 4 $\mu_B$.
+
+SinceNd$^{3+}$ is present, the material will be magnetic. Assuming the magnetic moment of Nd$^{3+}$ dominates and other ions are diamagnetic, the net magnetic moment per formula unit will be approximately equal to the magnetic moment of Nd$^{3+}$. The formula unit has one Nd atom per formula unit.
+
+Given the presence of the Nd$^{3+}$ ion with its unpaired f-electrons, the material is expected to be magnetic. A reasonable order-of-magnitude estimate for the magnetic moment of Nd$^{3+}$ is around 3-4 $\mu_B$.
+
+FINAL_ANSWER: MAGNETIC, 3.5 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-82" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-82" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-82" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-31">
+      <div class="case-header">
+        <span class="case-num">Case #32</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1639391 — Li7Mn4CoO12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Li7Mn4CoO12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 19.5}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0312 eV/atom,
+                is_stable=False, band_gap=0.7488 eV,
+                is_metal=False, total_magnetization=25.839054 muB,
+                nsites=48</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 25.839054 muB over 48 atoms = 0.5383 muB/atom. Model classified: MAGNETIC, claimed magnitude 19.5 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if the material Li7Mn4CoO12 has a non-zero net magnetic moment, we need to consider the electronic configurations and spin states of the constituent elements.
+
+1. **Lithium (Li)**:
+   - Lithium typically forms +1 ions.
+   - The electronic configuration of Li is [He] 2s^1.
+   - The 2s electron can be in a spin-up or spin-down state, but due to the Pauli exclusion principle, the ground state is usually spin-up.
+   - Therefore, each Li atom contributes approximately 0.5 Bohr magnetons (muB).
+
+2. **Manganese (Mn)**:
+   - Manganese typically forms +3 ions.
+   - The electronic configuration of Mn is [Ar] 3d^5 4s^2.
+   - In the +3 oxidation state, the Mn ion has a 3d^4 configuration.
+   - The 3d electrons can be in various spin states, but the ground state is often a high-spin state with 4 unpaired electrons.
+   - Each Mn atom contributes approximately 4 Bohr magnetons (muB).
+
+3. **Cobalt (Co)**:
+   - Cobalt typically forms +3 ions.
+   - The electronic configuration of Co is [Ar] 3d^7 4s^2.
+   - In the +3 oxidation state, the Co ion has a 3d^6 configuration.
+   - The 3d electrons can be in various spin states, but the ground state is often a high-spin state with 6 unpaired electrons.
+   - Each Co atom contributes approximately 6 Bohr magnetons (muB).
+
+Now, let&#x27;s sum up the contributions from all atoms:
+
+- Lithium: 7 atoms × 0.5 muB/atom = 3.5 muB
+- Manganese: 4 atoms × 4 muB/atom = 16 muB
+- Cobalt: 0 atoms (since there is no Co in the formula)
+
+Total magnetic moment = 3.5 muB + 16 muB = 19.5 muB
+
+Since the total magnetic moment is non-zero, the material is expected to be magnetic.
+
+**Final Answer**: MAGNETIC, 19.5 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-32" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-32" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-32" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-99">
+      <div class="case-header">
+        <span class="case-num">Case #100</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1522007 — SrCaEuBiO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">SrCaEuBiO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;NONMAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: None}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.2350 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=6.000000 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 6.000000 muB over 10 atoms = 0.6000 muB/atom. Model classified: NONMAGNETIC (no magnitude claim; classification-only).</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if the material SrCaEuBiO6 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of elements that can contribute to magnetism.
+
+1. **Sr (Strontium)**: Sr is a divalent metal and does not typically contribute significantly to magnetism because its outermost electrons are in a closed shell configuration (4s²).
+
+2. **Ca (Calcium)**: Ca is also a divalent metal and similarly does not contribute to magnetism due to its closed-shell electron configuration (4s²).
+
+3. **Eu (Europium)**: Eu is a lanthanide element, specifically Eu²⁺, which has a partially filled 4f shell. The 4f electrons can contribute to magnetism through the Jahn-Teller effect and other mechanisms, but the overall contribution from Eu²⁺ in this context might be small due to the high oxidation state and the likely formation of a complex oxide structure.
+
+4. **Bi (Bismuth)**: Bi is a post-transition metal and does not typically contribute significantly to magnetism because its outermost electrons are in a closed shell configuration (6s²6p³).
+
+Given the above considerations, the primary source of magnetism in this material would likely come from the Eu²⁺ ions, but their contribution might be minimal due to the high oxidation state and the likely formation of a complex oxide structure. Therefore, the net magnetic moment of the material is expected to be close to zero.
+
+**Final Answer:** NONMAGNETIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-100" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-100" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-100" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-27">
+      <div class="case-header">
+        <span class="case-num">Case #28</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-1648338 — Li7Mn2(CoO4)3</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Li7Mn2(CoO4)3</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 1.5}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1136 eV/atom,
+                is_stable=False, band_gap=0.4918 eV,
+                is_metal=False, total_magnetization=0.017101 muB,
+                nsites=24</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 0.017101 muB over 24 atoms = 0.0007 muB/atom. Model classified: MAGNETIC, claimed magnitude 1.5 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine whether the material Li7Mn2(CoO4)3 has a non-zero net magnetic moment, we need to consider the magnetic properties of its constituent elements and their electronic configurations.
+
+1. **Lithium (Li)**:
+   - Lithium is a light element with a single valence electron.
+   - The ground state configuration of Li is [He] 2s^1.
+   - Lithium does not contribute significantly to the magnetic moment because it is a closed shell with no unpaired electrons.
+
+2. **Manganese (Mn)**:
+   - Manganese has an atomic number of 25, so its ground state configuration is [Ar] 3d^5 4s^2.
+   - The 3d orbitals can hold up to 10 electrons, but Mn typically has 5 unpaired electrons in the 3d orbitals due to the half-filled d-shell.
+   - This results in a significant magnetic moment from the Mn ions.
+
+3. **Cobalt (Co)**:
+   - Cobalt has an atomic number of 27, so its ground state configuration is [Ar] 3d^7 4s^2.
+   - The 3d orbitals can hold up to 10 electrons, but Co typically has 7 unpaired electrons in the 3d orbitals due to the partially filled d-shell.
+   - This also results in a significant magnetic moment from the Co ions.
+
+Given that both Mn and Co have significant magnetic moments, the overall material will likely exhibit a non-zero net magnetic moment. The presence of multiple magnetic ions (Mn and Co) in the structure suggests that the material could be ferromagnetic or antiferromagnetic depending on the arrangement of spins.
+
+**Final Answer**: MAGNETIC, 1.5 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-28" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-28" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-28" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-106">
+      <div class="case-header">
+        <span class="case-num">Case #107</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1661648 — LiFePO4</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">LiFePO4</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 4.9}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0658 eV/atom,
+                is_stable=False, band_gap=3.7629 eV,
+                is_metal=False, total_magnetization=0.000368 muB,
+                nsites=28</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 0.000368 muB over 28 atoms = 0.0000 muB/atom. Model classified: MAGNETIC, claimed magnitude 4.9 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The magnetic properties of LiFePO4 are primarily determined by the iron (Fe) ions. In LiFePO4, iron exists in the +2 oxidation state, Fe²⁺. The electronic configuration of neutral Fe is [Ar] 3d⁶ 4s². For Fe²⁺, this becomes [Ar] 3d⁶. According to Hund&#x27;s rules, in the d⁶ configuration, there will be 4 unpaired electrons in the d orbitals. Each unpaired electron contributes to a magnetic moment.
+
+The spin-only magnetic moment ($\mu_s$) can be calculated using the formula:
+$\mu_s = g \sqrt{S(S+1)} \mu_B$
+where $g$ is the g-factor (approximately 2 for transition metals) and $S$ is the total spin angular momentum.
+For 4 unpaired electrons, $S = 4 \times (1/2) = 2$.
+So, $\mu_s \approx 2 \sqrt{2(2+1)} \mu_B = 2 \sqrt{6} \mu_B \approx 2 \times 2.45 \mu_B \approx 4.9 \mu_B$.
+
+However, LiFePO4 is known to exhibit a weak ferromagnetic ordering at low temperatures. The observed magnetic moment per formula unit is much smaller than the theoretical spin-only moment, suggesting that factors like crystal field effects and superexchange interactions play a significant role and can lead to some quenching of the orbital moment and can influence the net moment. Practical measurements of LiFePO4 show a very small net magnetic moment, often attributed to imperfections or trace amounts of magnetic impurities. However, the intrinsic material, when pure, has a magnetic ordering. For a stoichiometric LiFePO4, the large number of unpaired electrons in Fe²⁺ suggests a substantial intrinsic magnetic moment, even if the net observed magnetization is reduced by ordered structures or other factors. The core question is &quot;NONZERO net magnetic moment&quot; vs &quot;ZERO net magnetization&quot;. The presence of unpaired electrons in Fe²⁺ definitively indicates a non-zero magnetic moment intrinsically. The overall net magnetization can be small due to cancellations or ordering effects, but the *potential* for magnetism is high due to Fe²⁺.
+
+Considering the significant contribution of unpaired electrons on Fe²⁺, it is expected to have a non-zero magnetic moment intrinsically. While the bulk material shows weak ferromagnetism at low temperatures, the fundamental property arises from the Fe²⁺ ion.
+
+FINAL_ANSWER: MAGNETIC, 4.9 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-107" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-107" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-107" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-89">
+      <div class="case-header">
+        <span class="case-num">Case #90</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1522468 — SrMgInWO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">SrMgInWO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 1.0}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1764 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=0.000013 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 0.000013 muB over 10 atoms = 0.0000 muB/atom. Model classified: MAGNETIC, claimed magnitude 1.0 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if SrMgInWO6 will have a net magnetic moment, we need to consider the oxidation states and electronic configurations of the constituent elements, particularly the transition metals and any other species that can readily exist in different oxidation states.
+
+Let&#x27;s assign likely oxidation states that sum to zero for the compound SrMgInWO6. Strontium (Sr) is typically +2. Oxygen (O) is typically -2, so we have 6 oxygen atoms contributing -12. Tungsten (W) and Molybdenum (Mo) in perovskite-like structures, especially in complex oxides, often exhibit high oxidation states, and Tungsten is commonly found as W+6. If W is +6, then Mg is typically +2, and Indium (In) is typically +3. Let&#x27;s check the charge balance:
+Sr(+2) + Mg(+2) + In(+3) + W(+6) + 6*O(-2) = 2 + 2 + 3 + 6 - 12 = 13 - 12 = +1. This doesn&#x27;t work.
+
+Let&#x27;s try another common oxidation state for W, which can be +5.
+Sr(+2) + Mg(+2) + In(+3) + W(+5) + 6*O(-2) = 2 + 2 + 3 + 5 - 12 = 12 - 12 = 0. This is a balanced composition.
+
+Now let&#x27;s examine the d-electron configurations of the relevant ions in these oxidation states:
+*   Sr: Sr²⁺ is [Kr], no d-electrons.
+*   Mg: Mg²⁺ is [Ne], no d-electrons.
+*   In: In³⁺ is [Kr], no d-electrons.
+*   W: W⁵⁺. Tungsten has an atomic number of 74. Its electron configuration is [Xe] 4f¹⁴ 5d⁴ 6s². So, W⁵⁺ would have 1 electron in the 5d shell: 5d¹.
+*   O: O²⁻ is [He] 2s² 2p⁶.
+
+The magnetic moment arises from unpaired electrons. In W⁵⁺, with a 5d¹ configuration, there is one unpaired electron.
+
+Therefore, the presence of W⁵⁺ with one unpaired electron suggests that the material will have a nonzero net magnetic moment. The unpaired electron contributes to the magnetic moment of the W cation.
+
+To estimate the magnitude, each unpaired electron contributes approximately 1 Bohr magneton. With one unpaired electron in W⁵⁺, the magnetic moment per W atom is approximately 1 μB. Since this is the only species with unpaired electrons, the total net magnetic moment per formula unit will be due to the W⁵⁺ ions. Assuming one W atom per formula unit, the magnitude of the total magnetization per atom would be around 1 μB/atom.
+
+FINAL_ANSWER: MAGNETIC, 1 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-90" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-90" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-90" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-4">
+      <div class="case-header">
+        <span class="case-num">Case #5</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2217120 — MgTi3O6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgTi3O6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 3.0}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.2091 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=2.016470 muB,
+                nsites=10</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 2.016470 muB over 10 atoms = 0.2016 muB/atom. Model classified: MAGNETIC, claimed magnitude 3.0 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if MgTi3O6 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Electronic Structure Analysis**:
+   - Magnesium (Mg) typically forms divalent ions (Mg²⁺), which means its outermost shell is filled with 2 electrons.
+   - Titanium (Ti) can form trivalent ions (Ti³⁺), meaning it has 3 valence electrons.
+   - Oxygen (O) forms oxide ions (O²⁻), contributing 2 electrons each to the bonding.
+
+2. **Spin States**:
+   - The Ti³⁺ ion has a configuration of 3d², where the d-orbitals can hold up to 10 electrons. In Ti³⁺, the 3d orbitals are partially filled, but the ground state is often considered as having 2 electrons in the 3d orbitals, leaving 1 electron in a higher energy level.
+   - This single unpaired electron in the 3d orbital of Ti³⁺ can contribute to a magnetic moment due to its spin.
+
+3. **Magnetic Moment Contribution**:
+   - Each Ti³⁺ ion contributes a magnetic moment due to the unpaired electron in the 3d orbital.
+   - Since there are three Ti³⁺ ions in the formula unit (MgTi₃O₆), the total magnetic moment from the Ti³⁺ ions would be three times the magnetic moment of a single Ti³⁺ ion.
+
+4. **Final Assessment**:
+   - Given that Ti³⁺ ions have a single unpaired electron, each Ti³⁺ ion contributes approximately 1 Bohr magneton (μB) to the total magnetic moment.
+   - Therefore, the total magnetic moment for the three Ti³⁺ ions would be 3 μB.
+
+Considering the above points, the material MgTi₃O₆ is expected to have a non-zero net magnetic moment.
+
+**Final Answer**: MAGNETIC, 3 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-5" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-5" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-5" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-94">
+      <div class="case-header">
+        <span class="case-num">Case #95</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2217778 — MgAg2(SnO3)2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgAg2(SnO3)2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 0.5}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.3084 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=0.000006 muB,
+                nsites=11</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 0.000006 muB over 11 atoms = 0.0000 muB/atom. Model classified: MAGNETIC, claimed magnitude 0.5 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if the material with the chemical composition MgAg2(SnO3)2 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the constituent elements.
+
+1. **Mg (Magnesium)**: Magnesium is a d-block element that typically forms divalent ions (Mg²⁺). The ground state configuration for Mg²⁺ is [Ne] 3s², which means all its valence electrons are paired. Therefore, Mg does not contribute to the magnetic moment.
+
+2. **Ag (Silver)**: Silver is a d-block element that typically forms monovalent ions (Ag⁺). The ground state configuration for Ag⁺ is [Ar] 4s¹ 3d¹⁰, which means it has one unpaired electron in the 4s orbital. This unpaired electron can contribute to the magnetic moment.
+
+3. **Sn (Tin)**: Tin is a d-block element that typically forms trivalent ions (Sn³⁺). The ground state configuration for Sn³⁺ is [Kr] 4s² 3d¹⁰, which means all its valence electrons are paired. Therefore, Sn does not contribute to the magnetic moment.
+
+The material&#x27;s magnetic properties will primarily depend on the presence of unpaired electrons in the silver ion (Ag⁺). Since Ag⁺ has one unpaired electron, the material should exhibit some magnetic behavior due to the presence of this unpaired electron.
+
+However, the overall magnetic moment of the material will be influenced by the relative concentrations of the different ions and their interactions. Given that the material is a complex oxide with a relatively high concentration of silver ions, it is reasonable to expect a non-zero net magnetic moment.
+
+**Final Answer**: MAGNETIC, 0.5 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-95" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-95" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-95" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-45">
+      <div class="case-header">
+        <span class="case-num">Case #46</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-2212268 — La6MnSb15</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">La6MnSb15</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 2.0}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.0000 eV/atom,
+                is_stable=True, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=3.854826 muB,
+                nsites=22</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 3.854826 muB over 22 atoms = 0.1752 muB/atom. Model classified: MAGNETIC, claimed magnitude 2.0 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">This material contains Manganese (Mn), which is a transition metal known to exhibit magnetic properties due to unpaired d-electrons. Lanthanum (La) is a rare earth metal, and while it can have magnetic properties, in its elemental form it is not strongly magnetic. Antimony (Sb) is a pnictogen and is generally considered to be diamagnetic or weakly paramagnetic. The key to potential magnetism here lies with Mn. If the Mn atoms in this compound are in a state with unpaired electrons, the material will likely be magnetic. Given the high concentration of Sb, it&#x27;s possible that the Mn ions might exist in a valence state that leads to localized magnetic moments. Manganese commonly exists in oxidation states like +2, +3, or +4, all of which can have unpaired d-electrons. For example, Mn$^{2+}$ has a d$^5$ configuration with 5 unpaired electrons, and Mn$^{3+}$ has a d$^4$ configuration with 4 unpaired electrons. A rough estimate would consider the average number of unpaired electrons per Mn atom. Without more specific information on the crystal structure and oxidation states, it&#x27;s difficult to be precise, but a material with Mn is likely to be magnetic. A plausible magnetic moment could arise from one or more unpaired electrons on the Mn ions. For instance, if Mn is in a +2 state, it has 5 unpaired electrons. If it&#x27;s in a +3 state, it has 4 unpaired electrons. Considering the possibility of a mixed valence or some spin-orbit coupling, a moderate magnetic moment is plausible. A rough estimate might be in the range of a few Bohr magnetons per formula unit, distributed across the manganese atoms. As there are 6 Mn atoms per formula unit, and assuming each contributes a moment, this could be significant. However, we need the moment per atom. If we conservatively assume an average of 2-3 unpaired electrons per Mn atom, the total could be in the order of 1-2 Bohr magnetons per Mn atom.
+
+FINAL_ANSWER: MAGNETIC, 2.0 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-46" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-46" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-46" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-114">
+      <div class="case-header">
+        <span class="case-num">Case #115</span>
+        <span class="model-badge">local</span>
+        <span class="source">mp-2215910 — MgZn2(FeO2)4</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">MgZn2(FeO2)4</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;NONMAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: None}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.2170 eV/atom,
+                is_stable=False, band_gap=1.2906 eV,
+                is_metal=False, total_magnetization=18.000017 muB,
+                nsites=15</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 18.000017 muB over 15 atoms = 1.2000 muB/atom. Model classified: NONMAGNETIC (no magnitude claim; classification-only).</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if the material with the chemical composition MgZn2(FeO2)4 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Mg** (Magnesium): Magnesium is a divalent metal that typically forms a +2 ion (Mg²⁺). The ground state configuration for Mg²⁺ is [Ne] 3s², which means all its valence electrons are paired, making it non-magnetic.
+
+2. **Zn** (Zinc): Zinc is a divalent metal that typically forms a +2 ion (Zn²⁺). The ground state configuration for Zn²⁺ is [Ar] 3d¹⁰ 4s², which also means all its valence electrons are paired, making it non-magnetic.
+
+3. **Fe** (Iron): Iron is a transition metal that can form various oxidation states. In Fe³⁺ (Fe²⁺), the ground state configurations are [Ar] 3d⁵ and [Ar] 3d⁶ respectively. Both configurations have unpaired electrons, making Fe³⁺ and Fe²⁺ magnetic.
+
+The material&#x27;s magnetic properties will depend on the relative amounts of Fe³⁺ and Fe²⁺ ions present. However, without specific information about the oxidation states and their proportions, we cannot definitively say whether the material will be magnetic or non-magnetic. 
+
+Given the complexity and the lack of specific data, it is reasonable to assume that the material could potentially be magnetic due to the presence of Fe³⁺ and Fe²⁺ ions, but we cannot make a definitive statement without more information.
+
+**Final Answer:** NONMAGNETIC</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-115" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-115" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-115" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+<div class="case" id="case-21">
+      <div class="case-header">
+        <span class="case-num">Case #22</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1522366 — EuZrFeBiO6</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">EuZrFeBiO6</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 3.0}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=1.2843 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=7.457260 muB,
+                nsites=40</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 7.457260 muB over 40 atoms = 0.1864 muB/atom. Model classified: MAGNETIC, claimed magnitude 3.0 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">The material EuZrFeBiO6 contains several elements that can contribute to magnetism.
+*   **Europium (Eu)**: Europium is a rare-earth element. In its common ionic states, Eu²⁺ has a 4f⁷ electron configuration, which is half-filled and leads to a large magnetic moment (7 µB). Eu³⁺ has a 4f⁶ configuration with a smaller but non-zero magnetic moment. The presence of Eu is a strong indicator of potential magnetism.
+*   **Iron (Fe)**: Iron is a transition metal and is well known for its ferromagnetic properties in elemental form and in many compounds. Fe can exist in various oxidation states (e.g., Fe²⁺, Fe³⁺), both of which have unpaired electrons and contribute a magnetic moment.
+*   **Zirconium (Zr)**: Zirconium typically exists as Zr⁴⁺, which has a d⁰ electron configuration, meaning it is diamagnetic and does not contribute to the net magnetic moment.
+*   **Bismuth (Bi)**: Bismuth is a post-transition metal. In its common oxidation state of +3 (Bi³⁺), its electron configuration is 6s²6p⁶ which is a closed shell, making it diamagnetic.
+
+Given the presence of Eu and Fe, both of which are known magnetic elements, it is highly probable that this compound will exhibit a net magnetic moment. The overall magnetic behavior will depend on the specific oxidation states of Eu and Fe, crystal structure, and the interactions between magnetic ions. However, the combination of Eu and Fe strongly suggests a magnetic material.
+
+A rough estimation of the magnetic moment can be made by considering the expected ionic states for these elements in an oxide lattice. If we assume common oxidation states like Eu²⁺ (7 µB) and Fe²⁺ (4 µB) or Fe³⁺ (5 µB), and consider the stoichiometry, we can get an idea. For instance, if Eu is 2+, Fe is 2+, then Zr is 4+, O is 2-, the charge balance is 2 + 2 + 4 + 6*(-2) = 0 which works. In this case, the total magnetic moment per formula unit would be roughly 7 (from Eu²⁺) + 5 (from 2xFe²⁺, assuming spin-only contribution of ~4 µB for Fe²⁺, and we have two Fe ions per formula unit, so 2*4 = 8. Let&#x27;s consider Fe³⁺ for simplicity, it is 5 µB. So, 7 + 2*5 = 17 µB for the formula unit. Dividing by the total number of atoms in the formula unit (1+1+1+6 = 9) is too simplistic as it includes non-magnetic atoms. A better approach is to estimate the moment contributed per magnetic atom. Eu²⁺ contributes ~7 µB, and Fe contributes ~4-5 µB per atom. In EuZrFeBiO6, we have one Eu and one Fe per formula unit which contains 9 atoms. Let&#x27;s consider the contributions from the magnetic ions. If Eu is Eu²⁺ (~7 µB) and Fe is Fe³⁺ (~5 µB), the total intrinsic localized moment would be around 7 + 5 = 12 µB. The formula unit has one Eu and one Fe. The total number of atoms is 9. However, the question asks for magnitude per *atom*. This is usually interpreted as per *formula unit* or per *magnetic atom*. If we consider the formula unit, it would be around 12 µB. If we divide by the number of magnetic atoms (Eu + Fe = 2), it&#x27;s 6 µB/magnetic atom. If we consider the total number of atoms in the formula unit (9), it would be around 12/9 = 1.3 µB/atom. Given the presence of both and their potential ferromagnetic or antiferromagnetic coupling, a significant moment is expected. A rough estimate considering the spins of Eu²⁺ and Fe³⁺ could lead to a moment in the order of several Bohr magnetons.
+
+FINAL_ANSWER: MAGNETIC, 3.0 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-22" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-22" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-22" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-65">
+      <div class="case-header">
+        <span class="case-num">Case #66</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-2217728 — Tb2Mg(NiO3)2</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">Tb2Mg(NiO3)2</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 8.5}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.2253 eV/atom,
+                is_stable=False, band_gap=2.5042 eV,
+                is_metal=False, total_magnetization=4.000000 muB,
+                nsites=11</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 4.000000 muB over 11 atoms = 0.3636 muB/atom. Model classified: MAGNETIC, claimed magnitude 8.5 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To estimate the magnetic behavior, we need to consider the oxidation states and magnetic properties of the individual elements.
+
+Terbium (Tb) is a rare earth element and typically exhibits a +3 oxidation state. Tb³⁺ has a 4f⁷ electronic configuration, which results in a large magnetic moment due to unpaired electrons and strong spin-orbit coupling (related to its large J value in Hund&#x27;s rules). The free ion magnetic moment for Tb³⁺ can be approximated by the Goudsmit formula: $\mu = g \sqrt{J(J+1)}$, where $g$ is the Landé g-factor and $J$ is the total angular momentum quantum number. For Tb³⁺, $S=3$, $L=3$, $J=6$. Using $g \approx 1 - S(S+1) - L(L+1) + J(J+1) / (2J(J+1))$, we get $g \approx 1.31$. Then $\mu \approx 1.31 \sqrt{6(6+1)} \approx 1.31 \times \sqrt{42} \approx 1.31 \times 6.48 \approx 8.5$ $\mu$B.
+
+Magnesium (Mg) is an alkaline earth metal and typically exists in a +2 oxidation state (Mg²⁺), which has a closed-shell electronic configuration (2s²2p⁶), making it diamagnetic.
+
+The NiO₃ unit is a bit more complex. Assuming a formal charge of -6 for the (NiO₃)²⁻ moiety, and considering the presence of two such units, this implies a total negative charge of -12 from these groups, which is unlikely given the positive charges of Tb and Mg. A more sensible interpretation is to consider the nickelate as having a formal oxidation state. If we assume oxygen is -2, then within the (NiO₃)²⁻ unit, Ni would have a formal charge of +4. Ni⁴⁺ has a d⁵ configuration. However, Ni in oxides is more commonly found in +2 or +3 states. If we consider it as a disordered system or a mixed-valent nickelate, it&#x27;s possible that nickel is present in various oxidation states.
+
+Let&#x27;s re-evaluate the formula: Tb₂Mg(NiO₃)₂. This can be written as Tb₂MgNi₂O₆.
+If Tb is +3, then 2 x (+3) = +6.
+If Mg is +2, then +2.
+Total positive charge from Tb and Mg = +8.
+For the oxygen ions (6 x -2 = -12), we have a total negative charge of -12.
+This means the two Ni ions must contribute a total charge of +4 to balance the equation (or -4 charge if written as the counter-anion). Considering two Ni atoms, this suggests an average oxidation state of +2 for Ni.
+Ni²⁺ has a d⁸ electronic configuration. Depending on the crystal field splitting, Ni²⁺ can be paramagnetic, with a spin-only magnetic moment of $\sqrt{n(n+2)} \mu$B, where n is the number of unpaired electrons. For a high-spin d⁸ configuration, there are 2 unpaired electrons, giving a moment of $\sqrt{2(2+2)} = \sqrt{8} \approx 2.83$ $\mu$B. For a low-spin d⁸ configuration, there are 0 unpaired electrons, leading to a zero magnetic moment. In many oxide environments, Ni²⁺ is paramagnetic.
+
+Terbium is strongly magnetic. Magnesium is non-magnetic. Nickel in a +2 oxidation state is often paramagnetic. The presence of strongly magnetic Tb ions in the compound Tb₂Mg(NiO₃)₂ strongly suggests that the material will have a nonzero net magnetic moment. The exact magnitude will depend on the precise oxidation states, electronic configurations of nickel, and potential interactions and ordering of magnetic moments (ferromagnetic, antiferromagnetic, etc.). However, due to the Tb³⁺ contribution alone, a net magnetic moment is expected. The Tb³⁺ ion alone contributes significantly.
+
+FINAL_ANSWER: MAGNETIC, 8.5 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-66" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-66" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-66" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<div class="case" id="case-83">
+      <div class="case-header">
+        <span class="case-num">Case #84</span>
+        <span class="model-badge">api</span>
+        <span class="source">mp-1522391 — KNdTi4O12</span>
+      </div>
+      <div class="case-body">
+        <div class="case-details" style="flex: 1;">
+          <table>
+            <tr><th>Formula</th><td class="claim">KNdTi4O12</td></tr>
+            <tr><th>Model's claim</th><td class="claim">{&#x27;classification&#x27;: &#x27;MAGNETIC&#x27;, &#x27;magnitude_muB_per_atom&#x27;: 3.6}</td></tr>
+            <tr><th>Oracle verdict</th><td class="verdict-fired">INCONSISTENT (fired)</td></tr>
+            <tr><th>Reference values</th><td>hull=0.1839 eV/atom,
+                is_stable=False, band_gap=0.0000 eV,
+                is_metal=True, total_magnetization=4.000000 muB,
+                nsites=18</td></tr>
+            <tr><th>Claim-type note</th><td>Magnetism-magnitude oracle (M.K.'s redesign, 2026-07): classification is decided by |total_magnetization|/atom vs. a 0.05 muB/atom threshold; magnitude (never sign) is then compared only for magnetic materials, within an order-of-magnitude band. Real |total_magnetization| = 4.000000 muB over 18 atoms = 0.2222 muB/atom. Model classified: MAGNETIC, claimed magnitude 3.6 muB/atom.</td></tr>
+          </table>
+          <details open>
+            <summary>Full reasoning chain</summary>
+            <pre class="chain">To determine if KNdTi4O12 is magnetic, we need to examine the electronic configurations of the constituent ions, particularly those that can possess unpaired electrons.
+
+Potassium (K) is an alkali metal and exists as K+. It has a closed-shell electron configuration, so it is diamagnetic.
+Titanium (Ti) typically exists in oxides in the +4 oxidation state (Ti4+). Ti4+ has a d0 configuration, meaning it has no d-electrons and is therefore diamagnetic.
+Oxygen (O) is in its usual -2 oxidation state.
+Neodymium (Nd) is a lanthanide. In oxides of this type, Nd typically exists as Nd3+. The electronic configuration of neutral Nd is [Xe] 4f3 5d1 6s2. After losing three electrons to become Nd3+, it is [Xe] 4f3. The 4f electrons are shielded by the outer 5s and 5p orbitals, and the 4f subshells are incompletely filled (3 electrons). These unpaired f-electrons lead to a significant magnetic moment.
+
+Therefore, the presence of Nd3+ with its unpaired 4f electrons is expected to make the material magnetic. The magnetic moment of Nd3+ is primarily due to the contribution from the unpaired f-electrons and is substantial.
+
+To estimate the magnitude, we can consider the Landé g-factor and the Hund&#x27;s rules for the 4f3 configuration. The ground state term for 4f3 is 4I9/2. The magnetic moment can be estimated using the formula $\mu = g_J \sqrt{J(J+1)} \mu_B$. For the 4I9/2 state, J = 9/2 and g_J ≈ 0.725.
+$\mu \approx 0.725 \sqrt{9/2(9/2+1)} \mu_B = 0.725 \sqrt{9/2 \times 11/2} \mu_B = 0.725 \sqrt{99/4} \mu_B \approx 0.725 \times 4.97 \mu_B \approx 3.6 \mu_B$.
+This is the moment per Nd ion. Since there is one Nd atom per formula unit, the total magnetization per formula unit is approximately this value.
+
+FINAL_ANSWER: MAGNETIC, 3.6 muB/atom</pre>
+          </details>
+          <div class="review-controls">
+            <label class="review-label">Your review:</label>
+            <label><input type="radio" name="review-84" value="real" onchange="updateTally()"> Real violation (oracle correct)</label>
+            <label><input type="radio" name="review-84" value="false_positive" onchange="updateTally()"> False positive (oracle wrong)</label>
+            <label><input type="radio" name="review-84" value="unsure" onchange="updateTally()"> Unsure / needs discussion</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+<script>
+const CASES = [77, 13, 40, 12, 2, 54, 55, 16, 80, 81, 52, 98, 51, 105, 111, 62, 48, 82, 32, 100, 28, 107, 90, 5, 95, 46, 115, 22, 66, 84];
+function updateTally() {
+  let k = 0; for (const c of CASES) { for (const r of document.getElementsByName('review-' + c)) if (r.checked) k++; }
+  document.getElementById('tally').textContent = 'Reviewed: ' + k + ' / ' + CASES.length;
+}
+function exportReview() {
+  const out = [];
+  for (const c of CASES) { let v = null; for (const r of document.getElementsByName('review-' + c)) if (r.checked) v = r.value; out.push({case: c, verdict: v}); }
+  document.getElementById('export-output').value = JSON.stringify({family: "magnetism", annotator: "second", reviews: out}, null, 2);
+}
+</script></body></html>

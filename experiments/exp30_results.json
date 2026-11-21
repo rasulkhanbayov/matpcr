@@ -1,0 +1,1662 @@
+{
+  "spectrum": {
+    "n_violations": 457,
+    "note": "counts transcribed from the 2026-10-15 run log (the run crashed on the next family before writing JSON; labels were not re-purchased)",
+    "taxonomy": [
+      {
+        "category": "Incorrect Peak Identification",
+        "count": 405,
+        "frac": 0.8862144420131292
+      },
+      {
+        "category": "Axis/Scale Misinterpretation",
+        "count": 26,
+        "frac": 0.05689277899343545
+      },
+      {
+        "category": "Incorrect Peak Measurement",
+        "count": 24,
+        "frac": 0.0525164113785558
+      },
+      {
+        "category": "Uncategorized",
+        "count": 1,
+        "frac": 0.002188183807439825
+      },
+      {
+        "category": "Other",
+        "count": 1,
+        "frac": 0.002188183807439825
+      }
+    ]
+  },
+  "stability": {
+    "n_violations": 102,
+    "n_labeled": 102,
+    "taxonomy": [
+      {
+        "category": "Lack of Data/Evidence",
+        "count": 26,
+        "frac": 0.2549019607843137,
+        "raw_labels_merged": [
+          "Extrapolation from absence of evidence",
+          "Failed to find relevant data",
+          "Inability to find reference data",
+          "Inferred instability from lack of data",
+          "Insufficient data cited",
+          "Lack of data implies instability",
+          "Lack of specific data",
+          "Reasoning based on lack of known phase",
+          "Relied on lack of data",
+          "Relied on lack of known data",
+          "assumed lack of data means unstable",
+          "invoked uncertainty due to lack of data",
+          "lack of data",
+          "lack of data implies instability",
+          "lack of direct evidence",
+          "lacked specific thermodynamic data",
+          "lacks data to determine",
+          "reasoned from lack of data",
+          "relied on database absence",
+          "relied on lack of data",
+          "relied on lack of evidence"
+        ],
+        "example_source_file": "mp-2017654",
+        "example_chain_text": "The composition ThPbAu2 does not appear in common databases of stable phases for ternary systems involving thorium (Th), lead (Pb), and gold (Au). Given the rarity of such compositions and the lack of experimental data, it is reasonable to assume that this compound may not be thermodynamically stable under standard conditions.\n\nFINAL_ANSWER: UNSTABLE"
+      },
+      {
+        "category": "Overgeneralization/Analogue Reasoning",
+        "count": 22,
+        "frac": 0.21568627450980393,
+        "raw_labels_merged": [
+          "\"overgeneralized from known analogue\"",
+          "Reasoning overgeneralizes based on complexity",
+          "assumed known good implies stable",
+          "assumed perovskite structure stability",
+          "assumed similar structure implies stability",
+          "overgeneralized from known analogue",
+          "overgeneralized from similar compounds",
+          "reasoning from common compounds"
+        ],
+        "example_source_file": "mp-2217566",
+        "example_chain_text": "Magnesium and manganese phosphates are generally known to form stable compounds. The pyrophosphate anion (P2O7) is also a common and stable structural unit in inorganic chemistry. Therefore, MgMnP2O7 is likely to represent a stable phase.\n\nFINAL_ANSWER: STABLE"
+      },
+      {
+        "category": "Assumptions based on Complexity/Composition",
+        "count": 15,
+        "frac": 0.14705882352941177,
+        "raw_labels_merged": [
+          "Assumed complex oxides stable",
+          "Inferred stability from constituent oxides",
+          "Overstated complexity",
+          "Reasoning based on constituents",
+          "assumed complex mixed oxide stable",
+          "assumed complex oxides are stable",
+          "assumed instability from complexity",
+          "assumed stability from complexity",
+          "assumed stability from composition",
+          "assumed ternary oxide is stable",
+          "generalization from complexity",
+          "reasoning based on complexity",
+          "relied on complexity not data",
+          "relied on stoichiometry complexity",
+          "treated complex oxide as stable"
+        ],
+        "example_source_file": "mp-2218824",
+        "example_chain_text": "Magnesium and vanadium oxides can form various stable compounds like MgO, V2O3, V2O5, and MgV2O7. The complex stoichiometry MgV4O8 suggests a specific arrangement of Mg and V cations and O anions within a crystal lattice. Without specific crystallographic data or phase diagram information, predicting its precise stability is difficult. However, many complex mixed metal oxides exist as stable phases.\n\nFINAL_ANSWER: STABLE"
+      },
+      {
+        "category": "Reliance on Intuition/General Knowledge",
+        "count": 11,
+        "frac": 0.10784313725490197,
+        "raw_labels_merged": [
+          "Assumed tungstate stability",
+          "Relied on chemical intuition, not data",
+          "Relied on general borate stability",
+          "assumed commercial use implies stability",
+          "relied on chemical intuition",
+          "relied on empirical knowledge of existence",
+          "relied on general chemical intuition",
+          "relied on general oxide intuition",
+          "relied on general structural stability",
+          "relied on intuition not data"
+        ],
+        "example_source_file": "mp-2017654",
+        "example_chain_text": "The ternary compound ThPbAu$_2$ involves elements from distinct parts of the periodic table (actinide, post-transition metal, and noble metal). Intermetallic compounds between such diverse elements are often found to be unstable or to exist with very narrow composition ranges, suggesting they may not lie on the convex hull. The specific combination of Th, Pb, and Au does not immediately suggest a driving force for forming a stable ternary phase.\n\nFINAL_ANSWER: UNSTABLE"
+      },
+      {
+        "category": "Ignoring Specific Chemical Details",
+        "count": 10,
+        "frac": 0.09803921568627451,
+        "raw_labels_merged": [
+          "Ignored known stoichiometry",
+          "Ignored specific structure details",
+          "Lacked specific chemical context",
+          "ignored experimental data",
+          "ignored specific stoichiometry",
+          "ignored specific structural effects",
+          "incorrect oxidation state assumption",
+          "lacked specific chemical insight",
+          "overlooked specific compound structure"
+        ],
+        "example_source_file": "mp-1667041",
+        "example_chain_text": "The presence of multiple cations (Li, Mn, Co) and oxygen in a complex oxide suggests it could form a spinel-related structure. However, deviations from ideal stoichiometric ratios and the specific ordering of these cations in a single phase are critical for thermodynamic stability. Without crystallographic information or phase diagram data, it's difficult to definitively place this precise composition on the convex hull. The complexity of the cation mixture raises concerns about potential phase separation or the existence of more stable, lower-energy binary or ternary oxide phases. Given the high degree of freedom in cation mixing, this specific composition is more likely to be metastable or unstable relative to a more optimized phase assemblage.\n\nFINAL_ANSWER: UNSTABLE"
+      },
+      {
+        "category": "Ignoring Known Phases/Structures",
+        "count": 8,
+        "frac": 0.0784313725490196,
+        "raw_labels_merged": [
+          "Ignored known intermetallic phases",
+          "Ignored phase diagram knowledge",
+          "Overlooked known phases",
+          "Relied on known phases",
+          "ignored complex phase diagram",
+          "ignored known stable phases",
+          "reasoning based on known phases",
+          "relied on known structures"
+        ],
+        "example_source_file": "mp-2218911",
+        "example_chain_text": "This compound corresponds to a specific stoichiometry in the Mg-Ti-O system. Without knowing the known stable phases in this ternary system, it's difficult to definitively predict stability. However, many complex oxide compositions can be stable phases.\n\nFINAL_ANSWER: STABLE"
+      },
+      {
+        "category": "Assumptions about Rarity/Novelty",
+        "count": 5,
+        "frac": 0.049019607843137254,
+        "raw_labels_merged": [
+          "Assumed rarity implies instability",
+          "assumed novelty implies instability",
+          "assumed unobserved phase unstable",
+          "relied on rarity not chemistry"
+        ],
+        "example_source_file": "mp-2035614",
+        "example_chain_text": "Eu2Sb3 is a complex compound that does not appear in common databases of stable phases for binary systems like Eu-Sb. Given the rarity and complexity of such compounds, it is highly unlikely to be thermodynamically stable under normal conditions. Therefore, based on the available information, I judge it to be unstable.\n\nFINAL_ANSWER: UNSTABLE"
+      },
+      {
+        "category": "Misinterpreting Stability States",
+        "count": 3,
+        "frac": 0.029411764705882353,
+        "raw_labels_merged": [
+          "recognized metastable nature",
+          "treated metastable as stable"
+        ],
+        "example_source_file": "mp-1975157",
+        "example_chain_text": "VO2 exists in multiple crystalline polymorphs, most notably the rutile and monoclinic phases. While these phases can be metastable under certain conditions, the rutile phase is generally considered the thermodynamically stable form at room temperature and pressure. The existence of well-defined phase transitions suggests it occupies a favorable position.\n\nFINAL_ANSWER: STABLE"
+      },
+      {
+        "category": "Assumptions based on Stoichiometry/Complexity",
+        "count": 1,
+        "frac": 0.00980392156862745,
+        "raw_labels_merged": [
+          "Unusual stoichiometry implies instability"
+        ],
+        "example_source_file": "mp-1651187",
+        "example_chain_text": "The Li-Mn-O ternary system is known for its complex phase diagram with several stable or metastable phases. The Li7Mn5O12 composition is an unusual stoichiometry, deviating significantly from common rock-salt or spinel structures found in related Li-Mn-O materials. Such unusual compositions often indicate a tendency to decompose into more stable, simpler phases.\n\nFINAL_ANSWER: UNSTABLE"
+      },
+      {
+        "category": "Assumptions based on Composition",
+        "count": 1,
+        "frac": 0.00980392156862745,
+        "raw_labels_merged": [
+          "Assumed high lithium content unstable"
+        ],
+        "example_source_file": "mp-1653341",
+        "example_chain_text": "The material Li7Mn4CoO12 appears to be a complex oxide, and its stability can be assessed by comparing it to known stable phases in the Li-Mn-Co-O system. Given the high lithium content and the presence of transition metals like manganese and cobalt, it is likely that this compound is not thermodynamically stable due to the high energy required to form such a structure. The convex hull of stable phases typically does not include compounds with such high lithium content without additional stabilizing factors.\n\nFINAL_ANSWER: UNSTABLE"
+      }
+    ]
+  },
+  "metallicity": {
+    "n_violations": 108,
+    "n_labeled": 108,
+    "taxonomy": [
+      {
+        "category": "Overgeneralization",
+        "count": 27,
+        "frac": 0.25,
+        "raw_labels_merged": [
+          "Assumed common oxide behavior",
+          "Assumed generic element",
+          "Focused on metal element",
+          "Over-reliance on generalities",
+          "Over-relied on constituent elements",
+          "Overemphasized oxide nature",
+          "Overemphasized transition metals",
+          "Overgeneralized from common oxide",
+          "Overgeneralized from known analogue",
+          "Overgeneralized from oxide class",
+          "Overgeneralized from transition metals",
+          "Relied on general class",
+          "Relied on general trends",
+          "overemphasized transition metal",
+          "overgeneralized from known analogue",
+          "overgeneralized from oxide nature",
+          "overgeneralized from oxides"
+        ],
+        "example_source_file": "mp-1667041",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Incorrect Bond/Character Assumption",
+        "count": 11,
+        "frac": 0.10185185185185185,
+        "raw_labels_merged": [
+          "Assumed covalent bonds insulating",
+          "Assumed ionic bonding implies insulating",
+          "Assumed ionic implies insulating",
+          "Assumed ionic/covalent means nonmetallic",
+          "Assumed metallic bonding",
+          "Assumed pnictide/chalcogenous insulating",
+          "assumed electronegativity difference implies gap",
+          "assumed ionic means insulating",
+          "assumed oxide implies insulating"
+        ],
+        "example_source_file": "mp-1522695",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Overestimation of Electronegativity Effect",
+        "count": 7,
+        "frac": 0.06481481481481481,
+        "raw_labels_merged": [
+          "Overestimated electronegativity impact",
+          "Relied on electronegativity difference",
+          "overestimated electronegativity effect",
+          "overestimated electropositivity influence",
+          "overstated electronegativity impact",
+          "reasoned based on electronegativity"
+        ],
+        "example_source_file": "mp-2217258",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Overestimation of Transition Metal Contribution",
+        "count": 6,
+        "frac": 0.05555555555555555,
+        "raw_labels_merged": [
+          "Ignored transition-metal metallicity",
+          "Overestimated metallic contribution of Co",
+          "Overestimated transition metal effect",
+          "Overestimated transition metal metallicity",
+          "Overstated cobalt's metallicity"
+        ],
+        "example_source_file": "mp-1639812",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Ignoring Electronic Structure",
+        "count": 6,
+        "frac": 0.05555555555555555,
+        "raw_labels_merged": [
+          "Ignored d-electron metallicity",
+          "Ignored electronic structure",
+          "ignored cation lone pair",
+          "ignored charge ordering",
+          "ignored charge transfer",
+          "ignored d-electron localization"
+        ],
+        "example_source_file": "mp-2218064",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Ignoring d-orbital Contribution",
+        "count": 6,
+        "frac": 0.05555555555555555,
+        "raw_labels_merged": [
+          "Failed to consider V d-orbitals",
+          "Ignored d-orbital contribution",
+          "ignored V 3d orbitals",
+          "ignored d-orbital contribution",
+          "ignored d-orbital contributions",
+          "ignored d-orbital splitting"
+        ],
+        "example_source_file": "mp-2216440",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Ignoring Magnetism/Electronic Structure",
+        "count": 4,
+        "frac": 0.037037037037037035,
+        "raw_labels_merged": [
+          "Failed to account for Eu magnetism",
+          "Ignored transition metal magnetism",
+          "ignored transition-metal moment"
+        ],
+        "example_source_file": "mp-2218748",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Overestimation of Ionic Character",
+        "count": 3,
+        "frac": 0.027777777777777776,
+        "raw_labels_merged": [
+          "Overestimated ionic character",
+          "overestimated ionic character"
+        ],
+        "example_source_file": "mp-2217332",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Overestimation of Covalent Character",
+        "count": 3,
+        "frac": 0.027777777777777776,
+        "raw_labels_merged": [
+          "Overestimated covalent character",
+          "overestimated covalent character"
+        ],
+        "example_source_file": "mp-2218316",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Ignoring Band Gap/Electronic Structure",
+        "count": 3,
+        "frac": 0.027777777777777776,
+        "raw_labels_merged": [
+          "Ignored band filling",
+          "Ignored band gap physics",
+          "Overlooked band gap calculation"
+        ],
+        "example_source_file": "mp-2218221",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Overestimation of d-orbital Contribution",
+        "count": 3,
+        "frac": 0.027777777777777776,
+        "raw_labels_merged": [
+          "Overestimated d-orbital contribution",
+          "Overestimated d-orbital overlap",
+          "overestimated d-orbital delocalization"
+        ],
+        "example_source_file": "mp-2218283",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Overgeneralization related to Oxides",
+        "count": 3,
+        "frac": 0.027777777777777776,
+        "raw_labels_merged": [
+          "Ignored potential metallic oxides",
+          "Incorrectly prioritized oxide",
+          "Overlooked metallic oxides"
+        ],
+        "example_source_file": "mp-2216102",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Ignoring Specific Element Properties",
+        "count": 3,
+        "frac": 0.027777777777777776,
+        "raw_labels_merged": [
+          "Assumed localization due to Fe",
+          "Ignored Ti oxidation state variations",
+          "Overstated nitrogen's role"
+        ],
+        "example_source_file": "mp-2218911",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Overestimation of Band Gap",
+        "count": 3,
+        "frac": 0.027777777777777776,
+        "raw_labels_merged": [
+          "Overestimated band gap",
+          "overestimated band gap contribution",
+          "overestimated band gap due to complexity"
+        ],
+        "example_source_file": "mp-1522660",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Incorrect Oxidation State Assumption",
+        "count": 3,
+        "frac": 0.027777777777777776,
+        "raw_labels_merged": [
+          "Assumed high oxidation state means insulating",
+          "Misassigned oxidation states",
+          "incorrect oxidation state assumption"
+        ],
+        "example_source_file": "mp-1521542",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Overestimation related to Oxides",
+        "count": 2,
+        "frac": 0.018518518518518517,
+        "raw_labels_merged": [
+          "Overestimated oxide insulation",
+          "overestimated band gap from oxygen"
+        ],
+        "example_source_file": "mp-2218064",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Overestimation of Metallic Contribution",
+        "count": 2,
+        "frac": 0.018518518518518517,
+        "raw_labels_merged": [
+          "Overestimated metallic contribution",
+          "overestimated metallic contribution"
+        ],
+        "example_source_file": "mp-1521652",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Overestimation of Ionic Contribution",
+        "count": 2,
+        "frac": 0.018518518518518517,
+        "raw_labels_merged": [
+          "Overestimated ionic contribution",
+          "overestimated ionic contribution"
+        ],
+        "example_source_file": "mp-2218980",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Misinterpretation of Bonding",
+        "count": 2,
+        "frac": 0.018518518518518517,
+        "raw_labels_merged": [
+          "Incorrectly predicts bonding",
+          "Misinterpreted anion bonding"
+        ],
+        "example_source_file": "mp-2216440",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Focus on d-electrons",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "focused on d-electrons"
+        ],
+        "example_source_file": "mp-1523213",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Conflicting/Incomplete Reasoning (Electronegativity vs. Magnetism)",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Relied on electronegativity, ignored magnetism"
+        ],
+        "example_source_file": "mp-1638951",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Incorrect Band Gap Assumption",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "misapplied band gap assumption"
+        ],
+        "example_source_file": "mp-2217332",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Ignoring Bonding Specifics",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Ignored bonding specifics"
+        ],
+        "example_source_file": "mp-1522466",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Misinterpretation of d-orbital Contribution",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Misinterpreted d-orbital contribution"
+        ],
+        "example_source_file": "mp-2029367",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Misinterpretation of Element Properties",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Misinterpreted element properties"
+        ],
+        "example_source_file": "mp-2218269",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Overestimation of Ionic/Covalent Character",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "overestimated ionic/covalent character"
+        ],
+        "example_source_file": "mp-2217550",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Ignoring Specific Structure",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Ignored specific structure"
+        ],
+        "example_source_file": "mp-1650920",
+        "example_chain_text": ""
+      },
+      {
+        "category": "Overestimation of Electronic Structure Effects",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overestimated correlation effects"
+        ],
+        "example_source_file": "mp-1522553",
+        "example_chain_text": ""
+      }
+    ],
+    "taxonomy_raw_labels": [
+      {
+        "category": "overgeneralized from known analogue",
+        "count": 7,
+        "frac": 0.06481481481481481,
+        "raw_labels_merged": [
+          "overgeneralized from known analogue"
+        ],
+        "example_source_file": "mp-1667041",
+        "example_chain_text": "The material Li7Mn4CoO12 is a perovskite-type oxide, which typically exhibits metallic behavior due to the presence of transition metal ions (Mn and Co) that can form metallic-like bands. The lithium ions (Li+) in the structure are likely to be interstitial and do not significantly contribute to the electronic properties. The metallic character is often observed in oxides containing transition metals, especially when they form a continuous network of metal-oxygen bonds.\n\nFinal Answer: METALLIC"
+      },
+      {
+        "category": "Overgeneralized from known analogue",
+        "count": 4,
+        "frac": 0.037037037037037035,
+        "raw_labels_merged": [
+          "Overgeneralized from known analogue"
+        ],
+        "example_source_file": "mp-2217120",
+        "example_chain_text": "To determine the electronic properties of MgTi3O6, we need to consider the bonding and the oxidation states of the elements involved. Magnesium (Mg) is an alkaline earth metal, typically forming a +2 cation. Oxygen (O) is a highly electronegative element, usually forming a -2 anion. Titanium (Ti) is a transition metal and can exist in various oxidation states.\n\nIn MgTi3O6, for the compound to be neutral, the sum of the oxidation states must be zero. If Mg is +2 and O is -2 (giving a total of -12 from 6 oxygens), then the 3 titanium atoms must contribute a total of +10. This implies an average oxidation state of +10/3 for titanium, which is not a stable common oxidation state.\n\nLet's consider more common oxidation states for Ti, which are +2, +3, and +4.\nIf we assume Mg(II) and O(II), then 3Ti must sum to +10.\n\nHowever, a more plausible scenario, given the common oxide stoichiometry for transition metals, is to consider Mg as Mg$^{2+}$. If we consider Ti in its common higher oxidation states, let's test some combinations.\nIf Ti is +4, then 3Ti would be +12. With Mg$^{2+}$ and 6O$^{2-}$ (total -12), this would requireMg$^{2+}$ + 3Ti$^{4+}$ + 6O$^{2-}$ => +2 +12 -12 = +2 (not neutral).\n\nIf Ti is +3, then 3Ti would be +9. With Mg$^{2+}$ and 6O$^{2-}$ (total -12), this would require Mg$^{2+}$ + 3Ti$^{3+}$ + 6O$^{2-}$ => +2 +9 -12 = -1 (not neutral).\n\nThis suggests that we need to look at alternative structures or charge distributions. Magnesium titanates with formula MgTiO$_3$ often exist, with Mg$^{2+}$ and Ti$^{3+}$ or Ti$^{4+}$ depending on oxygen stoichiometry.\n\nThe formula MgTi$_3$O$_6$ is unusual. However, if we consider related known compounds like MgTi$_2$O$_5$ (which can be a semiconductor), the presence of Ti in an oxide is likely to lead to a situation where an oxide lattice is formed. Transition metal oxides, especially those involving Ti, can be semiconductors or insulators due to d-electron contributions to the band structure. If the d-orbitals are localized or form bands with a significant gap, it will not be metallic. The presence of oxygen in a highly ionic context (as expected with Mg and Ti) further suggests a non-metallic character, as oxygen tends to accept electrons to complete its valence shell, contributing to insulating behavior in many oxides. Without specific crystallographic and electronic structure information for MgTi3O6, relying on general principles: Ti-O bonds are often polar covalent or ionic in oxides, and the structure of such compounds typically results in a band gap due to the filled valence bands (O 2p) and conduction bands (Ti 3d).\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "assumed ionic means insulating",
+        "count": 3,
+        "frac": 0.027777777777777776,
+        "raw_labels_merged": [
+          "assumed ionic means insulating"
+        ],
+        "example_source_file": "mp-1522695",
+        "example_chain_text": "The material KCaTbNbO6 is a perovskite-type oxide, which typically exhibits insulating properties due to strong ionic bonding and the presence of heavy metal ions like Nb5+. The large ionic radii and high electronegativity differences between the elements suggest that the material will have a significant band gap, making it a semiconductor or insulator rather than metallic.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Ignored transition metal magnetism",
+        "count": 2,
+        "frac": 0.018518518518518517,
+        "raw_labels_merged": [
+          "Ignored transition metal magnetism"
+        ],
+        "example_source_file": "mp-2218748",
+        "example_chain_text": "This material contains elements from different categories: Sodium (alkali metal), Magnesium (alkaline earth metal), Iron (transition metal), and Selenate (an anion). The presence of a highly electronegative anion like selenate (SeO4) typically leads to ionic or covalent bonding within the compound. Transition metals like iron can exhibit variable oxidation states and contribute to conductivity, but in the context of a complex selenate salt, it's more likely to form a stable oxide-like structure rather than free electrons necessary for metallic conductivity. The overall structure is expected to be an ionic lattice where electrons are localized within the chemical bonds or on the ions.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Overestimated transition metal metallicity",
+        "count": 2,
+        "frac": 0.018518518518518517,
+        "raw_labels_merged": [
+          "Overestimated transition metal metallicity"
+        ],
+        "example_source_file": "mp-1639812",
+        "example_chain_text": "The material Li6V5SbO12 is a complex oxide, and its electronic properties can be influenced by the nature of the valence electrons and the bonding in the structure. Given that it contains transition metal ions (V and Sb), which often exhibit metallic behavior due to their ability to form delocalized electron bands, and considering the presence of lithium (Li), which can contribute to metallic-like behavior through its ionic radius and electronic configuration, it is reasonable to infer that this material might have a metallic character.\n\nHowever, the exact electronic band structure would require detailed computational studies, such as density functional theory (DFT) calculations, to determine the band gap accurately. Without such specific data, we cannot definitively state whether it is purely metallic or a semiconductor/insulator.\n\nGiven the complexity and the potential for both metallic and semiconducting behavior, and without more precise information, it's challenging to make a definitive prediction.\n\n**FINAL_ANSWER:** METALLIC"
+      },
+      {
+        "category": "Overestimated ionic character",
+        "count": 2,
+        "frac": 0.018518518518518517,
+        "raw_labels_merged": [
+          "Overestimated ionic character"
+        ],
+        "example_source_file": "mp-2217332",
+        "example_chain_text": "Ba3MgWO6 is an oxide material. Typically, oxides are formed from electropositive metals (like Ba and Mg) and electronegative elements (like O and W). The bonding in such materials is predominantly ionic and covalent. In Ba3MgWO6:\n\n*   **Ba and Mg** are alkaline earth metals and tend to lose electrons to form positively charged ions (Ba\u00b2\u207a and Mg\u00b2\u207a).\n*   **W** is a transition metal, and in an oxide environment, it can exhibit various oxidation states. Tungsten is quite electronegative compared to Ba and Mg.\n*   **O** is highly electronegative and readily attracts electrons.\n\nThe formation of a rigid, ordered crystal lattice with significant ionic character between the cations (Ba\u00b2\u207a, Mg\u00b2\u207a, W\u207f\u207a) and the oxide anions (O\u00b2\u207b) leads to a large separation of electron energy levels, resulting in a substantial band gap. Transition metal oxides can sometimes exhibit metallic behavior due to d-orbital contributions, but the presence of multiple, less electronegative cations (Ba, Mg) and the overall structure are more indicative of an insulating or semiconducting nature, where electrons are localized and not free to conduct electricity at room temperature.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "overestimated electronegativity effect",
+        "count": 2,
+        "frac": 0.018518518518518517,
+        "raw_labels_merged": [
+          "overestimated electronegativity effect"
+        ],
+        "example_source_file": "mp-2217258",
+        "example_chain_text": "This material contains magnesium (Mg), titanium (Ti), oxygen (O), and fluorine (F). Mg is an alkaline earth metal, and Ti is a transition metal, both of which contribute electrons. However, O and F are highly electronegative, forming strong covalent and ionic bonds. The presence of multiple highly electronegative elements, particularly fluorine, is likely to lead to a significant charge transfer and the formation of strong bonds that localize electrons and create a substantial band gap. The Ti d-orbitals, while potentially contributing to conductivity, are likely to be involved in bonding with O and F, which will influence their energy levels and the overall band structure in a way that favors a band gap.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Relied on general trends",
+        "count": 2,
+        "frac": 0.018518518518518517,
+        "raw_labels_merged": [
+          "Relied on general trends"
+        ],
+        "example_source_file": "mp-1523025",
+        "example_chain_text": "The material NaCeTi4O12 contains sodium (Na), cerium (Ce), titanium (Ti), and oxygen (O). Sodium and cerium are electropositive metals, and titanium is a transition metal with a d-orbital chemistry that can lead to conductivity. Oxygen is highly electronegative. In many oxide materials containing transition metals, the d-orbitals of the transition metal are involved in forming the conduction band. The presence of multiple transition metal ions (Ti) and potentially variable oxidation states of cerium (though Ce+3 is common in oxides) can lead to a delocalized electronic structure. The specific arrangement and bonding of these elements, particularly the Ti-O framework, is crucial. However, given the presence of a transition metal and the potential for mixed valency or d-orbital overlap, it is more likely to exhibit metallic or at least semiconducting behavior rather than being a wide-bandgap insulator. The Ti 3d and O 2p orbitals are likely to hybridize and form bands. Without more specific information on the crystal structure and oxidation states, predicting definitive metallic behavior is difficult, but semiconducting or metallic is more probable than insulating.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "overestimated covalent character",
+        "count": 2,
+        "frac": 0.018518518518518517,
+        "raw_labels_merged": [
+          "overestimated covalent character"
+        ],
+        "example_source_file": "mp-2218316",
+        "example_chain_text": "The material Y2MgV2O8 contains a transition metal (Vanadium, V) in an oxide environment. Vanadium oxides, especially those with multiple oxidation states available, can exhibit metallic or semiconducting/insulating behavior depending on the specific oxidation state and crystal structure. In this compound, the presence of V in a mixed-valence state or a configuration that facilitates d-orbital overlap is likely. While Y and Mg are typically electropositive and will form ionic bonds in oxides, the V-O bonds often have significant covalent character, and the V d-orbitals can form a partially filled band. This partial filling is characteristic of metallic conductivity.\n\nFINAL_ANSWER: METALLIC"
+      },
+      {
+        "category": "ignored transition-metal moment",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "ignored transition-metal moment"
+        ],
+        "example_source_file": "mp-2217595",
+        "example_chain_text": "To assess whether MgMo2(BrO)4 is metallic or nonmetallic (semiconductor/insulator), we need to consider the electronic structure of the constituent elements and how they form bonds.\n\nMagnesium (Mg) is an alkaline earth metal, typically forming ionic compounds with high oxidation states or metallic bonds in its elemental form. Molybdenum (Mo) is a transition metal known for its ability to form metallic bonds and complex structures with variable oxidation states. Bromine (Br) is a halogen, strongly electronegative, and typically forms covalent bonds or participates in oxidation states that lead to ionic or covalent anions like perbromates. The perbromate ion (BrO)$_4^-$ (assuming this is the intended anion, as (BrO)$_4$ is not a standard stable species; perbromate is BrO$_4^-$) is a known anion with the bromine in a high, positive oxidation state (+7).\n\nIn a compound like MgMo2(BrO)$_4$, we would expect a complex interplay of bonding. Magnesium would likely be in its +2 oxidation state, forming ionic bonds with the other components. Molybdenum's oxidation state can vary widely. In perbromates where it's adjacent to it, it's less common to have Mo directly involved in the perbromate core. If we assume the anion is perbromate (BrO$_4^-$), then Bromine is in the +7 oxidation state. This implies that the perbromate anion itself is not a metallic conductor and tends to be an insulator or semiconductor.\n\nThe presence of magnesium, a highly electropositive element, will lead to significant ionic character in the bonding with the perbromate anion. The molybdenum centers are more likely to influence conductivity. However, transition metals in high oxidation states, especially when coupled with electronegative oxygens and bromine, often lead to localized electrons rather than delocalized metallic bands. Without specific knowledge of the crystal structure and orbital overlap, a reasonable first approximation is to consider the overall electronegativity difference and the stable oxidation states. High oxidation states on both Mo and Br, coupled with oxygen, suggest a more covalent/ionic bonding framework with localized electronic states, leaning towards nonmetallic behavior.\n\nLet's reconsider the given formula MgMo2(BrO)4, which might imply a different anionic species. If it is indeed (BrO)$_4$, this is an unusual stoichiometry. However, if we interpret it as Mo being in a lower oxidation state and bonded to some form of BrO unit, it still involves a transition metal and highly electronegative elements. Given that molybdenum is present, there's always a *possibility* of metallic character if it's in a low oxidation state with significant d-orbital delocalization. However, without definitive information about the oxidation states and bonding, and considering the common behavior of compounds with multiple electronegative elements and transition metals in potentially higher oxidation states, nonmetallic behavior is more probable.\n\nIf we interpret (BrO)$_4$ as a typo or shorthand for something like bromite or another bromine-oxygen anion with Mo, it's still hard to predict without more context. However, the combination of Mg, Mo, Br, and O, with at least Br and O being highly electronegative, usually leads to MOFs or coordination complexes that are insulators or semiconductors.\n\nGiven the limited information and the unusual (BrO)$_4$ species, let's assume it implies a more typical bonding scenario where Mo might not be in the lowest possible oxidation states, and the electronegative elements dominate the electronic structure.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Overestimated oxide insulation",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overestimated oxide insulation"
+        ],
+        "example_source_file": "mp-2218064",
+        "example_chain_text": "The material with the chemical composition YMgSb(PbO3)2 appears to be a complex oxide, which typically suggests a nonmetallic behavior due to the presence of transition metal ions and the formation of oxides. The presence of lead (Pb) in the form of PbO3 indicates that it is likely an oxide compound rather than a metallic one. Lead oxides often exhibit semiconducting properties, especially when doped or under certain conditions.\n\nGiven these considerations, I would expect this material to be a semiconductor/insulator.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "ignored cation lone pair",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "ignored cation lone pair"
+        ],
+        "example_source_file": "mp-2218064",
+        "example_chain_text": "This composition can be analyzed by considering the elements and their typical bonding characteristics. Yttrium (Y) is a rare earth metal, magnesium (Mg) is an alkaline earth metal, and antimony (Sb) is a pnictogen. Lead (Pb) is a post-transition metal, and oxygen (O) is a chalcogen. The presence of highly electronegative oxygen suggests significant ionic character, particularly in the PbO3 component. However, the combination of a metal-like Y, a metal Mg, a metalloid Sb, and Pb with a lone pair can lead to complex bonding. The formulation (PbO3)2 suggests a perovskite-like or related structure where Pb and O are strongly interacting. Given the mix of metallic and non-metallic elements, particularly the presence of a post-transition metal with a lone pair (Pb) and a metalloid (Sb) in a potentially complex oxide framework, a significant band gap is more probable than a metallic behavior. The Y and Mg contribute valence electrons, but the electronegativity differences and structural factors likely create insulating or semiconducting properties.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Failed to account for Eu magnetism",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Failed to account for Eu magnetism"
+        ],
+        "example_source_file": "mp-2035614",
+        "example_chain_text": "To determine whether Eu2Sb3 is metallic or nonmetallic, we need to consider its electronic structure and the nature of the bonds involved.\n\nEuropium (Eu) is a lanthanide metal, which typically forms metallic bonds due to its ability to donate electrons easily. Sb (antimony) is a group 15 element that can form covalent bonds. The presence of both metallic and covalent bonding elements in Eu2Sb3 suggests a complex electronic structure.\n\nIn Eu2Sb3, europium atoms likely form metallic bonds, contributing their 4f electrons to a delocalized conduction band, while antimony atoms form covalent bonds, contributing their valence electrons to localized orbitals. This combination often results in a material with a finite band gap, as the metallic character of europium is not strong enough to completely fill the conduction band, leading to a semiconductor-like behavior.\n\nGiven these considerations, Eu2Sb3 is more likely to exhibit semiconducting properties rather than metallic ones.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "assumed electronegativity difference implies gap",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "assumed electronegativity difference implies gap"
+        ],
+        "example_source_file": "mp-2035614",
+        "example_chain_text": "Europium (Eu) is a lanthanide element and is typically electropositive. Antimony (Sb) is a pnictogen and is more electronegative. In intermetallic compounds, the electronegativity difference plays a significant role in determining bonding character. With a significant electronegativity difference here, we expect ionic contributions to the bonding. Europium often forms divalent (Eu\u00b2\u207a) or trivalent (Eu\u00b3\u207a) cations. If Eu exists as Eu\u00b2\u207a, it has a 4f\u2077 electron configuration, which is stable due to its half-filled f subshell. Antimony typically forms anions in binary compounds with electropositive elements. In Eu\u2082Sb\u2083, the structure and bonding are complex, but considering Eu's tendency to donate electrons (even if not fully ionic) and Sb's ability to accept them, a significant charge transfer is expected. This charge transfer, along with the potential for localized f-electron states in Eu, can lead to the formation of a band gap. Such compounds are often semiconductors or insulators rather than true metals where delocalized electrons form a continuous band.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Overestimated metallic contribution",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overestimated metallic contribution"
+        ],
+        "example_source_file": "mp-1521652",
+        "example_chain_text": "To determine whether the material with the chemical composition BaNaPrSbO6 is metallic or nonmetallic, we need to consider its electronic structure and the nature of the bonds involved.\n\n1. **Chemical Composition**: The material is composed of barium (Ba), sodium (Na), praseodymium (Pr), antimony (Sb), and oxygen (O). Barium and sodium are typically metallic elements, while praseodymium is a rare earth element, and antimony is a metalloid. Oxygen is a non-metallic element.\n\n2. **Electronic Structure**: The presence of both metallic and non-metallic elements suggests that the material might have a complex electronic structure. Metallic elements like barium and sodium can contribute to metallic bonding, which would imply a zero or near-zero band gap if the material were purely metallic. However, the presence of praseodymium and antimony introduces more complexity, as these elements often form compounds with finite band gaps due to their ionic or covalent bonding characteristics.\n\n3. **Bonding Analysis**: In compounds like this, the bonding between different elements can vary from ionic to covalent depending on the electronegativity differences. For instance, the strong ionic character in compounds involving barium and oxygen suggests some ionic bonding, while the presence of praseodymium and antimony could introduce covalent or mixed valence states, which typically result in semiconducting or insulating behavior.\n\nGiven the complexity introduced by the presence of praseodymium and antimony, it is more likely that the material will exhibit semiconducting or insulating properties rather than being purely metallic.\n\n**Final Answer:** NONMETALLIC"
+      },
+      {
+        "category": "Ignored band gap physics",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Ignored band gap physics"
+        ],
+        "example_source_file": "mp-2218221",
+        "example_chain_text": "The material with the chemical composition CsLaMgNb2O7 is likely to be a nonmetallic semiconductor or insulator. The presence of transition metal Nb (niobium) in the compound suggests that it might have some metallic properties due to its ability to form metallic bonds. However, the overall structure and bonding in such compounds often results in a finite band gap, making them semiconductors or insulators rather than metals.\n\nFinal_Answer: NONMETALLIC"
+      },
+      {
+        "category": "Relied on electronegativity difference",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Relied on electronegativity difference"
+        ],
+        "example_source_file": "mp-1525363",
+        "example_chain_text": "To determine whether CaSb2 is metallic or nonmetallic, we need to consider its electronic structure and the nature of the bonds in the material.\n\n1. **Chemical Bonding**: CaSb2 consists of calcium (Ca), which is a metal, and antimony (Sb), which is a nonmetal. The bonding between these elements can be complex but generally involves ionic and covalent components. Calcium typically forms ionic bonds, while antimony can form both ionic and covalent bonds depending on the environment.\n\n2. **Electronic Structure**: In CaSb2, the calcium atoms likely form ionic bonds with the antimony atoms, leading to a structure where the antimony atoms are surrounded by calcium ions. This arrangement suggests that the material might have a layered structure similar to some ionic compounds like perovskites, but with a more complex electronic configuration due to the presence of antimony.\n\n3. **Band Gap Analysis**: For a material to be metallic, it must have a zero or near-zero electronic band gap, meaning electrons can move freely throughout the material without much resistance. However, for CaSb2, the presence of antimony, which is a nonmetal, suggests that there might be a finite band gap. Antimony often forms covalent bonds, which can introduce a band gap in the material's electronic structure.\n\n4. **Experimental Evidence**: While theoretical predictions can guide us, experimental evidence from materials science is crucial. CaSb2 has been studied experimentally, and it has been found to exhibit semiconducting behavior, indicating a finite band gap.\n\nGiven this analysis, it is reasonable to conclude that CaSb2 is a semiconductor/insulator rather than a metallic material.\n\n**FINAL_ANSWER: NONMETALLIC**"
+      },
+      {
+        "category": "focused on d-electrons",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "focused on d-electrons"
+        ],
+        "example_source_file": "mp-1523213",
+        "example_chain_text": "The material Sr2YWO6 is a perovskite oxide, which typically exhibits insulating behavior due to strong electron correlations and the presence of d-electrons in the transition metal ions (in this case, W). The tungsten (W) ion has a high oxidation state (+6), which often leads to a large band gap, making it more likely to be a semiconductor or an insulator rather than metallic.\n\nFinal_Answer: NONMETALLIC"
+      },
+      {
+        "category": "Over-relied on constituent elements",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Over-relied on constituent elements"
+        ],
+        "example_source_file": "mp-2217140",
+        "example_chain_text": "To determine whether the material with the chemical composition MgCu2(PdO2)2 is metallic or nonmetallic, we need to consider the electronic structure and bonding in the material.\n\n1. **Mg** (Magnesium): Magnesium is a metal and typically forms metallic bonds.\n2. **Cu** (Copper): Copper is also a metal and often forms metallic bonds.\n3. **Pd** (Palladium): Palladium is a transition metal that can form both metallic and covalent bonds depending on the environment.\n4. **O** (Oxygen): Oxygen is a non-metal that forms covalent bonds.\n\nThe presence of oxygen suggests that there might be some covalent character in the bonding, but the primary bonding in metals like magnesium and copper is metallic. Palladium, being a transition metal, can contribute to metallic bonding as well. The overall electronic structure will be influenced by the metallic nature of magnesium and copper, which generally results in a metallic band structure.\n\nGiven that the material contains magnesium and copper, which are metals, and palladium, which can also contribute to metallic bonding, it is reasonable to expect that the material will have a metallic electronic band structure due to the dominance of metallic bonding.\n\n**Final Answer:** METALLIC"
+      },
+      {
+        "category": "Overestimated d-orbital contribution",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overestimated d-orbital contribution"
+        ],
+        "example_source_file": "mp-2218283",
+        "example_chain_text": "The material MgCr2(SbO4)2 is composed of metal ions (Mg2+, Cr3+) and non-metal ions (Sb5+, O2-). The presence of transition metal ions like Cr3+ suggests that it might exhibit metallic behavior due to the delocalization of electrons in the d-orbitals. However, the presence of antimony (Sb) as a cation can introduce some insulating properties due to its high electronegativity and the formation of strong covalent bonds.\n\nGiven the complexity of the structure and the potential for both metallic and insulating behaviors, it's challenging to definitively classify this material without more detailed information about its electronic structure and bonding. However, based on the typical behavior of such compounds, it is more likely to exhibit metallic behavior due to the delocalization of electrons in the d-orbitals of the Cr3+ ions.\n\nFINAL_ANSWER: METALLIC"
+      },
+      {
+        "category": "Relied on electronegativity, ignored magnetism",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Relied on electronegativity, ignored magnetism"
+        ],
+        "example_source_file": "mp-1638951",
+        "example_chain_text": "Co2O3F presents a challenge for a straightforward metallic vs. nonmetallic classification based solely on simple rules. Cobalt (Co) is a transition metal, and its oxides often exhibit metallic or semiconducting behavior. Oxygen (O) is a highly electronegative nonmetal. Fluorine (F) is also a highly electronegative nonmetal. The high oxidation state of cobalt (+3) in Co2O3 suggests a strong ionic or polar covalent character in the Co-O and Co-F bonds. The presence of both oxide and fluoride anions, and the potential for complex structural arrangements, makes predicting the band gap difficult without more detailed crystallographic and electronic structure information. However, given the strong electronegativity of oxygen and fluorine, and the likely polar nature of the bonds to cobalt, a significant band gap is more probable than metallicity. The d-electrons of cobalt will be involved in bonding and could lead to localized states or a narrow band, but a complete filling of bands leading to metallic conductivity is less likely in such an oxide-fluoride system.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Overgeneralized from transition metals",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overgeneralized from transition metals"
+        ],
+        "example_source_file": "mp-1653341",
+        "example_chain_text": "The material Li7Mn4CoO12 is a perovskite-type oxide, which typically exhibits metallic behavior due to the presence of transition metal ions (Mn and Co) that can form metallic-like bands. The lithium ions (Li+) in the structure are likely to be interstitial and do not significantly contribute to the electronic properties. The metallic character is often observed in oxides containing transition metals, especially when they form a continuous network of metal-oxygen bonds.\n\nFinal Answer: METALLIC"
+      },
+      {
+        "category": "Overlooked metallic oxides",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overlooked metallic oxides"
+        ],
+        "example_source_file": "mp-2216102",
+        "example_chain_text": "The material with the chemical composition KMgMn16O32 is likely to be a semiconductor/insulator rather than metallic. The presence of transition metal ions like manganese (Mn) in the structure suggests that it may have a finite band gap due to the d-electron transitions between different energy levels. Additionally, the complex oxide structure and the presence of potassium (K) and magnesium (Mg) suggest a more insulating behavior typical of oxides.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "reasoned based on electronegativity",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "reasoned based on electronegativity"
+        ],
+        "example_source_file": "mp-2216102",
+        "example_chain_text": "The composition KMgMn16O32 contains potassium (K), magnesium (Mg), manganese (Mn), and oxygen (O). Oxygen is highly electronegative. Manganese, while being a transition metal, often forms oxides that are insulators or semiconductors due to the strong interaction with oxygen. Potassium and magnesium are highly electropositive and are expected to form ionic bonds, further contributing to the formation of oxide structures with ionic character, which typically leads to a band gap. The presence of multiple metal cations and oxygen suggests a complex oxide, and the common behavior of such oxides is nonmetallic. Transition metals in oxides can exhibit variable oxidation states and complex magnetic properties, but generally, their oxides are not metallic unless in very specific structural configurations or with unusual bonding. In this case, the high proportion of oxygen compared to metals, and the presence of typical electropositive elements, points towards a nonmetallic nature.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Assumed covalent bonds insulating",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Assumed covalent bonds insulating"
+        ],
+        "example_source_file": "mp-2218748",
+        "example_chain_text": "The material NaMgFe(SeO4)2 is likely to be a semiconductor/insulator rather than metallic. The presence of selenium (Se) in its oxyanion form (SeO4^2-) suggests that it will have a finite band gap due to the covalent character of the Se-O bonds and the overall ionic nature of the compound. Additionally, the presence of transition metal ions like Fe(III) can contribute to a finite band gap through the d-orbital electrons, which typically do not participate in metallic bonding.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Overestimated ionic contribution",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overestimated ionic contribution"
+        ],
+        "example_source_file": "mp-2218980",
+        "example_chain_text": "The material with the chemical composition K2Na2MgTi2O6 is likely to be a nonmetallic semiconductor or insulator. The presence of transition metal ions like Ti4+ and Mg2+ suggests that it could have a finite band gap, as these elements often form compounds with semiconducting properties due to their ability to donate or accept electrons. Additionally, the presence of alkali metals (K and Na) in the compound can influence the electronic structure but typically does not lead to metallic behavior unless there is a significant delocalization of electrons across the entire crystal lattice, which is not evident from the given formula.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "overestimated ionic character",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "overestimated ionic character"
+        ],
+        "example_source_file": "mp-2218980",
+        "example_chain_text": "This material, K2Na2MgTi2O6, is a complex oxide containing highly electronegative elements like oxygen and less electronegative elements like potassium, sodium, magnesium, and titanium. Titanium (Ti) in its common oxidation states within oxides often forms d-orbitals that can contribute to conductivity. However, the presence of strongly ionic bonds between alkali metals (K, Na) and alkaline earth metals (Mg) with oxygen, and the coordination of Ti in an oxide lattice, typically leads to the formation of a significant band gap. The Ti-O bonds are generally considered ionic/covalent with a considerable gap, and the presence of K and Na further contributes to the ionic character. This structural arrangement favors localized electrons rather than delocalized electron sea characteristic of metals.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Assumed generic element",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Assumed generic element"
+        ],
+        "example_source_file": "mp-3347313",
+        "example_chain_text": "To determine whether a material is metallic or nonmetallic based on its chemical composition, we need to consider the electronic structure and the nature of the bonds in the material. However, without specific details about the chemical composition \"C,\" it's challenging to provide an accurate classification. Typically, metallic behavior is associated with materials that have a zero or near-zero electronic band gap, allowing for the free movement of electrons throughout the material. On the other hand, semiconductors and insulators have finite band gaps, which restrict the movement of electrons.\n\nIf the composition \"C\" refers to a material like copper (Cu), which is known to be metallic due to its ability to conduct electricity and heat, the answer would be:\n\nFINAL_ANSWER: METALLIC\n\nIf the composition \"C\" refers to a material like silicon (Si), which has a finite band gap and is classified as a semiconductor, the answer would be:\n\nFINAL_ANSWER: NONMETALLIC\n\nSince the exact chemical composition \"C\" is not specified, I cannot definitively classify it. If you could provide more information about the material, such as its atomic structure or the elements involved, I could offer a more precise answer.\n\nFor the sake of this exercise, let's assume \"C\" is a common metallic element. Therefore, the answer is:\n\nFINAL_ANSWER: METALLIC"
+      },
+      {
+        "category": "misapplied band gap assumption",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "misapplied band gap assumption"
+        ],
+        "example_source_file": "mp-2217332",
+        "example_chain_text": "To determine whether Ba3MgWO6 is metallic or a semiconductor/insulator, we need to consider its electronic structure and the nature of the bonds involved.\n\n1. **Chemical Composition**: The compound Ba3MgWO6 consists of barium (Ba), magnesium (Mg), tungsten (W), and oxygen (O). Barium and magnesium are metals, while tungsten is a transition metal, and oxygen is a non-metal.\n\n2. **Electronic Structure**:\n   - Barium and magnesium are highly electropositive, meaning they have a tendency to lose electrons.\n   - Tungsten is a transition metal, which typically forms covalent bonds but can also exhibit some ionic character due to its high electronegativity.\n   - Oxygen is highly electronegative and tends to form covalent bonds.\n\n3. **Bonding Analysis**:\n   - The presence of both ionic and covalent bonding suggests that the material might not be purely metallic.\n   - The tungsten-oxygen bond is likely to be predominantly covalent, as tungsten is a transition metal and oxygen is highly electronegative.\n   - The barium-magnesium bonds are likely to be ionic, given their high electronegativity difference.\n\n4. **Band Gap**:\n   - For a material to be metallic, it must have zero or near-zero electronic band gap, allowing for free electron movement throughout the material.\n   - The presence of both ionic and covalent bonding, especially in a complex oxide structure like Ba3MgWO6, typically results in a finite band gap, making it a semiconductor or insulator.\n\nGiven these considerations, the material Ba3MgWO6 is more likely to be a semiconductor/insulator rather than a metallic material.\n\n**Final Answer:** NONMETALLIC"
+      },
+      {
+        "category": "overestimated band gap from oxygen",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "overestimated band gap from oxygen"
+        ],
+        "example_source_file": "mp-2218911",
+        "example_chain_text": "The material with the chemical composition MgTi4O8 is likely to be a nonmetallic semiconductor or insulator. The presence of oxygen in the oxide structure suggests that it will have a finite band gap, as oxides typically do not form metallic bonds. Additionally, the presence of magnesium and titanium in an oxide framework often results in a material with a band gap, which is characteristic of semiconductors or insulators rather than metals.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Ignored Ti oxidation state variations",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Ignored Ti oxidation state variations"
+        ],
+        "example_source_file": "mp-2218911",
+        "example_chain_text": "MgTi$_4$O$_8$ is an oxide containing magnesium (Mg), titanium (Ti), and oxygen (O). Oxides are generally insulators or semiconductors due to the ionic and covalent bonding between the highly electronegative oxygen and the more electropositive metal cations. Titanium oxides, in particular, can exhibit semiconducting properties depending on their stoichiometry and oxidation state, with Ti generally being in a higher oxidation state in stable oxides. Magnesium is typically found in a +2 oxidation state and forms ionic bonds. The presence of four titanium atoms per magnesium atom suggests a complex structure where titanium is likely in a mixed oxidation state or a specific crystal field environment that leads to a localized electron state rather than free electron movement characteristic of metals.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Overestimated covalent character",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overestimated covalent character"
+        ],
+        "example_source_file": "mp-2218772",
+        "example_chain_text": "To determine whether the material with the chemical composition Na4Mg(NiO3)2 is metallic or nonmetallic, we need to consider the electronic structure and bonding in the material.\n\n1. **Electronic Structure Analysis**:\n   - The material contains NiO3 units, which are similar to perovskite structures where Ni is in a +2 oxidation state.\n   - In such structures, the Ni-O bonds are typically covalent, meaning that the electrons are shared between the Ni and O atoms.\n   - The presence of Na and Mg ions suggests that they are likely to form ionic bonds with the anions (NiO3), as these elements are typically found in ionic compounds.\n\n2. **Bonding and Band Gap**:\n   - If the material were purely ionic, it would have a large band gap due to the strong separation of charge carriers.\n   - However, the presence of NiO3 units implies some degree of covalent character, which can lead to delocalized electrons if the material forms a network structure.\n   - The Na and Mg ions are likely to form a framework around the NiO3 units, potentially leading to a mixed ionic-covalent bonding scenario.\n\n3. **Conclusion**:\n   - Given the mixed nature of bonding and the potential for delocalization of electrons within the NiO3 units, it is reasonable to infer that the material could exhibit metallic behavior.\n   - However, without detailed structural information and electronic band calculations, it's challenging to definitively classify the material as strictly metallic or nonmetallic.\n\nConsidering the above points, the material is more likely to exhibit metallic behavior due to the potential for delocalized electrons in the NiO3 units.\n\n**Final Answer**: METALLIC"
+      },
+      {
+        "category": "Assumed metallic bonding",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Assumed metallic bonding"
+        ],
+        "example_source_file": "mp-1641030",
+        "example_chain_text": "The material Li8(CoO2)5 is a complex oxide, and its electronic properties can be inferred from the nature of the constituent elements and their oxidation states. Lithium (Li) typically forms metallic bonds in compounds due to its high electron affinity and low ionization energy, while cobalt (Co) in the +3 oxidation state often exhibits semiconducting behavior in oxides.\n\nGiven that CoO2 is a well-known semiconductor, and considering the presence of lithium which tends to form metallic-like bonding, it is reasonable to infer that the overall electronic structure might lean towards metallic behavior. However, the specific electronic band gap would depend on the detailed crystal structure and the interactions between the ions.\n\nConsidering these factors, the material is likely to exhibit metallic behavior due to the presence of lithium and the potential for metallic bonding.\n\nFINAL_ANSWER: METALLIC"
+      },
+      {
+        "category": "Ignored bonding specifics",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Ignored bonding specifics"
+        ],
+        "example_source_file": "mp-1522466",
+        "example_chain_text": "To determine whether SrCaNbInO6 is metallic or a semiconductor/insulator, we need to consider the electronic structure and bonding in the material. \n\n1. **Chemical Composition**: The material has a complex oxide structure with Sr, Ca, Nb, In, and O as its components.\n2. **Electronic Structure**: Oxides typically have a wide range of electronic properties depending on their specific composition and bonding. In this case, the presence of transition metals like Nb and In suggests that there might be some metallic character due to the d-electrons in these elements.\n3. **Band Gap**: Transition metal oxides often exhibit metallic behavior if the d-electrons are delocalized across the entire crystal lattice, leading to a zero or near-zero band gap.\n\nGiven the complexity and the presence of transition metals, it is reasonable to infer that SrCaNbInO6 could potentially be metallic due to the possibility of delocalized electrons.\n\n**Final Answer:** METALLIC"
+      },
+      {
+        "category": "Overgeneralized from common oxide",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overgeneralized from common oxide"
+        ],
+        "example_source_file": "mp-1639391",
+        "example_chain_text": "The material Li7Mn4CoO12 is a perovskite-type oxide, which typically exhibits metallic behavior due to the presence of transition metal ions (Mn and Co) that can form metallic-like bands. The lithium ions (Li+) in the structure are likely to be interstitial and do not significantly contribute to the electronic properties. The metallic character is often observed in oxides containing transition metals, especially when they form a continuous network of metal-oxygen bonds.\n\nFinal Answer: METALLIC"
+      },
+      {
+        "category": "Assumed pnictide/chalcogenous insulating",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Assumed pnictide/chalcogenous insulating"
+        ],
+        "example_source_file": "mp-2218688",
+        "example_chain_text": "The material with the chemical composition MgFe4(PS)4 is likely to be a semiconductor/insulator rather than metallic. The presence of phosphorus (P) and sulfur (S) in the structure suggests that it may form a compound with a finite band gap, as these elements often contribute to semiconducting properties when incorporated into materials. Additionally, the presence of magnesium (Mg) and iron (Fe) can also influence the electronic structure, potentially leading to a non-metallic behavior.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Misinterpreted d-orbital contribution",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Misinterpreted d-orbital contribution"
+        ],
+        "example_source_file": "mp-2029367",
+        "example_chain_text": "The compound KMn2O4 is a perovskite-like structure, which typically exhibits semiconducting properties due to the presence of d-orbital electrons in manganese (Mn). The Mn ions in this compound are in a +6 oxidation state, which means they have a full set of 3d orbitals that can participate in bonding. However, the overall electronic structure and band gap of KMn2O4 are influenced by the specific crystal field splitting and the nature of the surrounding oxygen atoms. Given these factors, it is more likely that KMn2O4 will exhibit semiconducting behavior rather than metallic behavior.\n\nFinal_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "overgeneralized from oxides",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "overgeneralized from oxides"
+        ],
+        "example_source_file": "mp-1522793",
+        "example_chain_text": "The material LaZnFeSnO6 is an oxide compound, and oxides generally have finite band gaps due to the strong covalent bonding between oxygen and metal ions. The presence of transition metals like Fe and Sn can introduce additional electronic states that might slightly modify the band structure but typically do not lead to metallic behavior in oxides. Given the typical properties of oxides, it is more likely that LaZnFeSnO6 will exhibit semiconductor or insulator behavior rather than metallic behavior.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "overestimated d-orbital delocalization",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "overestimated d-orbital delocalization"
+        ],
+        "example_source_file": "mp-2217644",
+        "example_chain_text": "To determine whether the material with the chemical composition MgSc2(FeO3)2 is metallic or nonmetallic, we need to consider the electronic structure and bonding in the material.\n\n1. **Chemical Composition Analysis**:\n   - The material contains magnesium (Mg), scandium (Sc), iron (Fe), and oxygen (O).\n   - The presence of transition metals like Fe suggests that there might be d-orbital participation in the bonding, which can lead to metallic behavior.\n   - The overall stoichiometry and the nature of the bonds (likely ionic and covalent) suggest a complex structure where electrons might delocalize across the lattice.\n\n2. **Electronic Structure Considerations**:\n   - Transition metals like Fe often form compounds with metallic properties due to their ability to delocalize electrons over multiple atoms.\n   - The presence of Sc and Mg, which are less likely to form metallic bonds, might contribute to a more localized electron structure but the significant contribution from Fe could still dominate.\n\n3. **Band Gap Analysis**:\n   - If the material has a zero or near-zero electronic band gap, it would be considered metallic.\n   - If the band gap is finite, it would be classified as a semiconductor or insulator.\n\nGiven the complexity of the material and the potential for delocalized electrons due to the presence of Fe, it is reasonable to infer that the material might exhibit metallic behavior.\n\n**Final Answer**: METALLIC"
+      },
+      {
+        "category": "Overestimated band gap",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overestimated band gap"
+        ],
+        "example_source_file": "mp-1522660",
+        "example_chain_text": "The material with the chemical composition NaSrLaFeO6 is likely to be a nonmetallic semiconductor or insulator. The presence of transition metal ions like Fe in the +3 oxidation state suggests that it could form an oxide with a finite band gap, which is characteristic of many perovskite oxides. Additionally, the presence of rare earth elements like La and Sr can influence the electronic structure, potentially leading to a band gap. The overall electronic structure of such compounds often results in a finite band gap rather than metallic behavior.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Assumed localization due to Fe",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Assumed localization due to Fe"
+        ],
+        "example_source_file": "mp-1522660",
+        "example_chain_text": "NaSrLaFeO6 is a complex oxide. The presence of multiple cations, particularly the transition metal iron (Fe) which can exist in various oxidation states, often leads to localized d-electrons. In such materials, if the d-orbitals are partially filled and there is sufficient overlap or hopping between these orbitals on neighboring Fe atoms, it can lead to metallic behavior. However, if there is significant charge localization or crystal field splitting that opens up a band gap, it will be semiconducting or insulating. Given the mixed valency possibilities for Fe and the presence of oxygen atoms involved in covalent bonding, it is more likely that this compound will have localized electronic states rather than a delocalized metallic band. This suggests a non-metallic character.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "overestimated electropositivity influence",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "overestimated electropositivity influence"
+        ],
+        "example_source_file": "mp-2049132",
+        "example_chain_text": "The material Cs2In3 is an intermetallic compound. Cesium (Cs) is an alkali metal, typically forming ionic or electropositive components, while Indium (In) is a post-transition metal. In intermetallic compounds, metallic bonding is prevalent, leading to a delocalized electron sea. For Cs2In3, we can anticipate a metallic character due to the presence of two electropositive Cs atoms and the metallic nature of Indium. The specific stoichiometry suggests a complex intermetallic structure rather than a simple ionic compound, favoring metallic bonding.\n\nFINAL_ANSWER: METALLIC"
+      },
+      {
+        "category": "Ignored d-orbital contribution",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Ignored d-orbital contribution"
+        ],
+        "example_source_file": "mp-2216440",
+        "example_chain_text": "To determine whether the material with the chemical composition Ba2MgNb6(NO7)2 is metallic or nonmetallic, we need to consider the electronic structure and bonding in the material.\n\n1. **Chemical Composition Analysis**: The material contains barium (Ba), magnesium (Mg), niobium (Nb), nitrogen (N), and oxygen (O). Barium and magnesium are typically metallic elements, while niobium is a transition metal. Nitrogen and oxygen form anions in the compound.\n\n2. **Electronic Structure**: Transition metals like niobium often have partially filled d-orbitals, which can lead to metallic behavior due to delocalized electrons. However, the presence of nitrate (NO3-) groups suggests that there might be some insulating properties due to the strong covalent character of the nitrate ions.\n\n3. **Bonding Analysis**: The nitrate groups are likely to form strong covalent bonds with the metal ions, which could create a network structure where the electrons are localized within these groups rather than being delocalized throughout the entire crystal lattice. This would suggest a more insulating behavior.\n\n4. **Overall Electronic Band Gap**: Given the presence of both metallic and covalent bonding, it is reasonable to infer that the material might have a finite band gap, making it a semiconductor or an insulator.\n\n**Final Answer:** NONMETALLIC"
+      },
+      {
+        "category": "Misinterpreted anion bonding",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Misinterpreted anion bonding"
+        ],
+        "example_source_file": "mp-2216440",
+        "example_chain_text": "This compound contains a significant amount of oxygen and nitrogen in the form of nitrate anions, which are typically part of ionic and covalently bonded structures responsible for insulating or semiconducting behavior. The presence of these electronegative elements, along with the complex oxide-nitride structure, suggests that the valence band and conduction band will likely be separated by a finite band gap. The interaction between metal cations (Ba, Mg, Nb) and these anions will lead to localized electrons rather than a delocalized electron sea characteristic of metals.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Ignored band filling",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Ignored band filling"
+        ],
+        "example_source_file": "mp-2212268",
+        "example_chain_text": "The material La6MnSb15 is a complex compound that contains lanthanum (La), manganese (Mn), and antimony (Sb). The presence of lanthanum suggests it might have some metallic properties due to its ability to form metallic bonds. However, the presence of manganese and antimony introduces elements that can contribute to semiconducting behavior. Manganese often acts as a dopant in semiconductors, and antimony typically forms semiconducting compounds. Given these factors, it is more likely that La6MnSb15 will exhibit semiconducting behavior rather than metallic behavior.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Over-reliance on generalities",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Over-reliance on generalities"
+        ],
+        "example_source_file": "mp-1568124",
+        "example_chain_text": "To determine whether V3OF7 is metallic or nonmetallic, we need to consider its electronic structure and the nature of the bonds involved.\n\n1. **Chemical Composition**: V3OF7 consists of vanadium (V), oxygen (O), and fluorine (F). Vanadium is a transition metal, which typically forms metallic bonds in compounds due to its ability to form multiple oxidation states and d-electron configurations.\n\n2. **Bonding Analysis**:\n   - Vanadium forms covalent bonds with oxygen and fluorine.\n   - The presence of fluorine suggests some ionic character due to the large electronegativity difference between fluorine and vanadium.\n\n3. **Electronic Structure**:\n   - Vanadium in V3OF7 likely has a partially filled d-orbital, which is characteristic of transition metals.\n   - The presence of oxygen and fluorine can lead to delocalized electrons if the compound forms a network structure, which is common for oxides and fluorides of transition metals.\n\n4. **Band Gap**:\n   - If the compound forms a network structure with delocalized electrons, it could potentially have a zero or near-zero band gap, indicating metallic behavior.\n   - However, the specific bonding and structure of V3OF7 would need to be determined through detailed computational studies or experimental data to confirm the exact band gap.\n\nGiven the typical behavior of transition metals and the potential for delocalized electrons in such compounds, it is reasonable to infer that V3OF7 might exhibit metallic behavior.\n\n**Final Answer:** METALLIC"
+      },
+      {
+        "category": "Misinterpreted element properties",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Misinterpreted element properties"
+        ],
+        "example_source_file": "mp-2218269",
+        "example_chain_text": "To determine whether the material with the chemical composition Tb2MgTi2S2O5 is metallic or nonmetallic, we need to consider its electronic structure and the nature of the bonds involved.\n\n1. **Tb (Thulium)**: Rare earth elements like Thulium (Tb) typically form 4f electrons that are not easily delocalized due to their strong shielding by the inner 5d and 6s electrons. This generally leads to insulating behavior because the 4f electrons are localized and do not contribute significantly to conduction.\n\n2. **Mg (Magnesium)**: Magnesium forms 3s2 electrons which can participate in covalent bonding but are not typically delocalized over long distances, contributing to a finite band gap if they are involved in the conduction mechanism.\n\n3. **Ti (Titanium)**: Titanium has 3d electrons that can be delocalized under certain conditions, contributing to metallic behavior. However, in oxides like TiO2, these electrons are often localized, leading to insulating behavior.\n\n4. **S (Sulfur)**: Sulfur forms covalent bonds and can contribute to a finite band gap in compounds like sulfides.\n\nGiven the presence of Thulium, which is known for its localized 4f electrons, it is highly likely that the primary electronic contribution to conductivity will come from the other elements. The magnesium and titanium may form covalent bonds, but the overall electronic structure is dominated by the localized 4f electrons of Thulium, which typically results in an insulating material.\n\n**Final Answer:** NONMETALLIC"
+      },
+      {
+        "category": "overstated electronegativity impact",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "overstated electronegativity impact"
+        ],
+        "example_source_file": "mp-2218269",
+        "example_chain_text": "This material contains a mixture of metallic (Tb, Mg, Ti) and non-metallic (S, O) elements. However, the presence of highly electronegative elements like S and O, which readily form covalent or ionic bonds, will likely lead to the formation of extended covalent or ionic networks, creating a band gap. The combination of a heavy rare earth element (Tb) with transition metals (Mg, Ti) and chalcogenides/oxides suggests a complex bonding environment, but the likelihood of a significant band gap is high.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "overgeneralized from oxide nature",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "overgeneralized from oxide nature"
+        ],
+        "example_source_file": "mp-1522824",
+        "example_chain_text": "The material with the chemical composition NaEuHfSnO6 is likely to be a nonmetallic semiconductor or insulator. The presence of oxygen (O) in the compound suggests that it is an oxide, and oxides typically have finite band gaps due to the strong covalent bonding between the metal and oxygen atoms. Additionally, the presence of rare earth elements like Eu and Hf can introduce additional energy levels within the band gap, further contributing to the insulating properties.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Ignored potential metallic oxides",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Ignored potential metallic oxides"
+        ],
+        "example_source_file": "mp-1522824",
+        "example_chain_text": "The material NaEuHfSnO6 is an oxide involving several elements. Sodium (Na) is an alkali metal, typically forming ionic bonds. Europium (Eu) is a lanthanide, known for its luminescence and often existing in +3 or +2 oxidation states, also contributing ionic character. Hafnium (Hf) and Tin (Sn) are transition metals/post-transition metals, commonly found in oxides. Oxygen is highly electronegative.\n\nIn complex oxides like this, metal-oxygen bonds tend to have significant ionic character. The presence of multiple metal cations with varying electronegativities and oxidation states, coupled with the strong electronegativity of oxygen, generally leads to significant charge localization and a wide separation between valence and conduction bands, resulting in a non-metallic behavior. While some transition metal oxides can exhibit metallic behavior under specific conditions (e.g., doping, reduced stoichiometry), without further information suggesting such conditions, a standard oxide of this composition is expected to be insulating or semiconducting. The large atomic numbers and the likely presence of localized f-electrons from Europium further suggest a tendency towards opening a band gap rather than forming a delocalized metallic band.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Ignored electronic structure",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Ignored electronic structure"
+        ],
+        "example_source_file": "mp-1521788",
+        "example_chain_text": "The compound KSrPrSbO6 is a complex oxide, and its electronic properties can be inferred from the nature of the elements involved. Potassium (K), strontium (Sr), praseodymium (Pr), antimony (Sb), and oxygen (O) are all metals and non-metals respectively. The presence of transition metal ions like Pr3+ and Sb5+ suggests that the material might have some metallic character due to the delocalization of electrons in these ions. However, the overall structure and bonding in such compounds often leads to a finite band gap, making it more likely to be a semiconductor or an insulator rather than a metallic conductor.\n\nGiven the complexity and the typical behavior of such compounds, it is reasonable to conclude that KSrPrSbO6 is more likely to exhibit semiconducting or insulating behavior.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Incorrectly prioritized oxide",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Incorrectly prioritized oxide"
+        ],
+        "example_source_file": "mp-1521788",
+        "example_chain_text": "KSrPrSbO6 is an oxide based compound. The elements involved are Potassium (K), Strontium (Sr), Praseodymium (Pr), Antimony (Sb), and Oxygen (O).\n\n*   **Alkali/Alkaline Earth Metals (K, Sr):** These tend to have low ionization energies and readily donate electrons, contributing to metallic character.\n*   **Rare Earth Element (Pr):** Present in its 3+ oxidation state typically, this element has partially filled 4f orbitals. While these are usually localized and don't contribute significantly to bulk conductivity in oxides, they can influence magnetic properties. In some rare earth oxides, these can lead to interesting electronic behavior, but often not bulk metallic conductivity unless in specific crystallographic environments or with mixed valency.\n*   **Metalloid (Sb):** Antimony is a metalloid and can exhibit metallic or non-metallic behavior depending on its oxidation state and bonding. In an oxide lattice, it's likely to be in a positive oxidation state.\n*   **Oxygen (O):** Oxygen is highly electronegative and forms strong bonds, typically leading to insulating or semiconducting behavior in oxides by creating a significant band gap.\n\nThe presence of oxygen, especially in forming a perovskite-like structure (which O6 suggests for a double perovskite), generally leads to a significant band gap due to the hybridization of oxygen 2p orbitals and metal d or s/p orbitals, forming the valence band, and antibonding states forming the conduction band. While the presence of Sb and potentially mixed valency of Pr could introduce complexity, the dominant effect of the oxide lattice and the nature of the cations is likely to result in a non-metallic behavior. The structure is likely to be a double perovskite K2Sr2PrSbO6 or a related structure. Without specific details on oxidation states and structure, assuming typical stable oxidation states for these elements in an oxide: K(+1), Sr(+2), Pr(+3), Sb(+5), O(-2). This would lead to charge balance. Sb(+5) is a strong oxidizing agent and usually found in insulating oxides.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Overestimated d-orbital overlap",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overestimated d-orbital overlap"
+        ],
+        "example_source_file": "mp-1542758",
+        "example_chain_text": "Strontium molybdate (SrMoO3) is a perovskite oxide. The Mo-O framework in perovskites is known to facilitate electron delocalization. The Mo 4d orbitals can overlap with oxygen 2p orbitals, forming a band that is often partially filled in oxides containing Mo. In SrMoO3, the Mo is in a +6 oxidation state. Considering the electronic configuration of Mo (4d5 5s1), and considering the oxidation state and bonding in the perovskite structure, the Mo 4d states are expected to form a relatively narrow and partially filled band, leading to metallic conductivity.\n\nFINAL_ANSWER: METALLIC"
+      },
+      {
+        "category": "ignored charge transfer",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "ignored charge transfer"
+        ],
+        "example_source_file": "mp-2217671",
+        "example_chain_text": "The material with the chemical composition MgNi2(BiO3)2 is likely to exhibit metallic behavior due to the presence of transition metals like Ni and Bi, which can form metallic bonds. The presence of magnesium (Mg), a relatively light and highly electronegative element, might contribute to some ionic character but does not significantly alter the overall metallic nature of the compound. Additionally, the structure involving BiO3 units suggests a layered or framework structure that could support delocalized electrons, typical of metallic systems.\n\nFINAL_ANSWER: METALLIC"
+      },
+      {
+        "category": "overestimated ionic/covalent character",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "overestimated ionic/covalent character"
+        ],
+        "example_source_file": "mp-2217550",
+        "example_chain_text": "The material MgMnPb2WO6 contains a mixture of metallic (Mg, Pb) and non-metallic (O, W) elements, along with a transition metal (Mn). The presence of oxygen, tungsten, and likely the complex octahedral coordination around tungsten indicate ionic and covalent bonding character, which typically leads to band formation. While Mg and Pb are metals, their incorporation into an oxide structure with a transition metal generally disrupts metallic band formation. The presence of d-electrons in Mn might lead to some interesting optical properties or narrow bands, but it's unlikely to result in a zero band gap for the entire compound. Complex oxides with heavy elements like lead and tungsten are often insulators or semiconductors.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "overestimated band gap due to complexity",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "overestimated band gap due to complexity"
+        ],
+        "example_source_file": "mp-1521763",
+        "example_chain_text": "To determine whether SrCrSnSbO6 is metallic or nonmetallic, we need to consider its electronic structure and the nature of the bonds in the material.\n\n1. **Chemical Composition**: The material has a complex oxide structure with Sr (Strontium), Cr (Chromium), Sn (Tin), Sb (Antimony), and O (Oxygen). These elements form a mixed-valence system where the valences of the transition metals (Cr and Sb) can vary depending on their oxidation states.\n\n2. **Electronic Band Structure**: In oxides like this, the electronic properties are often determined by the overlap of d-orbitals from transition metals with the p-orbitals of oxygen. The presence of multiple transition metal ions (Cr and Sb) can lead to a complex band structure that may include both metallic and insulating regions.\n\n3. **Valence States**: Chromium typically forms +3 or +4 valence states, while Antimony can form +3 or +5 valence states. The specific valence states will influence the band structure and the overall electronic conductivity.\n\n4. **Crystal Field Splitting**: The crystal field splitting due to the surrounding oxygen ions can further complicate the band structure, potentially leading to a finite band gap if the energy levels are sufficiently separated.\n\nGiven these considerations, it is challenging to definitively state whether SrCrSnSbO6 is purely metallic or nonmetallic without detailed electronic structure calculations. However, based on the typical behavior of such complex oxides, there is a possibility that it could exhibit metallic behavior due to the overlapping d-states of the transition metals.\n\n**Final Answer:** METALLIC"
+      },
+      {
+        "category": "Overemphasized transition metals",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overemphasized transition metals"
+        ],
+        "example_source_file": "mp-2218741",
+        "example_chain_text": "To determine whether the material MgV2(FeO4)2 is metallic or nonmetallic, we need to consider its electronic structure and the nature of the bonds involved.\n\n1. **Chemical Composition**: The material has a complex structure involving magnesium (Mg), vanadium (V), iron (Fe), and oxygen (O). The presence of transition metals like V and Fe suggests that there might be d-orbital participation in bonding, which can lead to metallic behavior if the electrons are delocalized over the entire crystal lattice.\n\n2. **Electronic Band Structure**: Transition metal oxides often exhibit metallic behavior due to the presence of partially filled d-orbitals. In MgV2(FeO4)2, the V and Fe atoms have d-electrons that can participate in delocalized bonding, potentially leading to a metallic state where the Fermi level lies within the band gap, allowing for free electron transport.\n\n3. **Crystal Field Splitting**: The crystal field splitting in these compounds can further influence the electronic structure. If the crystal field splitting is not strong enough to create a significant band gap, the material may remain metallic.\n\nGiven these considerations, it is reasonable to infer that MgV2(FeO4)2 could be metallic due to the potential for delocalized d-electrons from the transition metals.\n\n**Final Answer:** METALLIC"
+      },
+      {
+        "category": "overestimated ionic contribution",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "overestimated ionic contribution"
+        ],
+        "example_source_file": "mp-1521466",
+        "example_chain_text": "The material Ca2DyMnO6 is a perovskite oxide, which typically exhibits insulating behavior due to strong electron correlations and the presence of heavy rare earth elements like Dy. The large ionic radii of the rare earth ions can lead to significant lattice distortions, further contributing to the insulating nature of such compounds. Additionally, the Mn ions in the +3 oxidation state often form a spin-only magnetic moment, which can also contribute to the insulating behavior by reducing the number of available electrons for conduction.\n\nGiven these factors, it is reasonable to expect that Ca2DyMnO6 will be a semiconductor or an insulator rather than a metallic material.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Incorrectly predicts bonding",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Incorrectly predicts bonding"
+        ],
+        "example_source_file": "mp-1522440",
+        "example_chain_text": "To determine whether SrCaHfVO6 is metallic or nonmetallic, we need to consider its electronic structure and the nature of the bonds in the material.\n\n1. **Chemical Composition**: The material has a complex oxide structure with Sr, Ca, Hf, V, and O as its components.\n2. **Bonding Analysis**:\n   - **Sr and Ca**: These are alkaline earth metals, which typically form ionic bonds.\n   - **Hf**: This is a transition metal that can form covalent bonds.\n   - **V**: This is also a transition metal, often forming covalent bonds.\n   - **O**: Oxygen forms covalent bonds.\n3. **Electronic Structure**:\n   - The presence of transition metals (Hf and V) suggests that there might be some metallic character due to the d-electrons, but the overall structure is likely dominated by ionic bonding.\n   - The ionic character of the Sr-Ca-O framework would imply a significant lattice energy, which could lead to a wide band gap if the covalent contributions from Hf and V are not strong enough to bridge the gap.\n\nGiven these points, it is more likely that the material will have a finite band gap, making it a semiconductor or insulator rather than a metallic material.\n\n**Final Answer:** NONMETALLIC"
+      },
+      {
+        "category": "ignored V 3d orbitals",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "ignored V 3d orbitals"
+        ],
+        "example_source_file": "mp-1522440",
+        "example_chain_text": "The material SrCaHfVO6 is a complex oxide. It contains several elements with varying electronegativities, most notably vanadium (V) in a high oxidation state. Vanadium oxides, especially those with V in high oxidation states (like +4 or +5 as expected here given the other cations), often exhibit interesting electronic properties. However, the presence of alkaline earth metals (Sr, Ca) and the refractory metal Hf typically contribute to ionic bonding and contribute to a more localized electronic structure around the V centers. The V-O bonding is likely to involve significant covalent character, but the overall structure and the presence of s and p block elements tend to favor localized d-orbitals in transition metals leading to a band gap. Without specific experimental data or complex computational modeling, it's challenging to definitively predict the electronic behavior. However, based on the general trends for complex oxides with multiple cations, especially those without a high density of highly polarizable d-orbitals or clear metallic bonding motifs, a semiconducting or insulating behavior is more probable.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Assumed common oxide behavior",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Assumed common oxide behavior"
+        ],
+        "example_source_file": "mp-2218857",
+        "example_chain_text": "The material with the chemical composition MgTi4O8 is likely to be a nonmetallic semiconductor or insulator. The presence of oxygen in the oxide structure suggests that it will have a finite band gap, as oxides typically do not form metallic bonds. Additionally, the presence of magnesium and titanium in an oxide framework often results in a material with a band gap, which is characteristic of semiconductors or insulators rather than metals.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Ignored transition-metal metallicity",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Ignored transition-metal metallicity"
+        ],
+        "example_source_file": "mp-2218857",
+        "example_chain_text": "MgTi$_4$O$_8$ is an oxide compound. Oxides typically have a significant ionic character in their bonding, which can lead to the formation of a band gap. Magnesium (Mg) is an alkaline earth metal and typically forms a +2 ion. Titanium (Ti) can exhibit varying oxidation states, most commonly +3 or +4 in oxides. Oxygen (O) typically forms a -2 ion.\n\nTo estimate the electronic properties, we can consider the constituent elements and their typical bonding behavior. Mg is electropositive, and O is electronegative. This suggests ionic bonding. Titanium is a transition metal which can exhibit covalent bonding characteristics in oxides. In the context of oxides, particularly with a d-electron system from titanium, the formation of a band gap is quite common unless there is significant orbital overlap or delocalization that closes the gap. The presence of multiple Ti atoms in the formula unit (Ti$_4$) and the O$_8$ stoichiometry might influence the electronic structure, but in general, oxides with transition metals can be semiconductors or insulators due to the localized nature of d-orbitals and the formation of a valence band primarily from oxygen 2p states and a conduction band from transition metal d-states. The energy difference between these bands constitutes the band gap. Without specific crystallographic information and band structure calculations, it's more probable that MgTi$_4$O$_8$ will exhibit a band gap rather than metallic conductivity.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Overestimated transition metal effect",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overestimated transition metal effect"
+        ],
+        "example_source_file": "mp-1541585",
+        "example_chain_text": "The compound Mn2As2O7 contains manganese (Mn), which is a transition metal. Transition metals often exhibit variable oxidation states and can contribute d-electrons, which can lead to partially filled d-bands. The presence of arsenic (As) and oxygen (O), typically nonmetals, suggests a covalent component to bonding. However, the transition metal character of Mn, with its potential for metallic bonding or localized d-electron contributions that can lead to conductivity, is a strong indicator for metallic behavior. The specific arrangement and oxidation states of Mn, As, and O will ultimately determine the band structure, but the presence of multiple transition metal atoms in a compound often favors metallic or semi-metallic properties.\n\nFINAL_ANSWER: METALLIC"
+      },
+      {
+        "category": "ignored charge ordering",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "ignored charge ordering"
+        ],
+        "example_source_file": "mp-1521488",
+        "example_chain_text": "To determine whether the material with the chemical composition NaCo4BiO12 is metallic or nonmetallic, we need to consider its electronic structure and the nature of the bonds involved.\n\n1. **Electronic Structure Analysis**:\n   - The material contains cobalt (Co), which is known to form transition metal oxides.\n   - Cobalt in transition metal oxides can exhibit both metallic and semiconducting behavior depending on the oxidation state and the crystal structure.\n   - In this case, Co is likely in a high oxidation state (Co(IV)) due to the presence of oxygen (O) in the formula, which typically indicates a higher oxidation state for Co in such compounds.\n   - High oxidation states of transition metals often lead to a more ionic character in the bonding, which can result in a semiconductor or insulator rather than a metallic conductor.\n\n2. **Bonding Analysis**:\n   - The presence of sodium (Na) and bismuth (Bi) suggests that the material might have a complex structure involving mixed valence states and possibly charge transfer between different elements.\n   - The Bi-O bond is known to be highly ionic, which could contribute to the overall insulating properties of the material.\n\n3. **Crystal Structure Consideration**:\n   - Without specific information about the crystal structure, it's challenging to definitively predict the electronic band gap. However, based on the general trends in materials chemistry, high oxidation states and ionic bonding suggest a higher probability of being a semiconductor or insulator rather than a metallic conductor.\n\nGiven these considerations, it is reasonable to conclude that the material NaCo4BiO12 is more likely to be a semiconductor or insulator rather than a metallic conductor.\n\n**Final Answer:** NONMETALLIC"
+      },
+      {
+        "category": "Overgeneralized from oxide class",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overgeneralized from oxide class"
+        ],
+        "example_source_file": "mp-1521488",
+        "example_chain_text": "NaCo$_4$BiO$_{12}$ belongs to the delafossite family of oxides. In delafossites, the electronic properties are often dictated by the transition metal. Cobalt, in particular, can exhibit a variety of electronic behaviors depending on its oxidation state and coordination.  The presence of Bi might also influence the electronic structure. However, in oxides with transition metals in high oxidation states and strong covalency, metallic behavior is less common, and a band gap is more likely. Without specific knowledge of this exact compound, a reasonable prediction for complex transition metal oxides like this is often a semiconducting or insulating state.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "ignored d-orbital contribution",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "ignored d-orbital contribution"
+        ],
+        "example_source_file": "mp-2217728",
+        "example_chain_text": "To determine whether the material with the chemical composition Tb2Mg(NiO3)2 is metallic or nonmetallic, we need to consider the electronic structure and bonding in the material.\n\n1. **Tb2Mg(NiO3)2** suggests a complex oxide structure where Terbium (Tb), Magnesium (Mg), Nickel (Ni), and Oxygen (O) are present.\n2. Terbium (Tb) is a rare earth element, which typically forms ionic bonds but can also exhibit some covalent character due to its d-orbitals.\n3. Magnesium (Mg) is an alkaline earth metal that forms ionic bonds.\n4. Nickel (Ni) is a transition metal that can form both ionic and covalent bonds, often exhibiting metallic behavior.\n5. Oxygen (O) is highly electronegative and forms strong covalent bonds.\n\nGiven the presence of nickel, which is known for its metallic properties, and considering the overall ionic nature of the other elements, it is plausible that the Ni-O bonds could contribute to metallic behavior. However, the presence of terbium and magnesium, which are more ionic in nature, might introduce some insulating characteristics.\n\nThe key factor here is the electronic band structure. If the Ni-O bonds are strong enough to create a metallic conduction path, the material could be metallic. However, if the ionic character dominates, the material might be insulating.\n\nConsidering the complexity and the potential for mixed bonding, it's challenging to definitively predict without detailed electronic structure calculations. However, based on the typical behavior of nickel in such compounds, it is reasonable to infer that the Ni-O bonds might provide a metallic pathway.\n\n**Final Answer:** METALLIC"
+      },
+      {
+        "category": "Failed to consider V d-orbitals",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Failed to consider V d-orbitals"
+        ],
+        "example_source_file": "mp-1646256",
+        "example_chain_text": "The material with the chemical composition K2VPCO7 is likely to be a semiconductor/insulator rather than metallic. The presence of V (vanadium), P (phosphorus), and O (oxygen) suggests that it could form a complex oxide structure, which typically results in a finite band gap due to the strong covalent bonding between these elements. Additionally, the presence of potassium (K) as a cation might not significantly alter the electronic properties if the overall structure remains insulating.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Ignored d-electron metallicity",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Ignored d-electron metallicity"
+        ],
+        "example_source_file": "mp-1523025",
+        "example_chain_text": "The material with the chemical composition NaCeTi4O12 is likely to be a nonmetallic semiconductor or insulator. The presence of Ce (cerium) and Ti (titanium) in an oxide framework suggests that it could have a complex electronic structure typical of oxides, which often exhibit semiconducting or insulating properties due to the presence of d-electrons from transition metals like cerium and titanium. Cerium can exist in multiple oxidation states, and its ability to form mixed valence compounds can lead to insulating behavior. Additionally, the presence of sodium (Na) as a cation may not significantly contribute to metallic conductivity in this context.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Overstated cobalt's metallicity",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overstated cobalt's metallicity"
+        ],
+        "example_source_file": "mp-1650352",
+        "example_chain_text": "The material Li3CoPCO7 is composed of lithium (Li), cobalt (Co), phosphorus (P), and carbon (C). The presence of cobalt in its ionic form suggests that it might have metallic properties due to the d-electrons in cobalt, which can contribute to metallic conductivity. However, the presence of phosphorus and carbon in their oxo-anion forms (PO4 and CO3) indicates that there may be some insulating behavior due to the covalent bonding within these groups.\n\nGiven the complexity of the structure and the potential for both metallic and insulating behaviors, it's challenging to definitively classify this material as purely metallic or nonmetallic without detailed electronic structure calculations. However, based on the typical behavior of cobalt in such compounds, it is more likely to exhibit metallic characteristics.\n\nFINAL_ANSWER: METALLIC"
+      },
+      {
+        "category": "Overestimated metallic contribution of Co",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overestimated metallic contribution of Co"
+        ],
+        "example_source_file": "mp-1650352",
+        "example_chain_text": "This material contains lithium, cobalt, phosphorus, and oxygen. Lithium is an alkali metal, and cobalt is a transition metal, both of which tend to contribute free electrons or have partially filled d-orbitals that can lead to metallic behavior. Phosphorus and oxygen are electronegative nonmetals, and their presence in an oxide/phosphate structure often promotes ionic and covalent bonding, which can lead to insulating or semiconducting states. However, the presence of cobalt, a transition metal known to form oxides with varying electronic properties, is key. Many cobalt oxides exhibit metallic or narrow band gap semiconducting behavior due to the partially filled 3d orbitals of cobalt. While the phosphite/carbonate component might suggest some covalent character, the overall structure and the presence of a late transition metal like cobalt makes metallic behavior plausible as it can lead to delocalized electronic states.\n\nFINAL_ANSWER: METALLIC"
+      },
+      {
+        "category": "ignored d-orbital splitting",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "ignored d-orbital splitting"
+        ],
+        "example_source_file": "mp-2217706",
+        "example_chain_text": "This material is a double perovskite oxide. The presence of Fe and Mo, both transition metals, often leads to metallic or semi-metallic behavior due to partially filled d-orbitals, which can form conducting bands. The specific arrangement and oxidation states will determine the exact band gap, but the combination suggests a strong likelihood of metallic character.\n\nFINAL_ANSWER: METALLIC"
+      },
+      {
+        "category": "overestimated metallic contribution",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "overestimated metallic contribution"
+        ],
+        "example_source_file": "mp-3346478",
+        "example_chain_text": "The material with the chemical composition Ca(H8O5)2 can be analyzed based on its structure and the nature of its constituent elements. Calcium (Ca) is a metal, and the hydrogen-oxygen groups (H8O5) suggest the presence of water molecules or hydroxyl groups, which are typically non-metallic in their ionic form.\n\nGiven that calcium is a metal and the hydroxyl groups are likely to be in an ionic form, the overall material would have metallic properties due to the presence of the metallic calcium ions. The presence of these ionic groups might introduce some insulating behavior, but the dominant contribution from the metallic calcium would likely result in a material with a zero or near-zero electronic band gap, making it metallic.\n\nFinal Answer: METALLIC"
+      },
+      {
+        "category": "Overestimated electronegativity impact",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overestimated electronegativity impact"
+        ],
+        "example_source_file": "mp-1777514",
+        "example_chain_text": "The material CaAgF5 is composed of calcium (Ca), silver (Ag), and fluorine (F). Calcium and silver are metals, while fluorine is a non-metal. The presence of metallic elements in the structure suggests that the material might have metallic properties due to the delocalized electrons in the metallic bonds between the Ca and Ag atoms. However, the fluorine atoms, being highly electronegative, could introduce some covalent character into the bonding, which might affect the overall electronic structure.\n\nGiven that the material contains both metallic and non-metallic elements, it is likely that the electronic band structure will not be purely metallic but rather a combination of metallic and insulating regions. This could result in a finite band gap, making the material a semiconductor or an insulator.\n\nFinal_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Assumed ionic implies insulating",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Assumed ionic implies insulating"
+        ],
+        "example_source_file": "mp-1777514",
+        "example_chain_text": "CaAgF5 is likely to be **NONMETALLIC**.\n\nReasoning:\nCalcium (Ca) is an alkaline earth metal, typically forming ionic bonds. Silver (Ag) is a transition metal, known to exhibit variable oxidation states and can form both metallic and covalent/ionic compounds. Fluorine (F) is a highly electronegative halogen, strongly favoring ionic or covalent bonding. In CaAgF5, we would expect a significant ionic contribution, particularly between Ca and F. Silver in this context, often found in a +1 oxidation state (Ag+), paired with highly electronegative fluoride anions, further suggests the formation of an ionic or polar covalent lattice. The presence of filled d-orbitals in Ag+ and the strong electronegativity differences lead to a significant band gap, characteristic of insulators or semiconductors rather than metals. The structure, if it can be reliably predicted without crystallographic data, would likely involve discrete anions and cations, further supporting a nonmetallic character.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "ignored d-electron localization",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "ignored d-electron localization"
+        ],
+        "example_source_file": "mp-2210611",
+        "example_chain_text": "The material with the chemical composition NaMgMnO2 is likely to be a semiconductor/insulator rather than metallic. The presence of transition metal ions like Mn in the structure suggests that it may have a finite band gap due to the d-electron transitions between different energy levels, which is characteristic of semiconductors and insulators. Additionally, the presence of sodium (Na) and magnesium (Mg) as cations can contribute to the overall electronic structure but typically do not form metallic bonds.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Assumed ionic bonding implies insulating",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Assumed ionic bonding implies insulating"
+        ],
+        "example_source_file": "mp-2210611",
+        "example_chain_text": "NaMgMnO2 is likely to be a semiconductor or insulator. The presence of oxide anions (O2-) and a transition metal cation (Mn) suggests that the bonding will have a significant ionic and covalent character, leading to the formation of a band gap. Na and Mg are electropositive, while Mn is a transition metal with d-orbitals that can participate in bonding and potentially contribute to a band gap when interacting with oxygen. The specific arrangement and oxidation states of these elements would determine the precise band gap, but a metallic character is less probable than a semiconducting/insulating one.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Focused on metal element",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Focused on metal element"
+        ],
+        "example_source_file": "mp-2218459",
+        "example_chain_text": "The material with the chemical composition MgW2(SCl4)2 is likely to exhibit metallic behavior due to the presence of transition metal tungsten (W) in its structure. Transition metals often form metallic bonds, which result in a zero or near-zero electronic band gap, leading to metallic conductivity.\n\nFINAL_ANSWER: METALLIC"
+      },
+      {
+        "category": "overemphasized transition metal",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "overemphasized transition metal"
+        ],
+        "example_source_file": "mp-2218459",
+        "example_chain_text": "The material contains magnesium (Mg), tungsten (W), sulfur (S), and chlorine (Cl). Magnesium is an alkali earth metal, and tungsten is a transition metal, both of which tend to contribute electrons to form metallic or polar covalent bonds. The presence of sulfur and chlorine, which are electronegative nonmetals, suggests the possibility of covalent or ionic bonding. However, the formal charges and bonding in complex anions like SCl4 can be intricate. Tungsten, in higher oxidation states, can be found in compounds with significant covalent character. The SCl4 moiety can be considered a distorted tetrahedral unit. Without specific crystallographic data or more advanced computational analysis, it's difficult to definitively predict the electronic structure. However, the presence of a transition metal like tungsten, which has accessible d-orbitals and can readily form complex ions, combined with the potential for delocalized electrons or polar covalent bonding, makes a metallic character plausible. The formula suggests a complex structure where metal-ligand interactions are significant.\n\nFINAL_ANSWER: METALLIC"
+      },
+      {
+        "category": "overestimated band gap contribution",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "overestimated band gap contribution"
+        ],
+        "example_source_file": "mp-1522863",
+        "example_chain_text": "The material with the chemical composition BaSrNdMnO6 is likely to be a semiconductor/insulator rather than metallic. This is because it contains transition metal ions (Mn3+ and Mn4+) which typically form oxides that have a finite band gap due to the presence of d-electrons. The presence of rare earth elements (Ba, Sr, Nd) can also contribute to the formation of a band gap by altering the electronic structure. Additionally, the perovskite structure of such compounds often results in insulating behavior.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "ignored d-orbital contributions",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "ignored d-orbital contributions"
+        ],
+        "example_source_file": "mp-1521542",
+        "example_chain_text": "The material with the chemical composition CaNdHfTiO6 is likely to be a nonmetallic semiconductor or insulator. The presence of transition metal ions such as Nd and Hf in the structure suggests that it may have a finite band gap, which is characteristic of semiconductors or insulators rather than metals. Additionally, the presence of oxygen in the oxide framework typically indicates a material with a non-metallic character.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Misassigned oxidation states",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Misassigned oxidation states"
+        ],
+        "example_source_file": "mp-1521542",
+        "example_chain_text": "The composition CaNdHfTiO6 is a complex oxide. It contains a mix of metal cations (Ca, Nd, Hf, Ti) and oxygen. Oxides generally exhibit a band gap due to the strong ionic and covalent bonding between metal cations and oxygen, which creates a valence band (primarily from oxygen p-orbitals) and a conduction band (primarily from metal d-orbitals). For these d-orbitals to form a delocalized metallic band, they typically need to be partially filled or overlap significantly. In this compound, the d-electron counts for the transition metals are:\n\n*   Ti: Typically Ti$^{4+}$ in oxides, with a d$^0$ configuration.\n*   Hf: Typically Hf$^{4+}$, also with a d$^0$ configuration.\n*   Nd: A lanthanide, typically Nd$^{3+}$, with a f-electron configuration, which are usually localized and do not contribute to metallic conductivity.\n\nWith Ti and Hf in their common +4 oxidation states, their d-orbitals are empty. The oxygen forms a stable oxide lattice, creating a significant energy gap between the filled valence band and the empty conduction band. Therefore, we expect this material to have a finite band gap, making it a semiconductor or insulator.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Overemphasized oxide nature",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overemphasized oxide nature"
+        ],
+        "example_source_file": "mp-1522391",
+        "example_chain_text": "The material with the chemical composition KNdTi4O12 is likely to be a nonmetallic semiconductor or insulator. The presence of rare earth elements like Nd (neodymium) and Ti (titanium) in the structure suggests that it may have a finite band gap, which is characteristic of semiconductors or insulators. Additionally, the presence of oxygen (O) indicates that it is an oxide, which typically forms insulating or semiconducting materials rather than metallic ones.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "incorrect oxidation state assumption",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "incorrect oxidation state assumption"
+        ],
+        "example_source_file": "mp-1522391",
+        "example_chain_text": "KNdTi4O12 is a perovskite-related oxide. The presence of titanium in its +4 oxidation state (Ti\u2074\u207a) within an oxide structure typically leads to a wide d-orbital band gap. Elements like Potassium (K) and Neodymium (Nd) in this context are usually ionic constituents and contribute to local electronic environments but are unlikely to create metallic d-band delocalization for titanium. The oxygen anions contribute to the valence band, and the Ti 3d bands, if partially filled or overlapping with oxygen bands, would be essential for metallic behavior. However, given the likely +4 oxidation state for Ti, its d-orbitals are empty (d\u2070), meaning conduction would require promotion to higher energy bands, characteristic of a semiconductor or insulator.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Overstated nitrogen's role",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overstated nitrogen's role"
+        ],
+        "example_source_file": "mp-1546639",
+        "example_chain_text": "The material with the chemical composition Mo15N16 is likely to be nonmetallic due to the presence of nitrogen (N), which is typically a nonmetal and forms covalent bonds in compounds. The high concentration of nitrogen suggests that it will form a network structure, which is characteristic of insulators or semiconductors rather than metals. Additionally, the presence of molybdenum (Mo), a transition metal, does not necessarily guarantee metallic behavior if it is not in a form that allows for delocalized electrons.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Ignored specific structure",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Ignored specific structure"
+        ],
+        "example_source_file": "mp-1650920",
+        "example_chain_text": "To determine whether SrLa4Cr5O15 is metallic or nonmetallic, we need to consider its electronic structure and the nature of the bonds in the material.\n\n1. **Chemical Composition**: The material has a complex oxide structure with Sr (Strontium), La (Lanthanum), Cr (Chromium), and O (Oxygen). Chromium typically forms transition metal oxides, which can have both metallic and semiconducting properties depending on the oxidation state and the crystal structure.\n\n2. **Electronic Structure**: In oxides like this, the electrons are primarily localized around the oxygen atoms due to the strong ionic character of the bonds. However, the presence of transition metals like chromium can lead to delocalized electrons if they form a metallic bond. Chromium in an oxidation state of +3 or +4 can contribute to a metallic-like behavior due to the d-electrons being partially delocalized.\n\n3. **Crystal Structure**: The specific crystal structure of SrLa4Cr5O15 would play a crucial role. If it forms a perovskite-like structure, it might exhibit metallic behavior due to the delocalization of electrons. However, without detailed structural information, it's challenging to definitively predict the electronic band gap.\n\nGiven that chromium can form metallic bonds and the material is an oxide, there is a possibility of metallic behavior. However, the exact nature of the bonding and the band gap cannot be determined without more specific information about the crystal structure and the electronic configuration.\n\n**Final Answer:** METALLIC"
+      },
+      {
+        "category": "Overlooked band gap calculation",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overlooked band gap calculation"
+        ],
+        "example_source_file": "mp-2218749",
+        "example_chain_text": "The material with the chemical composition MgMn4O7F is likely to be a nonmetallic semiconductor or insulator. The presence of oxygen and fluorine suggests that it could form an oxide fluoride compound, which typically has a finite band gap due to the mixed valence states of the metal ions (Mg2+ and Mn3+/Mn4+) and the strong covalent character of the bonds formed by oxygen and fluorine. The electronic structure of such compounds often results in a finite band gap, making them semiconductors or insulators.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Assumed ionic/covalent means nonmetallic",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Assumed ionic/covalent means nonmetallic"
+        ],
+        "example_source_file": "mp-2218749",
+        "example_chain_text": "The material MgMn4O7F contains magnesium (Mg), manganese (Mn), oxygen (O), and fluorine (F). Mg, O, and F are typically found in ionic or covalent compounds. Manganese (Mn) is a transition metal with variable oxidation states. However, in the context of oxide/halide compounds like this, the constituent elements are likely to form predominantly ionic or covalent bonds, leading to localized electrons rather than a delocalized electron sea characteristic of metals. The presence of multiple electronegative elements (O and F) further suggests a high degree of ionic or covalent bonding, making a metallic character less probable.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Assumed high oxidation state means insulating",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Assumed high oxidation state means insulating"
+        ],
+        "example_source_file": "mp-1987187",
+        "example_chain_text": "The compound K3V2(S2O9)2 is a complex salt containing potassium (K), vanadium (V), and sulfate (S2O9). Vanadium in this context is likely in a high oxidation state, such as V^5+, which is common for vanadium in such compounds. The presence of the sulfate group (S2O9^2-) suggests that the compound is anionic, and the overall charge balance indicates that it is a neutral molecule.\n\nGiven the high oxidation state of vanadium and the presence of the sulfate group, this compound is more likely to exhibit semiconductor behavior due to the finite band gap between the valence and conduction bands. The high oxidation state of vanadium typically leads to a more insulating behavior rather than metallic conductivity.\n\nFinal Answer: NONMETALLIC"
+      },
+      {
+        "category": "Relied on general class",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Relied on general class"
+        ],
+        "example_source_file": "mp-1522553",
+        "example_chain_text": "The material SrCaSmMnO6 is a perovskite oxide, which typically exhibits semiconducting behavior due to the presence of transition metal ions like Mn3+ and Mn4+. The electronic structure of such materials often involves mixed valence states of the transition metals, leading to a finite band gap. Additionally, the presence of rare earth elements (Sm) can further contribute to the formation of localized states that widen the band gap.\n\nGiven these considerations, it is reasonable to expect that SrCaSmMnO6 will have a finite band gap, making it a semiconductor or insulator rather than a metallic material.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "Overestimated correlation effects",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "Overestimated correlation effects"
+        ],
+        "example_source_file": "mp-1522553",
+        "example_chain_text": "The presence of manganese (Mn) in a high oxidation state, as likely in this perovskite-like oxide, often leads to complex electronic structures. While some Mn oxides are insulating due to strong electron correlations and localized d-electrons, others can be metallic. The variety of cations (Sr, Ca, Sm) can influence the degree of orbital overlap and hybridization, potentially leading to metallic behavior. However, without specific information on the oxidation state of Mn and details of its electronic environment, predicting metallic behavior is uncertain, and many complex oxides with transition metals lean towards nonmetallic character.\n\nFINAL_ANSWER: NONMETALLIC"
+      },
+      {
+        "category": "assumed oxide implies insulating",
+        "count": 1,
+        "frac": 0.009259259259259259,
+        "raw_labels_merged": [
+          "assumed oxide implies insulating"
+        ],
+        "example_source_file": "mp-2217778",
+        "example_chain_text": "The material with the chemical composition MgAg2(SnO3)2 is likely to be a semiconductor/insulator rather than metallic. The presence of oxygen in the form of SnO3 suggests that it is an oxide, which typically forms semiconducting or insulating materials due to the strong covalent bonding and the presence of a band gap. Additionally, the presence of magnesium (Mg) and silver (Ag) in the structure does not suggest metallic behavior; instead, they contribute to the overall electronic structure in a way that would favor a finite band gap.\n\nFINAL_ANSWER: NONMETALLIC"
+      }
+    ],
+    "note": "first clustering pass was truncated by the 1,500-token response cap; re-clustered from the saved raw labels with max_tokens=6000 (exp30, 2026-10-15)"
+  },
+  "magnetism": {
+    "n_violations": 106,
+    "n_labeled": 106,
+    "taxonomy": [
+      {
+        "category": "Oxidation State Errors",
+        "count": 64,
+        "frac": 0.6037735849056604,
+        "raw_labels_merged": [
+          "Assumed Fe(III) oxidation state",
+          "Assumed common oxidation state",
+          "Assumed common oxidation states",
+          "Assumed ionic charge states",
+          "Assumed ionic oxidation states",
+          "Assumed ionic state incorrect",
+          "Assumed ionic states",
+          "Assumed ionic states directly",
+          "Assumed ionic valencies",
+          "Assumed iron oxidation state",
+          "Assumed oxidation state incorrect",
+          "Assumed specific oxidation state",
+          "Assumed specific oxidation states",
+          "Failed to determine W oxidation state",
+          "Failed to determine oxidation states",
+          "Fe oxidation state assumed",
+          "Ignored oxidation state effect",
+          "Ignored oxidation state effects",
+          "Ignored tungsten oxidation state",
+          "Inaccurate oxidation state assumption",
+          "Incorrect Ti oxidation state",
+          "Incorrect V oxidation state",
+          "Incorrect oxidation state assignment",
+          "Incorrect oxidation state assumption",
+          "Incorrect oxidation state assumptions",
+          "Incorrect oxidation state calculation",
+          "Incorrect oxidation states assumed",
+          "Incorrect titanium oxidation state",
+          "Incorrect vanadium oxidation state",
+          "Incorrectly assessed Y oxidation state",
+          "Incorrectly assigned oxidation states",
+          "Incorrectly assumed Co oxidation state",
+          "Incorrectly assumed ionic states",
+          "Incorrectly assumed oxidation states",
+          "Incorrectly identified Ag valence",
+          "Mismatched oxidation state assumption",
+          "Mismatched oxidation states",
+          "Model overlooked specific oxidation states",
+          "assumed Fe oxidation state",
+          "assumed cobalt oxidation state",
+          "assumed common oxidation states",
+          "assumed ionic oxidation states",
+          "assumed oxidation state",
+          "assumed oxidation state is correct",
+          "assumed stable oxidation states",
+          "ignored transition-metal oxidation state",
+          "incorrectly assumed Nd oxidation state",
+          "incorrectly assumed oxidation states",
+          "relied on generic ionic states"
+        ],
+        "example_source_file": "mp-2217595",
+        "example_chain_text": "To determine if the material with the chemical composition MgMo2(BrO)4 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.\n\n1. **Mg** (Magnesium): Magnesium is a d-block element that typically forms divalent ions (Mg\u00b2\u207a), which means its outermost shell is filled with 2 electrons. This configuration does not generally lead to magnetic properties because the 3s orbital is completely filled.\n\n2. **Mo** (Molybdenum): Molybdenum is a transition metal with the electron configuration [Kr] 4d\u2075 5s\u00b9. The 4d and 5s orbitals can hold up to 10 electrons each, but in its +6 oxidation state (as seen in MoO\u2084\u00b2\u207b), it has 6 valence electrons. The 4d orbitals are partially filled, leading to the possibility of unpaired electrons and thus magnetic properties.\n\n3. **Br** (Bromine): Bromine is a halogen with the electron configuration [Ar] 4s\u00b2 4p\u2075. In its -1 oxidation state, it has 7 valence electrons. The 4p orbitals can hold up to 6 electrons, so bromine can form a single bond with another atom, leaving one p orbital unpaired, contributing to the magnetic properties.\n\n4. **O** (Oxygen): Oxygen is a non-metal with the electron configuration [He] 2s\u00b2 2p\u2074. In its -2 oxidation state, it has 6 valence electrons. The 2p orbitals can hold up to 6 electrons, so oxygen can form two bonds, leaving no unpaired electrons, which contributes to the non-magnetic nature of the oxide ion.\n\nGiven the above considerations:\n- Molybdenum's 4d orbitals being partially filled suggests that there could be unpaired electrons.\n- Bromine's 4p orbital being unpaired suggests that there could be unpaired electrons.\n- Oxygen's 2p orbitals being fully paired suggests that there are no unpaired electrons.\n\nThe presence of unpaired electrons in both molybdenum and bromine suggests that the material might have a non-zero net magnetic moment. However, the overall contribution from oxygen's paired electrons will likely dominate, making the material non-magnetic.\n\n**Final Answer:** NONMAGNETIC"
+      },
+      {
+        "category": "Moment/Magnetism Calculation Errors",
+        "count": 15,
+        "frac": 0.14150943396226415,
+        "raw_labels_merged": [
+          "Assumed Pr magnetic contribution",
+          "Assumed ionic bismuth magnetic",
+          "Ignored Eu magnetism",
+          "Ignored Nb's potential magnetism",
+          "Ignored magnetism of Eu\u00b3\u207a",
+          "Ignored mixed valence magnetism",
+          "Ignored transition-metal moment",
+          "Incorrectly assumed Bi^3+ magnetism",
+          "Overestimated boron magnetism",
+          "ignored local moments",
+          "ignored transition-metal moment",
+          "overestimated transition metal moment"
+        ],
+        "example_source_file": "mp-1523213",
+        "example_chain_text": "To determine if Sr2YWO6 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.\n\n1. **Electronic Structure Analysis**:\n   - **Sr**: Strontium is a divalent metal, typically forming compounds where it has a +2 charge.\n   - **Y**: Yttrium is a trivalent rare earth element, typically forming compounds where it has a +3 charge.\n   - **W**: Tungsten is a transition metal, often forming compounds where it can have various oxidation states, but in oxides like WO6, it is usually +6.\n   - **O**: Oxygen is typically -2 in oxides.\n\nGiven the charges, the overall charge balance for Sr2YWO6 would be:\n\\[ 2 \\times (+2) + 1 \\times (+3) + 1 \\times (+6) = 13 \\]\nThis means there is a net positive charge of +13, which is balanced by the negative charges from oxygen atoms.\n\n2. **Presence of Unpaired Electrons**:\n   - **Sr**: Strontium does not have any unpaired electrons as it forms a closed shell configuration.\n   - **Y**: Yttrium typically forms compounds where it has a +3 oxidation state, which corresponds to a closed shell configuration with no unpaired electrons.\n   - **W**: Tungsten in the +6 oxidation state can have unpaired electrons due to its d-orbital electrons. However, in oxides like WO6, the d-electrons are generally delocalized and contribute to the bonding, making it less likely to have significant unpaired electrons.\n\n3. **Conclusion**:\n   - Since both Sr and Y form closed shell configurations, they do not contribute to a net magnetic moment.\n   - The tungsten ion in WO6, while potentially having some d-electrons, is unlikely to have a significant number of unpaired electrons that would result in a detectable magnetic moment.\n\nGiven this analysis, the material Sr2YWO6 is expected to be non-magnetic.\n\n**Final Answer: NONMAGNETIC**"
+      },
+      {
+        "category": "Electronic Effects Errors",
+        "count": 6,
+        "frac": 0.05660377358490566,
+        "raw_labels_merged": [
+          "Ignored localized 4f electrons",
+          "Ignored subtle electronic effects",
+          "Overestimated covalent bonding",
+          "ignored bonding environment",
+          "ignored crystal field effects"
+        ],
+        "example_source_file": "mp-1522824",
+        "example_chain_text": "To determine if the material NaEuHfSnO6 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the constituent elements.\n\n1. **Na (Sodium)**: Sodium is a group 1 element with a single valence electron in the 3s orbital. This electron is typically paired in a metallic sodium, so it does not contribute significantly to the magnetic properties.\n2. **Eu (Europium)**: Europium is a rare earth element with a complex electronic configuration. Europium can exist in various oxidation states, but in Eu(III), which is common for Eu in oxides, the electron configuration is [Xe]4f7. The 4f electrons are generally localized and do not contribute to the magnetic moment in a simple way due to their shielding by the core electrons. However, europium can exhibit magnetic behavior due to its 4f electrons, but the overall contribution from Eu in Eu(III) is often considered small in oxides.\n3. **Hf (Hafnium)**: Hafnium is a transition metal with a full d shell, typically having a high degree of delocalization of its electrons. In HfO2, hafnium forms strong covalent bonds, and the electrons are delocalized, leading to a non-magnetic behavior.\n4. **Sn (Tin)**: Tin is a group 14 element that can form covalent bonds. In SnO2, tin forms strong covalent bonds, and the electrons are delocalized, leading to a non-magnetic behavior.\n5. **O (Oxygen)**: Oxygen typically forms covalent bonds and does not contribute significantly to the magnetic properties unless it is in a paramagnetic state, which is not the case here.\n\nGiven the above considerations, the primary source of magnetic behavior would come from the 4f electrons of europium. However, the overall contribution from europium in Eu(III) in oxides is often considered small. Therefore, the net magnetic moment of the material is likely to be close to zero.\n\n**Final Answer:** NONMAGNETIC"
+      },
+      {
+        "category": "Element Type/Property Errors",
+        "count": 4,
+        "frac": 0.03773584905660377,
+        "raw_labels_merged": [
+          "Assumed magnetic due to transition metals",
+          "Relied on element category alone",
+          "assumed ions determine magnetism",
+          "assumed transition metal magnetism"
+        ],
+        "example_source_file": "mp-2218702",
+        "example_chain_text": "To determine if the material with the chemical composition MgMoW3(Se3S)2 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.\n\n1. **Electronic Structure Analysis**:\n   - **Mg**: Magnesium is a divalent metal that typically forms a neutral state.\n   - **Mo**: Molybdenum is a transition metal with a d-electron configuration. It can have both ferromagnetic and antiferromagnetic properties depending on its oxidation state and the surrounding environment.\n   - **W**: Tungsten is another transition metal with a similar d-electron configuration as molybdenum.\n   - **Se**: Selenium is a chalcogenide that can form covalent bonds and does not typically contribute significantly to magnetic properties unless it is in a specific oxidation state.\n   - **S**: Sulfur is also a chalcogenide and similarly does not typically contribute significantly to magnetic properties unless it is in a specific oxidation state.\n\n2. **Magnetic Properties**:\n   - Transition metals like Mo and W often exhibit magnetic behavior due to their d-electrons. The presence of unpaired d-electrons can lead to a net magnetic moment.\n   - However, the overall magnetic behavior of the material will depend on the balance between the magnetic moments of the different elements and the nature of their interactions.\n\nGiven the complexity of the material's structure and the potential for both ferromagnetic and antiferromagnetic interactions, it is challenging to definitively predict the net magnetic moment without detailed computational studies. However, based on the typical magnetic behavior of transition metals, it is reasonable to assume that the material could potentially be magnetic.\n\n3. **Estimate of Magnetization**:\n   - A rough estimate of the magnetization per atom would involve considering the number of d-electrons available for magnetic interaction and the strength of the magnetic interactions.\n   - For a material with a complex structure like MgMoW3(Se3S)2, the magnetization per atom might be in the range of 0.1 to 1 Bohr magneton (\u03bcB).\n\nConsidering the above points, I would estimate the material to be magnetic with a magnetization per atom around 0.5 Bohr magnetons.\n\n**Final Answer**: MAGNETIC, 0.5 muB/atom"
+      },
+      {
+        "category": "Spin State Errors",
+        "count": 4,
+        "frac": 0.03773584905660377,
+        "raw_labels_merged": [
+          "Assumed Ni(II) d8 spin state",
+          "Assumed high spin state",
+          "Inconsistent spin-only calculation",
+          "assumed d0 is nonmagnetic"
+        ],
+        "example_source_file": "mp-2218772",
+        "example_chain_text": "To determine if the material with the chemical composition Na4Mg(NiO3)2 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the Ni(II) ions.\n\n1. **Electronic Structure Analysis**:\n   - The Ni(II) ion has a d^8 electron configuration.\n   - In a d^8 configuration, the possible ground states are S = 0 (all electrons paired), S = 1 (one unpaired electron), or S = 2 (two unpaired electrons).\n   - For Ni(II), the most common ground state is S = 1, which means there is one unpaired electron per Ni(II) ion.\n\n2. **Magnetic Moment Calculation**:\n   - Each Ni(II) ion contributes a magnetic moment due to its unpaired electron.\n   - The magnetic moment of a single unpaired electron is approximately 1 Bohr magneton (\u03bcB).\n\n3. **Overall Magnetic Moment**:\n   - There are four Ni(II) ions in the formula unit (Na4Mg(NiO3)2).\n   - Therefore, the total magnetic moment from the Ni(II) ions is 4 \u03bcB.\n\nGiven that the material contains Ni(II) ions with unpaired electrons, it is expected to have a non-zero net magnetic moment.\n\n**Final Answer**: MAGNETIC, 4 \u03bcB/atom"
+      },
+      {
+        "category": "Unpaired Electron Errors",
+        "count": 4,
+        "frac": 0.03773584905660377,
+        "raw_labels_merged": [
+          "Assumed oxidation states are unpaired",
+          "Incorrectly assigned unpaired electrons",
+          "Reasoning about unpaired electrons",
+          "incorrectly inferred unpaired electrons"
+        ],
+        "example_source_file": "mp-2217671",
+        "example_chain_text": "To determine if the material with the chemical composition MgNi\u2082(BiO\u2083)\u2082 is magnetic or non-magnetic, we need to consider the electronic structure and the presence of unpaired electrons in the constituent elements.\n\n1. **Mg (Magnesium)**: Magnesium is a d-block element with the electron configuration [Ne] 3s\u00b2. It has no unpaired electrons and thus does not contribute to a net magnetic moment.\n   \n2. **Ni (Nickel)**: Nickel is a d-block element with the electron configuration [Ar] 3d\u2078 4s\u00b2. It has two unpaired electrons (in the 3d orbitals), which can contribute to a net magnetic moment.\n   \n3. **Bi (Bismuth)**: Bismuth is a p-block element with the electron configuration [Xe] 6s\u00b2 6p\u00b3. It has three unpaired electrons (in the 6p orbitals), which can contribute to a net magnetic moment.\n   \n4. **O (Oxygen)**: Oxygen is a p-block element with the electron configuration [He] 2s\u00b2 2p\u2074. It has two unpaired electrons (in the 2p orbitals), which can contribute to a net magnetic moment.\n\nGiven that Ni, Bi, and O all have unpaired electrons, the material could potentially be magnetic due to the presence of these unpaired electrons. However, the overall magnetic behavior will depend on the interactions between these unpaired electrons and the surrounding lattice.\n\nConsidering the complexity of the material's structure and the interactions involved, it is reasonable to expect that the material might exhibit some degree of magnetic behavior. The exact magnitude of the magnetic moment would require detailed calculations, but a rough estimate based on the number of unpaired electrons suggests that the material could have a significant magnetic moment.\n\n**Final Answer**: MAGNETIC, 10 muB/atom"
+      },
+      {
+        "category": "Electronic Configuration Errors",
+        "count": 3,
+        "frac": 0.02830188679245283,
+        "raw_labels_merged": [
+          "Assumed d-electron count",
+          "Ignored Nb d-electrons",
+          "Incorrect valence electron count"
+        ],
+        "example_source_file": "mp-2049132",
+        "example_chain_text": "To determine if Cs2In3 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.\n\n1. **Chemical Composition**: The material is Cs2In3, which consists of cesium (Cs) and indium (In).\n\n2. **Electronic Configuration**:\n   - Cesium (Cs) has the electron configuration [Xe] 6s\u00b2.\n   - Indium (In) has the electron configuration [Kr] 4d\u00b9\u2070 5s\u00b2 5p\u00b9.\n\n3. **Valence Electrons**:\n   - In the compound Cs2In3, each In atom contributes 1 valence electron from the 5p orbital.\n   - Therefore, the total number of valence electrons from the In atoms is 3 \u00d7 1 = 3.\n\n4. **Spin States**:\n   - The 5p orbital can hold up to 6 electrons, but typically, only 1 electron is present in the 5p orbital of In due to the Pauli exclusion principle.\n   - This single 5p electron can be either spin-up or spin-down, contributing to a net magnetic moment if it is unpaired.\n\n5. **Cesium Contribution**:\n   - Cesium (Cs) does not contribute any unpaired electrons because its outermost electrons are in the 6s orbital, which is fully occupied by 2 electrons.\n\nGiven that there are 3 unpaired electrons from the In atoms, the material should have a non-zero net magnetic moment.\n\n**Final Answer**: FINAL_ANSWER: MAGNETIC, 3 muB/atom"
+      },
+      {
+        "category": "Charge/Oxidation State Errors",
+        "count": 2,
+        "frac": 0.018867924528301886,
+        "raw_labels_merged": [
+          "Ignored charge distribution",
+          "ignored charge state"
+        ],
+        "example_source_file": "mp-2217140",
+        "example_chain_text": "To determine if the material with the chemical composition MgCu2(PdO2)2 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the constituent elements.\n\n1. **Mg (Magnesium)**: Magnesium is a d-block element that typically forms divalent ions (Mg\u00b2\u207a), which means its outermost shell is filled with 2s\u00b2 electrons. This configuration does not generally lead to magnetic properties because the 2s electrons are paired.\n\n2. **Cu (Copper)**: Copper is a d-block element that can form both divalent (Cu\u00b2\u207a) and trivalent (Cu\u00b3\u207a) ions. The Cu\u00b2\u207a ion has a 3d\u2079 configuration, which can lead to magnetic properties due to the presence of unpaired electrons. However, the Cu\u00b3\u207a ion has a 3d\u2070 configuration, which is diamagnetic.\n\n3. **Pd (Palladium)**: Palladium is a d-block element that forms divalent ions (Pd\u00b2\u207a). The Pd\u00b2\u207a ion has a 4d\u2078 configuration, which can lead to magnetic properties due to the presence of unpaired electrons.\n\nThe presence of unpaired electrons in the Pd\u00b2\u207a ions suggests that there could be a net magnetic moment in the material. However, the overall magnetic behavior will depend on the relative contributions from each type of ion and their interactions within the crystal lattice.\n\nGiven the complexity and the potential for both magnetic and diamagnetic contributions, it is reasonable to conclude that the material might exhibit some magnetic properties, but the exact magnitude would require detailed computational studies.\n\n**Final Answer**: MAGNETIC, 0.5 muB/atom"
+      },
+      {
+        "category": "Model/Approach Errors",
+        "count": 2,
+        "frac": 0.018867924528301886,
+        "raw_labels_merged": [
+          "assumed simple ionic model",
+          "treated diatomic molecule separately"
+        ],
+        "example_source_file": "mp-2218849",
+        "example_chain_text": "To determine if the material with the chemical composition MgNb4(NO)4 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons.\n\n1. **Mg (Magnesium)**: Magnesium is a d-block element with the electron configuration [Ne]3s2. It typically forms divalent ions (Mg\u00b2\u207a), which means its outermost shell is filled with 2 electrons. This configuration does not generally lead to magnetic properties because the 3s orbital is completely filled.\n\n2. **Nb (Niobium)**: Niobium is a d-block element with the electron configuration [Kr]4d\u20745s\u00b9. The 4d and 5s orbitals can hold up to 10 electrons each. In its +4 oxidation state (Nb\u2074\u207a), it has 4 electrons in the 4d orbitals. These 4d electrons are typically not fully paired, leading to a net magnetic moment due to the presence of unpaired electrons.\n\n3. **NO (Nitric oxide)**: Nitric oxide has a single unpaired electron in its molecular orbital structure, contributing to the overall magnetic properties of the compound.\n\nGiven that niobium in the +4 oxidation state has unpaired electrons in its 4d orbitals, and considering the presence of nitric oxide which also contributes to the magnetic properties, it is reasonable to expect that the material MgNb4(NO)4 will have a non-zero net magnetic moment.\n\n**Final Answer**: MAGNETIC, 1.0 muB/atom"
+      },
+      {
+        "category": "General Electronic Property Errors",
+        "count": 1,
+        "frac": 0.009433962264150943,
+        "raw_labels_merged": [
+          "Reasoning error based on generic electronic properties"
+        ],
+        "example_source_file": "mp-1525363",
+        "example_chain_text": "To determine if CaSb2 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.\n\n1. **Electronic Structure Analysis**:\n   - Calcium (Ca) typically forms divalent ions (Ca\u00b2\u207a), meaning it donates two electrons to form bonds.\n   - Antimony (Sb) is a group 15 element that can form trivalent ions (Sb\u00b3\u207a), donating three electrons to form bonds.\n   - In CaSb\u2082, each Sb atom contributes three valence electrons, and each Ca atom contributes two valence electrons. This results in a total of six valence electrons for the Sb atoms and four for the Ca atoms, making a total of ten valence electrons in the unit cell.\n\n2. **Spin States**:\n   - The valence electrons in Sb are in the 5p orbitals, which are typically half-filled or empty in antimony compounds. However, the specific spin states of the electrons in CaSb\u2082 would depend on the crystal field splitting and the hybridization of the orbitals.\n   - Since CaSb\u2082 does not have a simple ionic structure where all electrons are paired, there could be some unpaired electrons due to the complex bonding environment.\n\n3. **Magnetic Moment Estimation**:\n   - Given the complexity of the bonding and the potential for unpaired electrons, it is reasonable to assume that CaSb\u2082 might exhibit a small magnetic moment due to the presence of localized spins.\n   - A rough estimate of the magnetic moment per atom can be made by considering the typical values for similar compounds. For example, in some antimony-based compounds, the magnetic moment per atom can range from 0.1 to 1.0 \u03bcB (Bohr magnetons).\n\nConsidering the above points, I estimate that CaSb\u2082 might have a small magnetic moment.\n\n**Final Answer**: MAGNETIC, 0.5 \u03bcB/atom"
+      },
+      {
+        "category": "Composition/Assumed State Errors",
+        "count": 1,
+        "frac": 0.009433962264150943,
+        "raw_labels_merged": [
+          "Assumed hypothetical composition"
+        ],
+        "example_source_file": "mp-3347313",
+        "example_chain_text": "To determine whether a material with a given chemical composition \\(C\\) is magnetic or non-magnetic, we need to consider the electronic structure and the presence of unpaired electrons. However, without knowing the specific chemical composition \\(C\\), I cannot provide a definitive answer. \n\nIf you can provide the chemical formula or the elements involved, I can offer a more informed analysis.\n\nFor now, let's assume a hypothetical material composed of iron (Fe), which is known to be magnetic due to its unpaired electrons in the d-orbital. Iron has a magnetic moment of approximately 2.2 \u03bcB per atom.\n\nGiven that the problem does not specify the exact composition but asks for a general response, I will provide a hypothetical example:\n\n**Final Answer:** MAGNETIC, 2.2 \u03bcB/atom"
+      }
+    ]
+  }
+}

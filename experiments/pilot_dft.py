@@ -140,14 +140,17 @@ def run_text_local_qwen(prompt: str, max_new_tokens: int = 700) -> str:
 
     if pilot._LOCAL_MODEL is None:
         model_id = "Qwen/Qwen2.5-VL-7B-Instruct"
+        # MATPCR_LOCAL_DEVICE / MATPCR_LOCAL_DTYPE override the original A100 setting
+        # (cuda:0, bfloat16), e.g. to run on CPU in float32 where no bf16-capable GPU exists.
         pilot._LOCAL_MODEL = Qwen2_5_VLForConditionalGeneration.from_pretrained(
-            model_id, torch_dtype=torch.bfloat16, device_map="cuda:0"
+            model_id, torch_dtype=getattr(torch, os.environ.get("MATPCR_LOCAL_DTYPE", "bfloat16")),
+            device_map=os.environ.get("MATPCR_LOCAL_DEVICE", "cuda:0")
         )
         pilot._LOCAL_PROCESSOR = AutoProcessor.from_pretrained(model_id)
 
     messages = [{"role": "user", "content": [{"type": "text", "text": prompt}]}]
     text = pilot._LOCAL_PROCESSOR.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-    inputs = pilot._LOCAL_PROCESSOR(text=[text], return_tensors="pt").to("cuda:0")
+    inputs = pilot._LOCAL_PROCESSOR(text=[text], return_tensors="pt").to(os.environ.get("MATPCR_LOCAL_DEVICE", "cuda:0"))
     out = pilot._LOCAL_MODEL.generate(**inputs, max_new_tokens=max_new_tokens, do_sample=False)
     result = pilot._LOCAL_PROCESSOR.batch_decode(out[:, inputs.input_ids.shape[1]:], skip_special_tokens=True)
     return result[0]

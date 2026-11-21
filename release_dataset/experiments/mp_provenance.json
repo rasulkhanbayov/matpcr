@@ -1,0 +1,22 @@
+{
+  "source": "Materials Project (materialsproject.org)",
+  "client": "mp-api",
+  "database_version": "2026.04.13",
+  "retrieval_date": "2026-08-05",
+  "calculation_type": "GGA/GGA+U relaxation, Materials Project standard workflow (https://docs.materialsproject.org/methodology/materials-methodology) -- semilocal functional; known to underestimate band gaps, which is why the metallicity oracle restricts to a clearly-gapped/clearly-gapless decision with an explicit abstention band rather than a single threshold.",
+  "fields_pulled": [
+    "material_id",
+    "formula_pretty",
+    "energy_above_hull",
+    "is_stable",
+    "band_gap",
+    "is_metal",
+    "total_magnetization",
+    "nsites"
+  ],
+  "n_requested": 3000,
+  "n_docs_returned": 3000,
+  "n_written_with_all_fields": 3000,
+  "n_skipped_missing_nsites": 0,
+  "note": "These are standardized computational references (Materials Project's own DFT calculations), not experimental ground truth. Own-DFT validation is reserved for missing or clearly questionable cases, per the domain co-author's review, not run over this full sample."
+}

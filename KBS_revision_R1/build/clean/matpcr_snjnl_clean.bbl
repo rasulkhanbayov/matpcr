@@ -1,0 +1,477 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\burl{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+\providecommand{\doi}[1]{\url{https://doi.org/#1}}
+\bibcommenthead
+
+\bibitem{liu2024llava}
+\bibinfo{author}{Liu, H.}, \bibinfo{author}{Li, C.}, \bibinfo{author}{Li, Y.}
+  \& \bibinfo{author}{Lee, Y.~J.} \emph{\bibinfo{title}{Improved baselines with
+  visual instruction tuning}}.
+\newblock In \emph{\bibinfo{booktitle}{Proceedings of the IEEE/CVF Conference
+  on Computer Vision and Pattern Recognition (CVPR)}},
+  \bibinfo{pages}{26296--26306} (\bibinfo{year}{2024}).
+
+\bibitem{wei2022cot}
+\bibinfo{author}{Wei, J.} \emph{et~al.}
+\newblock \bibinfo{editor}{Koyejo, S.} \emph{et~al.} (eds)
+  \emph{\bibinfo{title}{Chain-of-thought prompting elicits reasoning in large
+  language models}}.
+\newblock In \emph{\bibinfo{booktitle}{Advances in Neural Information
+  Processing Systems 35: Annual Conference on Neural Information Processing
+  Systems 2022, NeurIPS 2022, New Orleans, LA, USA, November 28 - December 9,
+  2022}} (\bibinfo{year}{2022}).
+\newblock
+  \urlprefix\url{http://papers.nips.cc/paper\_files/paper/2022/hash/9d5609613524ecf4f15af0f7b31abca4-Abstract-Conference.html}.
+
+\bibitem{lai2025materials}
+\bibinfo{author}{Lai, Z.} \emph{et~al.}
+\newblock \bibinfo{title}{Can multimodal llms see materials clearly? a
+  multimodal benchmark on materials characterization}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2509.09307}}
+  (\bibinfo{year}{2025}).
+
+\bibitem{npj2026vlmeval}
+\bibinfo{author}{Verma, P.}, \bibinfo{author}{Van, M.-H.} \&
+  \bibinfo{author}{Wu, X.}
+\newblock \bibinfo{title}{Vision language models for scientific image analysis:
+  an evaluation highlighting opportunities and challenges}.
+\newblock \emph{\bibinfo{journal}{npj Computational Materials}}
+  (\bibinfo{year}{2026}).
+
+\bibitem{choudhary2025microscopygpt}
+\bibinfo{author}{Choudhary, K.}
+\newblock \bibinfo{title}{Microscopygpt: generating atomic-structure captions
+  from microscopy images of 2d materials with vision-language transformers}.
+\newblock \emph{\bibinfo{journal}{The Journal of Physical Chemistry Letters}}
+  \textbf{\bibinfo{volume}{16}}, \bibinfo{pages}{7028} (\bibinfo{year}{2025}).
+
+\bibitem{li2024mmsci}
+\bibinfo{author}{Li, Z.} \emph{et~al.} \emph{\bibinfo{title}{Mmsci: A
+  multimodal multi-discipline dataset for phd-level scientific comprehension}}.
+\newblock In \emph{\bibinfo{booktitle}{AI for Accelerated Materials
+  Design-Vienna 2024}} (\bibinfo{year}{2024}).
+
+\bibitem{holm2020cv}
+\bibinfo{author}{Holm, E.~A.} \emph{et~al.}
+\newblock \bibinfo{title}{Overview: Computer vision and machine learning for
+  microstructural characterization and analysis}.
+\newblock \emph{\bibinfo{journal}{Metallurgical and Materials Transactions A}}
+  \textbf{\bibinfo{volume}{51}}, \bibinfo{pages}{5985--5999}
+  (\bibinfo{year}{2020}).
+
+\bibitem{li2018defect}
+\bibinfo{author}{Li, W.}, \bibinfo{author}{Field, K.~G.} \&
+  \bibinfo{author}{Morgan, D.}
+\newblock \bibinfo{title}{Automated defect analysis in electron microscopic
+  images}.
+\newblock \emph{\bibinfo{journal}{npj Computational Materials}}
+  \textbf{\bibinfo{volume}{4}}, \bibinfo{pages}{36} (\bibinfo{year}{2018}).
+
+\bibitem{llm4matbench2024}
+\bibinfo{author}{Niyongabo~Rubungo, A.}, \bibinfo{author}{Li, K.},
+  \bibinfo{author}{Hattrick-Simpers, J.} \& \bibinfo{author}{Bousso~Dieng, A.}
+\newblock \bibinfo{title}{Llm4mat-bench: benchmarking large language models for
+  materials property prediction}.
+\newblock \emph{\bibinfo{journal}{Machine Learning: Science and Technology}}
+  \textbf{\bibinfo{volume}{6}}, \bibinfo{pages}{020501} (\bibinfo{year}{2025}).
+
+\bibitem{atomworld2025}
+\bibinfo{author}{Lv, T.} \emph{et~al.}
+\newblock \bibinfo{title}{Atomworld: A benchmark for evaluating spatial
+  reasoning in large language models on crystalline materials}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2510.04704}}
+  (\bibinfo{year}{2025}).
+
+\bibitem{matterchat2026}
+\bibinfo{author}{Tang, Y.} \emph{et~al.}
+\newblock \bibinfo{title}{Matterchat: A multi-modal llm for material science}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2502.13107}}
+  (\bibinfo{year}{2025}).
+
+\bibitem{conservationbench2026}
+\bibinfo{author}{Luo, D.} \emph{et~al.}
+\newblock \bibinfo{title}{Vision language models cannot reason about physical
+  transformation}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2603.07109}}
+  (\bibinfo{year}{2026}).
+
+\bibitem{p1vl2026}
+\bibinfo{author}{Luo, Y.} \emph{et~al.}
+\newblock \bibinfo{title}{P1-vl: bridging visual perception and scientific
+  reasoning in physics olympiads}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2602.09443}}
+  (\bibinfo{year}{2026}).
+
+\bibitem{neurosymclinical2026}
+\bibinfo{author}{Singh, V.} \emph{et~al.}
+\newblock \bibinfo{title}{Toward guarantees for clinical reasoning in vision
+  language models via formal verification}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2602.24111}}
+  (\bibinfo{year}{2026}).
+
+\bibitem{dreams2025}
+\bibinfo{author}{Wang, Z.} \emph{et~al.}
+\newblock \bibinfo{title}{Dreams: Density functional theory based research
+  engine for agentic materials simulation}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2507.14267}}
+  (\bibinfo{year}{2025}).
+
+\bibitem{crystalyse2025}
+\bibinfo{author}{Nduma, R.}, \bibinfo{author}{Park, H.} \&
+  \bibinfo{author}{Walsh, A.}
+\newblock \bibinfo{title}{Crystalyse: a multi-tool agent for materials design}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2512.00977}}
+  (\bibinfo{year}{2025}).
+
+\bibitem{mapps2025}
+\bibinfo{author}{Zhou, L.} \emph{et~al.}
+\newblock \bibinfo{title}{Toward greater autonomy in materials discovery
+  agents: Unifying planning, physics, and scientists}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2506.05616}}
+  (\bibinfo{year}{2025}).
+
+\bibitem{atomagents2024}
+\bibinfo{author}{Ghafarollahi, A.} \& \bibinfo{author}{Buehler, M.~J.}
+\newblock \bibinfo{title}{Atomagents: Alloy design and discovery through
+  physics-aware multi-modal multi-agent artificial intelligence}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2407.10022}}
+  (\bibinfo{year}{2024}).
+
+\bibitem{llmatdesign2024}
+\bibinfo{author}{Jia, S.}, \bibinfo{author}{Zhang, C.} \&
+  \bibinfo{author}{Fung, V.}
+\newblock \bibinfo{title}{Llmatdesign: Autonomous materials discovery with
+  large language models}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2406.13163}}
+  (\bibinfo{year}{2024}).
+
+\bibitem{matpc2025}
+\bibinfo{author}{Zhou, J.}, \bibinfo{author}{Xiao, B.}, \bibinfo{author}{Liu,
+  Q.}, \bibinfo{author}{Liu, L.} \& \bibinfo{author}{Zhang, L.}
+\newblock \bibinfo{title}{Matpc: prompting large language model, crystal
+  structure prediction, and first-principles for semantic-driven material
+  design}.
+\newblock \emph{\bibinfo{journal}{ACS Applied Materials \& Interfaces}}
+  \textbf{\bibinfo{volume}{17}}, \bibinfo{pages}{44528--44540}
+  (\bibinfo{year}{2025}).
+
+\bibitem{kang2024chatmof}
+\bibinfo{author}{Kang, Y.} \& \bibinfo{author}{Kim, J.}
+\newblock \bibinfo{title}{Chatmof: an artificial intelligence system for
+  predicting and generating metal-organic frameworks using large language
+  models}.
+\newblock \emph{\bibinfo{journal}{Nature communications}}
+  \textbf{\bibinfo{volume}{15}}, \bibinfo{pages}{4705} (\bibinfo{year}{2024}).
+
+\bibitem{zhang2024honeycomb}
+\bibinfo{author}{Zhang, H.}, \bibinfo{author}{Song, Y.}, \bibinfo{author}{Hou,
+  Z.}, \bibinfo{author}{Miret, S.} \& \bibinfo{author}{Liu, B.}
+  \emph{\bibinfo{title}{Honeycomb: A flexible llm-based agent system for
+  materials science}}.
+\newblock In \emph{\bibinfo{booktitle}{Findings of the Association for
+  Computational Linguistics: EMNLP 2024}}, \bibinfo{pages}{3369--3382}
+  (\bibinfo{year}{2024}).
+
+\bibitem{survey2025aimat}
+\bibinfo{author}{Van, M.-H.}, \bibinfo{author}{Verma, P.},
+  \bibinfo{author}{Zhao, C.} \& \bibinfo{author}{Wu, X.}
+\newblock \bibinfo{title}{A survey of ai for materials science: foundation
+  models, llm agents, datasets, and tools}.
+\newblock \emph{\bibinfo{journal}{ACM Computing Surveys}}
+  \textbf{\bibinfo{volume}{58}}, \bibinfo{pages}{1--37} (\bibinfo{year}{2026}).
+
+\bibitem{eaa2026}
+\bibinfo{author}{Du, M.} \emph{et~al.}
+\newblock \bibinfo{title}{Eaa: Automating materials characterization with
+  vision language model agents}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2602.15294}}
+  (\bibinfo{year}{2026}).
+
+\bibitem{matty2026}
+\bibinfo{author}{Wang, X.} \emph{et~al.}
+\newblock \bibinfo{title}{Accelerating materials discovery via ai-agent
+  integration of large language models and simulation tools}.
+\newblock \emph{\bibinfo{journal}{Journal of Materials Informatics}}
+  \textbf{\bibinfo{volume}{6}}, \bibinfo{pages}{N--A} (\bibinfo{year}{2026}).
+
+\bibitem{physrej2025}
+\bibinfo{author}{Hyun, L.} \emph{et~al.}
+\newblock \bibinfo{title}{Aligning reasoning llms for materials discovery with
+  physics-aware rejection sampling}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2509.00768}}
+  (\bibinfo{year}{2025}).
+
+\bibitem{genbaselines2025}
+\bibinfo{author}{Szymanski, N.~J.} \& \bibinfo{author}{Bartel, C.~J.}
+\newblock \bibinfo{title}{Establishing baselines for generative discovery of
+  inorganic crystals}.
+\newblock \emph{\bibinfo{journal}{Materials Horizons}}
+  \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{8000--8011}
+  (\bibinfo{year}{2025}).
+
+\bibitem{chgnet2023}
+\bibinfo{author}{Deng, B.} \emph{et~al.}
+\newblock \bibinfo{title}{Chgnet as a pretrained universal neural network
+  potential for charge-informed atomistic modelling}.
+\newblock \emph{\bibinfo{journal}{Nature Machine Intelligence}}
+  \textbf{\bibinfo{volume}{5}}, \bibinfo{pages}{1031--1041}
+  (\bibinfo{year}{2023}).
+
+\bibitem{corgi2025}
+\bibinfo{author}{Yi, S.} \& \bibinfo{author}{Shang, L.}
+\newblock \bibinfo{title}{Corgi: Verified chain-of-thought reasoning with
+  post-hoc visual grounding}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2508.00378}}
+  (\bibinfo{year}{2025}).
+
+\bibitem{mmverify2025}
+\bibinfo{author}{Sun, L.} \emph{et~al.} \emph{\bibinfo{title}{Mm-verify:
+  Enhancing multimodal reasoning with chain-of-thought verification}}.
+\newblock In \emph{\bibinfo{booktitle}{Proceedings of the 63rd Annual Meeting
+  of the Association for Computational Linguistics (Volume 1: Long Papers)}},
+  \bibinfo{pages}{14100--14115} (\bibinfo{year}{2025}).
+
+\bibitem{vlmr3_2026}
+\bibinfo{author}{Jiang, C.} \emph{et~al.}
+\newblock \bibinfo{title}{Vlm-r$^3$: Region recognition, reasoning, and
+  refinement for enhanced multimodal chain-of-thought}.
+\newblock \emph{\bibinfo{journal}{Advances in Neural Information Processing
+  Systems}} \textbf{\bibinfo{volume}{38}}, \bibinfo{pages}{63841--63869}
+  (\bibinfo{year}{2026}).
+
+\bibitem{prove2024}
+\bibinfo{author}{Prabhu, V.}, \bibinfo{author}{Purushwalkam, S.},
+  \bibinfo{author}{Yan, A.}, \bibinfo{author}{Xiong, C.} \&
+  \bibinfo{author}{Xu, R.} \emph{\bibinfo{title}{Trust but verify: Programmatic
+  vlm evaluation in the wild}}.
+\newblock In \emph{\bibinfo{booktitle}{2025 IEEE/CVF International Conference
+  on Computer Vision (ICCV)}}, \bibinfo{pages}{3258--3267}
+  (\bibinfo{organization}{IEEE}, \bibinfo{year}{2025}).
+
+\bibitem{processbench2025}
+\bibinfo{author}{Zheng, C.} \emph{et~al.} \emph{\bibinfo{title}{Processbench:
+  Identifying process errors in mathematical reasoning}}.
+\newblock In \emph{\bibinfo{booktitle}{Proceedings of the 63rd Annual Meeting
+  of the Association for Computational Linguistics (Volume 1: Long Papers)}},
+  \bibinfo{pages}{1009--1024} (\bibinfo{year}{2025}).
+
+\bibitem{compassverifier2025}
+\bibinfo{author}{Liu, S.} \emph{et~al.} \emph{\bibinfo{title}{Compassverifier:
+  A unified and robust verifier for llms evaluation and outcome reward}}.
+\newblock In \emph{\bibinfo{booktitle}{Proceedings of the 2025 Conference on
+  Empirical Methods in Natural Language Processing}},
+  \bibinfo{pages}{33454--33482} (\bibinfo{year}{2025}).
+
+\bibitem{t1verify2025}
+\bibinfo{author}{Kang, M.}, \bibinfo{author}{Jeong, J.} \&
+  \bibinfo{author}{Cho, J.}
+\newblock \bibinfo{title}{T1: Tool-integrated self-verification for test-time
+  compute scaling in small language models}.
+\newblock \emph{\bibinfo{journal}{arXiv e-prints}} \bibinfo{pages}{arXiv--2504}
+  (\bibinfo{year}{2025}).
+
+\bibitem{deepseekr1_2025}
+\bibinfo{author}{Guo, D.} \emph{et~al.}
+\newblock \bibinfo{title}{Deepseek-r1 incentivizes reasoning in llms through
+  reinforcement learning}.
+\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{645}},
+  \bibinfo{pages}{633–638} (\bibinfo{year}{2025}).
+\newblock \urlprefix\url{http://dx.doi.org/10.1038/s41586-025-09422-z}.
+
+\bibitem{scirlvr2026}
+\bibinfo{author}{Chen, Z.} \emph{et~al.}
+\newblock \bibinfo{title}{Improving data and reward design for scientific
+  reasoning in large language models} (\bibinfo{year}{2026}).
+\newblock \urlprefix\url{https://arxiv.org/abs/2602.08321}.
+\newblock \eprint{2602.08321}.
+
+\bibitem{faithflow2026}
+\bibinfo{author}{Jia, J.}, \bibinfo{author}{Benton, J.} \&
+  \bibinfo{author}{Easley, E.}
+\newblock \bibinfo{title}{Faithfulness as information flow: Evaluating and
+  training faithful chain-of-thought reasoning}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2605.24286}}
+  (\bibinfo{year}{2026}).
+
+\bibitem{faithcotbench2026}
+\bibinfo{author}{Shen, X.} \emph{et~al.} \emph{\bibinfo{title}{Faithcot-bench:
+  Benchmarking instance-level faithfulness of chain-of-thought reasoning}}.
+\newblock In \emph{\bibinfo{booktitle}{International Conference on Learning
+  Representations}}, Vol. \bibinfo{volume}{2026}, \bibinfo{pages}{65918--65948}
+  (\bibinfo{year}{2026}).
+
+\bibitem{cotevo2026}
+\bibinfo{author}{Feng, K.} \emph{et~al.} \emph{\bibinfo{title}{Cot-evo:
+  Evolutionary distillation of chain-of-thought for scientific reasoning}}.
+\newblock In \emph{\bibinfo{booktitle}{International Conference on Learning
+  Representations}}, Vol. \bibinfo{volume}{2026},
+  \bibinfo{pages}{127139--127170} (\bibinfo{year}{2026}).
+
+\bibitem{sarcasm2026lvlm}
+\bibinfo{author}{Chen, J.}, \bibinfo{author}{Liu, X.}, \bibinfo{author}{Huang,
+  S.}, \bibinfo{author}{Zhang, L.} \& \bibinfo{author}{Yu, H.}
+\newblock \bibinfo{title}{Seeing sarcasm through different eyes: Analyzing
+  multimodal sarcasm perception in large vision-language models}.
+\newblock \emph{\bibinfo{journal}{IEEE Transactions on Computational Social
+  Systems}}  (\bibinfo{year}{2025}).
+
+\bibitem{legalinfusion2026}
+\bibinfo{author}{Liu, Q.} \emph{et~al.}
+\newblock \bibinfo{title}{Legal knowledge infusion for large language models: A
+  survey}.
+\newblock \emph{\bibinfo{journal}{Information Fusion}}
+  \textbf{\bibinfo{volume}{125}}, \bibinfo{pages}{103426}
+  (\bibinfo{year}{2026}).
+
+\bibitem{sciprm2026}
+\bibinfo{author}{Zhao, X.} \emph{et~al.}
+\newblock \bibinfo{title}{{SCI-PRM:} {A} tool aware process reward model for
+  scientific reasoning verification}.
+\newblock \emph{\bibinfo{journal}{CoRR}}
+  \textbf{\bibinfo{volume}{abs/2606.04579}} (\bibinfo{year}{2026}).
+\newblock \urlprefix\url{https://doi.org/10.48550/arXiv.2606.04579}.
+
+\bibitem{vprm2026}
+\bibinfo{author}{Pronesti, M.}, \bibinfo{author}{Belz, A.} \&
+  \bibinfo{author}{Hou, Y.}
+\newblock \bibinfo{editor}{Liakata, M.}, \bibinfo{editor}{Moreira, V.~P.},
+  \bibinfo{editor}{Zhang, J.} \& \bibinfo{editor}{Jurgens, D.} (eds)
+  \emph{\bibinfo{title}{Beyond outcome verification: Verifiable process reward
+  models for structured reasoning}}.
+\newblock In \emph{\bibinfo{booktitle}{Findings of the Association for
+  Computational Linguistics, {ACL} 2026, San Diego, California, United States,
+  July 2-7, 2026}}, \bibinfo{pages}{32187--32202}
+  (\bibinfo{publisher}{Association for Computational Linguistics},
+  \bibinfo{year}{2026}).
+\newblock \urlprefix\url{https://doi.org/10.18653/v1/2026.findings-acl.1611}.
+
+\bibitem{crystalxrdbench2026}
+\bibinfo{author}{Xu, C.} \emph{et~al.}
+\newblock \bibinfo{title}{Crystalxrd-bench: Benchmarking vision-language models
+  for xrd peak indexing across diverse crystalline materials}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2605.29446}}
+  (\bibinfo{year}{2026}).
+
+\bibitem{matpref2026}
+\bibinfo{author}{Leung, S. R.~M.}, \bibinfo{author}{Kim, T.} \&
+  \bibinfo{author}{Park, J.}
+\newblock \bibinfo{title}{Mat-pref: Verifiable-reward training improves
+  compositional reasoning in inorganic materials} (\bibinfo{year}{2026}).
+\newblock \urlprefix\url{https://arxiv.org/abs/2606.21830}.
+\newblock \eprint{2606.21830}.
+
+\bibitem{polat2025crysmtm}
+\bibinfo{author}{Polat, C.}, \bibinfo{author}{Serpedin, E.},
+  \bibinfo{author}{Kurban, M.} \& \bibinfo{author}{Kurban, H.}
+\newblock \bibinfo{title}{Crysmtm: a multiphase, temperature-resolved,
+  multimodal dataset for crystalline materials}.
+\newblock \emph{\bibinfo{journal}{Machine Learning: Science and Technology}}
+  \textbf{\bibinfo{volume}{6}}, \bibinfo{pages}{030603} (\bibinfo{year}{2025}).
+\newblock \urlprefix\url{https://doi.org/10.1088/2632-2153/adf9bc}.
+
+\bibitem{polat2026extrapolation}
+\bibinfo{author}{Polat, C.}, \bibinfo{author}{Serpedin, E.},
+  \bibinfo{author}{Kurban, M.} \& \bibinfo{author}{Kurban, H.}
+  \emph{\bibinfo{title}{How far can you grow? characterizing the extrapolation
+  frontier of graph generative models for materials science}}.
+\newblock In \emph{\bibinfo{booktitle}{Proceedings of the 32nd ACM SIGKDD
+  Conference on Knowledge Discovery and Data Mining V.2}},
+  \bibinfo{pages}{11821–11832} (\bibinfo{publisher}{ACM},
+  \bibinfo{year}{2026}).
+\newblock \urlprefix\url{http://dx.doi.org/10.1145/3770855.3818872}.
+
+\bibitem{polat2025quantumshellnet}
+\bibinfo{author}{Polat, C.}, \bibinfo{author}{Kurban, H.} \&
+  \bibinfo{author}{Kurban, M.}
+\newblock \bibinfo{title}{Quantumshellnet: Ground-state eigenvalue prediction
+  of materials using electronic shell structures and fermionic properties via
+  convolutions}.
+\newblock \emph{\bibinfo{journal}{Computational Materials Science}}
+  \textbf{\bibinfo{volume}{246}}, \bibinfo{pages}{113366}
+  (\bibinfo{year}{2025}).
+\newblock
+  \urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0927025624005871}.
+
+\bibitem{polat2024multimodalnp}
+\bibinfo{author}{Polat, C.}, \bibinfo{author}{Kurban, M.} \&
+  \bibinfo{author}{Kurban, H.}
+\newblock \bibinfo{title}{Multimodal neural network-based predictive modeling
+  of nanoparticle properties from pure compounds}.
+\newblock \emph{\bibinfo{journal}{Machine Learning: Science and Technology}}
+  \textbf{\bibinfo{volume}{5}} (\bibinfo{year}{2024}).
+
+\bibitem{abdaljalil2025halluverse}
+\bibinfo{author}{Abdaljalil, S.}, \bibinfo{author}{Kurban, H.} \&
+  \bibinfo{author}{Serpedin, E.}
+\newblock \bibinfo{title}{Halluverse25: Fine-grained multilingual benchmark
+  dataset for llm hallucinations} (\bibinfo{year}{2025}).
+\newblock \urlprefix\url{https://arxiv.org/abs/2503.07833}.
+\newblock \eprint{2503.07833}.
+
+\bibitem{khanbayov2026iris}
+\bibinfo{author}{Khanbayov, R.}, \bibinfo{author}{Barhdadi, M.~R.},
+  \bibinfo{author}{Serpedin, E.} \& \bibinfo{author}{Kurban, H.}
+\newblock \bibinfo{title}{Iris: A real-world benchmark for inverse recovery and
+  identification of physical dynamic systems from monocular video}
+  (\bibinfo{year}{2026}).
+\newblock \urlprefix\url{https://arxiv.org/abs/2603.16432}.
+\newblock \eprint{2603.16432}.
+
+\bibitem{opxrd2025}
+\bibinfo{author}{Hollarek, D.} \emph{et~al.}
+\newblock \bibinfo{title}{opxrd: Open experimental powder x-ray diffraction
+  database}.
+\newblock \emph{\bibinfo{journal}{Advanced Intelligent Discovery}}
+  \textbf{\bibinfo{volume}{2}}, \bibinfo{pages}{e202500044}
+  (\bibinfo{year}{2026}).
+
+\bibitem{aversa2018nffa}
+\bibinfo{author}{Aversa, R.}, \bibinfo{author}{Modarres, M.},
+  \bibinfo{author}{Cozzini, S.}, \bibinfo{author}{Ciancio, R.} \&
+  \bibinfo{author}{Chiusole, A.}
+\newblock \bibinfo{title}{The first annotated set of scanning electron
+  microscopy images for nanoscience}.
+\newblock \emph{\bibinfo{journal}{Scientific Data}}
+  \textbf{\bibinfo{volume}{5}}, \bibinfo{pages}{180172} (\bibinfo{year}{2018}).
+
+\bibitem{lafuente2015rruff}
+\bibinfo{author}{Lafuente, B.}, \bibinfo{author}{Downs, R.~T.},
+  \bibinfo{author}{Yang, H.} \& \bibinfo{author}{Stone, N.}
+\newblock \emph{\bibinfo{title}{1. The power of databases: The RRUFF project}},
+  \bibinfo{pages}{1--30} (\bibinfo{publisher}{De Gruyter (O)},
+  \bibinfo{address}{Berlin, München, Boston}, \bibinfo{year}{2016}).
+\newblock \urlprefix\url{https://doi.org/10.1515/9783110417104-003}.
+
+\bibitem{matproj2013}
+\bibinfo{author}{Jain, A.} \emph{et~al.}
+\newblock \bibinfo{title}{Commentary: The materials project: A materials genome
+  approach to accelerating materials innovation}.
+\newblock \emph{\bibinfo{journal}{APL materials}} \textbf{\bibinfo{volume}{1}}
+  (\bibinfo{year}{2013}).
+
+\bibitem{simxrd2024}
+\bibinfo{author}{Cao, B.} \emph{et~al.} \emph{\bibinfo{title}{Simxrd-4m: big
+  simulated x-ray diffraction data and crystal symmetry classification
+  benchmark}}.
+\newblock In \emph{\bibinfo{booktitle}{International Conference on Learning
+  Representations}}, Vol. \bibinfo{volume}{2025}, \bibinfo{pages}{70721--70745}
+  (\bibinfo{year}{2025}).
+
+\bibitem{selfverify2026}
+\bibinfo{author}{Long, Q.} \emph{et~al.}
+\newblock \bibinfo{title}{Self-verification dilemma: Experience-driven
+  suppression of overused checking in llm reasoning}.
+\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2602.03485}}
+  (\bibinfo{year}{2026}).
+
+\bibitem{qwen25vl}
+\bibinfo{author}{Bai, S.} \emph{et~al.}
+\newblock \bibinfo{title}{Qwen2.5-vl technical report} (\bibinfo{year}{2025}).
+\newblock \urlprefix\url{https://arxiv.org/abs/2502.13923}.
+\newblock \eprint{2502.13923}.
+
+\end{thebibliography}

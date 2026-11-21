@@ -1,0 +1,126 @@
+{
+  "family": "magnetism",
+  "annotator": "second",
+  "reviews": [
+    {
+      "case": 77,
+      "verdict": "real"
+    },
+    {
+      "case": 13,
+      "verdict": "real"
+    },
+    {
+      "case": 40,
+      "verdict": "real"
+    },
+    {
+      "case": 12,
+      "verdict": "false_positive"
+    },
+    {
+      "case": 2,
+      "verdict": "real"
+    },
+    {
+      "case": 54,
+      "verdict": "real"
+    },
+    {
+      "case": 55,
+      "verdict": "real"
+    },
+    {
+      "case": 16,
+      "verdict": "real"
+    },
+    {
+      "case": 80,
+      "verdict": "real"
+    },
+    {
+      "case": 81,
+      "verdict": "real"
+    },
+    {
+      "case": 52,
+      "verdict": "real"
+    },
+    {
+      "case": 98,
+      "verdict": "real"
+    },
+    {
+      "case": 51,
+      "verdict": "false_positive"
+    },
+    {
+      "case": 105,
+      "verdict": "real"
+    },
+    {
+      "case": 111,
+      "verdict": "real"
+    },
+    {
+      "case": 62,
+      "verdict": "real"
+    },
+    {
+      "case": 48,
+      "verdict": "real"
+    },
+    {
+      "case": 82,
+      "verdict": "real"
+    },
+    {
+      "case": 32,
+      "verdict": "real"
+    },
+    {
+      "case": 100,
+      "verdict": "real"
+    },
+    {
+      "case": 28,
+      "verdict": "real"
+    },
+    {
+      "case": 107,
+      "verdict": "real"
+    },
+    {
+      "case": 90,
+      "verdict": "real"
+    },
+    {
+      "case": 5,
+      "verdict": "real"
+    },
+    {
+      "case": 95,
+      "verdict": "real"
+    },
+    {
+      "case": 46,
+      "verdict": "false_positive"
+    },
+    {
+      "case": 115,
+      "verdict": "real"
+    },
+    {
+      "case": 22,
+      "verdict": "real"
+    },
+    {
+      "case": 66,
+      "verdict": "real"
+    },
+    {
+      "case": 84,
+      "verdict": "real"
+    }
+  ]
+}

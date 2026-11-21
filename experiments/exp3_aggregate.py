@@ -18,6 +18,9 @@ from __future__ import annotations
 
 import json
 import os
+import sys as _sys
+_sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import final_oracle  # noqa: E402  near-hull stability abstention (final protocol)
 from collections import defaultdict
 
 RESULTS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "exp3_results.jsonl")
@@ -43,6 +46,8 @@ def main():
     with open(RESULTS_PATH) as f:
         for line in f:
             r = json.loads(line)
+            if not final_oracle.keep(r):
+                continue
             cells[(r["model"], r["modality"])].append((r["accurate"], r["consistent"]))
             n_records += 1
 
@@ -87,5 +92,26 @@ def main():
     print("values are NOT YET independently validated by the domain co-author (see CLAUDE.md).")
 
 
+def stability_balanced_accuracy():
+    """Per-model accuracy on each Materials Project is_stable class and their mean (balanced accuracy)
+    for the stability arm, on the records scored under the active rule."""
+    from collections import defaultdict as _dd
+    per = _dd(lambda: {True: [], False: []})
+    with open(RESULTS_PATH) as f:
+        for line in f:
+            r = json.loads(line)
+            if r["modality"] != "stability" or not final_oracle.keep(r) or "true_stable" not in r:
+                continue
+            per[r["model"]][bool(r["true_stable"])].append(bool(r["claimed_stable"]) == bool(r["true_stable"]))
+    print("\nStability balanced accuracy (MP is_stable classes):")
+    for m, d in per.items():
+        a_s = sum(d[True]) / len(d[True]) if d[True] else float("nan")
+        a_u = sum(d[False]) / len(d[False]) if d[False] else float("nan")
+        print(f"  {m:<10} stable {sum(d[True])}/{len(d[True])}  unstable {sum(d[False])}/{len(d[False])}  "
+              f"balanced {(a_s + a_u) / 2:.3f}")
+
+
+
 if __name__ == "__main__":
     main()
+    stability_balanced_accuracy()

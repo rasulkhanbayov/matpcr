@@ -1,0 +1,48 @@
+{
+ "n_formulas": 1869,
+ "n_polymorphic_formulas": 540,
+ "n_entries_in_polymorphic_formulas": 1671,
+ "stability": {
+  "polymorphic_formulas_scored": 478,
+  "label_disagreement": 4,
+  "share": 0.008368200836820083
+ },
+ "metallicity": {
+  "polymorphic_formulas_scored": 539,
+  "label_disagreement": 84,
+  "share": 0.15584415584415584
+ },
+ "magnetism": {
+  "polymorphic_formulas_scored": 540,
+  "label_disagreement": 87,
+  "share": 0.16111111111111112
+ }
+}
+{
+ "stability": {
+  "n_records": 667,
+  "agree_with_ground_state_scoring": 0.8740629685157422,
+  "changed_by_any_polymorph_scoring": 0.034482758620689655,
+  "transitions_entry_to_groundstate": {
+   "True->True": 485,
+   "True->None": 49,
+   "False->False": 98,
+   "True->False": 10,
+   "False->True": 17,
+   "False->None": 8
+  }
+ },
+ "metallicity": {
+  "n_records": 764,
+  "agree_with_ground_state_scoring": 0.8952879581151832,
+  "changed_by_any_polymorph_scoring": 0.12041884816753927,
+  "transitions_entry_to_groundstate": {
+   "False->False": 202,
+   "False->True": 48,
+   "True->True": 482,
+   "False->None": 6,
+   "True->False": 16,
+   "True->None": 10
+  }
+ }
+}

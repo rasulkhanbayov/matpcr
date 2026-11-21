@@ -1,0 +1,71 @@
+==============================================================================
+Experiment 1, Half-A (positive control) — DFT-grounded oracles on REAL Materials Project data
+==============================================================================
+
+SCOPE: Half-A (software correctness), re-run because the oracle functions changed
+per the domain co-author's review (metallicity abstention band, magnetism
+classify-then-magnitude redesign, stability sensitivity). See module docstring.
+
+Total real materials loaded: 3000
+
+==============================================================================
+STABILITY: sensitivity sweep over tol_eV_atom in (0.0, 0.025, 0.05, 0.1) (per M.K.'s review)
+==============================================================================
+
+------------------------------------------------------------------------------
+Stability oracle (energy_above_hull, tol_eV_atom=0.0) — n_materials=3000
+------------------------------------------------------------------------------
+ planted | n_checks |  n_skip |  recovered |             95% CI |  FN rate |  FP rate
+    0.10 |     3000 |       0 |     0.1060 | [0.0953, 0.1170] |   0.0000 |   0.0000
+    0.30 |     3000 |       0 |     0.3063 | [0.2890, 0.3227] |   0.0000 |   0.0000
+    0.50 |     3000 |       0 |     0.4997 | [0.4813, 0.5177] |   0.0000 |   0.0000
+
+------------------------------------------------------------------------------
+Stability oracle (energy_above_hull, tol_eV_atom=0.025) — n_materials=3000
+------------------------------------------------------------------------------
+ planted | n_checks |  n_skip |  recovered |             95% CI |  FN rate |  FP rate
+    0.10 |     2697 |     303 |     0.1049 | [0.0931, 0.1164] |   0.0000 |   0.0000
+    0.30 |     2697 |     303 |     0.3074 | [0.2903, 0.3248] |   0.0000 |   0.0000
+    0.50 |     2697 |     303 |     0.5017 | [0.4828, 0.5202] |   0.0000 |   0.0000
+
+------------------------------------------------------------------------------
+Stability oracle (energy_above_hull, tol_eV_atom=0.05) — n_materials=3000
+------------------------------------------------------------------------------
+ planted | n_checks |  n_skip |  recovered |             95% CI |  FN rate |  FP rate
+    0.10 |     2429 |     571 |     0.1037 | [0.0918, 0.1161] |   0.0000 |   0.0000
+    0.30 |     2429 |     571 |     0.3075 | [0.2890, 0.3261] |   0.0000 |   0.0000
+    0.50 |     2429 |     571 |     0.5035 | [0.4837, 0.5241] |   0.0000 |   0.0000
+
+------------------------------------------------------------------------------
+Stability oracle (energy_above_hull, tol_eV_atom=0.1) — n_materials=3000
+------------------------------------------------------------------------------
+ planted | n_checks |  n_skip |  recovered |             95% CI |  FN rate |  FP rate
+    0.10 |     1931 |    1069 |     0.1062 | [0.0927, 0.1201] |   0.0000 |   0.0000
+    0.30 |     1931 |    1069 |     0.3164 | [0.2962, 0.3376] |   0.0000 |   0.0000
+    0.50 |     1931 |    1069 |     0.5060 | [0.4837, 0.5282] |   0.0000 |   0.0000
+
+------------------------------------------------------------------------------
+Metallicity oracle (band_gap, metal_max_eV=0.05, gap_min_eV=0.20) — n_materials=3000
+------------------------------------------------------------------------------
+ planted | n_checks |  n_skip |  recovered |             95% CI |  FN rate |  FP rate
+    0.10 |     2874 |     126 |     0.1082 | [0.0971, 0.1193] |   0.0000 |   0.0000
+    0.30 |     2874 |     126 |     0.3048 | [0.2881, 0.3219] |   0.0000 |   0.0000
+    0.50 |     2874 |     126 |     0.4976 | [0.4798, 0.5157] |   0.0000 |   0.0000
+
+------------------------------------------------------------------------------
+Magnetism-magnitude oracle (total_magnetization/nsites, threshold=0.05 muB/atom) — n_materials=3000
+------------------------------------------------------------------------------
+ planted | n_checks |  n_skip |  recovered |             95% CI |  FN rate |  FP rate
+    0.10 |     3000 |       0 |     0.1090 | [0.0980, 0.1203] |   0.0000 |   0.0000
+    0.30 |     3000 |       0 |     0.2977 | [0.2810, 0.3147] |   0.0000 |   0.0000
+    0.50 |     3000 |       0 |     0.5010 | [0.4827, 0.5187] |   0.0000 |   0.0000
+
+==============================================================================
+Interpretation: FN rate = fraction of injected violations missed (should be ~0).
+FP rate = fraction of clean/unperturbed real claims wrongly flagged (should be ~0).
+n_skip = materials excluded from this oracle (metallicity's ambiguous dead zone,
+or magnetism's missing-nsites cases -- 0 expected for magnetism after the
+mp_fetch_reference_data.py update that requires nsites).
+This validates the 3 oracle functions' comparison logic on real reference values,
+now approved by the domain co-author as standardized computational references
+(not experimental ground truth) -- see VERSION2/Dr_mustafas_comments.

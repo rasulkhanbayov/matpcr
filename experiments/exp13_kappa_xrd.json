@@ -1,0 +1,54 @@
+{
+  "family": "xrd",
+  "n_cases": 30,
+  "raw_agreement": 0.7,
+  "cohens_kappa": 0.3283582089552238,
+  "qualitative_band": "fair",
+  "disagreements": [
+    {
+      "case": 1,
+      "reviewer_a": "false_positive",
+      "reviewer_b": "real"
+    },
+    {
+      "case": 12,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 20,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 46,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 52,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 57,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 72,
+      "reviewer_a": "false_positive",
+      "reviewer_b": "real"
+    },
+    {
+      "case": 94,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    },
+    {
+      "case": 96,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    }
+  ]
+}

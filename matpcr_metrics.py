@@ -307,7 +307,9 @@ def stability_claim_consistent(
     claimed_stable: bool,
     e_above_hull_eV_atom: float,
     tol_eV_atom: float = 0.05,
-) -> bool:
+    abstain_near_hull: bool = True,
+    on_hull_atol: float = 1e-6,
+):
     """A 'stable' claim is consistent iff the computed energy above the convex
     hull is within tolerance of the hull; an 'unstable' claim is consistent iff
     it is clearly above. e_above_hull comes from a DFT reference (public DB or a
@@ -320,7 +322,18 @@ def stability_claim_consistent(
     obligation, not something this function enforces. Report sensitivity of
     any downstream rate to tol_eV_atom in {0, 0.025, 0.05, 0.10} rather than
     the single default value alone.
+
+    Near-hull abstention band (KBS revision, 2026-10-16): the stability prompt instructs the model
+    to "treat any borderline or metastable case as UNSTABLE", while a near-hull structure
+    (0 < E_hull <= tol_eV_atom) is, per the same review, not strictly stable. Neither answer is then
+    unambiguously right, so with abstain_near_hull=True (the final protocol) the function returns
+    None for 0 < E_hull <= tol_eV_atom and the item is EXCLUDED, exactly like the metallicity
+    abstention band. On the hull (E_hull <= on_hull_atol) STABLE is required; above tol_eV_atom
+    UNSTABLE is required. abstain_near_hull=False reproduces the original rule (near-hull counts as
+    stable), reported in the Supplementary Information.
     """
+    if abstain_near_hull and on_hull_atol < e_above_hull_eV_atom <= tol_eV_atom:
+        return None  # near-hull band: excluded from PCR
     is_actually_stable = e_above_hull_eV_atom <= tol_eV_atom
     return bool(claimed_stable) == bool(is_actually_stable)
 
@@ -589,7 +602,11 @@ def _smoke_test() -> None:
     assert auc > 0.6
 
     # --- DFT-grounded oracle unit checks ---
-    assert stability_claim_consistent(True, 0.01) is True       # near hull, called stable
+    assert stability_claim_consistent(True, 0.01) is None       # near-hull band: abstain
+    assert stability_claim_consistent(False, 0.01) is None      # near-hull band: abstain
+    assert stability_claim_consistent(True, 0.01, abstain_near_hull=False) is True  # original rule
+    assert stability_claim_consistent(True, 0.0) is True        # on the hull, called stable
+    assert stability_claim_consistent(False, 0.0) is False      # on the hull, called unstable
     assert stability_claim_consistent(True, 0.30) is False      # above hull, called stable
     assert metallicity_claim_consistent(False, 1.8) is True     # gapped, called non-metal
     assert metallicity_claim_consistent(True, 1.8) is False     # gapped, called metal

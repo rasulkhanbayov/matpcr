@@ -117,22 +117,23 @@
     ],
     "rates_by_tol": [
       {
-        "local": 0.7476190476190476,
-        "api": 0.7081081081081081
+        "local": 0.8813559322033898,
+        "api": 0.7662337662337663
       },
       {
         "local": 0.8952380952380953,
         "api": 0.7351351351351352
       },
       {
-        "local": 0.8238095238095238,
-        "api": 0.7297297297297297
+        "local": 0.8871794871794871,
+        "api": 0.7529411764705882
       },
       {
-        "local": 0.5952380952380952,
-        "api": 0.6
+        "local": 0.8601398601398601,
+        "api": 0.75
       }
     ],
-    "rank_agreement": 0.6666666666666666
-  }
+    "rank_agreement": 1.0
+  },
+  "_note": "xrd/spectrum: original run (independent of the stability rule); stability: re-run 2026-10-16 with the near-hull abstention band"
 }

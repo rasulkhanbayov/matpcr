@@ -1,0 +1,1906 @@
+\documentclass[pdflatex,sn-nature]{sn-jnl}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[scaled=0.92]{helvet}
+\usepackage{amsthm}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{detect-weight=true,detect-family=true,mode=text}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{float}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,fit,backgrounds,decorations.pathreplacing}
+% ---- Nature-style figure palette and styles ----
+\definecolor{npblue}{HTML}{0072B2}
+\definecolor{nporange}{HTML}{E69F00}
+\definecolor{npgreen}{HTML}{009E73}
+\definecolor{npred}{HTML}{D55E00}
+\definecolor{nppurple}{HTML}{CC79A7}
+\definecolor{npslate}{HTML}{3A4A5A}
+\tikzset{
+  proc/.style={rounded corners=2pt,draw=npblue!55,fill=npblue!8,line width=0.6pt,align=center,inner sep=3.5pt,font=\small},
+  data/.style={rounded corners=2pt,draw=black!35,fill=black!4,line width=0.6pt,align=center,inner sep=3.5pt,font=\small},
+  good/.style={rounded corners=2pt,draw=npgreen!65,fill=npgreen!12,line width=0.6pt,align=center,inner sep=3pt,font=\small},
+  bad/.style={rounded corners=2pt,draw=npred!65,fill=npred!10,line width=0.6pt,align=center,inner sep=3pt,font=\small},
+  acc/.style={rounded corners=2pt,draw=nporange!70,fill=nporange!12,line width=0.6pt,align=center,inner sep=3pt,font=\small},
+  flow/.style={-{Latex[length=2.0mm,width=1.6mm]},line width=0.7pt,draw=black!60},
+  plab/.style={font=\sffamily\bfseries\large},
+  card/.style={draw=black!22,line width=0.6pt,fill=white,rounded corners=2pt},
+  ax/.style={->,line width=0.5pt,draw=black!50,>=stealth},
+}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{ragged2e}
+
+% sn-jnl sets table captions \raggedright but leaves figure captions justified.
+% Match them: redefine \@figurecaption exactly as the class does, plus \raggedright.
+\makeatletter
+\long\def\@figurecaption#1#2{{\figurecaptionfont\raggedright{\bfseries#1}\hskip.7em#2\par}}%
+\makeatother
+
+% Red-flag helper for author-supplied items still to be filled (visible in the PDF).
+\newcommand{\redflag}[1]{\textcolor{red}{[#1]}}
+
+\raggedbottom
+
+\begin{document}
+
+\title[MatPCR]{Physics as the label for measuring and correcting materials reasoning in multimodal models}
+
+\author*[1]{\fnm{Hasan} \sur{Kurban}}\email{hkurban@hbku.edu.qa}
+\author[1]{\fnm{Rasul} \sur{Khanbayov}}\email{rakh90100@hbku.edu.qa}
+\author*[2]{\fnm{Mustafa} \sur{Kurban}}\email{mkurbanphys@gmail.com}
+
+\affil*[1]{\orgdiv{College of Science and Engineering}, \orgname{Hamad Bin Khalifa University}, \orgaddress{\city{Doha}, \country{Qatar}}}
+\affil[2]{\orgname{Ankara University}, \orgaddress{\city{Ankara}, \country{Turkey}}}
+
+\abstract{Vision--language and language models increasingly interpret materials data, yet
+benchmarks report that they hallucinate invalid properties and violate physical law.
+Evaluation matches final answers to scarce human labels, while discovery
+agents verify final proposals or density functional theory (DFT) execution. Neither
+measures the physical consistency of a model's reasoning chain. Materials data carries its
+own physics, making a large class of materials reasoning verifiable without annotation. We
+introduce MatPCR, a label-free benchmark whose programmatic oracles check diffraction
+geometry through Bragg's law, scale bars, spectral peaks, and DFT-grounded stability,
+metallicity and property magnitude. We define the Physical-Consistency Rate over image and
+structure inputs; introduce Constraint-Grounded Self-Verification, an agentic loop whose
+gain survives self-refinement and equal-compute re-prompting controls; release an open
+verifier useful in distribution but near chance on all six held-out constraint types;
+and derive an exact identity for how oracle error displaces the reported rate.}
+
+\keywords{materials informatics, vision--language models, scientific reasoning, label-free evaluation, density functional theory}
+
+\maketitle
+
+\noindent\begin{tcolorbox}[colback=gray!6,colframe=gray!50,boxrule=0.5pt]
+\textbf{Key contributions.} (1) We reframe materials-model evaluation from answer accuracy to the physical
+consistency of the reasoning chain, checkable without human labels for a large,
+well-defined class of physical errors, across vision--language and language inputs. (2) We release MatPCR: programmatic,
+modality-specific physical oracles including DFT-grounded property checks. (3) We
+define PCR, a metric with bootstrap confidence intervals and a paired significance
+test, and prove an exact identity for the bias an imperfect oracle induces, which fixes
+what the oracle-validity gate must establish for the reported rate to be trustworthy.
+(4) We fine-tune and release an open physical-consistency verifier, a useful
+in-distribution detector whose transfer to six held-out constraint types is at or near
+chance,
+and benchmark it against zero-shot LLM-judge and self-confidence baselines. (5) We
+propose CGSV, a label-free agentic self-verification loop, isolate its effect from
+unaided self-refinement and equal-compute re-prompting controls, and give a protocol to measure
+its effect on violations.
+\end{tcolorbox}
+
+\section*{Introduction}
+% =====================================================================
+Materials data is governed by physics that is, in large part, programmatically
+checkable. A micrograph's scale bar fixes its spatial calibration; a powder
+diffraction pattern's peak positions follow from a crystal structure and the source
+through Bragg's law; a crystal's thermodynamic stability is set by its energy
+relative to a convex hull; and a computed property has a definite sign and order of
+magnitude. Vision--language models (VLMs), built on open instruction-tuned
+architectures\cite{liu2024llava} as well as closed frontier systems, and language
+models (LLMs) are now
+routinely asked to reason over such data step by step, in the free-form
+chain-of-thought style now standard for eliciting multi-step reasoning from these
+models,\cite{wei2022cot} and a large literature evaluates them on
+materials tasks;\cite{lai2025materials,npj2026vlmeval,choudhary2025microscopygpt,li2024mmsci}
+classical computer-vision pipelines for microstructure and defect analysis predate
+them.\cite{holm2020cv,li2018defect}
+
+The problem this creates is now well documented. Materials benchmarks report that
+general-purpose models hallucinate invalid property values\cite{llm4matbench2024,lai2025materials}
+and benchmark their spatial and structural reasoning over crystals,\cite{atomworld2025}
+motivating purpose-built multimodal materials models.\cite{matterchat2026} Beyond
+materials, recent work shows vision--language models violate basic physical law,
+for example failing conservation under transformation;\cite{conservationbench2026}
+in response, open vision--language models now add physics-grounded reinforcement
+learning and inference-time self-verification to strengthen physics-problem
+reasoning.\cite{p1vl2026} Across domains, a shared response has emerged:
+a model's reasoning should be audited against laws or logic in a
+reference-free way, whether through conservation-grounded metrics or deterministic
+formal checks.\cite{conservationbench2026,neurosymclinical2026}
+
+That literature, like multimodal evaluation generally, scores the final answer
+against human labels. A parallel and fast-growing line builds discovery agents that
+couple language models with simulation and first-principles tools to propose and
+screen candidates;\cite{dreams2025,crystalyse2025,mapps2025,atomagents2024,llmatdesign2024,matpc2025,kang2024chatmof,zhang2024honeycomb,survey2025aimat,eaa2026,matty2026}
+some verify the physics of final proposals, for example through physics-aware
+rejection sampling,\cite{physrej2025} mitigate hallucination during DFT
+execution,\cite{dreams2025} or pre-screen candidates with machine-learned
+interatomic potentials before DFT.\cite{genbaselines2025,chgnet2023} General-domain
+methods verify chains of thought via visual grounding or generic
+programs,\cite{corgi2025,mmverify2025,vlmr3_2026,prove2024} but against visual
+evidence or generic programs rather than domain physics, and on general benchmarks
+rather than materials. A third line builds verifiers and process-reward models that
+score reasoning steps;\cite{processbench2025,compassverifier2025,t1verify2025} these
+have driven reinforcement learning from verifiable rewards in mathematics and code,
+where correctness is programmatically checkable,\cite{deepseekr1_2025} but
+verification has remained under-specified for scientific reasoning, where answers are
+free-form and references are scarce.\cite{scirlvr2026} Across all three lines, the
+physical consistency of the model's reasoning chain on materials data is neither
+measured nor made reusable. Yet that is what
+determines whether a model can be trusted inside an analysis or screening pipeline:
+a chain that reads a 100~nm scale bar and then reports a 10~$\mu$m feature, assigns
+a peak to a $2\theta$ the stated phase cannot produce, or calls a structure stable
+that lies far above the convex hull, is wrong on its face. Checking the chain against
+external physics is also less susceptible than outcome- or judge-based verification to a
+plausible but physically inadmissible chain: a model's stated reasoning need not
+faithfully reflect its computation, so an unfaithful trace can satisfy a final-answer or
+judge check while resting on physics that does not hold, whereas a programmatic oracle
+tests the admissibility of the stated claims directly.\cite{faithflow2026}
+
+We make one observation: materials data contains its own
+ground truth for a large class of reasoning errors, and with first-principles access
+that ground truth extends from geometry to computed physics. These constraints are
+checkable with no human annotation, yielding a label-free signal that scales with the
+available public data and that applies equally to image inputs (VLMs) and
+structure or text inputs (LLMs). This brings to materials the reference-free correctness
+signal that has driven progress in mathematics and code, though here the oracles are
+imperfect-precision necessary conditions rather than the effectively exact checkers of
+those domains. We turn this into MatPCR, a benchmark and a set of
+oracles including DFT-grounded property checks; the Physical-Consistency Rate (PCR);
+Constraint-Grounded Self-Verification (CGSV); and an open, fine-tuned verifier
+released as a reusable artifact (Fig.~\ref{fig:teaser}).
+
+The distinction from each neighboring line is precise. Against materials benchmarks
+that score answers or property predictions,\cite{lai2025materials,llm4matbench2024,atomworld2025,matterchat2026}
+we score the physical consistency of the reasoning chain rather than the final
+answer, with a label-free oracle. Against physical-law evaluations of model
+reasoning,\cite{conservationbench2026,p1vl2026} we ground the check in materials
+characterization and first-principles DFT, span both image and structure inputs, and
+release a verifier and a label-free self-verification loop rather than only a diagnostic.
+Against discovery agents,\cite{dreams2025,physrej2025} we measure reasoning-chain
+consistency and act on oracle-flagged violations, rather than screen final proposals or
+run DFT. Against general verifiers
+and process-reward models,\cite{processbench2025,compassverifier2025,t1verify2025}
+including recent step-level verifiers for scientific or structured reasoning,\cite{sciprm2026,vprm2026}
+we supply a domain-specific, physics- and DFT-grounded, label-free signal for a setting
+where verification was previously under-specified. Those verifiers need an answer key, a
+tool call, or gold reasoning annotation; our oracle needs none of these. The two closest contemporaneous
+efforts use physics as a programmatic signal for materials models but stop short of the
+reasoning chain: one benchmarks vision--language models on X-ray-diffraction peak
+indexing, grading the final indexed answer against structure-derived labels on the
+diffraction modality alone,\cite{crystalxrdbench2026} and the other uses DFT-computed
+energies and band gaps as a label-free reward, but as a binary exact-match signal on the
+final answer during reinforcement-learning training rather than a chain-level
+consistency measure at evaluation and inference time.\cite{matpref2026} MatPCR differs
+from both in scoring the physical consistency of the intermediate chain, spanning four
+oracle modalities, and closing a label-free self-verification loop with a released
+verifier. To our knowledge no single prior effort combines a label-free,
+reasoning-chain-level, multi-oracle, materials-specific consistency benchmark with a
+self-verification loop and a released verifier.
+
+This work also extends a line of research by the present authors on multimodal
+resources and benchmarks for crystalline
+materials,\cite{polat2025crysmtm,polat2026extrapolation} on machine-learning property
+prediction for nanomaterials,\cite{polat2025quantumshellnet,polat2024multimodalnp} on
+benchmarking model hallucination,\cite{abdaljalil2025halluverse} and on
+physics-grounded benchmarks for dynamic systems.\cite{khanbayov2026iris} MatPCR is
+distinct from each: rather than providing a dataset, scoring generation or property
+prediction, or measuring text factuality, it measures the physical consistency of the
+reasoning chain itself and acts on the violations it finds, with label-free, DFT-grounded
+oracles.
+
+% Figure 1: teaser
+\begin{figure}[t]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\sffamily]
+\node[plab,anchor=west] at (-0.10,8.85){a)};
+\node[font=\sffamily\small\bfseries,anchor=west] at (0.55,8.85){Materials data fixes quantities a reasoning chain can be checked against};
+\node[card,minimum width=3.15cm,minimum height=2.65cm,anchor=south west] at (0.0,5.7){};
+\node[card,minimum width=3.15cm,minimum height=2.65cm,anchor=south west] at (3.3,5.7){};
+\node[card,minimum width=3.15cm,minimum height=2.65cm,anchor=south west] at (6.6,5.7){};
+\node[card,minimum width=3.15cm,minimum height=2.65cm,anchor=south west] at (9.9,5.7){};
+\node[font=\sffamily\fontsize{7}{8}\selectfont\bfseries,anchor=north west] at (0.16,8.25){\textcolor{npblue}{\textbullet}\ Diffraction};
+\draw[ax] (0.55,6.55)--(3.0,6.55);
+\draw[ax] (0.55,6.55)--(0.55,7.800000000000001);
+\draw[npblue,line width=1.4pt] (0.95,6.55)--(0.95,7.27);
+\draw[npblue,line width=1.4pt] (1.4,6.55)--(1.4,7.57);
+\draw[npblue,line width=1.4pt] (2.1,6.55)--(2.1,7.109999999999999);
+\draw[npblue,line width=1.4pt] (2.6,6.55)--(2.6,6.95);
+\draw[npred,line width=0.8pt,dash pattern=on 1.8pt off 1.4pt] (1.75,6.55)--(1.75,7.42);
+\node[npred,font=\sffamily\fontsize{6}{7}\selectfont] at (1.75,7.550000000000001){$\times$};
+\node[npred,font=\sffamily\fontsize{5.2}{6}\selectfont,anchor=south] at (2.2,7.6){claimed $33^\circ$};
+\node[font=\sffamily\fontsize{6}{7}\selectfont,anchor=north] at (1.8,6.5){$2\theta$};
+\node[font=\sffamily\fontsize{5.6}{7}\selectfont,rotate=90,anchor=south,black!65] at (0.45,7.15){intensity};
+\node[font=\sffamily\fontsize{5.2}{6.4}\selectfont,anchor=north,text=black!62] at (1.575,6.08){admissible $2\theta$ from Bragg's law};
+\node[font=\sffamily\fontsize{7}{8}\selectfont\bfseries,anchor=north west] at (3.46,8.25){\textcolor{npslate}{\textbullet}\ Micrograph};
+\fill[npslate!48,rounded corners=1pt] (3.5,6.55) rectangle (6.279999999999999,7.82);
+\fill[npslate!74] (3.9,7.5) circle (0.13);
+\fill[npslate!74] (4.3,6.92) circle (0.1);
+\fill[npslate!74] (4.85,7.5600000000000005) circle (0.16);
+\fill[npslate!74] (5.35,7.08) circle (0.12);
+\fill[npslate!74] (5.88,7.5600000000000005) circle (0.11);
+\fill[npslate!74] (6.16,6.98) circle (0.08);
+\fill[npslate!74] (4.55,7.24) circle (0.07);
+\fill[npslate!74] (5.68,6.78) circle (0.09);
+\fill[npslate!74] (4.08,6.75) circle (0.06);
+\fill[npslate!74] (5.12,6.88) circle (0.07);
+\draw[white!85,line width=0.5pt,fill=npslate!22] (4.88,7.220000000000001) ellipse (0.32 and 0.20);
+\draw[{Latex[length=1.2mm]}-{Latex[length=1.2mm]},white,line width=0.5pt] (4.58,7.220000000000001)--(5.18,7.220000000000001);
+\node[npred,font=\sffamily\fontsize{5.2}{6}\selectfont,fill=white,rounded corners=0.4pt,inner sep=0.8pt] at (5.02,7.68){claimed $d=10\,\mu$m};
+\draw[white,line width=1.6pt] (3.88,6.720000000000001)--(4.43,6.720000000000001);
+\node[white,font=\sffamily\fontsize{5.4}{6}\selectfont,anchor=south] at (4.16,6.75){100\,nm};
+\node[font=\sffamily\fontsize{5.2}{6.4}\selectfont,anchor=north,text=black!62] at (4.875,6.08){field of view from the scale bar};
+\node[font=\sffamily\fontsize{7}{8}\selectfont\bfseries,anchor=north west] at (6.76,8.25){\textcolor{nppurple}{\textbullet}\ Spectrum};
+\draw[ax] (7.1499999999999995,6.55)--(9.6,6.55);
+\draw[ax] (7.1499999999999995,6.55)--(7.1499999999999995,7.800000000000001);
+\draw[nppurple,line width=1.1pt] (7.199999999999999,6.67) .. controls (7.6499999999999995,6.71) and (7.779999999999999,7.6) .. (7.9799999999999995,7.6) .. controls (8.18,7.6) and (8.33,6.7700000000000005) .. (8.68,6.75) .. controls (8.879999999999999,6.74) and (8.93,7.1) .. (9.129999999999999,7.07) .. controls (9.28,7.050000000000001) and (9.43,6.71) .. (9.58,6.69);
+\fill[nppurple] (7.9799999999999995,7.6) circle (1.5pt);
+\node[npgreen!55!black,font=\sffamily\fontsize{5.4}{6}\selectfont,anchor=south] at (7.9799999999999995,7.66){real maximum};
+\draw[npred,line width=0.8pt,dash pattern=on 1.8pt off 1.4pt] (8.85,6.55)--(8.85,6.92);
+\node[npred,font=\sffamily\fontsize{6}{7}\selectfont] at (8.85,7.03){$\times$};
+\node[npred,font=\sffamily\fontsize{5.4}{6}\selectfont,anchor=south] at (8.899999999999999,7.12){claimed peak};
+\node[font=\sffamily\fontsize{6}{7}\selectfont,anchor=north] at (8.4,6.5){wavenumber};
+\node[font=\sffamily\fontsize{5.6}{7}\selectfont,rotate=90,anchor=south,black!65] at (7.05,7.15){intensity};
+\node[font=\sffamily\fontsize{5.2}{6.4}\selectfont,anchor=north,text=black!62] at (8.174999999999999,6.08){a peak needs a local maximum};
+\node[font=\sffamily\fontsize{7}{8}\selectfont\bfseries,anchor=north west] at (10.06,8.25){\textcolor{npgreen}{\textbullet}\ Convex hull};
+\draw[ax] (10.48,6.55)--(12.9,6.55);
+\draw[ax] (10.48,6.55)--(10.48,7.800000000000001);
+\fill[npgreen!10] (10.65,7.42)--(11.25,6.75)--(12.05,6.9)--(12.780000000000001,7.36)--(12.780000000000001,6.55)--(10.65,6.55)--cycle;
+\draw[npgreen,line width=1.0pt] (10.65,7.42)--(11.25,6.75)--(12.05,6.9)--(12.780000000000001,7.36);
+\fill[npgreen] (10.65,7.42) circle (1.4pt);
+\fill[npgreen] (11.25,6.75) circle (1.4pt);
+\fill[npgreen] (12.05,6.9) circle (1.4pt);
+\fill[npgreen] (12.780000000000001,7.36) circle (1.4pt);
+\fill[npred] (11.5,7.5200000000000005) circle (1.7pt);
+\draw[npred,line width=0.6pt,dash pattern=on 1.6pt off 1.2pt] (11.5,7.5200000000000005)--(11.5,6.83);
+\node[npred,font=\sffamily\fontsize{5.4}{6}\selectfont,anchor=west] at (11.620000000000001,7.5600000000000005){claimed stable};
+\node[font=\sffamily\fontsize{6}{7}\selectfont,anchor=north] at (11.700000000000001,6.5){composition};
+\node[font=\sffamily\fontsize{5.6}{7}\selectfont,rotate=90,anchor=south,black!65] at (10.38,7.15){energy};
+\node[font=\sffamily\fontsize{5.2}{6.4}\selectfont,anchor=north,text=black!62] at (11.475,6.08){stable only if $E_{\mathrm{hull}}\le\epsilon$};
+\node[plab,anchor=west] at (-0.10,5.05){b)};
+\node[font=\sffamily\fontsize{7.6}{9}\selectfont\bfseries,anchor=west] at (0.55,5.05){Each claim is tested against its own physics};
+\node[data,text width=5.90cm,minimum height=0.62cm,align=justify,font=\sffamily\fontsize{5.7}{7}\selectfont\itshape,inner sep=3pt] (chain) at (3.42,4.28){\hyphenchar\font=-1\relax ``\dots the strongest reflection sits near $2\theta{=}33^\circ$, the particle is about $10\,\mu$m across, and the computed gap is small, so the phase is metallic.''};
+\node[font=\sffamily\fontsize{5.6}{7}\selectfont,black!55,anchor=east] at (6.45,4.86){model reasoning chain};
+\node[acc,text width=1.75cm,minimum height=0.52cm,align=center,font=\sffamily\fontsize{5.9}{7}\selectfont,inner sep=2pt] (cA) at (1.35,3.32){peak at $2\theta=33^\circ$};
+\node[proc,fill=nppurple!10,draw=nppurple!55,text width=1.75cm,minimum height=0.62cm,align=center,font=\sffamily\fontsize{5.9}{7}\selectfont,inner sep=2pt] (oA) at (1.35,2.30){no reflection within\\$0.5^\circ$ of $33^\circ$};
+\node[bad,text width=1.75cm,minimum height=0.42cm,align=center,font=\sffamily\fontsize{5.9}{7}\selectfont,inner sep=2pt] (vA) at (1.35,1.40){\textcolor{npred}{$\times$}\ violation};
+\draw[flow](cA)--(oA);\draw[flow](oA)--(vA);
+\draw[flow,black!45](chain.south)--(1.35,3.72)--(cA.north);
+\node[acc,text width=1.75cm,minimum height=0.52cm,align=center,font=\sffamily\fontsize{5.9}{7}\selectfont,inner sep=2pt] (cB) at (3.42,3.32){feature $\approx10\,\mu$m};
+\node[proc,fill=nppurple!10,draw=nppurple!55,text width=1.75cm,minimum height=0.62cm,align=center,font=\sffamily\fontsize{5.9}{7}\selectfont,inner sep=2pt] (oB) at (3.42,2.30){scale bar sets a\\$2.1\,\mu$m field of view};
+\node[bad,text width=1.75cm,minimum height=0.42cm,align=center,font=\sffamily\fontsize{5.9}{7}\selectfont,inner sep=2pt] (vB) at (3.42,1.40){\textcolor{npred}{$\times$}\ violation};
+\draw[flow](cB)--(oB);\draw[flow](oB)--(vB);
+\draw[flow,black!45](chain.south)--(3.42,3.72)--(cB.north);
+\node[acc,text width=1.75cm,minimum height=0.52cm,align=center,font=\sffamily\fontsize{5.9}{7}\selectfont,inner sep=2pt] (cC) at (5.49,3.32){phase is metallic};
+\node[proc,fill=nppurple!10,draw=nppurple!55,text width=1.75cm,minimum height=0.62cm,align=center,font=\sffamily\fontsize{5.9}{7}\selectfont,inner sep=2pt] (oC) at (5.49,2.30){computed gap\\$0.02\,\mathrm{eV}\le0.05$};
+\node[good,text width=1.75cm,minimum height=0.42cm,align=center,font=\sffamily\fontsize{5.9}{7}\selectfont,inner sep=2pt] (vC) at (5.49,1.40){\textcolor{npgreen!55!black}{\checkmark}\ consistent};
+\draw[flow](cC)--(oC);\draw[flow](oC)--(vC);
+\draw[flow,black!45](chain.south)--(5.49,3.72)--(cC.north);
+\draw[nporange,line width=0.7pt](1.35,1.19)--(1.35,0.95);
+\draw[flow,nporange](1.35,0.95)--(6.78,0.95)--(6.78,4.28)--(chain.east);
+\node[font=\sffamily\fontsize{5.6}{7}\selectfont,black,anchor=north] at (5.10,0.86){violations returned (CGSV, diffraction and spectra only)};
+\node[font=\sffamily\fontsize{5.5}{7}\selectfont,black!55,anchor=west,align=left] at (0.15,0.24){Schematic: the chain and the numbers illustrate the\\checks; they are not a model output.};
+\begin{scope}[shift={(7.35,0)}]
+\node[plab,anchor=west] at (-0.10,5.05){c)};
+\node[font=\sffamily\fontsize{7.6}{9}\selectfont\bfseries,anchor=west] at (0.55,5.05){What the oracles actually catch};
+\def\xb#1{2.62 + #1/80*2.55}
+\node[font=\sffamily\fontsize{6}{8}\selectfont\itshape,black!65,anchor=west] at (0.02,4.52){Diffraction, 78 human-confirmed violations};
+\node[font=\sffamily\fontsize{6}{8}\selectfont,anchor=east] at (2.52,4.12){gridline or scale misreading};
+\fill[npblue]({\xb{0}},4.01) rectangle ({\xb{70.5}},4.23);
+\node[font=\sffamily\fontsize{5.9}{7}\selectfont,anchor=west,text=black!65] at ({\xb{70.5}+0.08},4.12){70.5\%};
+\node[font=\sffamily\fontsize{6}{8}\selectfont,anchor=east] at (2.52,3.76){peak misidentification};
+\fill[npblue]({\xb{0}},3.65) rectangle ({\xb{14.1}},3.87);
+\node[font=\sffamily\fontsize{5.9}{7}\selectfont,anchor=west,text=black!65] at ({\xb{14.1}+0.08},3.76){14.1\%};
+\node[font=\sffamily\fontsize{6}{8}\selectfont,anchor=east] at (2.52,3.40){other};
+\fill[black!35]({\xb{0}},3.29) rectangle ({\xb{15.4}},3.51);
+\node[font=\sffamily\fontsize{5.9}{7}\selectfont,anchor=west,text=black!65] at ({\xb{15.4}+0.08},3.40){15.4\%};
+\node[font=\sffamily\fontsize{6}{8}\selectfont\itshape,black!65,anchor=west] at (0.02,3.04){Microscopy, 93 human-confirmed violations};
+\node[font=\sffamily\fontsize{6}{8}\selectfont,anchor=east] at (2.52,2.64){scale-bar unit error};
+\fill[npslate]({\xb{0}},2.53) rectangle ({\xb{37.6}},2.75);
+\node[font=\sffamily\fontsize{5.9}{7}\selectfont,anchor=west,text=black!65] at ({\xb{37.6}+0.08},2.64){37.6\%};
+\node[font=\sffamily\fontsize{6}{8}\selectfont,anchor=east] at (2.52,2.28){unit conversion};
+\fill[npslate]({\xb{0}},2.17) rectangle ({\xb{23.7}},2.39);
+\node[font=\sffamily\fontsize{5.9}{7}\selectfont,anchor=west,text=black!65] at ({\xb{23.7}+0.08},2.28){23.7\%};
+\node[font=\sffamily\fontsize{6}{8}\selectfont,anchor=east] at (2.52,1.92){scale-factor arithmetic};
+\fill[npslate]({\xb{0}},1.81) rectangle ({\xb{14.0}},2.03);
+\node[font=\sffamily\fontsize{5.9}{7}\selectfont,anchor=west,text=black!65] at ({\xb{14.0}+0.08},1.92){14.0\%};
+\node[font=\sffamily\fontsize{6}{8}\selectfont,anchor=east] at (2.52,1.56){other};
+\fill[black!35]({\xb{0}},1.45) rectangle ({\xb{24.7}},1.67);
+\node[font=\sffamily\fontsize{5.9}{7}\selectfont,anchor=west,text=black!65] at ({\xb{24.7}+0.08},1.56){24.7\%};
+\draw[black!45,line width=0.5pt]({\xb{0}},1.32)--({\xb{80}},1.32);
+\draw[black!45,line width=0.4pt]({\xb{0}},1.32)--({\xb{0}},1.25);
+\node[font=\sffamily\fontsize{6}{7}\selectfont,anchor=north] at ({\xb{0}},1.23){0\%};
+\draw[black!45,line width=0.4pt]({\xb{20}},1.32)--({\xb{20}},1.25);
+\node[font=\sffamily\fontsize{6}{7}\selectfont,anchor=north] at ({\xb{20}},1.23){20\%};
+\draw[black!45,line width=0.4pt]({\xb{40}},1.32)--({\xb{40}},1.25);
+\node[font=\sffamily\fontsize{6}{7}\selectfont,anchor=north] at ({\xb{40}},1.23){40\%};
+\draw[black!45,line width=0.4pt]({\xb{60}},1.32)--({\xb{60}},1.25);
+\node[font=\sffamily\fontsize{6}{7}\selectfont,anchor=north] at ({\xb{60}},1.23){60\%};
+\draw[black!45,line width=0.4pt]({\xb{80}},1.32)--({\xb{80}},1.25);
+\node[font=\sffamily\fontsize{6}{7}\selectfont,anchor=north] at ({\xb{80}},1.23){80\%};
+\node[font=\sffamily\fontsize{6.2}{8}\selectfont,anchor=north] at ({\xb{40}},0.92){share of confirmed violations};
+\node[font=\sffamily\fontsize{5.5}{7}\selectfont,black!55,anchor=west,align=left] at (0.02,0.24){Spectra and the DFT families are excluded: their human\\reviews predate the final oracle definitions.};
+\end{scope}
+\end{tikzpicture}}
+\caption{\justifying\textbf{Physics is the label.} \textbf{a)} Materials data fixes quantities that a stated claim must respect: which $2\theta$ can carry a reflection, through Bragg's law and the reference pattern of the named phase; the field of view, through the calibration a scale bar sets; whether a claimed spectral peak coincides with a genuine local maximum of sufficient prominence; and whether a composition lies within tolerance of the computed convex hull. Each constraint is checkable with no human annotation. \textbf{b)} A chain is parsed into its checkable claims and each claim is tested against the oracle for its own constraint type, returning a per-claim verdict rather than a single score for the answer; detected violations are returned to the model by Constraint-Grounded Self-Verification, which is applied to the diffraction and spectra constraint types only (Methods). The chain and the values shown are schematic and illustrate the checks; they are not a model output. \textbf{c)} The violations these oracles flag are legible physical mistakes, not parsing artifacts. For the two oracle families whose human review postdates the final oracle definitions, an open-ended categorization of every confirmed violation gives a small taxonomy: diffraction failures are dominated by misreading the gridlines or the axis scale, and microscopy failures by scale-bar unit and unit-conversion errors, rather than by errors in the arithmetic that follows. Percentages are shares of the 78 and 93 confirmed violations respectively (Methods).}
+\label{fig:teaser}
+\end{figure}
+
+% =====================================================================
+\section*{Results}
+% =====================================================================
+\emph{All quantitative results below are measured, not projected. DFT-grounded
+numbers (stability, metallicity, and magnetism-magnitude constraints, and every column or
+cell marked with $^{*}$) rest on Materials Project reference values.}
+
+\subsection*{Oracle validity: positive control and precision audit}
+Every downstream number rests on the oracles firing on genuine physical violations
+rather than on parsing artifacts, so we validated the oracles before running any model
+(Table~\ref{tab:exp1}). In a positive control we injected synthetic violations into real
+reference data at planted rates of 10\%, 30\%, and 50\% and measured the fraction the
+oracle missed. All six oracle families recovered every planted violation at every rate
+(maximum false-negative rate 0.0000), evidence that the oracles are complete on the
+injected violation types; under the idealization that this completeness extends to
+genuine violations (an oracle recall $\hat d=1$; Methods), Corollary~\ref{cor:onesided}
+gives $\mathrm{PCR}\le\mathrm{PCR}^\star$ for the true consistency rate
+$\mathrm{PCR}^\star$, so the measured PCR does not overstate it for these oracles. We then audited oracle precision by human review of
+at least 100 real oracle-fired cases per family, drawn from Qwen2.5-VL-7B and Gemini 2.5
+Flash Lite outputs on real data (the full real/false-positive/unsure breakdown for all six
+families is shown in Supplementary Fig.~S1). For diffraction and microscopy the audited precision
+was 77.2\% (XRD, $n=101$) and 88.6\% (SEM, $n=105$). The XRD
+false positives were predominantly a tolerance effect, with 16 of 23 disagreed cases
+within $1.0^\circ$ of a real reference peak, just outside the $0.5^\circ$ tolerance
+(Fig.~\ref{fig:oracle-examples}a shows three such real cases). The Raman
+spectrum oracle was subsequently revised, mid-project, from a windowed-maximum check to a
+genuine-local-maximum-with-prominence check (Methods), specifically because that first
+precision audit (72.8\%, $n=103$) showed the prominence criterion did not fully match human
+judgement of a peak on noisy, baseline-drifting spectra. Authors completed a fresh
+precision audit of the revised spectrum oracle, reviewing all $n=495$
+oracle-fired cases produced under the corrected oracle: audited precision is
+\textbf{92.7\%} (457 real violations, 36 false positives, 2 unsure, excluded from the
+ratio). Root-causing the 36 false positives shows this is again predominantly a
+\emph{tolerance} effect, not a semantic mismatch between the oracle's criterion and human
+judgement: 34 of 36 (94\%) have a claimed peak within $10\,\mathrm{cm}^{-1}$ of a real,
+independently detected local maximum, just outside the oracle's $5\,\mathrm{cm}^{-1}$
+tolerance window (the same root cause already identified for diffraction's false
+positives, at a different tolerance); only 2 of 36 are genuinely far from any real peak
+($>30\,\mathrm{cm}^{-1}$). This is a substantially cleaner result than the pre-revision
+oracle's audit, where most false positives had no real peak-like structure at the claimed
+position at all -- direct evidence the revision (Methods) fixed a real semantic gap, not
+just moved the same failure mode around (Fig.~\ref{fig:oracle-examples}b shows three
+such real cases). For the three DFT-grounded families (stability, metallicity and
+property magnitude) Table~\ref{tab:exp1} reports audited precision of 95.3\%, 94.7\% and
+92.2\% at $n=107$, 114 and 115. This precision pass was performed, reviewing all 336 oracle-fired cases across the three families (107 stability,
+114 metallicity, 115 magnetism); the domain co-author's independent re-validation of the
+reference protocol itself is still outstanding. During the positive control we found
+and fixed one real oracle bug: the magnetization check compared the computed reference to
+zero with exact floating-point equality, which misfired on 82 of 3000 real materials
+whose computed magnetization is near but not exactly zero, and we replaced it with an
+absolute-tolerance zero check.
+
+%\begin{figure}[t]
+%\centering
+%\includegraphics[width=\linewidth]{figures/oracle_examples/new_xrd_oracle_figure.pdf}
+%\caption{\textbf{Peak-position inconsistencies flagged by the diffraction oracle.} Three
+%real, human-confirmed oracle-fired cases: the model's claimed $2\theta$ position, the
+%nearest genuine Bragg reflection in the same real diffractogram, and the resulting
+%tolerance violation. All three claims sit just outside the oracle's $0.5^\circ$ tolerance
+%window around a real peak, consistent with the tolerance-driven false-positive pattern
+%described above.}
+%\label{fig:xrd-oracle-examples}
+%\end{figure}
+
+%\begin{figure}[t]
+%\centering
+%\includegraphics[width=\linewidth]{figures/oracle_examples/new_raman_oracle_figure.pdf}
+%\caption{\textbf{Peak-position inconsistencies flagged by the Raman spectrum oracle.}
+%Three real, human-confirmed oracle-fired cases: the model's claimed Raman shift, the
+%nearest genuine strong peak in the same real spectrum, and the resulting tolerance
+%violation. All three claims sit just outside the oracle's %$5\,\mathrm{cm}^{-1}$ tolerance
+%window around a real peak, the same root cause identified for 34 of 36 %(94\%) of the
+%revised spectrum oracle's false positives.}
+%\label{fig:raman-oracle-examples}
+%\end{figure}
+
+%\begin{figure}[t]
+%\centering
+%\includegraphics[width=\linewidth]{figures/oracle_examples/new_sem_oracle_figure.pdf}
+%\caption{\textbf{Scale-bar inconsistencies flagged by the microscopy oracle.} Three real,
+%human-confirmed oracle-fired cases: the model's claimed feature size against the real,
+%burned-in scale bar of the same NFFA-EUROPE micrograph. Claimed sizes exceed the field of
+%view the scale bar implies by roughly $10$--$100\times$, consistent with the scale-bar
+%unit and scale-factor arithmetic errors that dominate the microscopy violation taxonomy
+%(Results).}
+%\label{fig:sem-oracle-examples}
+%\end{figure}
+
+
+
+\begin{figure}[!htbp]
+    \centering
+
+    \includegraphics[width=\linewidth,height=0.235\textheight,keepaspectratio]
+    {figures/oracle_examples/new_xrd_oracle_figure.pdf}
+
+    \vspace{1mm}
+
+    \includegraphics[width=\linewidth,height=0.235\textheight,keepaspectratio]
+    {figures/oracle_examples/new_raman_oracle_figure.pdf}
+
+    \vspace{1mm}
+
+    \includegraphics[width=\linewidth,height=0.235\textheight,keepaspectratio]
+    {figures/oracle_examples/new_sem_oracle_figure.pdf}
+
+    \caption{\justifying\textbf{Representative inconsistencies identified by the multimodal
+    oracles.}
+    \textbf{a}, X-ray diffraction cases in which the model-reported
+    $2\theta$ position lies outside the $0.5^\circ$ tolerance around the nearest
+    genuine Bragg reflection.
+    \textbf{b}, Raman spectroscopy cases in which the model-reported Raman shift
+    exceeds the $5\,\mathrm{cm}^{-1}$ tolerance relative to the nearest genuine
+    spectral peak.
+    \textbf{c}, Microscopy cases in which the model-reported feature size is
+    inconsistent with the physical scale indicated by the embedded scale bar,
+    producing discrepancies of approximately $10$--$100\times$.
+    All examples are human-confirmed oracle activations and illustrate
+    representative tolerance, unit-conversion, and scale-factor failure modes.}
+
+    \label{fig:oracle-examples}
+\end{figure}
+
+
+
+\begin{table}[t]
+\centering
+\caption{\justifying Oracle validity (the gate, run before any model). The positive-control
+false-negative rate is the maximum across three planted violation rates (10\%, 30\%,
+50\%); all three gave 0.0000 for every family. Audited precision is the fraction of real
+oracle-fired cases, from Qwen2.5-VL-7B and Gemini 2.5 Flash Lite outputs on real data,
+that a human reviewer judged to be genuine physical violations. The spectrum figure
+reflects the revised oracle (a genuine local-maximum-with-prominence check, Methods),
+audited by authors over all 495 real fired cases; the pre-revision
+oracle's figure (72.8\%, $n=103$) is superseded and shown only as a footnote. The three DFT-grounded families' figures were produced under the
+corrected oracles (magnitude-only magnetism check, metallicity abstention band, near-hull
+stability framing, Methods) and against Materials Project standardized computational
+references, and were reviewed by authors (Results). They have not been
+independently re-validated by the domain co-author on this reviewed batch.}
+\label{tab:exp1}
+{\scriptsize\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{l l S[table-format=1.4] c}
+\toprule
+Oracle family & Data source & {FN rate} & {Audited precision} \\
+\cmidrule(lr){3-3}\cmidrule(lr){4-4}
+& & {\itshape positive control} & {\itshape human audit} \\
+\midrule
+\multicolumn{4}{l}{\itshape Geometric oracles (gate passed)}\\
+Diffraction (XRD)       & opXRD                & 0.0000 & 77.2\%\ \ ($n{=}101$) \\
+Microscopy (SEM)        & NFFA-EUROPE          & 0.0000 & 88.6\%\ \ ($n{=}105$) \\
+Spectra (Raman)         & RRUFF                & 0.0000 & 92.7\%\ \ ($n{=}495$)$^{\dagger}$ \\
+\addlinespace
+\multicolumn{4}{l}{\itshape DFT-grounded oracles (gate passed; provisional, see caption)}\\
+Stability (hull)        & Materials Project    & 0.0000 & 95.3\%\ \ ($n{=}107$) \\
+Metallicity (band gap)  & Materials Project    & 0.0000 & 94.7\%\ \ ($n{=}114$) \\
+Magnetism (magnitude)   & Materials Project    & 0.0000 & 92.2\%\ \ ($n{=}115$) \\
+\bottomrule
+\end{tabular}}
+\end{table}
+{\scriptsize $^{\dagger}$Revised oracle (genuine local-maximum-with-prominence check);
+supersedes an earlier pre-revision figure of 72.8\% ($n=103$), see Results.}
+
+\subsection*{Physical consistency of current models}
+We measure the Physical-Consistency Rate and per-constraint-type violation rates for
+the four originally evaluated models, four later-generation frontier or open models, and
+one flagship-tier addition
+across diffraction, microscopy, spectra, and
+DFT-grounded constraints, separately for image (VLM) and structure or text (LLM)
+inputs (Table~\ref{tab:main}, Fig.~\ref{fig:results}a), $n=30$ items per (model, constraint-type) cell per seed, $S=3$ seeds
+pooled per cell (4{,}472 checkable records in total across the nine models). These numbers
+supersede an earlier pass: the spectrum oracle was revised mid-project from a
+windowed-maximum check to a genuine-local-maximum-with-prominence check (Methods), which
+lowered every model's spectra column substantially, and the magnetism oracle was
+redesigned to a per-atom-normalized magnitude check that never compares sign (Methods);
+both changes are oracle corrections, not model regressions, and every number below
+reflects the corrected oracles. Overall PCR ranges from 0.555
+(Qwen3-VL-8B-Instruct) to 0.774 (GPT-5.6-Terra); models are
+markedly more consistent on microscopy (0.67--1.00) than on spectra (0.07--0.83) or
+diffraction (0.47--0.82), and the DFT-grounded column is more tightly clustered
+(0.64--0.74) than any single geometric constraint, without one constraint type standing
+out as uniformly hardest once the corrected oracles are applied. The later-released API models do not uniformly outperform their
+earlier siblings: GPT-5.6-Terra improves clearly over GPT-4o
+overall (0.774 vs.\ 0.687, bootstrap 95\% CIs $[0.736,0.810]$ vs.\ $[0.643,0.728]$, not
+overlapping), but Claude Opus 4.6 does not improve over Claude Sonnet 4.5 (0.655 vs.\
+0.656, CIs overlapping), and the reasoning-mode Qwen3-VL-8B-Thinking does not improve over
+its non-reasoning sibling (0.579 vs.\ 0.555, CIs overlapping). Explicit reasoning
+mode alone therefore does not reliably raise PCR in this sample. The locally run model is the weakest on microscopy
+(0.667, 95\% CI $[0.563,0.759]$); six of the other seven models exceed it with
+non-overlapping intervals (0.885--1.000), while Qwen3-VL-8B-Instruct at 0.802
+($[0.709,0.884]$) does not separate from it. We do not yet know whether the gap
+reflects genuine scale-bar-reading skill or a difference in how each model handles the
+info-bar layout variety in the source micrographs, and do not claim more than the
+measured difference. The high absolute microscopy rates should also be read against the
+looseness of this oracle, which flags only feature sizes exceeding the field of view (a
+necessary, not sufficient, condition), so a near-ceiling rate partly reflects an easily
+satisfied check.
+
+\begin{table}[t]
+\centering
+\caption{\justifying Main evaluation: Physical-Consistency Rate by constraint type and overall,
+$n=30$ items per (model, constraint-type) cell per seed, $S=3$ seeds pooled per cell
+(bootstrap 95\% CIs omitted from this compact view; see Supplementary Table~S1 for the
+full per-cell confidence intervals, and the Methods for why $\rho_t=1-\mathrm{PCR}$ here). DFT column combines the stability, metallicity,
+and magnitude constraint types. DFT-grounded reference values (Materials
+Project) are not yet independently validated by the domain co-author; treat DFT
+and All-column numbers as provisional pending that review. The first four rows are the
+originally evaluated models; the next four are the later-generation refresh
+(Methods, Baselines subsection). $^{\ddagger}$GPT-5.6-Sol is OpenAI's flagship tier, added
+to test whether it exceeds the balanced-tier GPT-5.6-Terra above within the same
+generation; its All-column bootstrap 95\% CI, $[0.731,0.806]$, overlaps Terra's
+$[0.736,0.810]$, so flagship does not separate from balanced despite leading on
+diffraction alone (Discussion).}
+\label{tab:main}
+{\scriptsize\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{l *{5}{S[table-format=1.3]}}
+\toprule
+& \multicolumn{5}{c}{Physical-Consistency Rate (higher is more consistent)} \\
+\cmidrule(lr){2-6}
+Model & {Diffraction} & {Microscopy} & {Spectra} & {DFT$^{*}$} & {All$^{*}$} \\
+\midrule
+Qwen2.5-VL-7B \textit{(open)} & 0.500 & 0.667 & 0.148 & 0.685 & 0.565 \\
+Gemini 2.5 Flash Lite & 0.517 & \bfseries 1.000 & 0.278 & 0.641 & 0.622 \\
+GPT-4o                & 0.625 & 0.954 & 0.068 & 0.717 & 0.687 \\
+Claude Sonnet 4.5     & 0.547 & 0.977 & 0.189 & \bfseries 0.736 & 0.656 \\
+\addlinespace
+Claude Opus 4.6            & 0.578 & 0.954 & 0.244 & 0.714 & 0.655 \\
+GPT-5.6-Terra              & 0.797 & 0.951 & \bfseries 0.833 & 0.694 & \bfseries 0.774 \\
+Qwen3-VL-8B-Instruct       & 0.468 & 0.802 & 0.133 & 0.642 & 0.555 \\
+Qwen3-VL-8B-Thinking       & 0.578 & 0.885 & 0.092 & 0.639 & 0.579 \\
+\addlinespace
+GPT-5.6-Sol$^{\ddagger}$   & \bfseries 0.820 & 0.915 & 0.764 & 0.715 & 0.770 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+{\scriptsize $^{*}$Provisional: DFT reference values await the domain co-author's protocol sign-off.}
+
+\subsection*{Accuracy versus consistency}
+On three constraint types with a genuine, non-circular accuracy criterion distinct
+from the oracle's own tolerance (diffraction: agreement with the single nearest true
+peak to $0.1^{\circ}$, versus the oracle's looser $0.5^{\circ}$ tolerance; spectra:
+agreement with the nearest real measured peak to $2\,\mathrm{cm}^{-1}$, versus the
+oracle's prominence-based check; stability: agreement with the Materials Project's own
+strict stability label, versus the oracle's looser $0.05\,\mathrm{eV\,atom^{-1}}$
+tolerance), we report accuracy alongside PCR and the four-cell breakdown on the same
+920 items ($n=30$ per (model, constraint-type) cell, $S=3$ seeds; recomputed directly from
+\texttt{experiments/exp3\_results.jsonl}, which supersedes an earlier 918-item run). This
+figure is not directly comparable to Supplementary Table~S1's 923 checkable records for the
+same four models' diffraction, spectra and stability cells: that table reports Experiment 2's
+main PCR sweep, a separately drawn sample for a different purpose, not this accuracy-versus-
+consistency analysis; the two are expected to differ and are not a reconciliation target for
+each other. Microscopy is excluded: its
+prompt elicits only a feature-size claim, so no non-circular accuracy ground truth is
+available without a different prompt design. These numbers reflect the corrected
+spectrum oracle (Methods) and supersede an earlier pass in which the gap was reported
+differently. Across all 12 (model, constraint-type) cells,
+accuracy and PCR disagree on a mean of 22.2\% of items, confirming that PCR is not
+answer accuracy under another name (Fig.~\ref{fig:pipeline}b,c). Diffraction is dominated by items
+that are wrong by the tight accuracy criterion yet still oracle-consistent (up to 36
+of 62 items in one diffraction cell, gap 58.1\%): models are frequently close enough to satisfy the
+oracle's looser tolerance while measurably off the exact peak. Spectra, under the corrected
+oracle, is now dominated by the opposite pattern from before the correction: most
+disagreement is items wrong by both criteria (WI) rather than wrong-but-consistent (WC),
+so the accuracy-consistency gap for spectra is small (4.2--11.2\% across models) rather
+than the large WC-dominated gap the pre-correction oracle produced; the earlier framing of
+spectra as the largest-gap constraint no longer holds under the corrected oracle. Stability
+still shows its own distinct pattern, dominated by items that are accurate by Materials
+Project's own label yet flagged inconsistent by the oracle's looser tolerance, a direct
+consequence of the two definitions of stability disagreeing on a substantial share of real
+materials: on a random sample of 3,000 real Materials Project entries, the oracle's
+$\epsilon=0.05\,\mathrm{eV\,atom^{-1}}$ tolerance and Materials Project's own strict
+\texttt{is\_stable} label disagree on 571 (19.0\%); its gap (18.0--27.8\% across models) is now
+comparable to, rather than smaller than, diffraction's. One model (Qwen2.5-VL-7B) shows a raw stability accuracy
+of 81/82 (0.988) on the unstable class but 0/8 on the small stable class, the clearest case of the base-rate confound: because the sampled materials skew
+toward the unstable class, near-ceiling raw accuracy reflects the base rate rather than
+discriminative skill. Balanced accuracy (the mean of per-class accuracy, correcting for
+this skew) is 0.494 (Qwen2.5-VL-7B), 0.681 (Gemini 2.5 Flash Lite), 0.476 (GPT-4o), and
+0.971 (Claude Sonnet 4.5). Three of four models fall to at or near chance once the
+class imbalance is corrected for, and only Claude Sonnet 4.5's apparent skill survives
+this correction ($n=90$ per model, 5--8 stable and 82--85 unstable materials per model's
+sample).
+
+\subsection*{Effect of self-verification}
+We measure PCR before and after CGSV on identical items and test the change with the
+exact paired McNemar test, reporting fixes, regressions, and residual violations
+(Table~\ref{tab:cgsv}, Fig.~\ref{fig:results}b), on diffraction and spectra, the two constraint types where
+the oracle's feedback is an actionable physical constraint the model can re-examine
+without the feedback message itself revealing the answer (a scale-bar violation
+message would state the conversion factor outright, and the three DFT claim types are
+single-shot binary judgments with no intermediate quantity to reconsider). $n=30$
+items per (model, constraint-type) cell, $S=3$ seeds, $K=2$ maximum revision rounds, 545
+checkable records in total (superseding an earlier 555-record pass under the
+pre-correction spectrum oracle). CGSV never regresses a previously consistent item: the
+regression count $b=0$ in every one of the 8 (model, constraint-type) cells and in the
+pooled per-model totals. CGSV significantly raises PCR for all four models pooled across both
+constraint types (Qwen2.5-VL-7B $0.338\!\to\!0.439$, $p=3.1\times10^{-5}$; Gemini 2.5
+Flash Lite $0.521\!\to\!0.632$, $p=2.4\times10^{-4}$; GPT-4o
+$0.434\!\to\!0.593$, $p=7.6\times10^{-6}$; Claude Sonnet 4.5 $0.373\!\to\!0.639$,
+$p=4.6\times10^{-13}$); under the corrected spectrum oracle, absolute PCR is lower
+throughout (tracking the main table's spectrum collapse) but the relative gain and its
+significance are, if anything, stronger for every model than under the earlier oracle.
+Residual violations remain in every cell after $K=2$ rounds (roughly 40--90\% of
+items under the stricter corrected spectrum oracle), so CGSV measurably improves but does not eliminate violations, a positive
+control on the oracles, not a guarantee of full correction.
+Because CGSV is scored by the same oracles that supply its feedback, a rise in PCR is
+consistent both with the model correcting the flagged physics and with it retracting or
+hedging the flagged claim; separating these requires the number of checkable claims each
+chain exposes before and after CGSV. We checked this directly: this benchmark's
+single-claim-per-item design means every one of the 545 items exposed exactly one
+checkable claim in every round it reached, before and after revision ($k_i=1$ for all $i$,
+confirmed by comparing each item's number of recorded claim values against its number of
+revision rounds; zero items exposed fewer claims after CGSV than before). Because $k_i$
+never changes, a PCR gain here cannot be explained by the model dropping a checkable claim;
+it must reflect the claim's stated value changing to one the oracle judges consistent. This
+rules out retraction in the sense of claim removal. It does not rule out retreat: a model
+could move to a value that is trivially admissible rather than to the physically right one,
+which the oracle, being a necessary-condition check, would accept either way. Distinguishing
+those two would require the post-CGSV accuracy of the revised claim. We computed it, applying
+the same non-circular accuracy criteria as the accuracy-versus-consistency analysis
+($0.1^\circ$ for diffraction, $2\,\mathrm{cm}^{-1}$ for spectra) to each item's final-round
+claim: post-CGSV accuracy is 29.8\% on diffraction ($n=252$) and 9.9\% on spectra ($n=293$),
+both far below the corresponding post-CGSV PCR (Table~\ref{tab:cgsv}). Most of the CGSV gain
+is therefore retreat, not correction: the model moves to a value the oracle's necessary
+condition accepts far more often than it moves to the value that is actually right. CGSV
+demonstrably reduces oracle-detected violations; this result shows it does not, on the
+evidence here, demonstrably improve the underlying physical correctness of the claim. We separately isolate whether this gain is
+attributable to the oracle signal specifically, or to extra inference-time compute alone,
+with three controls matched to CGSV's items, models, and decoding
+(Baselines subsection): unaided self-refinement (the model is told to double-check its
+answer with no oracle feedback) shows no significant change (before $0.349$, after $0.339$, $n=542$, $b=34$, $c=29$, $p=0.615$);
+generic equal-compute re-prompting (the model is simply asked to reconsider) likewise shows
+no significant change (before $0.358$, after $0.342$, $n=562$, $b=24$, $c=15$, $p=0.20$); both controls, unlike CGSV
+itself, show nonzero regressions ($b>0$). Best-of-3 independent resampling gives a
+random-pick PCR of $0.363$ and an oracle-oracle upper bound (best of 3) of $0.419$
+($n=614$). Both fall below CGSV's oracle-guided after-PCR for every model, though the
+margin over the weakest, Qwen2.5-VL-7B at $0.439$, is only $0.02$, and the resampling run
+draws its own item sample, so we do not test the difference. Together these
+controls support attributing CGSV's gain to the physical-consistency signal specifically,
+not to generic self-reflection or additional sampling at equal compute.
+
+\begin{table}[t]
+\centering
+\caption{\justifying Effect of Constraint-Grounded Self-Verification, pooled across diffraction
+and spectra, $n=30$ items per (model, constraint-type) cell, $S=3$ seeds, $K=2$ rounds,
+under the corrected spectrum oracle (Methods).
+$\Delta$: PCR gain (after minus before); $b$: regressions (before-consistent,
+after-inconsistent); $c$: fixes (before-inconsistent, after-consistent); $p$: exact
+two-sided McNemar test on $(b,c)$; $p_{\mathrm{Holm}}$: Holm-Bonferroni-adjusted $p$ over
+this table's 6-test family (Methods, Statistics paragraph;
+\texttt{experiments/exp15\_multiplicity\_correction.py}). All four CGSV effects survive
+this strictest correction; both controls remain non-significant.}
+\label{tab:cgsv}
+{\scriptsize\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{l S[table-format=1.3] S[table-format=1.3] S[table-format=+1.3] S[table-format=1.0] S[table-format=2.0] c c}
+\toprule
+& \multicolumn{3}{c}{PCR} & \multicolumn{2}{c}{Discordant} & & \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-6}
+Model & {before} & {after} & {$\Delta$} & {$b$} & {$c$} & {$p$} & {$p_{\mathrm{Holm}}$} \\
+\midrule
+Qwen2.5-VL-7B         & 0.338 & 0.439 & 0.101 & 0 & 16 & $3.1\times10^{-5}$ & $1.2\times10^{-4}$ \\
+Gemini 2.5 Flash Lite & 0.521 & 0.632 & 0.111 & 0 & 13 & $2.4\times10^{-4}$ & $7.3\times10^{-4}$ \\
+GPT-4o                & 0.434 & 0.593 & \bfseries 0.159 & 0 & 18 & $7.6\times10^{-6}$ & $3.8\times10^{-5}$ \\
+Claude Sonnet 4.5     & 0.373 & 0.639 & \bfseries 0.266 & 0 & 42 & $4.6\times10^{-13}$ & $2.7\times10^{-12}$ \\
+\midrule
+\multicolumn{8}{l}{\itshape Mechanism-isolation controls (pooled across models, both constraint types)}\\
+Self-refinement (no oracle) & 0.349 & 0.339 & -0.010 & 34 & 29 & 0.615 & 0.615 \\
+Generic re-prompting        & 0.358 & 0.342 & -0.016 & 24 & 15 & 0.20 & 0.399 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection*{Verifier for violation prediction}
+We fine-tune Qwen2.5-0.5B-Instruct with LoRA on oracle-derived labels alone (no human
+annotation) to predict, from the input description and chain text alone, whether a
+physical violation is present, using 2{,}152 real oracle-checked records spanning all
+six constraint types collected across the preceding evaluations (superseding an earlier
+2{,}416-record pass under the pre-correction spectrum oracle). We report precision,
+recall, $F_1$, ROC AUC, and expected calibration error (ECE) on an 80/20
+in-distribution split and separately on six held-out-constraint-type splits (train on the
+other five constraint types, test on one entirely unseen one). The in-distribution split
+is disjoint at the parent source (item/structure) level, not the record level: an earlier
+pass split at the record level, which let seed replicates and same-chain claims of one item
+land on both sides of the split and leaked item identity into the reported in-distribution
+number; we rebuilt the dataset to retain a source identifier and re-split so that no source
+item appears on both sides. In distribution the
+verifier is a useful
+detector (precision 0.77, recall 0.71, $F_1=0.74$, AUC $=0.850$, ECE $=0.096$, close to but
+slightly below the pre-fix leaky estimate of AUC $=0.858$, as expected once the leak is
+closed). Its
+cross-constraint-type generalization is poor for all six constraint types under the
+source-disjoint split: diffraction, microscopy, and stability
+are indistinguishable from chance when held out entirely (AUC 0.50, 0.53, and 0.44,
+bootstrap 95\% confidence intervals straddling 0.5), spectra is not separable from chance either (AUC
+0.56, CI $[0.488,0.626]$); and metallicity is the single arguable exception, with a nominal
+95\% interval that excludes chance (AUC 0.58, CI $[0.510,0.652]$) but that no longer does so
+once the interval is widened for the six held-out comparisons (Bonferroni-corrected interval
+$[0.487,0.673]$). We therefore treat metallicity as a nominal, uncorrected exception rather
+than as evidence of transfer, and do not build any claim on it. Magnetism, previously reported (under
+the leaky, pre-correction split) as generalizing as well held-out as in distribution
+(AUC $=0.867$), does \emph{not} survive the corrected, source-disjoint split: its held-out
+AUC is $0.503$ (95\% CI $[0.430,0.576]$), squarely at chance. We independently confirmed
+this under both the held-out-modality and held-out-constraint-type variants of the split
+(the two coincide in this benchmark, since each oracle family is its own constraint type),
+which reproduced the same chance-level result rather than the earlier exception. We
+therefore retract the earlier magnetism-exception claim: it was very likely an artifact of
+the record-level split allowing same-source records on both sides of train/test, not a
+real transferable signal. The corrected finding is that no held-out constraint type shows
+transfer that survives correction for the six comparisons. We report the verifier as a useful
+in-distribution tool only, and explicitly do \emph{not} claim it as a general-purpose,
+constraint-agnostic violation detector. A pooled AUC across all six held-out constraint
+types is not reported: the six held-out runs are separately fine-tuned models (not one
+model sliced six ways), so their raw probability outputs are not on a directly comparable
+scale, and naively concatenating them before computing one AUC conflates genuine signal
+with arbitrary cross-model scale differences; we report only the six individually
+well-defined per-constraint-type numbers (Table~\ref{tab:verifier}, Fig.~\ref{fig:results}c).
+
+\begin{table}[t]
+\centering
+\caption{\justifying Verifier precision/recall/$F_1$ (in-distribution and held-out-constraint-type
+splits, both source-disjoint) and the detector's bootstrap 95\% CI on ROC AUC, predicting a
+real oracle violation from held-out verifier scores. Expected calibration error is
+reported in the text for the in-distribution split (ECE $=0.096$). No pooled
+across-constraint-type AUC is reported (see text).}
+\label{tab:verifier}
+{\scriptsize\setlength{\tabcolsep}{5pt}\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{l S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] S[table-format=1.3] c}
+\toprule
+& \multicolumn{3}{c}{Violation prediction} & \multicolumn{2}{c}{Detector (ROC)} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-6}
+Split & {Precision} & {Recall} & {$F_1$} & {AUC} & {95\% CI} \\
+\midrule
+\multicolumn{6}{l}{\itshape In distribution (80/20 split, source-disjoint)}\\
+All constraint types & 0.768 & 0.706 & 0.735 & \bfseries 0.850 & {[}0.813, 0.883{]} \\
+\addlinespace
+\multicolumn{6}{l}{\itshape Held out entirely (train on the other five constraint types)}\\
+Diffraction (XRD)      & 0.600 & 0.030 & 0.057 & 0.497 & {[}0.419, 0.578{]} \\
+Microscopy (SEM)       & 0.239 & 0.905 & 0.378 & 0.527 & {[}0.468, 0.589{]} \\
+Spectra (Raman)        & {--} & 0.000 & {--} & 0.558 & {[}0.488, 0.626{]} \\
+Stability$^{*}$        & 0.355 & 0.103 & 0.159 & 0.436 & {[}0.370, 0.502{]} \\
+Metallicity$^{*}$      & 0.486 & 0.158 & 0.238 & 0.582 & {[}0.510, 0.652{]} \\
+Magnetism$^{*}$        & 0.468 & 0.635 & 0.539 & 0.503 & {[}0.430, 0.576{]} \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+% Figure: main results (heatmap + slopegraph + forest)
+\begin{figure}[p]
+\centering
+\resizebox{0.975\linewidth}{!}{%
+\begin{tikzpicture}[font=\sffamily]
+\node[plab,anchor=west] at (-0.10,7.62){a)};
+\node[font=\sffamily\small\bfseries,anchor=west] at (0.55,7.62){Physical consistency by model and constraint type};
+\draw[black!45,line width=0.5pt](2.57,7.10)--(6.89,7.10);
+\draw[black!45,line width=0.5pt](6.92,7.10)--(11.24,7.10);
+\node[font=\sffamily\fontsize{6.5}{8}\selectfont,black!60,anchor=south] at (4.73,7.14){geometric oracles};
+\node[font=\sffamily\fontsize{6.5}{8}\selectfont,black!60,anchor=south] at (9.08,7.14){DFT-grounded oracles};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=south] at (3.28,6.60){Diffraction};
+\node[font=\sffamily\fontsize{6}{7}\selectfont,black!55,anchor=south] at (3.28,6.30){(XRD)};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=south] at (4.73,6.60){Microscopy};
+\node[font=\sffamily\fontsize{6}{7}\selectfont,black!55,anchor=south] at (4.73,6.30){(SEM)};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=south] at (6.18,6.60){Spectra};
+\node[font=\sffamily\fontsize{6}{7}\selectfont,black!55,anchor=south] at (6.18,6.30){(Raman)};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=south] at (7.63,6.60){Stability};
+\node[font=\sffamily\fontsize{6}{7}\selectfont,black!55,anchor=south] at (7.63,6.30){$^{*}$};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=south] at (9.08,6.60){Metallicity};
+\node[font=\sffamily\fontsize{6}{7}\selectfont,black!55,anchor=south] at (9.08,6.30){$^{*}$};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=south] at (10.53,6.60){Magnetism};
+\node[font=\sffamily\fontsize{6}{7}\selectfont,black!55,anchor=south] at (10.53,6.30){$^{*}$};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont\bfseries,anchor=south] at (12.36,6.60){Overall};
+\node[font=\sffamily\fontsize{6}{7}\selectfont,black!55,anchor=south] at (12.36,6.30){(all six)};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=east] at (2.45,5.85){GPT-5.6-Terra$^{\dagger}$};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!71,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (3.28,5.85){0.797};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!84,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (4.73,5.85){0.951};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!74,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (6.18,5.85){0.833};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!60,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (7.63,5.85){0.656};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!60,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (9.08,5.85){0.659};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!69,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (10.53,5.85){0.767};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!69,draw=black!45,line width=0.6pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont\bfseries,text=white] at (12.36,5.85){0.774};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=east] at (2.45,5.23){GPT-5.6-Sol$^{\ddagger}$};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!73,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (3.28,5.23){0.820};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!81,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (4.73,5.23){0.915};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!69,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (6.18,5.23){0.764};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!67,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (7.63,5.23){0.742};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!61,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (9.08,5.23){0.670};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!66,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (10.53,5.23){0.733};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!69,draw=black!45,line width=0.6pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont\bfseries,text=white] at (12.36,5.23){0.770};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=east] at (2.45,4.62){GPT-4o};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!57,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (3.28,4.62){0.625};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!84,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (4.73,4.62){0.954};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!12,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (6.18,4.62){0.068};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!72,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (7.63,4.62){0.800};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!61,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (9.08,4.62){0.671};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!62,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (10.53,4.62){0.678};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!62,draw=black!45,line width=0.6pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont\bfseries,text=white] at (12.36,4.62){0.687};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=east] at (2.45,4.00){Claude Sonnet 4.5};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!51,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (3.28,4.00){0.547};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!86,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (4.73,4.00){0.977};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!21,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (6.18,4.00){0.189};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!68,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (7.63,4.00){0.756};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!63,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (9.08,4.00){0.694};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!68,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (10.53,4.00){0.756};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!60,draw=black!45,line width=0.6pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont\bfseries,text=white] at (12.36,4.00){0.656};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=east] at (2.45,3.39){Claude Opus 4.6$^{\dagger}$};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!53,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (3.28,3.39){0.578};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!84,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (4.73,3.39){0.954};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!26,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (6.18,3.39){0.244};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!65,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (7.63,3.39){0.722};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!65,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (9.08,3.39){0.721};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!63,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (10.53,3.39){0.700};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!60,draw=black!45,line width=0.6pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont\bfseries,text=white] at (12.36,3.39){0.655};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=east] at (2.45,2.77){Gemini 2.5 Flash Lite};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!48,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (3.28,2.77){0.517};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!88,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (4.73,2.77){1.000};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!29,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (6.18,2.77){0.278};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!66,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (7.63,2.77){0.730};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!64,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (9.08,2.77){0.702};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!47,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (10.53,2.77){0.494};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!57,draw=black!45,line width=0.6pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont\bfseries,text=black] at (12.36,2.77){0.622};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=east] at (2.45,2.16){Qwen3-VL-8B-Thinking$^{\dagger}$};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!53,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (3.28,2.16){0.578};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!79,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (4.73,2.16){0.885};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!14,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (6.18,2.16){0.092};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!69,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (7.63,2.16){0.767};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!59,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (9.08,2.16){0.644};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!47,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (10.53,2.16){0.506};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!53,draw=black!45,line width=0.6pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont\bfseries,text=black] at (12.36,2.16){0.579};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=east] at (2.45,1.54){Qwen2.5-VL-7B};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!47,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (3.28,1.54){0.500};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!61,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (4.73,1.54){0.667};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!18,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (6.18,1.54){0.148};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!67,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (7.63,1.54){0.744};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!50,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (9.08,1.54){0.540};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!69,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (10.53,1.54){0.767};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!52,draw=black!45,line width=0.6pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont\bfseries,text=black] at (12.36,1.54){0.565};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=east] at (2.45,0.92){Qwen3-VL-8B-Instruct$^{\dagger}$};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!44,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (3.28,0.92){0.468};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!72,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (4.73,0.92){0.802};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!17,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (6.18,0.92){0.133};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!64,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (7.63,0.92){0.713};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!62,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=white] at (9.08,0.92){0.688};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!50,draw=white,line width=1pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont,text=black] at (10.53,0.92){0.533};
+\node[minimum width=1.42cm,minimum height=0.56cm,fill=npblue!52,draw=black!45,line width=0.6pt,inner sep=0,font=\sffamily\fontsize{7.2}{8}\selectfont\bfseries,text=black] at (12.36,0.92){0.555};
+\foreach \i in {0,...,39}{\pgfmathsetmacro{\ff}{6+\i*2.205}\fill[npblue!\ff] (4.3+\i*0.1,0.00) rectangle (4.3+\i*0.1+0.1,0.00+0.20);}
+\draw[black!40,line width=0.4pt](4.3,0.00) rectangle (8.3,0.00+0.20);
+\draw[black!40,line width=0.4pt](4.30,0.00)--(4.30,0.00-0.06);
+\node[font=\sffamily\fontsize{6}{7}\selectfont,anchor=north] at (4.30,0.00-0.07){0.00};
+\draw[black!40,line width=0.4pt](5.30,0.00)--(5.30,0.00-0.06);
+\node[font=\sffamily\fontsize{6}{7}\selectfont,anchor=north] at (5.30,0.00-0.07){0.25};
+\draw[black!40,line width=0.4pt](6.30,0.00)--(6.30,0.00-0.06);
+\node[font=\sffamily\fontsize{6}{7}\selectfont,anchor=north] at (6.30,0.00-0.07){0.50};
+\draw[black!40,line width=0.4pt](7.30,0.00)--(7.30,0.00-0.06);
+\node[font=\sffamily\fontsize{6}{7}\selectfont,anchor=north] at (7.30,0.00-0.07){0.75};
+\draw[black!40,line width=0.4pt](8.30,0.00)--(8.30,0.00-0.06);
+\node[font=\sffamily\fontsize{6}{7}\selectfont,anchor=north] at (8.30,0.00-0.07){1.00};
+\node[font=\sffamily\fontsize{6.5}{8}\selectfont,anchor=east] at (4.1499999999999995,0.00+0.10){Physical-Consistency Rate};
+\node[font=\sffamily\fontsize{6}{7}\selectfont,black!55,anchor=west] at (8.600000000000001,0.00+0.10){$^{\dagger}$later-generation refresh\ \ $^{\ddagger}$flagship addition\ \ $^{*}$provisional};
+\begin{scope}[shift={(0,-7.17)}]
+\node[plab,anchor=west] at (-0.10,5.62){b)};
+\node[font=\sffamily\fontsize{7.6}{9}\selectfont\bfseries,anchor=west] at (0.52,5.62){Oracle feedback raises PCR};
+\def\yb#1{0.62 + (#1-0.30)/0.40*3.85}
+\draw[black!45,line width=0.5pt](1.05,0.62)--(1.05,4.47);
+\node[font=\sffamily\fontsize{6.3}{7}\selectfont,anchor=east] at (0.99,{\yb{0.3}}){0.3};
+\draw[black!45,line width=0.4pt](1.00,{\yb{0.3}})--(1.18,{\yb{0.3}});
+\node[font=\sffamily\fontsize{6.3}{7}\selectfont,anchor=east] at (0.99,{\yb{0.4}}){0.4};
+\draw[black!45,line width=0.4pt](1.00,{\yb{0.4}})--(1.18,{\yb{0.4}});
+\node[font=\sffamily\fontsize{6.3}{7}\selectfont,anchor=east] at (0.99,{\yb{0.5}}){0.5};
+\draw[black!45,line width=0.4pt](1.00,{\yb{0.5}})--(1.18,{\yb{0.5}});
+\node[font=\sffamily\fontsize{6.3}{7}\selectfont,anchor=east] at (0.99,{\yb{0.6}}){0.6};
+\draw[black!45,line width=0.4pt](1.00,{\yb{0.6}})--(1.18,{\yb{0.6}});
+\node[font=\sffamily\fontsize{6.3}{7}\selectfont,anchor=east] at (0.99,{\yb{0.7}}){0.7};
+\draw[black!45,line width=0.4pt](1.00,{\yb{0.7}})--(1.18,{\yb{0.7}});
+\draw[black!10,line width=0.4pt](1.18,{\yb{0.4}})--(3.70,{\yb{0.4}});
+\draw[black!10,line width=0.4pt](1.18,{\yb{0.5}})--(3.70,{\yb{0.5}});
+\draw[black!10,line width=0.4pt](1.18,{\yb{0.6}})--(3.70,{\yb{0.6}});
+\draw[black!10,line width=0.4pt](1.18,{\yb{0.7}})--(3.70,{\yb{0.7}});
+\node[font=\sffamily\fontsize{6.5}{8}\selectfont,rotate=90,anchor=south] at (0.42,2.55){PCR};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=north] at (1.45,0.54){before};
+\node[font=\sffamily\fontsize{6.8}{8}\selectfont,anchor=north] at (3.05,0.54){after};
+\draw[black!45,line width=1.0pt,dash pattern=on 2pt off 1.4pt](1.45,{\yb{0.349}})--(3.05,{\yb{0.339}});
+\fill[black!45](1.45,{\yb{0.349}})circle(2.0pt);\fill[black!45](3.05,{\yb{0.339}})circle(2.0pt);
+\draw[black!45,line width=1.0pt,dash pattern=on 2pt off 1.4pt](1.45,{\yb{0.358}})--(3.05,{\yb{0.342}});
+\fill[black!45](1.45,{\yb{0.358}})circle(2.0pt);\fill[black!45](3.05,{\yb{0.342}})circle(2.0pt);
+\draw[npblue,line width=1.5pt](1.45,{\yb{0.338}})--(3.05,{\yb{0.439}});
+\fill[npblue](1.45,{\yb{0.338}})circle(2.4pt);\draw[white,line width=0.5pt](1.45,{\yb{0.338}})circle(2.4pt);
+\fill[npblue](3.05,{\yb{0.439}})circle(2.4pt);\draw[white,line width=0.5pt](3.05,{\yb{0.439}})circle(2.4pt);
+\draw[nporange,line width=1.5pt](1.45,{\yb{0.521}})--(3.05,{\yb{0.632}});
+\fill[nporange](1.45,{\yb{0.521}})circle(2.4pt);\draw[white,line width=0.5pt](1.45,{\yb{0.521}})circle(2.4pt);
+\fill[nporange](3.05,{\yb{0.632}})circle(2.4pt);\draw[white,line width=0.5pt](3.05,{\yb{0.632}})circle(2.4pt);
+\draw[npgreen,line width=1.5pt](1.45,{\yb{0.434}})--(3.05,{\yb{0.593}});
+\fill[npgreen](1.45,{\yb{0.434}})circle(2.4pt);\draw[white,line width=0.5pt](1.45,{\yb{0.434}})circle(2.4pt);
+\fill[npgreen](3.05,{\yb{0.593}})circle(2.4pt);\draw[white,line width=0.5pt](3.05,{\yb{0.593}})circle(2.4pt);
+\draw[nppurple,line width=1.5pt](1.45,{\yb{0.373}})--(3.05,{\yb{0.639}});
+\fill[nppurple](1.45,{\yb{0.373}})circle(2.4pt);\draw[white,line width=0.5pt](1.45,{\yb{0.373}})circle(2.4pt);
+\fill[nppurple](3.05,{\yb{0.639}})circle(2.4pt);\draw[white,line width=0.5pt](3.05,{\yb{0.639}})circle(2.4pt);
+\draw[nppurple!55,line width=0.4pt](3.20,{\yb{0.639}+0.34})--(3.11,{\yb{0.639}});
+\node[font=\sffamily\fontsize{6.3}{7}\selectfont,anchor=west,text=nppurple] at (3.24,{\yb{0.639}+0.34}){Claude Sonnet 4.5$^{***}$};
+\node[font=\sffamily\fontsize{6.3}{7}\selectfont,anchor=west,text=nporange] at (3.24,{\yb{0.632}-0.06}){Gemini 2.5 FL$^{***}$};
+\node[font=\sffamily\fontsize{6.3}{7}\selectfont,anchor=west,text=npgreen] at (3.24,{\yb{0.593}-0.03}){GPT-4o$^{***}$};
+\node[font=\sffamily\fontsize{6.3}{7}\selectfont,anchor=west,text=npblue] at (3.24,{\yb{0.439}}){Qwen2.5-VL-7B$^{***}$};
+\node[font=\sffamily\fontsize{6.3}{7}\selectfont,anchor=west,text=black!55,align=left] at (3.24,{\yb{0.341}}){self-refinement\\generic re-prompt\\(both n.s.)};
+\node[font=\sffamily\fontsize{5.8}{7}\selectfont,anchor=west,text=black!55] at (0.18,0.06){$^{***}$Holm-adjusted $p<10^{-3}$; $b=0$ in every CGSV cell};
+\end{scope}
+\begin{scope}[shift={(6.05,-7.17)}]
+\node[plab,anchor=west] at (-0.10,5.62){c)};
+\node[font=\sffamily\fontsize{7.6}{9}\selectfont\bfseries,anchor=west] at (0.52,5.62){Violation detection versus baselines};
+\def\xa#1{2.55 + (#1-0.25)/0.65*4.05}
+\draw[npslate!65,dash pattern=on 2pt off 1.6pt,line width=0.6pt]({\xa{0.5}},0.42)--({\xa{0.5}},5.05);
+\node[font=\sffamily\fontsize{6.3}{8}\selectfont\itshape,black!65,anchor=west] at (0.02,5.12){In distribution};
+\node[font=\sffamily\fontsize{6.5}{8}\selectfont,anchor=east] at (2.42,4.70){MatPCR verifier};
+\draw[npgreen,line width=1.1pt]({\xa{0.813}},4.70)--({\xa{0.883}},4.70);
+\draw[npgreen,line width=1.0pt]({\xa{0.813}},4.63)--({\xa{0.813}},4.77);
+\draw[npgreen,line width=1.0pt]({\xa{0.883}},4.63)--({\xa{0.883}},4.77);
+\fill[npgreen]({\xa{0.85}},4.70)circle(2.4pt);\draw[white,line width=0.5pt]({\xa{0.85}},4.70)circle(2.4pt);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=west] at (6.72,4.70){0.850};
+\node[font=\sffamily\fontsize{6.5}{8}\selectfont,anchor=east] at (2.42,4.34){Zero-shot LLM judge};
+\draw[npslate,line width=1.1pt]({\xa{0.4}},4.34)--({\xa{0.493}},4.34);
+\draw[npslate,line width=1.0pt]({\xa{0.4}},4.27)--({\xa{0.4}},4.41);
+\draw[npslate,line width=1.0pt]({\xa{0.493}},4.27)--({\xa{0.493}},4.41);
+\fill[npslate]({\xa{0.447}},4.34)circle(2.4pt);\draw[white,line width=0.5pt]({\xa{0.447}},4.34)circle(2.4pt);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=west] at (6.72,4.34){0.447};
+\node[font=\sffamily\fontsize{6.5}{8}\selectfont,anchor=east] at (2.42,3.98){Model self-confidence};
+\draw[npslate,line width=1.1pt]({\xa{0.264}},3.98)--({\xa{0.365}},3.98);
+\draw[npslate,line width=1.0pt]({\xa{0.264}},3.91)--({\xa{0.264}},4.05);
+\draw[npslate,line width=1.0pt]({\xa{0.365}},3.91)--({\xa{0.365}},4.05);
+\fill[npslate]({\xa{0.315}},3.98)circle(2.4pt);\draw[white,line width=0.5pt]({\xa{0.315}},3.98)circle(2.4pt);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=west] at (6.72,3.98){0.315};
+\node[font=\sffamily\fontsize{6.3}{8}\selectfont\itshape,black!65,anchor=west] at (0.02,3.62){Held out (unseen constraint type)};
+\node[font=\sffamily\fontsize{6.5}{8}\selectfont,anchor=east] at (2.42,3.20){Metallicity$^{*}$};
+\draw[nporange,line width=1.1pt]({\xa{0.51}},3.20)--({\xa{0.652}},3.20);
+\draw[nporange,line width=1.0pt]({\xa{0.51}},3.13)--({\xa{0.51}},3.27);
+\draw[nporange,line width=1.0pt]({\xa{0.652}},3.13)--({\xa{0.652}},3.27);
+\fill[nporange]({\xa{0.582}},3.20)circle(2.4pt);\draw[white,line width=0.5pt]({\xa{0.582}},3.20)circle(2.4pt);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=west] at (6.72,3.20){0.582};
+\node[font=\sffamily\fontsize{6.5}{8}\selectfont,anchor=east] at (2.42,2.84){Spectra (Raman)};
+\draw[npslate,line width=1.1pt]({\xa{0.488}},2.84)--({\xa{0.626}},2.84);
+\draw[npslate,line width=1.0pt]({\xa{0.488}},2.77)--({\xa{0.488}},2.91);
+\draw[npslate,line width=1.0pt]({\xa{0.626}},2.77)--({\xa{0.626}},2.91);
+\fill[npslate]({\xa{0.558}},2.84)circle(2.4pt);\draw[white,line width=0.5pt]({\xa{0.558}},2.84)circle(2.4pt);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=west] at (6.72,2.84){0.558};
+\node[font=\sffamily\fontsize{6.5}{8}\selectfont,anchor=east] at (2.42,2.48){Microscopy (SEM)};
+\draw[npslate,line width=1.1pt]({\xa{0.468}},2.48)--({\xa{0.589}},2.48);
+\draw[npslate,line width=1.0pt]({\xa{0.468}},2.41)--({\xa{0.468}},2.55);
+\draw[npslate,line width=1.0pt]({\xa{0.589}},2.41)--({\xa{0.589}},2.55);
+\fill[npslate]({\xa{0.527}},2.48)circle(2.4pt);\draw[white,line width=0.5pt]({\xa{0.527}},2.48)circle(2.4pt);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=west] at (6.72,2.48){0.527};
+\node[font=\sffamily\fontsize{6.5}{8}\selectfont,anchor=east] at (2.42,2.12){Magnetism$^{*}$};
+\draw[npslate,line width=1.1pt]({\xa{0.43}},2.12)--({\xa{0.576}},2.12);
+\draw[npslate,line width=1.0pt]({\xa{0.43}},2.05)--({\xa{0.43}},2.19);
+\draw[npslate,line width=1.0pt]({\xa{0.576}},2.05)--({\xa{0.576}},2.19);
+\fill[npslate]({\xa{0.503}},2.12)circle(2.4pt);\draw[white,line width=0.5pt]({\xa{0.503}},2.12)circle(2.4pt);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=west] at (6.72,2.12){0.503};
+\node[font=\sffamily\fontsize{6.5}{8}\selectfont,anchor=east] at (2.42,1.76){Diffraction (XRD)};
+\draw[npslate,line width=1.1pt]({\xa{0.419}},1.76)--({\xa{0.578}},1.76);
+\draw[npslate,line width=1.0pt]({\xa{0.419}},1.69)--({\xa{0.419}},1.83);
+\draw[npslate,line width=1.0pt]({\xa{0.578}},1.69)--({\xa{0.578}},1.83);
+\fill[npslate]({\xa{0.497}},1.76)circle(2.4pt);\draw[white,line width=0.5pt]({\xa{0.497}},1.76)circle(2.4pt);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=west] at (6.72,1.76){0.497};
+\node[font=\sffamily\fontsize{6.5}{8}\selectfont,anchor=east] at (2.42,1.40){Stability$^{*}$};
+\draw[npslate,line width=1.1pt]({\xa{0.37}},1.40)--({\xa{0.502}},1.40);
+\draw[npslate,line width=1.0pt]({\xa{0.37}},1.33)--({\xa{0.37}},1.47);
+\draw[npslate,line width=1.0pt]({\xa{0.502}},1.33)--({\xa{0.502}},1.47);
+\fill[npslate]({\xa{0.436}},1.40)circle(2.4pt);\draw[white,line width=0.5pt]({\xa{0.436}},1.40)circle(2.4pt);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=west] at (6.72,1.40){0.436};
+\draw[black!45,line width=0.5pt](2.55,0.42)--(6.60,0.42);
+\draw[black!45,line width=0.4pt]({\xa{0.3}},0.42)--({\xa{0.3}},0.35);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=north] at ({\xa{0.3}},0.33){0.3};
+\draw[black!45,line width=0.4pt]({\xa{0.4}},0.42)--({\xa{0.4}},0.35);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=north] at ({\xa{0.4}},0.33){0.4};
+\draw[black!45,line width=0.4pt]({\xa{0.5}},0.42)--({\xa{0.5}},0.35);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=north] at ({\xa{0.5}},0.33){0.5};
+\draw[black!45,line width=0.4pt]({\xa{0.6}},0.42)--({\xa{0.6}},0.35);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=north] at ({\xa{0.6}},0.33){0.6};
+\draw[black!45,line width=0.4pt]({\xa{0.7}},0.42)--({\xa{0.7}},0.35);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=north] at ({\xa{0.7}},0.33){0.7};
+\draw[black!45,line width=0.4pt]({\xa{0.8}},0.42)--({\xa{0.8}},0.35);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=north] at ({\xa{0.8}},0.33){0.8};
+\draw[black!45,line width=0.4pt]({\xa{0.9}},0.42)--({\xa{0.9}},0.35);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=north] at ({\xa{0.9}},0.33){0.9};
+\node[font=\sffamily\fontsize{6.5}{8}\selectfont,anchor=north] at (4.55,0.06){Detector AUC with bootstrap 95\% CI};
+\node[font=\sffamily\fontsize{5.8}{7}\selectfont,anchor=west,text=npgreen!55!black] at (0.30,-0.42){\rule{6pt}{1.5pt}\,CI above chance};
+\node[font=\sffamily\fontsize{5.8}{7}\selectfont,anchor=west,text=nporange!80!black] at (2.55,-0.42){\rule{6pt}{1.5pt}\,nominal CI only};
+\node[font=\sffamily\fontsize{5.8}{7}\selectfont,anchor=west,text=npslate] at (4.65,-0.42){\rule{6pt}{1.5pt}\,not above chance};
+\end{scope}
+\end{tikzpicture}}
+\caption{\justifying\textbf{Physical consistency, oracle-driven correction, and violation detection.} \textbf{a)} Physical-Consistency Rate (PCR) for nine models across the six label-free constraint types and overall, ordered by overall PCR; shading is linear in PCR on the scale shown. Microscopy is the easiest constraint and Raman spectra the hardest and most model-dependent, from 0.068 (GPT-4o) to 0.833 (GPT-5.6-Terra). Within the DFT-grounded block the three types diverge for several models, which the pooled DFT column of Table~\ref{tab:main} conceals. Cell $n$ is 44--90 records; per-cell bootstrap intervals are in Supplementary Table~S1. $^{\dagger}$Later-generation refresh models; $^{\ddagger}$flagship-tier addition testing GPT-5.6-Sol against the balanced-tier GPT-5.6-Terra; $^{*}$provisional pending validation of the DFT reference protocol (Methods). \textbf{b)} Constraint-Grounded Self-Verification before and after on identical items (Table~\ref{tab:cgsv}). PCR rises for all four models with no regression in any cell, whereas the two matched controls, unaided self-refinement and equal-compute re-prompting (grey, dashed), do not change PCR and do produce regressions, attributing the gain to the oracle signal rather than to additional inference-time compute. \textbf{c)} Detector AUC with bootstrap 95\% confidence intervals (Table~\ref{tab:verifier}) for the released verifier, its two comparator baselines and the six held-out constraint types, on source-disjoint splits. In distribution the verifier separates violations; the LLM judge does not, and self-confidence falls \emph{below} chance, so neither baseline substitutes for it. Held out, five of six types are not separable from chance, and metallicity's interval excludes chance nominally but not after correcting for the six comparisons.}
+\label{fig:results}
+\end{figure}
+
+% =====================================================================
+\section*{Discussion}
+% =====================================================================
+Across nine models spanning two capability generations and six label-free constraint
+types, current models are far from
+uniformly consistent (overall PCR 0.555--0.774), ruling out the scenario in which the
+benchmark would be uninformative because every model already satisfies the physics we
+check; spectra and diffraction, in particular, remain hard and highly model-dependent
+under the corrected oracles (Methods). Capability scaling within a provider family is not
+automatic: the later-released GPT-5.6-Terra improves clearly over GPT-4o (0.774 vs.\
+0.687, non-overlapping bootstrap CIs), but Claude Opus 4.6 does not improve over Claude
+Sonnet 4.5, and an explicit reasoning mode (Qwen3-VL-8B-Thinking) does not improve over its
+non-reasoning sibling, in this sample. Nor does flagship tier improve over balanced tier
+within the same generation: GPT-5.6-Sol (0.770, 95\% CI $[0.731,0.806]$) does not separate
+from GPT-5.6-Terra (0.774, $[0.736,0.810]$) overall, despite leading every model on
+diffraction specifically (0.820); price and marketed capability tier are not, on this
+evidence, a reliable proxy for physical-consistency performance any more than release
+date is. Because the refresh models are one to three provider
+releases behind the newest available on the collection date, and GPT-5.6-Terra is a
+balanced rather than a flagship tier, these comparisons bound generational improvement in
+this sample rather than characterizing the current frontier. The accuracy-versus-consistency gap (a mean 22.2\% disagreement across 12 cells; the
+superseded spectrum oracle gave 41.8\%, a figure we record here for transparency about the
+correction and do not report elsewhere) shows
+directly that PCR is not a restatement of answer accuracy: models are frequently
+consistent while measurably wrong on diffraction, and, for stability specifically, frequently correct
+by one strict definition while flagged inconsistent by a looser but defensible
+tolerance, a real ambiguity in what "stable" should mean for a reasoning check,
+not an error in either definition; separately, one model's near-ceiling raw stability
+accuracy is a base-rate artifact of the sampled materials, not discriminative skill, once
+balanced accuracy is computed. CGSV is a one-directional positive
+control: it never regressed a previously consistent item across 545 records, and
+raised PCR significantly for all four models tested, an effect two mechanism-isolation
+controls (unaided self-refinement, generic equal-compute re-prompting) do not reproduce,
+supporting attribution of the gain to the oracle signal rather than to extra
+inference-time compute alone. The released verifier is a useful in-distribution
+detector (AUC $=0.850$, on a split we rebuilt to be source-disjoint after finding the
+original random split leaked item identity across train and test), but its
+cross-constraint-type generalization is the paper's clearest
+negative result: five of the six held-out constraint types are indistinguishable from
+chance, and the sixth (metallicity) separates from chance only before correcting for the
+six comparisons.
+This corrects an earlier, substantively different finding: under the leaky split, magnetism
+appeared to generalize as well held-out as in distribution (AUC $=0.867$); under the
+corrected, source-disjoint split, magnetism's held-out AUC is $0.503$, and we now attribute
+the earlier result to the split leak rather than to a real transferable signal. We report
+this correction, and the resulting conclusion that no held-out constraint type shows transfer
+surviving correction for the six comparisons, rather than continue to report the
+retracted exception, consistent with our stated position that a verifier trained on one
+constraint type's surface patterns should not be assumed to transfer to another
+without direct evidence. Comparator baselines sharpen this picture. In distribution
+neither is competitive: a zero-shot LLM-as-judge reaches AUC $0.447$ and the model's own
+token-level self-confidence $0.315$, the latter significantly below chance, against the
+fine-tuned verifier's $0.850$. Held out, all three are weak, but not uniformly: the
+LLM-judge reaches AUC $0.735$ (95\% CI $[0.682,0.790]$) on microscopy, above anything the
+fine-tuned verifier achieves on any held-out constraint type, which suggests the fine-tuned
+verifier's advantage is specific to the distribution it was trained on rather than a general
+superiority over prompting. The fine-tuned verifier's in-distribution advantage is real, but it is
+not a general substitute for the oracle out of distribution. The central limitation is intrinsic to the approach, not
+particular to these results: the oracles bound a class of physically checkable
+errors, so PCR is a necessary-not-sufficient reliability signal, and the released
+verifier predicts the oracle signal rather than replacing first-principles ground
+truth. As a clearly scoped extension, the verifier could pre-filter candidate
+structures before DFT in a small screening study; a first best-of-3 resampling check finds
+real but modest headroom over a random pick (PCR 0.363 random-pick vs.\ 0.419 oracle-oracle
+ceiling), though we did not build the verifier-as-selector comparison this ceiling would
+need to be practically useful, and report it only as a bounded, partial result. A further implication,
+which we make possible but do not claim to demonstrate here, is that a label-free,
+physics-grounded consistency signal can serve as a verifiable reward for training
+materials-reasoning models, extending reinforcement learning from verifiable rewards
+to a domain where verification has been under-specified.\cite{scirlvr2026} We also ran a
+domain-specific structure-aware model (MatterChat) on the DFT arms as a materials-domain
+evaluee (Baselines subsection): it reaches PCR 0.783/0.795/0.850 on stability/metallicity/
+magnetism on a shuffled sample of 120 real materials. These rates sit at or above the
+general-purpose models' rates on the same three constraint types, but the sample is drawn
+separately from the main evaluation, so the comparison is indicative rather than paired,
+and it rests on one domain model. Finally,
+every DFT-grounded number in this paper (the DFT column of Table~\ref{tab:main}, the
+stability arm of the accuracy-versus-consistency analysis, and the metallicity and
+magnetism arms of the verifier and detector analyses) rests on Materials Project
+reference values and oracle tolerances that have not yet been independently reviewed
+by the domain co-author; we report them as measured and provisional, and will revise
+or withdraw any claim that review does not support before final submission.
+
+% =====================================================================
+\section*{Methods}
+% =====================================================================
+\subsection*{Data sources}
+MatPCR draws only on public data for reproducibility and license clarity: experimental
+powder diffraction patterns with known structures;\cite{opxrd2025} public SEM/TEM corpora
+that include scale bars;\cite{aversa2018nffa} open Raman and infrared
+spectra;\cite{lafuente2015rruff} and public first-principles data (computed energies,
+convex hulls, band gaps) from established databases.\cite{matproj2013} No number reported
+in this paper rests on a first-principles calculation run by the authors: every
+DFT-grounded reference value used is Materials Project's own standardized computational
+result, retrieved via the \texttt{mp-api} client (Methods, DFT-grounded oracles); an
+authors'-own-DFT fallback for missing or questionable Materials Project entries was
+implemented but never invoked over the reported sample. We also surveyed the simulated
+diffraction dataset SimXRD-4M\cite{simxrd2024} as a candidate diffraction source, but its
+schema (units of the tabulated lattice-distance field; the meaning of its integer label)
+could not be resolved against its documentation with confidence, so it was not used in
+any reported result; all diffraction numbers in this paper are from real experimental
+patterns only.
+
+\subsection*{Tasks, modalities, and exposed constraints}
+Each item pairs an input with a question whose faithful answer requires at least one
+physically checkable quantity (Fig.~\ref{fig:pipeline}a). Inputs span image items (VLM), such as micrographs and
+diffraction images, and structure or text items (LLM), such as a crystal structure
+with a property question. We parse the reasoning chain for stated quantities (peak
+positions, scale, feature sizes, stability claims, property values) and test each
+against the matching oracle. An item is checkable if its chain exposes at least one
+such quantity.
+
+\subsection*{Programmatic geometric oracles}
+For diffraction we apply Bragg's law, $\lambda = 2 d \sin\theta$, converting any
+claimed $2\theta$ to a $d$-spacing, testing claimed peaks against the reference
+pattern of the stated structure within tolerance, and rejecting claims outside the
+realizable $2\theta$ window. For microscopy we recover nanometres per pixel from the
+detected scale bar and reject any feature larger than the field of view. For spectra
+we accept a claimed peak only if a genuine interior local maximum (higher than both
+adjacent flanks down to their nearest valleys, rejecting a monotonic rise or a shoulder on
+a nearby peak) exists near it with prominence exceeding a fraction of the signal's dynamic
+range; this is a revision, made mid-project after a first precision audit showed a
+windowed-maximum check without the interior-local-maximum requirement was too permissive
+on noisy, baseline-drifting Raman spectra, so it does not appear in numbers computed
+before the revision (flagged where relevant throughout).
+
+\subsection*{DFT-grounded property oracles}
+First-principles access extends the oracle from geometry to computed physics, still
+without human labels. A stability claim is checked against the energy above the
+convex hull computed for the stated composition; a metallicity claim against the
+computed band gap; and a magnetism claim against the computed total magnetization,
+normalized per atom. Reference values are Materials Project's own standardized
+computational references (database version 2026.04.13, retrieved 2026-07-16 via the
+\texttt{mp-api} client; GGA/GGA+U relaxation under Materials Project's published standard
+workflow), described throughout as standardized computational references, not
+experimental ground truth, per the domain co-author's guidance (Data sources: no
+authors'-own DFT calculation was run over the reported sample). Because DFT-computed
+references depend on the exchange-correlation functional (semilocal functionals
+underestimate band gaps), each oracle is designed around that known error rather than
+treating the reference as exact. \emph{Stability}: a claim is consistent iff the claimed
+stable/unstable label agrees with whether the computed energy above the convex hull is
+within a tolerance $\epsilon=0.05\,\mathrm{eV\,atom^{-1}}$ of the hull; we additionally
+report sensitivity at $\epsilon\in\{0,0.025,0.05,0.10\}\,\mathrm{eV\,atom^{-1}}$ (all four
+gave 0\% false-negative and false-positive rates in the positive-control audit), and, per
+the domain co-author's review, structures with $0<\epsilon\le0.05$ are described as
+near-hull or potentially metastable, never as strictly stable. On a random sample of 3,000
+real Materials Project entries, this tolerance and Materials Project's own strict
+\texttt{is\_stable} boolean label disagree on 571 (19.0\%), in every case a structure MP
+labels unstable but the tolerance admits as near-hull (the reverse never occurred in this
+sample); Fig.~\ref{fig:dft-oracle-cases}a shows three real confirmed stability violations
+against this tolerance. \emph{Metallicity}: a
+computed band gap $\le0.05\,\mathrm{eV}$ is treated as computed-metallic,
+$\ge0.20\,\mathrm{eV}$ as computed-non-metallic, and the intervening band
+($0.05$--$0.20\,\mathrm{eV}$) is an explicit abstention band excluded from PCR rather than
+forced into either class, both thresholds the domain co-author's literal recommendation
+(Fig.~\ref{fig:dft-oracle-cases}b shows three real confirmed metallicity violations).
+\emph{Magnetism}: total magnetization is conventionally nonnegative in a DFT calculation
+and can flip sign under an arbitrary global spin-reversal choice, so it is never treated as
+a signed quantity; the reference is normalized to $|{\rm total\ magnetization}|$ per atom,
+classified magnetic versus non-magnetic at a threshold of
+$0.05\,\mu_{\rm B}\,{\rm atom}^{-1}$ fixed before the reported runs, and, only within the magnetic class, a claimed
+magnitude is checked against the reference within one order of magnitude
+(Fig.~\ref{fig:dft-oracle-cases}c shows three real confirmed magnetism violations). An earlier
+version of this check compared the reference magnetization to zero by exact
+floating-point equality, using a $10^{-6}\,\mu_{\rm B}$ absolute tolerance to catch
+near-zero numerical noise; that comparison, and its tolerance, is superseded by the
+per-atom classification threshold above and no longer appears in the released code.
+Positive-control testing showed all
+three thresholds and the stability sensitivity grid give 0\% false-negative and
+false-positive rates on real Materials Project structures; the metallicity abstention band
+correctly excluded 125 of 3{,}000 sampled materials in that test. These checks make plausible-but-wrong physics detectable.
+No step requires a human annotation of the correct answer, which is what lets MatPCR
+scale and distinguishes it from answer-accuracy benchmarks and from proposal- or
+execution-level verification.
+
+
+
+
+\begin{figure}[!htbp]
+\centering
+
+% =========================================================
+% (a) Stability oracle
+% =========================================================
+\begin{tikzpicture}[font=\sffamily,scale=0.92,transform shape]
+\def\cardw{3.95}
+\def\cardh{3.35}
+\def\cgap{0.45}
+
+\node[anchor=west,font=\sffamily\bfseries\fontsize{8}{9}\selectfont]
+at (0,\cardh+0.18) {(a) Stability oracle};
+
+\foreach \i/\x/\formula/\claim/\trueval/\why in {
+  0/0/{SrMoO$_3$}/{UNSTABLE}/{STABLE\\[1pt]{\fontsize{4.6}{5.6}\selectfont$E_{\rm hull}{=}0.0000$}}/{Hull energy is exactly 0: a\\genuine ground-state compound\\judged unstable.},
+  1/{\cardw+\cgap}/{ThPbAu$_2$}/{UNSTABLE}/{STABLE\\[1pt]{\fontsize{4.6}{5.6}\selectfont$E_{\rm hull}{=}0.0000$}}/{Same error on an unrelated\\composition: hull energy 0,\\still defaulted to UNSTABLE.},
+  2/{2*\cardw+2*\cgap}/{EuZrFeBiO$_6$}/{STABLE}/{UNSTABLE\\[1pt]{\fontsize{4.6}{5.6}\selectfont$E_{\rm hull}{=}1.2843$}}/{Opposite error, far larger:\\hull energy is 25$\times$ the\\tolerance, unambiguous.}
+}{
+  \node[card,minimum width=\cardw cm,minimum height=\cardh cm,anchor=south west]
+  at (\x,0){};
+
+  \node[font=\sffamily\bfseries\fontsize{9}{10.5}\selectfont,
+        text=npslate,anchor=north]
+  at (\x+\cardw/2,\cardh-0.18){\formula};
+
+  \node[font=\sffamily\fontsize{6.0}{7.2}\selectfont,
+        black!55,anchor=north]
+  at (\x+\cardw/2,\cardh-0.60){real Materials Project entry};
+
+  \node[bad,text width=1.62cm,minimum height=0.80cm,align=center,
+        font=\sffamily\bfseries\fontsize{5.6}{6.6}\selectfont,inner sep=1.5pt]
+  (scl\i) at (\x+0.98,\cardh-1.62){\claim};
+
+  \node[font=\sffamily\fontsize{5.4}{6.4}\selectfont,
+        black!55,anchor=south]
+  at (\x+0.98,\cardh-1.22){model claimed};
+
+  \node[good,text width=1.62cm,minimum height=0.80cm,align=center,
+        font=\sffamily\bfseries\fontsize{5.6}{6.6}\selectfont,inner sep=1.5pt]
+  (srf\i) at (\x+\cardw-0.98,\cardh-1.62){\trueval};
+
+  \node[font=\sffamily\fontsize{5.4}{6.4}\selectfont,
+        black!55,anchor=south]
+  at (\x+\cardw-0.98,\cardh-1.22){real reference};
+
+  \draw[flow,black!55] (scl\i.east)--(srf\i.west);
+
+  \node[npred,font=\sffamily\bfseries\fontsize{9}{10}\selectfont]
+  at (\x+\cardw/2,\cardh-1.62){$\times$};
+
+  \draw[black!15,line width=0.5pt]
+  (\x+0.25,\cardh-2.18)--(\x+\cardw-0.25,\cardh-2.18);
+
+  \node[font=\sffamily\fontsize{6.2}{7.8}\selectfont,
+        black!70,anchor=north,align=center,text width=3.65cm]
+  at (\x+\cardw/2,\cardh-2.34){\why};
+}
+\end{tikzpicture}
+
+\vspace{2mm}
+
+% =========================================================
+% (b) Metallicity oracle
+% =========================================================
+\begin{tikzpicture}[font=\sffamily,scale=0.92,transform shape]
+\def\cardw{3.95}
+\def\cardh{3.35}
+\def\cgap{0.45}
+
+\node[anchor=west,font=\sffamily\bfseries\fontsize{8}{9}\selectfont]
+at (0,\cardh+0.18) {(b) Metallicity oracle};
+
+\foreach \i/\x/\formula/\claim/\trueval/\why in {
+  0/0/{KCaTbNbO$_6$}/{NONMETALLIC}/{METALLIC\\[1pt]{\fontsize{4.6}{5.6}\selectfont$E_g{=}0.0000$\,eV}}/{Computed gap is exactly\\zero, a clear metal;\\reasoned from structure alone.},
+  1/{\cardw+\cgap}/{Ca(H$_8$O$_5)_2$}/{METALLIC}/{NONMETALLIC\\[1pt]{\fontsize{4.6}{5.6}\selectfont$E_g{=}4.4694$\,eV}}/{Opposite error: a 4.47\,eV\\gap is a textbook insulator,\\over 20$\times$ the abstention edge.},
+  2/{2*\cardw+2*\cgap}/{KMgMn$_{16}$O$_{32}$}/{NONMETALLIC}/{METALLIC\\[1pt]{\fontsize{4.6}{5.6}\selectfont$E_g{=}0.0000$\,eV}}/{Computed gap is exactly\\zero again; reasoning pointed\\the wrong direction.}
+}{
+  \node[card,minimum width=\cardw cm,minimum height=\cardh cm,anchor=south west]
+  at (\x,0){};
+
+  \node[font=\sffamily\bfseries\fontsize{9}{10.5}\selectfont,
+        text=npslate,anchor=north]
+  at (\x+\cardw/2,\cardh-0.18){\formula};
+
+  \node[font=\sffamily\fontsize{6.0}{7.2}\selectfont,
+        black!55,anchor=north]
+  at (\x+\cardw/2,\cardh-0.60){real Materials Project entry};
+
+  \node[bad,text width=1.62cm,minimum height=0.80cm,align=center,
+        font=\sffamily\bfseries\fontsize{5.4}{6.4}\selectfont,inner sep=1.5pt]
+  (mcl\i) at (\x+0.98,\cardh-1.62){\claim};
+
+  \node[font=\sffamily\fontsize{5.4}{6.4}\selectfont,
+        black!55,anchor=south]
+  at (\x+0.98,\cardh-1.22){model claimed};
+
+  \node[good,text width=1.62cm,minimum height=0.80cm,align=center,
+        font=\sffamily\bfseries\fontsize{5.4}{6.4}\selectfont,inner sep=1.5pt]
+  (mrf\i) at (\x+\cardw-0.98,\cardh-1.62){\trueval};
+
+  \node[font=\sffamily\fontsize{5.4}{6.4}\selectfont,
+        black!55,anchor=south]
+  at (\x+\cardw-0.98,\cardh-1.22){real reference};
+
+  \draw[flow,black!55] (mcl\i.east)--(mrf\i.west);
+
+  \node[npred,font=\sffamily\bfseries\fontsize{9}{10}\selectfont]
+  at (\x+\cardw/2,\cardh-1.62){$\times$};
+
+  \draw[black!15,line width=0.5pt]
+  (\x+0.25,\cardh-2.18)--(\x+\cardw-0.25,\cardh-2.18);
+
+  \node[font=\sffamily\fontsize{6.2}{7.8}\selectfont,
+        black!70,anchor=north,align=center,text width=3.65cm]
+  at (\x+\cardw/2,\cardh-2.34){\why};
+}
+\end{tikzpicture}
+
+\vspace{2mm}
+
+% =========================================================
+% (c) Magnetism oracle
+% =========================================================
+\begin{tikzpicture}[font=\sffamily,scale=0.92,transform shape]
+\def\cardw{3.95}
+\def\cardh{3.35}
+\def\cgap{0.45}
+
+\node[anchor=west,font=\sffamily\bfseries\fontsize{8}{9}\selectfont]
+at (0,\cardh+0.18) {(c) Magnetism oracle};
+
+\foreach \i/\x/\formula/\claim/\trueval/\why in {
+  0/0/{C}/{MAGNETIC\\[1pt]{\fontsize{4.6}{5.6}\selectfont 2.2\,\textmu B/atom}}/{NONMAGNETIC\\[1pt]{\fontsize{4.6}{5.6}\selectfont 0.0000\,\textmu B/atom}}/{Real moment is exactly zero;\\reasoning admits it never\\identified the formula.},
+  1/{\cardw+\cgap}/{Eu$_2$Sb$_3$}/{NONMAGNETIC}/{MAGNETIC\\[1pt]{\fontsize{4.6}{5.6}\selectfont 2.76\,\textmu B/atom}}/{Real moment is large and\\unambiguous; reasoned Eu/Sb\\moments cancel, but they do not.},
+  2/{2*\cardw+2*\cgap}/{Na$_2$FeO$_3$}/{NONMAGNETIC}/{MAGNETIC\\[1pt]{\fontsize{4.6}{5.6}\selectfont 0.667\,\textmu B/atom}}/{Real moment is well above\\threshold; own reasoning called\\this ``close to zero.''}
+}{
+  \node[card,minimum width=\cardw cm,minimum height=\cardh cm,anchor=south west]
+  at (\x,0){};
+
+  \node[font=\sffamily\bfseries\fontsize{9}{10.5}\selectfont,
+        text=npslate,anchor=north]
+  at (\x+\cardw/2,\cardh-0.18){\formula};
+
+  \node[font=\sffamily\fontsize{6.0}{7.2}\selectfont,
+        black!55,anchor=north]
+  at (\x+\cardw/2,\cardh-0.60){real Materials Project entry};
+
+  \node[bad,text width=1.62cm,minimum height=0.80cm,align=center,
+        font=\sffamily\bfseries\fontsize{5.4}{6.4}\selectfont,inner sep=1.5pt]
+  (gcl\i) at (\x+0.98,\cardh-1.62){\claim};
+
+  \node[font=\sffamily\fontsize{5.4}{6.4}\selectfont,
+        black!55,anchor=south]
+  at (\x+0.98,\cardh-1.22){model claimed};
+
+  \node[good,text width=1.62cm,minimum height=0.80cm,align=center,
+        font=\sffamily\bfseries\fontsize{5.4}{6.4}\selectfont,inner sep=1.5pt]
+  (grf\i) at (\x+\cardw-0.98,\cardh-1.62){\trueval};
+
+  \node[font=\sffamily\fontsize{5.4}{6.4}\selectfont,
+        black!55,anchor=south]
+  at (\x+\cardw-0.98,\cardh-1.22){real reference};
+
+  \draw[flow,black!55] (gcl\i.east)--(grf\i.west);
+
+  \node[npred,font=\sffamily\bfseries\fontsize{9}{10}\selectfont]
+  at (\x+\cardw/2,\cardh-1.62){$\times$};
+
+  \draw[black!15,line width=0.5pt]
+  (\x+0.25,\cardh-2.18)--(\x+\cardw-0.25,\cardh-2.18);
+
+  \node[font=\sffamily\fontsize{6.2}{7.8}\selectfont,
+        black!70,anchor=north,align=center,text width=3.65cm]
+  at (\x+\cardw/2,\cardh-2.34){\why};
+}
+\end{tikzpicture}
+
+\caption{\justifying\textbf{Representative DFT-grounded oracle violations across stability, metallicity, and magnetism.}
+\textbf{a}, Stability-oracle cases comparing model STABLE/UNSTABLE claims with Materials Project energies above the convex hull, $E_{\rm hull}$. The first two compounds are genuine ground-state structures with $E_{\rm hull}=0$, whereas EuZrFeBiO$_6$ lies far above the $0.05\,\mathrm{eV\,atom^{-1}}$ stability threshold.
+\textbf{b}, Metallicity-oracle cases comparing model classifications with Materials Project band gaps, $E_g$. Zero-gap compounds were incorrectly classified as nonmetallic, while Ca(H$_8$O$_5)_2$, with $E_g=4.4694$\,eV, was incorrectly classified as metallic.
+\textbf{c}, Magnetism-oracle cases comparing model classifications with Materials Project magnetization per atom. Carbon was incorrectly assigned a finite magnetic moment, whereas Eu$_2$Sb$_3$ and Na$_2$FeO$_3$ were classified as nonmagnetic despite moments substantially above the $0.05\,\mu_{\rm B}\,\mathrm{atom}^{-1}$ threshold. All examples are real, human-confirmed oracle activations from the DFT-grounded Half-B evaluation; values are reported exactly as recorded.}
+\label{fig:dft-oracle-cases}
+\end{figure}
+
+
+
+
+\subsection*{The Physical-Consistency Rate}
+Let items be indexed $i=1,\dots,N$, let $k_i$ be the number of physically checkable
+constraints the chain exposes on item $i$, and $v_i \le k_i$ the number the oracles
+find violated. The item is consistent iff $v_i=0$. Over the checkable subset
+$\mathcal{C}=\{i:k_i>0\}$,
+\begin{equation}
+\mathrm{PCR} \;=\; \frac{1}{|\mathcal{C}|}\sum_{i\in\mathcal{C}} \mathbf{1}[v_i = 0].
+\end{equation}
+We report per-constraint-type violation rates
+$\rho_t=\big(\sum_i v_{i,t}\big)/\big(\sum_i k_{i,t}\big)$ and per-modality rates with
+percentile bootstrap confidence intervals. The definition admits several checkable claims per
+item, but every item in this benchmark exposes exactly one claim of its own constraint type,
+so $k_i=1$ throughout and $\rho_t$ reduces to $1-\mathrm{PCR}$ within a constraint type; we
+keep the general form because the metric is intended for chains that expose more. PCR is distinct from answer accuracy: a
+model can be accurate yet inconsistent, or consistent yet wrong, and the gap is
+itself reported.
+
+\subsection*{Constraint-Grounded Self-Verification}
+CGSV uses the same oracles as a corrective signal at inference time with no labels.
+Because a model's own self-verification is largely confirmatory rather than
+corrective,\cite{selfverify2026} CGSV supplies the correction signal externally, from the
+oracle, rather than asking the model to re-examine its answer unaided. The model extracts
+the governing constraints, answers, is shown any programmatic or DFT-grounded violation,
+and revises, up to $K$ rounds or until no violation remains (Algorithm~\ref{alg:cgsv}).
+CGSV is a positive control: if the oracles capture real errors, exposing them should raise
+PCR, measured by a paired test, not assumed. Writing $c$ for the items the oracle flags
+before but not after revision and $b$ for those flagged after but not before, the change in
+the rate is exactly $\Delta\mathrm{PCR}=(c-b)/n$, so the discordant pair $(b,c)$ carries all
+of the effect and the exact McNemar test on it is the natural paired test
+(Supplementary Note~1.6). The loop halts after at most $K$ rounds by construction. We do not
+assume revisions can only remove violations; $b$ is measured.
+
+\begin{algorithm}[t]
+\caption{Constraint-Grounded Self-Verification}
+\label{alg:cgsv}
+\begin{algorithmic}[1]
+\State \textbf{Input:} input $x$, question $q$, oracle set $\mathcal{O}$, max rounds $K$
+\State $G \gets \textsc{ExtractConstraints}(x)$
+\State $a \gets \textsc{Answer}(x,q,G)$
+\For{$r = 1 \dots K$}
+  \State $V \gets \{o \in \mathcal{O} : o(\textsc{Claims}(a), G)\ \text{fails}\}$
+  \If{$V = \varnothing$} \State \textbf{break} \EndIf
+  \State $a \gets \textsc{Revise}(x, q, G, a, V)$
+\EndFor
+\State \textbf{return} $a$, residual violations $V$
+\end{algorithmic}
+\end{algorithm}
+
+\subsection*{Released physical-consistency verifier}
+Because the oracles require reference data (a structure, a scale bar, a computed
+value), we fine-tune an open model to predict, from the input and chain alone,
+whether a physical violation is present. Training labels come from the oracles, so the
+verifier is trained without human annotation. Unlike process-reward and generative
+reward models trained on human preference or model-judged
+correctness,\cite{processbench2025,compassverifier2025} its labels are a deterministic
+physics signal, which reduces the spurious correlations that affect preference-trained
+reward models; where a reference exists, the oracle is hard to game by surface-form changes. We release it as the reusable artifact of this work and report precision,
+recall, $F_1$, ROC AUC, and calibration against held-out oracle judgments.
+
+% Figure 3: framework, accuracy-vs-consistency states, and their disagreement
+\begin{figure}[p]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\sffamily]
+\node[plab,anchor=west] at (-0.10,6.05){a)};
+\node[font=\sffamily\small\bfseries,anchor=west] at (0.55,6.05){From public data to a released verifier, with no human annotation};
+\node[data,text width=2.25cm,minimum height=1.45cm,align=center,font=\sffamily\fontsize{6.2}{7.4}\selectfont,inner sep=2pt] (pub) at (1.345,3.15){\textbf{Public data}\\opXRD, RRUFF,\\NFFA-EUROPE,\\Materials Project};
+\node[proc,text width=2.45cm,minimum height=1.45cm,align=center,font=\sffamily\fontsize{6.2}{7.4}\selectfont,inner sep=2pt] (build) at (4.185,3.15){\textbf{Items and oracles}\\Bragg, scale bar,\\peak, hull, gap,\\magnetization};
+\node[proc,text width=1.80cm,minimum height=1.45cm,align=center,font=\sffamily\fontsize{6.2}{7.4}\selectfont,inner sep=2pt] (run) at (6.80,3.15){\textbf{Sample chains}\\9 models\\$S=3$ seeds};
+\node[proc,fill=nppurple!12,draw=nppurple!65,text width=2.00cm,minimum height=1.45cm,align=center,font=\sffamily\fontsize{6.2}{7.4}\selectfont,inner sep=2pt] (chk) at (9.19,3.15){\textbf{Parse claims,}\\\textbf{apply oracles}\\consistent\\or violation};
+\node[good,text width=2.15cm,minimum height=1.45cm,align=center,font=\sffamily\fontsize{6.2}{7.4}\selectfont,inner sep=2pt] (pcr) at (11.755,3.15){\textbf{PCR} and $\rho_t$\\bootstrap 95\% CI\\(Prop. 1 bounds\\the oracle bias)};
+\node[acc,text width=5.60cm,minimum height=1.15cm,align=center,font=\sffamily\fontsize{6.2}{7.4}\selectfont,inner sep=2pt] (gate) at (9.19,5.15){\textbf{Oracle-validity gate}, run before any model\\planted violations recovered at 10\%, 30\%, 50\%\\(FN rate 0.0000); precision audited by hand};
+\draw[flow](gate.south)--node[right,font=\sffamily\fontsize{5.8}{7}\selectfont,black,xshift=-1pt]{validates}(chk.north);
+\node[acc,text width=2.30cm,minimum height=1.20cm,align=center,font=\sffamily\fontsize{6.2}{7.4}\selectfont,inner sep=2pt] (cgsv) at (6.80,1.05){\textbf{CGSV}: return the\\violation, revise ($K=2$)\\4 models, diffraction\\and spectra};
+\node[proc,fill=npgreen!12,draw=npgreen!65,text width=2.15cm,minimum height=1.20cm,align=center,font=\sffamily\fontsize{6.2}{7.4}\selectfont,inner sep=2pt] (ver) at (11.755,1.05){Fine-tune on\\oracle labels\\$\rightarrow$ \textbf{released}\\\textbf{verifier}};
+\node[font=\sffamily\fontsize{5.5}{6}\selectfont,npgreen!45!black,fill=white,draw=npgreen!55,rounded corners=1pt,inner sep=1pt] at ($(ver.north east)+(-0.18,0.02)$){open};
+\draw[flow](pub)--(build);
+\draw[flow](build)--(run);
+\draw[flow](run)--(chk);
+\draw[flow](chk)--(pcr);
+\draw[flow](chk.south)--(9.19,2.05)--(8.40,2.05)--(8.40,1.05)--(cgsv.east);
+\draw[flow](chk.south)--(9.19,2.05)--(11.755,2.05)--(ver.north);
+\node[font=\sffamily\fontsize{5.8}{7}\selectfont,black!70,anchor=south] at (10.45,2.09){oracle judgments};
+\draw[flow,nporange](cgsv.north)--node[left,font=\sffamily\fontsize{5.8}{7}\selectfont,black,align=right]{label-free\\feedback}(run.south);
+\draw[black!25,line width=0.5pt,dash pattern=on 2pt off 1.5pt](0.12,0.20)--(13.00,0.20);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,black!60,anchor=west] at (0.12,-0.02){No step requires a human annotation of the correct answer; every training and scoring label above is derived from physics.};
+\begin{scope}[shift={(0,-6.30)}]
+\node[plab,anchor=west] at (-0.10,5.05){b)};
+\node[font=\sffamily\fontsize{7.6}{9}\selectfont\bfseries,anchor=west] at (0.52,5.05){What PCR adds to accuracy};
+\fill[npgreen!16](1.00,2.27) rectangle (3.60,3.82);
+\node[align=center,font=\sffamily\fontsize{6.4}{7.6}\selectfont,text=npgreen!45!black] at (2.30,3.35){\textbf{right for the}\\\textbf{right reasons}};
+\node[align=center,font=\sffamily\fontsize{5.7}{6.8}\selectfont,text=black!62] at (2.30,2.70){the target};
+\fill[nporange!16](3.60,2.27) rectangle (6.20,3.82);
+\node[align=center,font=\sffamily\fontsize{6.4}{7.6}\selectfont,text=nporange!60!black] at (4.90,3.35){\textbf{right despite a}\\\textbf{physics violation}};
+\node[align=center,font=\sffamily\fontsize{5.7}{6.8}\selectfont,text=black!62] at (4.90,2.70){dominates stability\\(gap 18.0--27.8\%)};
+\fill[npblue!13](1.00,0.72) rectangle (3.60,2.27);
+\node[align=center,font=\sffamily\fontsize{6.4}{7.6}\selectfont,text=npblue!55!black] at (2.30,1.80){\textbf{wrong but}\\\textbf{consistent}};
+\node[align=center,font=\sffamily\fontsize{5.7}{6.8}\selectfont,text=black!62] at (2.30,1.15){dominates diffraction\\(up to 58.1\% of a cell)};
+\fill[npred!13](3.60,0.72) rectangle (6.20,2.27);
+\node[align=center,font=\sffamily\fontsize{6.4}{7.6}\selectfont,text=npred!70!black] at (4.90,1.80){\textbf{wrong and}\\\textbf{inconsistent}};
+\node[align=center,font=\sffamily\fontsize{5.7}{6.8}\selectfont,text=black!62] at (4.90,1.15){dominates spectra};
+\draw[black!35,line width=0.5pt](1.00,0.72) rectangle (6.20,3.82);
+\draw[black!35,line width=0.5pt](3.60,0.72)--(3.60,3.82);
+\draw[black!35,line width=0.5pt](1.00,2.27)--(6.20,2.27);
+\node[font=\sffamily\fontsize{6.4}{8}\selectfont,anchor=south] at (2.30,3.92){\textcolor{npgreen!55!black}{\checkmark}\,consistent};
+\node[font=\sffamily\fontsize{6.4}{8}\selectfont,anchor=south] at (4.90,3.92){\textcolor{npred}{$\times$}\,inconsistent};
+\node[font=\sffamily\fontsize{6.4}{8}\selectfont,rotate=90,anchor=south] at (0.88,3.05){correct};
+\node[font=\sffamily\fontsize{6.4}{8}\selectfont,rotate=90,anchor=south] at (0.88,1.50){incorrect};
+\draw[decorate,decoration={brace,amplitude=4pt,mirror,raise=1pt},black!50,line width=0.5pt](1.00,0.62)--(6.20,0.62);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=north,text=npslate] at (3.60,0.42){resolved by PCR, without labels};
+\draw[decorate,decoration={brace,amplitude=4pt,raise=1pt},black!50,line width=0.5pt](0.38,0.72)--(0.38,3.82);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,rotate=90,anchor=south,text=black!55] at (0.20,2.27){resolved by accuracy, needs labels};
+\end{scope}
+\begin{scope}[shift={(6.90,-6.30)}]
+\node[plab,anchor=west] at (-0.10,5.05){c)};
+\node[font=\sffamily\fontsize{7.6}{9}\selectfont\bfseries,anchor=west] at (0.52,5.05){Where the two axes disagree};
+\def\xg#1{2.35 + #1/60*3.45}
+\draw[npslate!70,dash pattern=on 2pt off 1.6pt,line width=0.6pt]({\xg{22.2}},0.95)--({\xg{22.2}},4.30);
+\node[font=\sffamily\fontsize{5.8}{7}\selectfont,text=npslate,anchor=south,align=center] at ({\xg{22.2}},4.34){mean 22.2\%\\(12 cells)};
+\node[font=\sffamily\fontsize{6.4}{8}\selectfont,anchor=east] at (2.22,3.7){Diffraction (XRD)};
+\draw[npblue,line width=1.0pt,dash pattern=on 1.6pt off 1.4pt]({\xg{0}},3.7)--({\xg{58.1}},3.7);
+\fill[npblue]({\xg{58.1}},3.7)circle(2.6pt);\draw[white,line width=0.5pt]({\xg{58.1}},3.7)circle(2.6pt);
+\node[font=\sffamily\fontsize{5.9}{7}\selectfont,anchor=south east,text=black!65] at ({\xg{58.1}+0.16},3.8600000000000003){58.1\% largest cell};
+\node[font=\sffamily\fontsize{6.4}{8}\selectfont,anchor=east] at (2.22,2.95){Stability$^{*}$};
+\draw[npgreen,line width=2.6pt]({\xg{18.0}},2.95)--({\xg{27.8}},2.95);
+\node[font=\sffamily\fontsize{5.9}{7}\selectfont,anchor=west,text=black!65] at ({\xg{27.8}+0.10},2.95){18.0--27.8\%};
+\node[font=\sffamily\fontsize{6.4}{8}\selectfont,anchor=east] at (2.22,2.2){Spectra (Raman)};
+\draw[nppurple,line width=2.6pt]({\xg{4.2}},2.2)--({\xg{11.2}},2.2);
+\node[font=\sffamily\fontsize{5.9}{7}\selectfont,anchor=south,text=black!65] at ({\xg{7.699999999999999}},2.33){4.2--11.2\%};
+\draw[black!45,line width=0.5pt]({\xg{0}},1.75)--({\xg{60}},1.75);
+\draw[black!45,line width=0.4pt]({\xg{0}},1.75)--({\xg{0}},1.68);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=north] at ({\xg{0}},1.66){0\%};
+\draw[black!45,line width=0.4pt]({\xg{20}},1.75)--({\xg{20}},1.68);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=north] at ({\xg{20}},1.66){20\%};
+\draw[black!45,line width=0.4pt]({\xg{40}},1.75)--({\xg{40}},1.68);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=north] at ({\xg{40}},1.66){40\%};
+\draw[black!45,line width=0.4pt]({\xg{60}},1.75)--({\xg{60}},1.68);
+\node[font=\sffamily\fontsize{6.2}{7}\selectfont,anchor=north] at ({\xg{60}},1.66){60\%};
+\node[font=\sffamily\fontsize{6.4}{8}\selectfont,anchor=north] at ({\xg{30}},1.36){items on which accuracy and PCR disagree};
+\node[font=\sffamily\fontsize{5.8}{7}\selectfont,text=black!58,anchor=west,align=left] at (0.02,0.62){Microscopy is excluded: its prompt elicits only a feature-size claim,\\so no non-circular accuracy criterion is available. $^{*}$provisional (Methods).};
+\end{scope}
+\end{tikzpicture}}
+\caption{\justifying\textbf{The MatPCR framework and what its metric adds to accuracy.} \textbf{a)} Items and oracles are built from public characterization data and Materials Project references; the oracles are validated before any model is run, by a positive control that plants violations at three known rates and a human audit of oracle-fired cases; reasoning chains are then parsed into claims, checked, and summarized as the Physical-Consistency Rate with bootstrap intervals, whose displacement from the true rate Proposition 1 makes exact. The same oracle judgments drive Constraint-Grounded Self-Verification, which returns each violation to the model for revision, and supply the training labels for the released verifier. No step uses a human annotation of the correct answer. \textbf{b)} A reasoning chain occupies one of four states. Accuracy resolves the rows and needs labels; PCR resolves the columns and does not. The three constraint types with a non-circular accuracy criterion each populate a different off-diagonal cell: models are frequently close enough to satisfy the diffraction oracle while measurably off the exact peak, correct by Materials Project's own stability label yet outside the oracle's looser tolerance, and wrong on both counts for spectra. \textbf{c)} The resulting disagreement, as the percentage of items on which the two axes differ, across the four originally evaluated models. The mean is 22.2\% over the twelve (model, constraint-type) cells, so PCR is not answer accuracy under another name; the spread across constraint types shows that the two axes come apart for different reasons in each. $^{*}$Provisional pending validation of the DFT reference protocol.}
+\label{fig:pipeline}
+\end{figure}
+
+\subsection*{What oracle error does to the reported rate}
+An oracle that misses genuine violations or fires on clean chains moves the measured PCR away
+from the rate we want to report. The result below makes that displacement exact, and is the
+formal reason the oracle-validity gate is run before any model. Let
+$\mathcal{C}$ be the set of checkable items with $|\mathcal{C}|=n$, where here $n$ denotes
+the number of checkable items in the set under analysis (distinct from the per-cell item
+count of the evaluation tables). For
+$i\in\mathcal{C}$ let $Y_i\in\{0,1\}$ be the latent indicator that the chain contains
+at least one genuine physical violation and $\hat Y_i\in\{0,1\}$ the oracle's decision.
+The true inconsistency rate is $\tau=\frac1n\sum_i Y_i$, the true rate is
+$\mathrm{PCR}^\star=1-\tau$, and the measured rate is
+$\mathrm{PCR}=1-\frac1n\sum_i\hat Y_i$. Define the empirical item-level recall and
+false-alarm rate of the oracle,
+$\hat d=\#\{\hat Y_i{=}1,Y_i{=}1\}/\#\{Y_i{=}1\}$ and
+$\hat f=\#\{\hat Y_i{=}1,Y_i{=}0\}/\#\{Y_i{=}0\}$ (a rate multiplies a zero
+count to zero when its class is empty).
+
+\begin{proposition}[Bias decomposition]\label{prop:bias}
+$\mathrm{PCR}-\mathrm{PCR}^\star=\tau(1-\hat d)-(1-\tau)\hat f.$
+\end{proposition}
+\begin{proof}
+Counting flagged items,
+$\sum_i\hat Y_i=\hat d\,\#\{Y_i{=}1\}+\hat f\,\#\{Y_i{=}0\}=n[\tau\hat d+(1-\tau)\hat f]$,
+so $\mathrm{PCR}=1-\tau\hat d-(1-\tau)\hat f$. Subtracting $\mathrm{PCR}^\star=1-\tau$
+gives the result.
+\end{proof}
+
+\begin{corollary}[One-sided guarantees and bias bound]\label{cor:onesided}
+If the oracle is complete $(\hat d=1)$ then $\mathrm{PCR}\le\mathrm{PCR}^\star$, so PCR
+never overstates consistency; if it is sound $(\hat f=0)$ then
+$\mathrm{PCR}\ge\mathrm{PCR}^\star$; if both, $\mathrm{PCR}=\mathrm{PCR}^\star$. In
+general $|\mathrm{PCR}-\mathrm{PCR}^\star|\le(1-\hat d)+\hat f$.
+\end{corollary}
+\begin{proof}
+The three cases substitute $\hat d=1$ and $\hat f=0$ into
+Proposition~\ref{prop:bias}. For the bound,
+$|\tau(1-\hat d)-(1-\tau)\hat f|\le\tau(1-\hat d)+(1-\tau)\hat f\le(1-\hat d)+\hat f$
+because $\tau,\,1-\tau\le1$.
+\end{proof}
+
+\noindent Corollary~\ref{cor:onesided} is the formal reason to run the positive control
+and precision audit first (Table~\ref{tab:exp1}). The positive control estimates the
+oracle's recall $\hat d$ (planted-violation recovery). The precision audit estimates its
+precision $\pi$ on fired cases, equivalently the false-discovery rate $1-\pi$; this is not
+the false-alarm rate $\hat f$, whose denominator is the truly-clean items, and the two
+coincide only through the base rate. Under the $\hat d=1$ idealization supported by the
+positive control, Corollary~\ref{cor:onesided} gives $\mathrm{PCR}\le\mathrm{PCR}^\star$,
+and the understatement is exactly the false-positive fraction $(1-\pi)(1-\mathrm{PCR})$, which the
+audited precision estimates directly; estimating $\hat f$ itself, and hence the bias when
+$\hat d<1$, additionally requires sampling oracle-silent items to fix the base rate.
+
+Proposition~\ref{prop:bias} and Corollary~\ref{cor:onesided} concern the oracle's bias on
+a fixed set of items and are exact: they involve no distributional assumption. The reported
+PCR is also a finite sample, so its total error as an estimate of the rate the benchmark's
+item-generating process would produce carries a second, statistical part. We report that part
+empirically, as the percentile bootstrap interval on every rate, resampling at the source
+level where items share a parent source (Supplementary Note~1.4). A distribution-free
+alternative, obtained by adding a Hoeffding term to the bias bound above under independent
+sampling, is stated in Supplementary Note~1.7; at the cell sizes used here it is looser than
+the bootstrap interval, so we use it only to make the decomposition explicit and not as the
+reported uncertainty.
+
+\noindent Write $\hat Y^v_i\in\{0,1\}$ for the learned verifier's decision on item $i$, in
+place of the oracle's $\hat Y_i$, and $\mathrm{PCR}^v=1-\frac1n\sum_i\hat Y^v_i$ for the rate
+it reports. Substituting the verifier for the oracle when reference data are unavailable at
+inference costs at most the two decisions' measurable disagreement rate
+$\delta=\frac1n\#\{i:\hat Y^v_i\neq\hat Y_i\}$: both rates are means of indicators over the
+same items, so $|\mathrm{PCR}^v-\mathrm{PCR}|=|\frac1n\sum_i(\hat Y_i-\hat Y^v_i)|
+\le\frac1n\sum_i|\hat Y_i-\hat Y^v_i|=\delta$, and hence
+$|\mathrm{PCR}^v-\mathrm{PCR}^\star|\le(1-\hat d)+\hat f+\delta$ by
+Corollary~\ref{cor:onesided}. The verifier's precision and recall in
+Table~\ref{tab:verifier} summarize that disagreement. Because that disagreement is
+small only in distribution and large where transfer fails, the bound is tight in
+distribution and loose out of it, which is exactly where reference data are absent; we
+therefore present it as a guarantee for in-distribution use, not a license to replace the
+oracle across constraint types. Standard background results
+(Bragg's law, scale-bar calibration, convex-hull stability, the percentile bootstrap, a
+concentration inequality for the empirical rate, and the exact McNemar test) are
+collected in Supplementary Note~1.
+
+\subsection*{Models and experimental protocol}
+We evaluate nine models in total across three passes. The original pass (data collected
+2026-07-04 through 2026-07-11, re-run on corrected oracles 2026-07-16/17) covers one open
+vision--language model, Qwen2.5-VL-7B-Instruct\cite{qwen25vl} (Hugging Face repository
+\texttt{Qwen/Qwen2.5-VL-7B-Instruct}, run locally in \texttt{bfloat16} on an NVIDIA A100
+80GB via \texttt{transformers}), and three frontier models accessed through the OpenRouter
+API: \texttt{openai/gpt-4o}, \texttt{google/gemini-2.5-flash-lite}, and
+\texttt{anthropic/claude-sonnet-4.5}. A later-generation refresh pass (data collected
+2026-07-19/20) adds \texttt{anthropic/claude-opus-4.6},
+\texttt{openai/gpt-5.6-terra}, \texttt{qwen/qwen3-vl-8b-instruct},
+and a reasoning-mode condition, \texttt{qwen/qwen3-vl-8b-thinking}, all four again via
+OpenRouter. This refresh is one to three provider releases behind the newest models
+available on the collection date: within the same families, Claude Opus 4.7, 4.8 and 5,
+and the flagship GPT-5.6-Sol tier, had all been released by 2026-07-20, and GPT-5.6-Terra
+is the balanced rather than the flagship tier of its series. A third pass (data collected
+2026-08-06) adds \texttt{openai/gpt-5.6-sol}, the flagship sibling of GPT-5.6-Terra, at the
+same $n=30$, $S=3$ scale, to test directly whether flagship tier exceeds balanced tier
+within the same generation; it does not (Discussion). We therefore describe the second
+pass as a later-generation, not a frontier, comparison, and the third as answering the
+flagship-tier question the second pass's absence of a flagship model had left open. Model strings, weights, and
+API routing are pinned in the released repository; OpenRouter does not expose a
+per-request snapshot date distinct from the model string for these providers, so the
+listed model identifiers and the stated collection dates are the reproducibility anchor. We additionally evaluate a materials-domain
+structure-aware model, MatterChat\cite{matterchat2026} (its released Mistral-7B-based
+checkpoint and CHGNet structure encoder, run locally), on the DFT arms only (Baselines
+subsection). No LLaVA-class model was run.
+
+For each model and item we sample reasoning chains at a fixed decoding configuration
+with $S=3$ seeds, apply the oracles, and report mean PCR with percentile bootstrap
+confidence intervals ($B=10{,}000$ resamples); CGSV uses the same decoding and $K=2$
+rounds. The local model uses greedy decoding (\texttt{do\_sample=False}); the API models
+are called with no explicit temperature or top-$p$ override, i.e.\ each provider's own
+default sampling settings for the given model string, which we did not tune. We ran the most informative experiment first, the
+oracle-validity gate reported above (Table~\ref{tab:exp1}): a positive control that
+injected synthetic violations into otherwise valid chains at known rates and confirmed
+the oracles recover them, followed by a manual audit of oracle-fired cases that
+quantified oracle precision on real chains. This established that PCR measures genuine
+physical violations rather than parsing artifacts. Tolerances, prompts, and the DFT
+protocol were fixed before the reported evaluation runs and are released with the code; we
+do not describe them as pre-registered, because two oracles were revised mid-project after
+the precision audit (the spectrum and magnetism checks, above) and every affected number was
+re-collected under the revised definition rather than carried over. No time-stamped
+registration of the tolerances and prompts was made (checked directly against this
+project's version history), so we report the wording above rather than an unverifiable
+pre-registration claim. We report $S=3$
+seeds per condition, bootstrap confidence intervals on all rates, and the exact McNemar test
+for paired before/after comparisons. Each seed draws a fresh, independently sampled subset of items (verified
+directly: zero duplicate source files across seeds in every (constraint-type, model) cell
+checked), so the $S=3$ seeds are not the same items re-scored, and pooling records across
+seeds within a cell does not pool literal duplicates. The separate concern that the six
+McNemar tests in Table~\ref{tab:cgsv} (four per-model CGSV comparisons plus two
+mechanism-isolation controls) needed a multiple-comparisons correction is now resolved: we
+applied Holm and Benjamini--Hochberg correction directly (Baselines subsection, Statistics
+paragraph) and every CGSV effect survives.
+
+\subsection*{Baselines, ablations, and controls}
+Three of the study's controls are not consistently reported in comparable
+verifier and reasoning-benchmark studies: the oracle positive control with a precision
+audit, bootstrap confidence intervals with an exact paired test, and a held-out-constraint
+generalization split, to the best of our knowledge as of this writing; because this is a
+claim about other authors' work, we will re-confirm it against the then-current literature
+immediately before submission.
+A physical-consistency metric, a released verifier, and a self-correction loop are
+nonetheless interpretable only against the further baselines and controls specified here;
+those not yet reported are flagged for completion before submission.
+
+\noindent\emph{Models.} We added the later-generation refresh and reasoning-mode
+condition described above (Claude Opus 4.6, GPT-5.6-Terra, Qwen3-VL-8B-Instruct,
+Qwen3-VL-8B-Thinking), and a materials-domain evaluee. For the domain evaluee we ran
+MatterChat\cite{matterchat2026}, a structure-aware model that aligns a pretrained CHGNet
+material encoder with a Mistral-7B language model, on the three DFT constraint types (its
+native input, a crystal structure) using its released checkpoint and code, on a shuffled
+sample of 120 real Materials Project structures (an unshuffled first sample, drawn in raw
+file order, was 3.3\% magnetic versus the corrected sample's 65\%, so we discarded it and
+redrew with shuffling before reporting). MatterChat reaches PCR 0.783 (stability), 0.795
+(metallicity, $n=112$ checkable of 120), and 0.850 (magnetism, genuinely varying its answer
+across materials rather than defaulting to one class, confirmed directly). We did not run a domain-specific model on the image arms.
+Microscopy-specific vision--language models for materials do exist; we checked whether the
+one cited here, MicroscopyGPT,\cite{choudhary2025microscopygpt} could serve as a domain
+evaluee on the scale-bar arm and found its task and interface are incompatible with the
+question this arm poses, not merely unevaluated. MicroscopyGPT is trained to caption
+simulated scanning transmission electron microscopy images of 2D materials with a full
+atomic structure (lattice parameters, element identities, and atomic coordinates), and its
+released interface has no scale-bar-reading or feature-size-estimation output at all; forcing
+it to answer a size question it was never built to produce would not evaluate the model, it
+would evaluate an ad hoc adapter we would have to invent around it. We therefore leave the
+image arms without a domain-specific evaluee and report this as an honest coverage gap. On reasoning mode: Qwen3-VL-8B-Thinking does not improve over
+Qwen3-VL-8B-Instruct overall (0.579 vs.\ 0.555, bootstrap CIs overlapping), so explicit
+reasoning mode alone does not reliably raise PCR in this sample (Results).
+
+\noindent\emph{Verifier baselines.} We compare the released verifier against a zero-shot
+LLM-as-judge (Gemini 2.5 Flash Lite, prompted to judge each chain for a physical-consistency
+violation with a stated confidence) and the evaluated local model's own token-level
+self-confidence (mean log-probability of its stated final answer span), on the same
+in-distribution and six held-out-constraint-type splits, 2{,}152 items. Neither baseline
+is competitive with the fine-tuned verifier in distribution: the LLM-judge reaches
+AUC $=0.447$ (95\% CI $[0.400,0.493]$, indistinguishable from or below chance) and
+self-confidence AUC $=0.315$ (95\% CI $[0.264,0.365]$, significantly \emph{below} chance,
+an anti-correlation we discuss below), against the fine-tuned verifier's in-distribution
+AUC $=0.850$. Held out, all three approaches are weak: the LLM-judge ranges AUC
+$0.489$--$0.735$ across the six constraint types (best on microscopy, worst on diffraction)
+and self-confidence ranges AUC $0.246$--$0.523$, several below chance; neither baseline
+recovers the fine-tuned verifier's in-distribution advantage out of distribution, and
+none of the three approaches is a reliable held-out detector. We investigated the
+below-chance self-confidence result directly rather than treat it as noise: on a 40-item
+sample, chains later judged physically inconsistent had a \emph{higher} mean token
+log-probability ($-2.84$) than chains judged consistent ($-3.99$), i.e.\ the evaluated
+model is more confident, not less, when it is physically wrong, which is the source of the
+below-chance AUC rather than a sign error in our scoring. We separately built reliability
+diagrams (binned calibration curves) and a recommended per-split operating threshold for
+the released verifier: in distribution its predicted probabilities are reasonably
+calibrated (seven of ten reliability bins have a gap under 0.1 between predicted and
+empirical violation rate; the two largest gaps are 0.198 in the 0.1--0.2 bin and 0.228 in
+the 0.3--0.4 bin) and its default 0.5 threshold is close to optimal (best $F_1=0.765$ at threshold
+0.25 versus $F_1=0.735$ at 0.5). Held out, however, every constraint type is severely
+miscalibrated in the same direction: the verifier's low-probability bins massively
+underestimate the true violation rate (for example, held-out diffraction: predicted
+$0.07$--$0.14$ in its lowest bins, actual $0.47$--$0.49$; held-out spectra: predicted
+$0.02$--$0.15$, actual $0.84$--$0.93$), so at the default 0.5 threshold the verifier
+essentially never fires held out (recall as low as 0.03 for diffraction), and a much lower
+threshold (0.05 in five of six held-out splits) recovers usable recall at a real precision
+cost (for example, held-out diffraction $F_1$ rises from 0.057 at threshold 0.5 to 0.628 at
+threshold 0.05). No off-the-shelf process-reward model (PRM) comparison is reported: we
+checked directly and found no general-purpose or physics/materials-science PRM publicly
+available; every widely used open PRM (for example Qwen2.5-Math-PRM-7B, PRM800K-tuned
+variants, MedPRM) is trained on a specific domain's own step-labeled data (mathematics,
+medicine), so applying one to these physics reasoning chains would be an uninterpretable
+domain mismatch rather than a meaningful comparator, and we report this as a genuine
+absence rather than an oversight.
+
+\noindent\emph{Self-verification controls.} We isolate CGSV's contribution with three
+controls, matched to CGSV's items, models, $K$, and decoding: (i) unaided
+self-refinement, in which the model is told only to double-check its answer with no oracle
+feedback, shows no significant change (PCR $0.349\to0.339$, $n=542$, $b=34$, $c=29$,
+$p=0.615$); (ii) generic equal-compute re-prompting, in which the model is simply asked to
+reconsider with no critique framing, likewise shows no significant change
+($0.358\to0.342$, $n=562$, $b=24$, $c=15$, $p=0.20$); both controls, unlike CGSV, show
+nonzero regressions. (iii) Best-of-3 independent resampling (no multi-turn revision) gives a
+random-pick PCR of $0.363$ and an oracle-oracle best-of-3 ceiling of $0.419$ ($n=614$),
+both below CGSV's after-PCR for every model, by as little as $0.02$ for the weakest model
+and on a separately drawn item sample. We did not build a verifier-as-selector
+comparison on top of best-of-$N$ (this would need each candidate's chain text persisted for
+verifier scoring, which the current best-of-$N$ harness does not retain), so the
+best-of-3 result establishes only that resampling alone leaves real headroom over a random
+pick, not that the verifier can currently capture it; this is reported as a partial result. Together, CGSV's significant, zero-regression gain
+against two null controls supports attributing it to the physical-consistency signal
+specifically, not to generic self-reflection or additional sampling at equal compute
+(Results, CGSV table).
+
+\noindent\emph{Ablations, human agreement, and error analysis.} (i) Tolerance sensitivity:
+we re-checked already-collected real model claims against the oracle at multiple tolerance
+settings without new model calls. Diffraction's model ranking is \emph{not} robust to
+tolerance: at $\mathrm{tol}=0.25^\circ$ the local model's PCR exceeds the API models'
+pooled PCR, but the ranking reverses by $\mathrm{tol}=1.0^\circ$ (pairwise rank agreement
+$0.0$ against the default $0.5^\circ$ across the tolerances tested); spectrum's ranking is
+fully robust across $x_{\rm tol}\in\{10,20,30\}\,\mathrm{cm}^{-1}$ and prominence fraction
+$\in\{0.03,0.05,0.08\}$ (rank agreement $1.0$); stability's ranking is robust at 2 of 3
+non-default tolerances in the $\{0,0.025,0.05,0.10\}\,\mathrm{eV\,atom^{-1}}$ sensitivity
+grid stated in Methods (rank agreement $0.67$). We flag the diffraction result as a real robustness concern
+for any model comparison drawn from that single column. We additionally ran an independent
+prompt/format sensitivity check: for diffraction, spectra, and stability, we wrote a second,
+independently worded prompt template per constraint type (not a minimal edit of the
+original) and re-collected real model responses from four of the paper's API models
+(Gemini~2.5 Flash Lite, GPT-4o, Claude Sonnet~4.5, GPT-5.6-Terra) under both templates, then
+measured the same pairwise rank agreement metric used for the tolerance check above.
+Diffraction's ranking is again fragile under this different kind of perturbation (rank
+agreement $0.5$, echoing its tolerance-sensitivity fragility rather than resolving it);
+spectra's ranking is fairly robust to rewording (rank agreement $0.833$); stability's ranking
+is more mixed (rank agreement $0.667$), though its absolute rates stay tightly clustered
+under both wordings ($0.667$--$0.933$ across all four models and both templates), so this
+number likely reflects several close scores changing relative order rather than a dramatic
+swing in any one model's judgment. Independent of the exact ranking, GPT-5.6-Terra is the
+clear standout on spectra under both wordings ($0.867$/$0.933$) while GPT-4o is consistently
+the weakest under both ($0.000$/$0.067$); notably, GPT-4o's persistent low-checkable-rate
+anomaly on spectra (Results; reproduced again here under the original wording, $n=7/15$) did
+\emph{not} reproduce under the paraphrase ($n=15/15$), a small but concrete clue that this
+long-standing anomaly may be sensitive to the exact prompt wording rather than a fixed
+property of the (GPT-4o, spectra) pairing. (ii) Human agreement: a second-reviewer harness (a
+Cohen's-$\kappa$ implementation, verified on trivial self-comparison and constructed
+chance-level cases) is built and ready, but a genuine second human reviewer's independent
+pass has not yet been completed for any oracle family, so no $\kappa$ or per-precision CI
+is reported here; this differs from a missing analysis in that the tool exists and only the
+human labor remains, and we report every precision in Table~1 as a single-annotator point
+estimate accordingly, pending that second pass. (iii) Error taxonomy: from the diffraction and microscopy oracles'
+already-human-confirmed real violations (78 and 93 cases respectively; spectra and the DFT
+families are excluded because their human reviews predate the spectrum-oracle and
+magnetism-oracle corrections and would mismatch the corrected oracles' current fired-case
+population), an open-ended per-item categorization followed by a semantic clustering pass
+gives a small, legible taxonomy: diffraction failures are dominated by gridline/scale
+misreading (70.5\%) over peak misidentification (14.1\%); microscopy failures are
+dominated by scale-bar unit and unit-conversion errors (37.6\% and 23.7\%) over scale-factor
+arithmetic errors (14.0\%; Fig.~\ref{fig:oracle-examples}c shows three such real cases).
+
+(iv) Contamination: we checked whether any model chain ever
+states source-specific metadata it was never shown (institution codes, database sample
+IDs, present only in each dataset's own sidecar metadata, never in the rendered plot) --
+zero such cases across 2{,}152 checked records, a real if narrow negative signal. We
+compared each dataset's public release date against each model's documented training
+cutoff where both are known: opXRD's Zenodo record (15298026) was published 2025-04-28,
+which postdates GPT-4o's documented cutoff (2023-10, with some sources reporting a later
+2024-06 extension), ruling out direct memorization of this specific corpus for that model;
+most other model--dataset pairs cannot be so ruled out because frontier providers do not
+publish per-snapshot cutoff dates. A local-model perplexity comparison (real opXRD text
+mean log-probability $-0.18$ versus procedurally generated control text in the same surface
+format at $-1.91$) is reported but explicitly flagged as weak and non-diagnostic: lower
+perplexity on real structured data than on random control text is fully explained by real
+data being more predictable than gibberish, independent of memorization. Per-family,
+per-modality item counts with provenance: 205 (diffraction, opXRD), 481 (microscopy,
+NFFA-EUROPE), 575 (spectra, RRUFF), 395 (stability), 255 (metallicity), and 241 (magnetism)
+real oracle-checked records make up the 2{,}152-record verifier dataset described above;
+they are not the 4{,}472 records of the main evaluation in Supplementary Table~S1, which
+pools three seeds over nine models.
+
+\noindent\emph{Statistics.} The model-by-constraint-type sweep ($9\times6\times3=162$ cells)
+reports bootstrap confidence intervals, not a family of significance tests, so a
+Holm/Benjamini--Hochberg correction (designed for hypothesis tests) does not apply to those
+162 cells in the same sense. The actual family of significance tests in this paper is
+Table~\ref{tab:cgsv}'s six exact McNemar tests (four per-model CGSV comparisons plus the two
+mechanism-isolation controls); we corrected this family directly
+(\texttt{matpcr\_metrics.holm\_bonferroni}, \texttt{benjamini\_hochberg}, verified against a
+synthetic case and applied to the real before/after records in
+\texttt{experiments/exp15\_multiplicity\_correction.py}). All four CGSV effects survive the
+strictest (Holm) correction (adjusted $p<10^{-3}$ for every model, most far smaller), and
+both negative controls remain non-significant under either correction (Holm-adjusted
+$p=0.615$ and $0.399$); the qualitative finding, that CGSV works while generic
+self-refinement and re-prompting do not, is robust to multiplicity correction, not an
+artifact of testing six things at once. We separately checked the specific unit-of-analysis
+mechanism raised above and found it does not apply as stated (seeds draw independent item
+subsets, verified directly).
+
+\subsection*{Use of AI assistance}
+In line with the journal's policy that large language models do not satisfy
+authorship criteria, we disclose that an AI assistant was used during the preparation of
+this manuscript. All content was reviewed and verified by the human authors, who take
+full responsibility for the work. No AI system is an author.
+
+% =====================================================================
+\section*{Data availability}
+% =====================================================================
+The benchmark is derived entirely from public datasets: experimental powder diffraction
+patterns,\cite{opxrd2025} scanning electron micrographs,\cite{aversa2018nffa} Raman
+spectra,\cite{lafuente2015rruff} and first-principles reference values.\cite{matproj2013} The assembled MatPCR items and the oracle
+reference values with their provenance are available at \url{https://zenodo.org/records/21829644}.
+
+% =====================================================================
+\section*{Code availability}
+% =====================================================================
+All code, including the oracle implementations with unit tests, the chain-parsing
+code, the metric code, the DFT protocol settings, the prompts, and the released
+verifier weights, is available at \url{https://github.com/KurbanIntelligenceLab/matpcr}.
+
+% =====================================================================
+\section*{Author contributions}
+% =====================================================================
+H.K. and M.K. conceived the study. H.K., R.K., and M.K. designed the methodology.
+R.K. and H.K. implemented the physical oracles, the metric, and the verifier. M.K.
+designed the density functional theory protocol and the physics underlying the oracles
+and is responsible for their validation. All authors designed the experimental protocol,
+interpreted the analyses, and wrote and approved the manuscript. H.K., Hasan Kurban; R.K., Rasul
+Khanbayov; M.K., Mustafa Kurban.
+
+% =====================================================================
+\section*{Competing interests}
+% =====================================================================
+The authors declare no competing interests.
+
+% =====================================================================
+\section*{Acknowledgements}
+% =====================================================================
+The authors received no specific funding for this work.
+Computations were run across two single-GPU hosts over the course of the study: an NVIDIA
+P100 (16GB) host for early, pre-pilot exploratory work that produced no result reported
+here, and an NVIDIA A100 (80GB) host for the pilot and Experiment 1--4 onward, later joined
+by QCRI's Panther cluster (A100 80GB and H200 141GB partitions) for the
+later-generation model refresh, the verifier retraining, and the DFT-grounded re-runs. Exact
+total GPU-hours are not recoverable: most historical result logs did not record per-item
+timing, and the original P100 host's logs no longer exist, so we do not report an aggregate
+figure we cannot verify. We thank the institutions maintaining the public datasets this
+work depends on (opXRD, NFFA-EUROPE, RRUFF, Materials Project).
+
+\bibliography{matpcr_refs}
+
+\end{document}

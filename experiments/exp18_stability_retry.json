@@ -1,0 +1,20 @@
+{
+  "stability": {
+    "modality": "stability",
+    "rates_by_variant": {
+      "original": {
+        "gemini": 0.8,
+        "gpt4o": 0.8,
+        "claude": 0.9333333333333333,
+        "gpt56": 0.7333333333333333
+      },
+      "paraphrase": {
+        "gemini": 0.7142857142857143,
+        "gpt4o": 0.8,
+        "claude": 0.8,
+        "gpt56": 0.6666666666666666
+      }
+    },
+    "rank_agreement": 0.6666666666666666
+  }
+}

@@ -1,0 +1,1893 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.10.15)  16 OCT 2026 19:44
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**\def\cleanbuild{1}\input{matpcr_snjnl}
+(./matpcr_snjnl.tex (./sn-jnl.cls
+Document Class: sn-jnl 2019/11/18 v0.1: An authoring template for Springer Jour
+nal articles
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/base/fleqn.clo
+File: fleqn.clo 2016/12/29 v1.2b Standard LaTeX option (flush left equations)
+\mathindent=\skip49
+Applying: [2015/01/01] Make \[ robust on input line 50.
+LaTeX Info: Redefining \[ on input line 51.
+Already applied: [0000/00/00] Make \[ robust on input line 62.
+Applying: [2015/01/01] Make \] robust on input line 74.
+LaTeX Info: Redefining \] on input line 75.
+Already applied: [0000/00/00] Make \] robust on input line 83.
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count276
+\c@section=\count277
+\c@subsection=\count278
+\c@subsubsection=\count279
+\c@paragraph=\count280
+\c@subparagraph=\count281
+\c@figure=\count282
+\c@table=\count283
+\abovecaptionskip=\skip50
+\belowcaptionskip=\skip51
+\bibindent=\dimen150
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/ncctools/manyfoot.st
+y
+Package: manyfoot 2019/08/03 v1.11 Many Footnote Levels Package (NCC)
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/ncctools/nccfoots.st
+y
+Package: nccfoots 2005/02/03 v1.2 NCC Footnotes Package (NCC)
+)
+\MFL@columnwidth=\dimen151
+)
+LaTeX Info: Redefining \rm on input line 145.
+LaTeX Info: Redefining \sf on input line 146.
+LaTeX Info: Redefining \tt on input line 147.
+LaTeX Info: Redefining \bf on input line 148.
+LaTeX Info: Redefining \it on input line 149.
+LaTeX Info: Redefining \sl on input line 150.
+LaTeX Info: Redefining \sc on input line 151.
+LaTeX Info: Redefining \cal on input line 152.
+LaTeX Info: Redefining \mit on input line 153.
+LaTeX Info: Redefining \textsubscript on input line 211.
+\columnhsize=\skip52
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/geometry/geometry.st
+y
+Package: geometry 2026/03/07 v6.0 Page Geometry
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2026-05-17 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count284
+\Gm@cntv=\count285
+\c@Gm@tempcnt=\count286
+\Gm@bindingoffset=\dimen152
+\Gm@wd@mp=\dimen153
+\Gm@odd@mp=\dimen154
+\Gm@even@mp=\dimen155
+\Gm@layoutwidth=\dimen156
+\Gm@layoutheight=\dimen157
+\Gm@layouthoffset=\dimen158
+\Gm@layoutvoffset=\dimen159
+\Gm@dimlist=\toks18
+)
+\artcatbox=\box53
+\aucount=\count287
+\corraucount=\count288
+\punctcount=\count289
+\emailcnt=\count290
+\c@affn=\count291
+\addcount=\count292
+\PacsCount=\count293
+\PacsTmpCnt=\count294
+\FMremarkdim=\dimen160
+\fmremarkbox=\box54
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/sttools/cuted.sty
+Package: cuted 2025/12/15 v2.10 Mixing onecolumn and twocolumn modes (ST)
+\At@ViperColsBreak=\toks19
+\preCutedStrip=\toks20
+\postCutedStrip=\toks21
+\cuted@@tempbox@a=\box55
+\cuted@@tempbox@c=\box56
+\cuted@@tempbox@var=\box57
+\hold@viper=\box58
+\@viper=\box59
+\cuted@@varbox@a=\box60
+\cuted@@varbox@c=\box61
+\cuted@@tempdim@spread=\dimen161
+\cuted@@tempdim@a=\dimen162
+\cuted@@tempdim@b=\dimen163
+\ht@hold@viper=\dimen164
+\ht@viper=\dimen165
+\var@@pagediscards@ht=\dimen166
+\stripsep=\skip53
+\viper@penalty=\count295
+\strip@page@discards=\dimen167
+)
+\firstpagehtcheck=\dimen168
+\labelwidthi=\dimen169
+\labelwidthii=\dimen170
+\labelwidthiii=\dimen171
+\labelwidthiv=\dimen172
+\figwidth=\dimen173
+\figheight=\dimen174
+\sidecapwidth=\dimen175
+\wrapcapline=\dimen176
+\totalwrapline=\dimen177
+\wraptotline=\dimen178
+\figurebox=\box62
+\wrapfigcapbox=\box63
+\figcapbox=\box64
+\capbox=\box65
+\headwidthskip=\skip54
+\tabcapbox=\box66
+\temptbox=\box67
+\tempdime=\dimen179
+\tabhtdime=\dimen180
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/graphics/rotating.st
+y
+Package: rotating 2026-05-17 v2.16e rotated objects in LaTeX
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/graphics/graphicx.st
+y
+Package: graphicx 2026-05-17 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/graphics/graphics.st
+y
+Package: graphics 2026-05-17 v1.4h Standard LaTeX Graphics (DPC,SPQR)
+ (/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/graphics-cfg/graphic
+s.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/graphics-def/pdftex.
+def
+File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen181
+\Gin@req@width=\dimen182
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count296
+\rotFPtop=\skip55
+\rotFPbot=\skip56
+\rot@float@box=\box68
+\rot@mess@toks=\toks22
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/threeparttable/three
+parttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box69
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/appendix/appendix.st
+y
+Package: appendix 2020/02/08 v1.2c extra appendix facilities
+\c@@pps=\count297
+\c@@ppsavesec=\count298
+\c@@ppsaveapp=\count299
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/hyperref/hyperref.st
+y
+Package: hyperref 2026-10-09 v7.01s Hypertext links for LaTeX
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.
+sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdef
+inekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pdfescape/pdfescap
+e.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.st
+y
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexc
+mds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/infwarerr/infwarer
+r.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+))
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/refcount/refcount.st
+y
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/gettitlestring/get
+titlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.
+sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count300
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.st
+y
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count301
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/stringenc/stringen
+c.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen183
+\Hy@linkcounter=\count302
+\Hy@pagecounter=\count303
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2026-10-09 v7.01s Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/intcalc/intcalc.st
+y
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count304
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2026-10-09 v7.01s Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4199.
+Package hyperref Info: Link nesting OFF on input line 4204.
+Package hyperref Info: Hyper index ON on input line 4207.
+Package hyperref Info: Plain pages OFF on input line 4214.
+Package hyperref Info: Backreferencing OFF on input line 4219.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4466.
+\c@Hy@tempcnt=\count305
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4805.
+\XeTeXLinkMargin=\dimen184
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/bigintcalc/bigintc
+alc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count306
+\Field@Width=\dimen185
+\Fld@charsize=\dimen186
+Package hyperref Info: Hyper figures OFF on input line 6091.
+Package hyperref Info: Link nesting OFF on input line 6096.
+Package hyperref Info: Hyper index ON on input line 6099.
+Package hyperref Info: backreferencing OFF on input line 6106.
+Package hyperref Info: Link coloring OFF on input line 6111.
+Package hyperref Info: Link coloring with OCG OFF on input line 6116.
+Package hyperref Info: PDF/A mode OFF on input line 6121.
+\Hy@abspage=\count307
+\c@Item=\count308
+\c@Hfootnote=\count309
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2026-10-09 v7.01s Hyperref driver for pdfTeX
+\Fld@listcount=\count310
+\c@bookmark@seq@number=\count311
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/rerunfilecheck/rerun
+filecheck.sty
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/uniquecounter/uniq
+uecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
+)
+\Hy@SectionHShift=\skip57
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 1484.
+Package hyperref Info: Option `breaklinks' set `true' on input line 1484.
+Package hyperref Info: Option `plainpages' set `false' on input line 1484.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 1484.
+Package hyperref Info: Option `bookmarksnumbered' set `false' on input line 148
+4.
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen187
+\WF@size=\dimen188
+\c@WF@wrappedlines=\count312
+\WF@box=\box70
+\WF@everypar=\toks23
+Package: wrapfig 2003/01/31  v 3.6
+)
+\wraplines=\count313
+\@authorfigbox=\box71
+\@authorfigboxdim=\skip58
+\biofigadjskip=\skip59
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip60
+\bibsep=\skip61
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count314
+))
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2026/05/19 v2.18d AMS math features
+\@mathmargin=\skip62
+
+For additional information on amsmath, use the `?' option.
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks24
+\ex@=\dimen189
+)) (/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/amsmath/amsbsy.st
+y
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen190
+) (/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count315
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count316
+\leftroot@=\count317
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count318
+\DOTSCASE@=\count319
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box72
+\strutbox@=\box73
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen191
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count320
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count321
+\dotsspace@=\muskip18
+\c@parentequation=\count322
+\dspbrk@lvl=\count323
+\tag@help=\toks25
+\row@=\count324
+\column@=\count325
+\maxfields@=\count326
+\andhelp@=\toks26
+\eqnshift@=\dimen192
+\alignsep@=\dimen193
+\tagshift@=\dimen194
+\tagwidth@=\dimen195
+\totwidth@=\dimen196
+\lineht@=\dimen197
+\@envbody=\toks27
+\multlinegap=\skip63
+\multlinetaggap=\skip64
+\mathdisplay@stack=\toks28
+LaTeX Info: Redefining \[ on input line 2965.
+LaTeX Info: Redefining \] on input line 2966.
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.st
+y
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/psnfss/helvet.sty
+Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks29
+\thm@bodyfont=\toks30
+\thm@headfont=\toks31
+\thm@notefont=\toks32
+\thm@headpunct=\toks33
+\thm@preskip=\skip65
+\thm@postskip=\skip66
+\thm@headsep=\skip67
+\dth@everypar=\toks34
+)
+\c@proposition=\count327
+\c@corollary=\count328
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/booktabs/booktabs.st
+y
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen198
+\lightrulewidth=\dimen199
+\cmidrulewidth=\dimen256
+\belowrulesep=\dimen257
+\belowbottomsep=\dimen258
+\aboverulesep=\dimen259
+\abovetopsep=\dimen260
+\cmidrulesep=\dimen261
+\cmidrulekern=\dimen262
+\defaultaddspace=\dimen263
+\@cmidla=\count329
+\@cmidlb=\count330
+\@aboverulesep=\dimen264
+\@belowrulesep=\dimen265
+\@thisruleclass=\count331
+\@lastruleclass=\count332
+\@thisrulewidth=\dimen266
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/siunitx/siunitx.sty
+Package: siunitx 2026-10-12 v3.6.4 A comprehensive (SI) units package
+\l__siunitx_number_uncert_offset_int=\count333
+\l__siunitx_number_exponent_fixed_int=\count334
+\l__siunitx_number_min_decimal_int=\count335
+\l__siunitx_number_min_integer_int=\count336
+\l__siunitx_number_round_precision_int=\count337
+\l__siunitx_number_lower_threshold_int=\count338
+\l__siunitx_number_upper_threshold_int=\count339
+\l__siunitx_number_group_first_int=\count340
+\l__siunitx_number_group_size_int=\count341
+\l__siunitx_number_group_min_int=\count342
+\l__siunitx_number_group_minimum_int=\count343
+\l__siunitx_compound_count_int=\count344
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/translations/transla
+tions.sty
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
+ (CN)
+)
+Include code introduced on 2026-09-12
+\l__siunitx_table_tmp_box=\box74
+\l__siunitx_table_tmp_dim=\dimen267
+\l__siunitx_table_column_width_dim=\dimen268
+\l__siunitx_table_integer_box=\box75
+\l__siunitx_table_decimal_box=\box76
+\l__siunitx_table_uncert_box=\box77
+\l__siunitx_table_before_box=\box78
+\l__siunitx_table_after_box=\box79
+\l__siunitx_table_before_dim=\dimen269
+\l__siunitx_table_carry_dim=\dimen270
+\l__siunitx_unit_tmp_int=\count345
+\l__siunitx_unit_position_int=\count346
+\l__siunitx_unit_total_int=\count347
+\l__siunitx_sexagesimal_tmp_dim=\dimen271
+\l__siunitx_sexagesimal_marker_box=\box80
+\l__siunitx_sexagesimal_unit_box=\box81
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2026/02/24 v2.7b Tabular extension package (FMi)
+\col@sep=\dimen272
+\ar@mcellbox=\box82
+\extrarowheight=\dimen273
+\NC@list=\toks35
+\extratabsurround=\skip68
+\backup@length=\skip69
+\ar@cellbox=\box83
+))
+
+Package siunitx Info: Option "detect-weight" has been deprecated in this
+(siunitx)             release.
+(siunitx)             
+(siunitx)             Use "reset-text-series = false, text-series-to-math =
+(siunitx)             true" as a replacement.
+
+
+Package siunitx Info: Option "detect-family" has been deprecated in this
+(siunitx)             release.
+(siunitx)             
+(siunitx)             Use "reset-text-family = false, text-family-to-math =
+(siunitx)             true" as a replacement.
+
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/graphics-cfg/color.c
+fg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/graphics/mathcolor.l
+tx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/tcolorbox/tcolorbox.
+sty
+Package: tcolorbox 2026/05/28 version 6.10.0 text color boxes
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/pgf/frontendlayer/ti
+kz.sty
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.s
+ty
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs
+.sty
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/utilities/pgfu
+til-common.tex
+\pgfutil@everybye=\toks36
+\pgfutil@tempdima=\dimen274
+\pgfutil@tempdimb=\dimen275
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/utilities/pgfu
+til-latex.def
+\pgfutil@abb=\box84
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/utilities/pgfr
+cs.code.tex
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/pgf.revision.t
+ex)
+Package: pgfrcs 2026-08-01 v3.1.12 (3.1.12)
+))
+Package: pgf 2026-08-01 v3.1.12 (3.1.12)
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfco
+re.sty
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfs
+ys.sty
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/systemlayer/pg
+fsys.code.tex
+Package: pgfsys 2026-08-01 v3.1.12 (3.1.12)
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/utilities/pgfk
+eys.code.tex
+\pgfkeys@pathtoks=\toks37
+\pgfkeys@temptoks=\toks38
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/utilities/pgfk
+eyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks39
+))
+\pgf@x=\dimen276
+\pgf@y=\dimen277
+\pgf@xa=\dimen278
+\pgf@ya=\dimen279
+\pgf@xb=\dimen280
+\pgf@yb=\dimen281
+\pgf@xc=\dimen282
+\pgf@yc=\dimen283
+\pgf@xd=\dimen284
+\pgf@yd=\dimen285
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count348
+\c@pgf@countb=\count349
+\c@pgf@countc=\count350
+\c@pgf@countd=\count351
+\t@pgf@toka=\toks40
+\t@pgf@tokb=\toks41
+\t@pgf@tokc=\toks42
+\pgf@sys@id@count=\count352
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/systemlayer/pg
+f.cfg
+File: pgf.cfg 2026-08-01 v3.1.12 (3.1.12)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/systemlayer/pg
+fsys-pdftex.def
+File: pgfsys-pdftex.def 2026-08-01 v3.1.12 (3.1.12)
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/systemlayer/pg
+fsys-common-pdf.def
+File: pgfsys-common-pdf.def 2026-08-01 v3.1.12 (3.1.12)
+)))
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/systemlayer/pg
+fsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2026-08-01 v3.1.12 (3.1.12)
+\pgfsyssoftpath@smallbuffer@items=\count353
+\pgfsyssoftpath@bigbuffer@items=\count354
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/systemlayer/pg
+fsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2026-08-01 v3.1.12 (3.1.12)
+))
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+core.code.tex
+Package: pgfcore 2026-08-01 v3.1.12 (3.1.12)
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.c
+ode.tex
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/math/pgfmathut
+il.code.tex)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/math/pgfmathpa
+rser.code.tex
+\pgfmath@dimen=\dimen286
+\pgfmath@count=\count355
+\pgfmath@box=\box85
+\pgfmath@toks=\toks43
+\pgfmath@stack@operand=\toks44
+\pgfmath@stack@operation=\toks45
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.code.tex)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.basic.code.tex)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.trigonometric.code.tex)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.random.code.tex)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.comparison.code.tex)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.base.code.tex)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.round.code.tex)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.misc.code.tex)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfu
+nctions.integerarithmetics.code.tex)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/math/pgfmathca
+lc.code.tex)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfl
+oat.code.tex
+\c@pgfmathroundto@lastzeros=\count356
+))
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/math/pgfint.co
+de.tex)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corepoints.code.tex
+File: pgfcorepoints.code.tex 2026-08-01 v3.1.12 (3.1.12)
+\pgf@picminx=\dimen287
+\pgf@picmaxx=\dimen288
+\pgf@picminy=\dimen289
+\pgf@picmaxy=\dimen290
+\pgf@pathminx=\dimen291
+\pgf@pathmaxx=\dimen292
+\pgf@pathminy=\dimen293
+\pgf@pathmaxy=\dimen294
+\pgf@xx=\dimen295
+\pgf@xy=\dimen296
+\pgf@yx=\dimen297
+\pgf@yy=\dimen298
+\pgf@zx=\dimen299
+\pgf@zy=\dimen300
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2026-08-01 v3.1.12 (3.1.12)
+\pgf@path@lastx=\dimen301
+\pgf@path@lasty=\dimen302
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corepathusage.code.tex
+File: pgfcorepathusage.code.tex 2026-08-01 v3.1.12 (3.1.12)
+\pgf@shorten@end@additional=\dimen303
+\pgf@shorten@start@additional=\dimen304
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corescopes.code.tex
+File: pgfcorescopes.code.tex 2026-08-01 v3.1.12 (3.1.12)
+\pgfpic=\box86
+\pgf@hbox=\box87
+\pgf@layerbox@main=\box88
+\pgf@picture@serial@count=\count357
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+coregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2026-08-01 v3.1.12 (3.1.12)
+\pgflinewidth=\dimen305
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+coretransformations.code.tex
+File: pgfcoretransformations.code.tex 2026-08-01 v3.1.12 (3.1.12)
+\pgf@pt@x=\dimen306
+\pgf@pt@y=\dimen307
+\pgf@pt@temp=\dimen308
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corequick.code.tex
+File: pgfcorequick.code.tex 2026-08-01 v3.1.12 (3.1.12)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+coreobjects.code.tex
+File: pgfcoreobjects.code.tex 2026-08-01 v3.1.12 (3.1.12)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2026-08-01 v3.1.12 (3.1.12)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corearrows.code.tex
+File: pgfcorearrows.code.tex 2026-08-01 v3.1.12 (3.1.12)
+\pgfarrowsep=\dimen309
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+coreshade.code.tex
+File: pgfcoreshade.code.tex 2026-08-01 v3.1.12 (3.1.12)
+\pgf@max=\dimen310
+\pgf@sys@shading@range@num=\count358
+\pgf@shadingcount=\count359
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+coreimage.code.tex
+File: pgfcoreimage.code.tex 2026-08-01 v3.1.12 (3.1.12)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+coreexternal.code.tex
+File: pgfcoreexternal.code.tex 2026-08-01 v3.1.12 (3.1.12)
+\pgfexternal@startupbox=\box89
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corelayers.code.tex
+File: pgfcorelayers.code.tex 2026-08-01 v3.1.12 (3.1.12)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+coretransparency.code.tex
+File: pgfcoretransparency.code.tex 2026-08-01 v3.1.12 (3.1.12)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corepatterns.code.tex
+File: pgfcorepatterns.code.tex 2026-08-01 v3.1.12 (3.1.12)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgf
+corerdf.code.tex
+File: pgfcorerdf.code.tex 2026-08-01 v3.1.12 (3.1.12)
+)))
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/modules/pgfmod
+uleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2026-08-01 v3.1.12 (3.1.12)
+\pgfnodeparttextbox=\box90
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/modules/pgfmod
+uleplot.code.tex
+File: pgfmoduleplot.code.tex 2026-08-01 v3.1.12 (3.1.12)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/pgf/compatibility/pg
+fcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2026-08-01 v3.1.12 (3.1.12)
+\pgf@nodesepstart=\dimen311
+\pgf@nodesepend=\dimen312
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/pgf/compatibility/pg
+fcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2026-08-01 v3.1.12 (3.1.12)
+))
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor
+.sty
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkey
+s.sty
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/utilities/pgfk
+eys.code.tex))
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.c
+ode.tex))
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/utilities/pgff
+or.code.tex
+Package: pgffor 2026-08-01 v3.1.12 (3.1.12)
+\pgffor@iter=\dimen313
+\pgffor@skip=\dimen314
+\pgffor@stack=\toks46
+\pgffor@toks=\toks47
+))
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/frontendlayer/
+tikz/tikz.code.tex
+Package: tikz 2026-08-01 v3.1.12 (3.1.12)
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/libraries/pgfl
+ibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2026-08-01 v3.1.12 (3.1.12)
+\pgf@plot@mark@count=\count360
+\pgfplotmarksize=\dimen315
+)
+\tikz@lastx=\dimen316
+\tikz@lasty=\dimen317
+\tikz@lastxsaved=\dimen318
+\tikz@lastysaved=\dimen319
+\tikz@lastmovetox=\dimen320
+\tikz@lastmovetoy=\dimen321
+\tikzleveldistance=\dimen322
+\tikzsiblingdistance=\dimen323
+\tikz@figbox=\box91
+\tikz@figbox@bg=\box92
+\tikz@tempbox=\box93
+\tikz@tempbox@bg=\box94
+\tikztreelevel=\count361
+\tikznumberofchildren=\count362
+\tikznumberofcurrentchild=\count363
+\tikz@fig@count=\count364
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/modules/pgfmod
+ulematrix.code.tex
+File: pgfmodulematrix.code.tex 2026-08-01 v3.1.12 (3.1.12)
+\pgfmatrixcurrentrow=\count365
+\pgfmatrixcurrentcolumn=\count366
+\pgf@matrix@numberofcolumns=\count367
+)
+\tikz@expandcount=\count368
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/frontendlayer/
+tikz/libraries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2026-08-01 v3.1.12 (3.1.12)
+)))
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks48
+\verbatim@line=\toks49
+\verbatim@in@stream=\read3
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/trimspaces/trimspace
+s.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\tcb@titlebox=\box95
+\tcb@upperbox=\box96
+\tcb@lowerbox=\box97
+\tcb@phantombox=\box98
+\c@tcbbreakpart=\count369
+\c@tcblayer=\count370
+\c@tcolorbox@number=\count371
+\l__tcobox_tmpa_box=\box99
+\l__tcobox_tmpa_dim=\dimen324
+\tcb@temp=\box100
+\tcb@temp=\box101
+\tcb@temp=\box102
+\tcb@temp=\box103
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count372
+\float@exts=\toks50
+\float@box=\box104
+\@float@everytoks=\toks51
+\@floatcapt=\box105
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/libraries/pgfl
+ibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2026-08-01 v3.1.12 (3.1.12)
+\pgfarrowinset=\dimen325
+\pgfarrowlength=\dimen326
+\pgfarrowwidth=\dimen327
+\pgfarrowlinewidth=\dimen328
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/frontendlayer/
+tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2026-08-01 v3.1.12 (3.1.12)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/frontendlayer/
+tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2026-08-01 v3.1.12 (3.1.12)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/frontendlayer/
+tikz/libraries/tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2026-08-01 v3.1.12 (3.1.12)
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/libraries/shap
+es/pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2026-08-01 v3.1.12 (3.1.12)
+))
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/frontendlayer/
+tikz/libraries/tikzlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2026-08-01 v3.1.12 (3.1.12)
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/frontendlayer/
+tikz/libraries/tikzlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2026-08-01 v3.1.12 (3.1.12)
+\pgf@layerbox@background=\box106
+\pgf@layerboxsaved@background=\box107
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/frontendlayer/
+tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/frontendlayer/
+tikz/libraries/tikzlibrarydecorations.code.tex
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/modules/pgfmod
+uledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen329
+\pgfdecoratedremainingdistance=\dimen330
+\pgfdecoratedinputsegmentcompleteddistance=\dimen331
+\pgfdecoratedinputsegmentremainingdistance=\dimen332
+\pgf@decorate@distancetomove=\dimen333
+\pgf@decorate@repeatstate=\count373
+\pgfdecorationsegmentamplitude=\dimen334
+\pgfdecorationsegmentlength=\dimen335
+)
+\tikz@lib@dec@box=\box108
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/generic/pgf/libraries/deco
+rations/pgflibrarydecorations.pathreplacing.code.tex))
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/algorithms/algorithm
+.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+\@float@every@algorithm=\toks52
+\c@algorithm=\count374
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/algorithmicx/algpseu
+docode.sty
+Package: algpseudocode 
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/algorithmicx/algorit
+hmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count375
+\c@ALG@rem=\count376
+\c@ALG@nested=\count377
+\ALG@tlm=\skip70
+\ALG@thistlm=\skip71
+\c@ALG@Lnr=\count378
+\c@ALG@blocknr=\count379
+\c@ALG@storecount=\count380
+\c@ALG@tmpcounter=\count381
+\ALG@tmplength=\skip72
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/ragged2e/ragged2e.st
+y
+Package: ragged2e 2023/06/22 v3.6 ragged2e Package
+\CenteringLeftskip=\skip73
+\RaggedLeftLeftskip=\skip74
+\RaggedRightLeftskip=\skip75
+\CenteringRightskip=\skip76
+\RaggedLeftRightskip=\skip77
+\RaggedRightRightskip=\skip78
+\CenteringParfillskip=\skip79
+\RaggedLeftParfillskip=\skip80
+\RaggedRightParfillskip=\skip81
+\JustifyingParfillskip=\skip82
+\CenteringParindent=\skip83
+\RaggedLeftParindent=\skip84
+\RaggedRightParindent=\skip85
+\JustifyingParindent=\skip86
+)
+Package translations Info: No language package found. I am going to use `englis
+h' as default language. on input line 65.
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/l3kernel/l3backend-p
+dftex.def
+File: l3backend-pdftex.def 2026-09-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count382
+) (./matpcr_snjnl_clean.aux)
+\openout1 = `matpcr_snjnl_clean.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+\footinsA=\insert252
+\c@footnoteA=\count383
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* bindingoffset: 17.07164pt
+* modes: twoside 
+* h-part:(L,W,R)=(83.37448pt, 372.0pt, 125.06175pt)
+* v-part:(T,H,B)=(73.97716pt, 552.69478pt, 218.37491pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=372.0pt
+* \textheight=552.69478pt
+* \oddsidemargin=28.17613pt
+* \evensidemargin=52.79176pt
+* \topmargin=-19.72638pt
+* \headheight=5.5pt
+* \headsep=15.93355pt
+* \topskip=10.0pt
+* \footskip=28.45274pt
+* \marginparwidth=34.1433pt
+* \marginparsep=14.22636pt
+* \columnsep=14.22636pt
+* \skip\footins=8.0pt plus 4.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemargintrue
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/context/base/mkii/supp-pdf
+.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count384
+\scratchdimen=\dimen336
+\scratchbox=\box109
+\nofMPsegments=\count385
+\nofMParguments=\count386
+\everyMPshowfont=\toks53
+\MPscratchCnt=\count387
+\MPscratchDim=\dimen337
+\MPnumerator=\count388
+\makeMPintoPDFobject=\count389
+\everyMPtoPDFconversion=\toks54
+)
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopd
+f-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/latexconfig/epstopdf
+-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package hyperref Info: Link coloring ON on input line 65.
+ (./matpcr_snjnl_clean.out) (./matpcr_snjnl_clean.out)
+\@outlinefile=\write4
+\openout4 = `matpcr_snjnl_clean.out'.
+
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/translations/transla
+tions-basic-dictionary-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `tra
+nslations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' f
+or `english'. on input line 65.
+LaTeX Font Info:    Calculating math sizes for size <12.045> on input line 86.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <8.43146> not available
+(Font)              size <8> substituted on input line 86.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <8.43146> not available
+(Font)              size <8> substituted on input line 86.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <8.43146> not available
+(Font)              size <8> substituted on input line 86.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 86.
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 86.
+
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <8.43146> not available
+(Font)              size <8> substituted on input line 86.
+
+LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 86
+.
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <5.52061> not available
+(Font)              size <6> substituted on input line 86.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <5.52061> not available
+(Font)              size <6> substituted on input line 86.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <5.52061> not available
+(Font)              size <6> substituted on input line 86.
+
+LaTeX Font Info:    Calculating math sizes for size <10.03749> on input line 86
+.
+LaTeX Font Info:    Calculating math sizes for size <> on input line 86.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <> not available
+(Font)              size <5> substituted on input line 86.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <0.7> not available
+(Font)              size <5> substituted on input line 86.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <0.5> not available
+(Font)              size <5> substituted on input line 86.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <> not available
+(Font)              size <5> substituted on input line 86.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.7> not available
+(Font)              size <5> substituted on input line 86.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.5> not available
+(Font)              size <5> substituted on input line 86.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <> not available
+(Font)              size <5> substituted on input line 86.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.7> not available
+(Font)              size <5> substituted on input line 86.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.5> not available
+(Font)              size <5> substituted on input line 86.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1
+
+{/export/home/rakh90100/tools/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.
+map}]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4]
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 3
+74.
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
+File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
+)
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 9.23447pt on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 9.23447pt on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 11.03998pt on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 8.27998pt on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 6.43999pt on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 6.43999pt on input line 374.
+LaTeX Font Info:    Trying to load font information for TS1+phv on input line 3
+74.
+
+(/export/home/rakh90100/tools/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
+File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
+)
+LaTeX Font Info:    Font shape `TS1/phv/b/n' will be
+(Font)              scaled to size 6.43999pt on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 5.51999pt on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 4.78398pt on input line 374.
+LaTeX Font Info:    Calculating math sizes for size <5.2> on input line 374.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.63997> not available
+(Font)              size <5> substituted on input line 374.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <2.59999> not available
+(Font)              size <5> substituted on input line 374.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.63997> not available
+(Font)              size <5> substituted on input line 374.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <2.59999> not available
+(Font)              size <5> substituted on input line 374.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.63997> not available
+(Font)              size <5> substituted on input line 374.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <2.59999> not available
+(Font)              size <5> substituted on input line 374.
+
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 5.152pt on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 4.96797pt on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 6.99199pt on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 5.24397pt on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <5.7> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
+(Font)              scaled to size 5.24397pt on input line 374.
+LaTeX Font Info:    Calculating math sizes for size <5.7> on input line 374.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.98997> not available
+(Font)              size <5> substituted on input line 374.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <2.84999> not available
+(Font)              size <5> substituted on input line 374.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.98997> not available
+(Font)              size <5> substituted on input line 374.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <2.84999> not available
+(Font)              size <5> substituted on input line 374.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.98997> not available
+(Font)              size <5> substituted on input line 374.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <2.84999> not available
+(Font)              size <5> substituted on input line 374.
+
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 5.42798pt on input line 374.
+LaTeX Font Info:    Calculating math sizes for size <5.9> on input line 374.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.12997> not available
+(Font)              size <5> substituted on input line 374.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <2.95> not available
+(Font)              size <5> substituted on input line 374.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.12997> not available
+(Font)              size <5> substituted on input line 374.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <2.95> not available
+(Font)              size <5> substituted on input line 374.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.12997> not available
+(Font)              size <5> substituted on input line 374.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <2.95> not available
+(Font)              size <5> substituted on input line 374.
+
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 5.05998pt on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <6> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
+(Font)              scaled to size 5.51999pt on input line 374.
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 5.70398pt on input line 374.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5{/export/home/rakh90100/tools/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc
+}
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.386 \subsection
+                 *{Oracle validity: positive control and precision audit}]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6]
+<figures/oracle_examples/new_xrd_oracle_figure.pdf, id=161, 859.39067pt x 292.2
+2174pt>
+File: figures/oracle_examples/new_xrd_oracle_figure.pdf Graphic file (type pdf)
+
+<use figures/oracle_examples/new_xrd_oracle_figure.pdf>
+Package pdftex.def Info: figures/oracle_examples/new_xrd_oracle_figure.pdf  use
+d on input line 483.
+(pdftex.def)             Requested size: 371.99608pt x 126.49117pt.
+<figures/oracle_examples/new_raman_oracle_figure.pdf, id=162, 857.7847pt x 285.
+7877pt>
+File: figures/oracle_examples/new_raman_oracle_figure.pdf Graphic file (type pd
+f)
+<use figures/oracle_examples/new_raman_oracle_figure.pdf>
+Package pdftex.def Info: figures/oracle_examples/new_raman_oracle_figure.pdf  u
+sed on input line 488.
+(pdftex.def)             Requested size: 371.99461pt x 123.93726pt.
+<figures/oracle_examples/new_sem_oracle_figure.pdf, id=163, 852.15361pt x 284.9
+8471pt>
+File: figures/oracle_examples/new_sem_oracle_figure.pdf Graphic file (type pdf)
+
+<use figures/oracle_examples/new_sem_oracle_figure.pdf>
+Package pdftex.def Info: figures/oracle_examples/new_sem_oracle_figure.pdf  use
+d on input line 493.
+(pdftex.def)             Requested size: 372.01012pt x 124.41089pt.
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 553.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.015> not available
+(Font)              size <5> substituted on input line 553.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.015> not available
+(Font)              size <5> substituted on input line 553.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.015> not available
+(Font)              size <5> substituted on input line 553.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.610 
+       <./figures/oracle_examples/new_xrd_oracle_figure.pdf> <./figures/oracle_
+examples/new_raman_oracle_figure.pdf> <./figures/oracle_examples/new_sem_oracle
+_figure.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [9
+pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.610 
+      ]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11
+pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.709 
+      ]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [14
+pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.885 
+      {/export/home/rakh90100/tools/texlive/texmf-dist/fonts/enc/dvips/cm-super
+/cm-super-ts1.enc}
+pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.885 
+      ]
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 5.97998pt on input line 1178.
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 6.25598pt on input line 1178.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 6.25598pt on input line 1178.
+LaTeX Font Info:    Calculating math sizes for size <6.8> on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.4> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.4> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.4> not available
+(Font)              size <5> substituted on input line 1178.
+
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 6.62398pt on input line 1178.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 6.62398pt on input line 1178.
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 5.79599pt on input line 1178.
+LaTeX Font Info:    Calculating math sizes for size <6.3> on input line 1178.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.40997> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.15> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.40997> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.15> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.40997> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.15> not available
+(Font)              size <5> substituted on input line 1178.
+
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 5.33598pt on input line 1178.
+LaTeX Font Info:    Calculating math sizes for size <5.8> on input line 1178.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.05998> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <2.9> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.05998> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <2.9> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.05998> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <2.9> not available
+(Font)              size <5> substituted on input line 1178.
+
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <6.3> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 1178.
+
+LaTeX Font Info:    Font shape `OT1/phv/m/sl' will be
+(Font)              scaled to size 5.79599pt on input line 1178.
+LaTeX Font Info:    Calculating math sizes for size <6.5> on input line 1178.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <6.5> not available
+(Font)              size <6> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.54997> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.25> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <6.5> not available
+(Font)              size <6> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.54997> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.25> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <6.5> not available
+(Font)              size <6> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.54997> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.25> not available
+(Font)              size <5> substituted on input line 1178.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1264 
+       ]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17
+pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1264 
+       
+pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1264 
+       ]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [21]
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 7.35999pt on input line 1392.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 5.152pt on input line 1437.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 4.232pt on input line 1437.
+LaTeX Font Info:    Calculating math sizes for size <4.6> on input line 1437.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.21999> not available
+(Font)              size <5> substituted on input line 1437.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <2.3> not available
+(Font)              size <5> substituted on input line 1437.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.21999> not available
+(Font)              size <5> substituted on input line 1437.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <2.3> not available
+(Font)              size <5> substituted on input line 1437.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.21999> not available
+(Font)              size <5> substituted on input line 1437.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <2.3> not available
+(Font)              size <5> substituted on input line 1437.
+
+LaTeX Font Info:    Calculating math sizes for size <6.2> on input line 1437.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.33997> not available
+(Font)              size <5> substituted on input line 1437.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.09999> not available
+(Font)              size <5> substituted on input line 1437.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.33997> not available
+(Font)              size <5> substituted on input line 1437.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.09999> not available
+(Font)              size <5> substituted on input line 1437.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.33997> not available
+(Font)              size <5> substituted on input line 1437.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.09999> not available
+(Font)              size <5> substituted on input line 1437.
+
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 4.96797pt on input line 1496.
+LaTeX Font Info:    Font shape `TS1/phv/b/n' will be
+(Font)              scaled to size 4.232pt on input line 1555.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [22]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [23
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1625 
+       ]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 1627.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 5.70398pt on input line 1735.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <4.33997> not available
+(Font)              size <5> substituted on input line 1735.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <3.09999> not available
+(Font)              size <5> substituted on input line 1735.
+
+LaTeX Font Info:    Font shape `OT1/phv/m/n' will be
+(Font)              scaled to size 5.88797pt on input line 1735.
+LaTeX Font Info:    Font shape `OT1/phv/b/n' will be
+(Font)              scaled to size 5.88797pt on input line 1735.
+LaTeX Font Info:    Calculating math sizes for size <6.4> on input line 1735.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.47997> not available
+(Font)              size <5> substituted on input line 1735.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.2> not available
+(Font)              size <5> substituted on input line 1735.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.47997> not available
+(Font)              size <5> substituted on input line 1735.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.2> not available
+(Font)              size <5> substituted on input line 1735.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.47997> not available
+(Font)              size <5> substituted on input line 1735.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.2> not available
+(Font)              size <5> substituted on input line 1735.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <4.47997> not available
+(Font)              size <5> substituted on input line 1735.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <3.2> not available
+(Font)              size <5> substituted on input line 1735.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1756 
+       ]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [26]
+Underfull \hbox (badness 2165) in paragraph at lines 1823--1848
+\OT1/cmr/m/n/10 cov-ers one open vision--language model, Qwen2.5-VL-7B-Instruct
+[[]] (Hug-ging
+ []
+
+
+Underfull \hbox (badness 1533) in paragraph at lines 1823--1848
+\OT1/cmr/m/n/10 NVIDIA A100 80GB via \OT1/cmtt/m/n/10 transformers\OT1/cmr/m/n/
+10 ), and three fron-tier mod-els accessed
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1823--1848
+\OT1/cmr/m/n/10 and \OT1/cmtt/m/n/10 anthropic/claude-sonnet-4.5\OT1/cmr/m/n/10
+ . A later-generation refresh pass
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1823--1848
+\OT1/cmr/m/n/10 (data col-lected 2026-07-19/20) adds \OT1/cmtt/m/n/10 anthropic
+/claude-opus-4.6\OT1/cmr/m/n/10 ,
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27]
+Underfull \hbox (badness 1762) in paragraph at lines 1868--1891
+\OT1/cmr/m/n/10 Thinking), and a materials-domain eval-uee. For the domain eval
+-uee we ran
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [28]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [29]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [30]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [31]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [32]
+(./matpcr_snjnl_clean.bbl
+Underfull \hbox (badness 1297) in paragraph at lines 19--29
+[]\OT1/cmr/m/n/10 Wei, J. \OT1/cmr/m/it/10 et al.  \OT1/cmr/m/n/10 Koyejo, S. \
+OT1/cmr/m/it/10 et al. \OT1/cmr/m/n/10 (eds) \OT1/cmr/m/it/10 Chain-of-thought 
+prompt-ing elic-
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [33]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [34]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [35]
+Underfull \hbox (badness 2460) in paragraph at lines 353--358
+\OT1/cmr/m/n/10 xrd peak index-ing across diverse crys-talline mate-ri-als.  \O
+T1/cmr/m/it/10 arXiv preprint
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [36]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [37])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [38]
+(./matpcr_snjnl_clean.aux)
+ ***********
+LaTeX2e <2026-06-01>
+L3 programming layer <2026-09-09>
+ ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 4.5pt have occurred.
+
+Package rerunfilecheck Info: File `matpcr_snjnl_clean.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+ ) 
+Here is how much of TeX's memory you used:
+ 32500 strings out of 468531
+ 685760 string characters out of 5440437
+ 1164986 words of memory out of 5000000
+ 61002 multiletter control sequences out of 15000+600000
+ 725093 words of font info for 291 fonts, out of 8000000 for 9000
+ 329 hyphenation exceptions out of 8191
+ 110i,12n,111p,2154b,1403s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</export/home/rakh90100/tools/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmbx10.pfb></export/home/rakh90100/tools/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb></export/home/rakh90100/tools/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmbx8.pfb></export/home/rakh90100/tools/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></export/home/rakh90100/tools/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></export/home/rakh
+90100/tools/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></expo
+rt/home/rakh90100/tools/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
+0.pfb></export/home/rakh90100/tools/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi5.pfb></export/home/rakh90100/tools/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi6.pfb></export/home/rakh90100/tools/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi7.pfb></export/home/rakh90100/tools/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></export/home/rakh90100/tools
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></export/home/rakh
+90100/tools/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></expor
+t/home/rakh90100/tools/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.
+pfb></export/home/rakh90100/tools/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr17.pfb></export/home/rakh90100/tools/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr5.pfb></export/home/rakh90100/tools/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr6.pfb></export/home/rakh90100/tools/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></export/home/rakh90100/tools/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></export/home/rakh90100/
+tools/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></export/home/
+rakh90100/tools/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
+export/home/rakh90100/tools/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy5.pfb></export/home/rakh90100/tools/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy6.pfb></export/home/rakh90100/tools/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy7.pfb></export/home/rakh90100/tools/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy8.pfb></export/home/rakh90100/tools/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></export/home/rakh90100/to
+ols/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></export/home/
+rakh90100/tools/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></e
+xport/home/rakh90100/tools/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+tt10.pfb></export/home/rakh90100/tools/texlive/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msam5.pfb></export/home/rakh90100/tools/texlive/texmf-dist/fonts
+/type1/public/amsfonts/symbols/msam7.pfb></export/home/rakh90100/tools/texlive/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></export/home/rakh901
+00/tools/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></export/h
+ome/rakh90100/tools/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></ex
+port/home/rakh90100/tools/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pf
+b></export/home/rakh90100/tools/texlive/texmf-dist/fonts/type1/urw/helvetic/uhv
+ro8a.pfb>
+Output written on matpcr_snjnl_clean.pdf (38 pages, 3848138 bytes).
+PDF statistics:
+ 1116 PDF objects out of 1200 (max. 8388607)
+ 644 compressed objects within 7 object streams
+ 141 named destinations out of 1000 (max. 500000)
+ 28 words of extra memory for PDF output out of 10000 (max. 10000000)
+

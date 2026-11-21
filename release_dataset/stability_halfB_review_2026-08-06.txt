@@ -1,0 +1,433 @@
+{
+  "claim_type": "stability",
+  "reviews": [
+    {
+      "case": 1,
+      "verdict": real
+    },
+    {
+      "case": 2,
+      "verdict": real
+    },
+    {
+      "case": 3,
+      "verdict": false_positive
+    },
+    {
+      "case": 4,
+      "verdict": real
+    },
+    {
+      "case": 5,
+      "verdict": real
+    },
+    {
+      "case": 6,
+      "verdict": real
+    },
+    {
+      "case": 7,
+      "verdict": real
+    },
+    {
+      "case": 8,
+      "verdict": real
+    },
+    {
+      "case": 9,
+      "verdict": false_positive
+    },
+    {
+      "case": 10,
+      "verdict": real
+    },
+    {
+      "case": 11,
+      "verdict": real
+    },
+    {
+      "case": 12,
+      "verdict": real
+    },
+    {
+      "case": 13,
+      "verdict": real
+    },
+    {
+      "case": 14,
+      "verdict": real
+    },
+    {
+      "case": 15,
+      "verdict": real
+    },
+    {
+      "case": 16,
+      "verdict": real
+    },
+    {
+      "case": 17,
+      "verdict": false_positive
+    },
+    {
+      "case": 18,
+      "verdict": "real"
+    },
+    {
+      "case": 19,
+      "verdict": false_positive
+    },
+    {
+      "case": 20,
+      "verdict": real
+    },
+    {
+      "case": 21,
+      "verdict": real
+    },
+    {
+      "case": 22,
+      "verdict": real
+    },
+    {
+      "case": 23,
+      "verdict": real
+    },
+    {
+      "case": 24,
+      "verdict": real
+    },
+    {
+      "case": 25,
+      "verdict": real
+    },
+    {
+      "case": 26,
+      "verdict": real
+    },
+    {
+      "case": 27,
+      "verdict": real
+    },
+    {
+      "case": 28,
+      "verdict": real
+    },
+    {
+      "case": 29,
+      "verdict": real
+    },
+    {
+      "case": 30,
+      "verdict": real
+    },
+    {
+      "case": 31,
+      "verdict": real
+    },
+    {
+      "case": 32,
+      "verdict": real
+    },
+    {
+      "case": 33,
+      "verdict": "real"
+    },
+    {
+      "case": 34,
+      "verdict": "real"
+    },
+    {
+      "case": 35,
+      "verdict": real
+    },
+    {
+      "case": 36,
+      "verdict": real
+    },
+    {
+      "case": 37,
+      "verdict": real
+    },
+    {
+      "case": 38,
+      "verdict": real
+    },
+    {
+      "case": 39,
+      "verdict": real
+    },
+    {
+      "case": 40,
+      "verdict": real
+    },
+    {
+      "case": 41,
+      "verdict": real
+    },
+    {
+      "case": 42,
+      "verdict": real
+    },
+    {
+      "case": 43,
+      "verdict": real
+    },
+    {
+      "case": 44,
+      "verdict": real
+    },
+    {
+      "case": 45,
+      "verdict": false_positive
+    },
+    {
+      "case": 46,
+      "verdict": real
+    },
+    {
+      "case": 47,
+      "verdict": real
+    },
+    {
+      "case": 48,
+      "verdict": real
+    },
+    {
+      "case": 49,
+      "verdict": real
+    },
+    {
+      "case": 50,
+      "verdict": real
+    },
+    {
+      "case": 51,
+      "verdict": real
+    },
+    {
+      "case": 52,
+      "verdict": real
+    },
+    {
+      "case": 53,
+      "verdict": real
+    },
+    {
+      "case": 54,
+      "verdict": real
+    },
+    {
+      "case": 55,
+      "verdict": real
+    },
+    {
+      "case": 56,
+      "verdict": real
+    },
+    {
+      "case": 57,
+      "verdict": real
+    },
+    {
+      "case": 58,
+      "verdict": real
+    },
+    {
+      "case": 59,
+      "verdict": real
+    },
+    {
+      "case": 60,
+      "verdict": real
+    },
+    {
+      "case": 61,
+      "verdict": real
+    },
+    {
+      "case": 62,
+      "verdict": real
+    },
+    {
+      "case": 63,
+      "verdict": real
+    },
+    {
+      "case": 64,
+      "verdict": real
+    },
+    {
+      "case": 65,
+      "verdict": real
+    },
+    {
+      "case": 66,
+      "verdict": real
+    },
+    {
+      "case": 67,
+      "verdict": real
+    },
+    {
+      "case": 68,
+      "verdict": real
+    },
+    {
+      "case": 69,
+      "verdict": real
+    },
+    {
+      "case": 70,
+      "verdict": real
+    },
+    {
+      "case": 71,
+      "verdict": real
+    },
+    {
+      "case": 72,
+      "verdict": real
+    },
+    {
+      "case": 73,
+      "verdict": real
+    },
+    {
+      "case": 74,
+      "verdict": real
+    },
+    {
+      "case": 75,
+      "verdict": real
+    },
+    {
+      "case": 76,
+      "verdict": real
+    },
+    {
+      "case": 77,
+      "verdict": real
+    },
+    {
+      "case": 78,
+      "verdict": real
+    },
+    {
+      "case": 79,
+      "verdict": real
+    },
+    {
+      "case": 80,
+      "verdict": real
+    },
+    {
+      "case": 81,
+      "verdict": real
+    },
+    {
+      "case": 82,
+      "verdict": real
+    },
+    {
+      "case": 83,
+      "verdict": real
+    },
+    {
+      "case": 84,
+      "verdict": "real"
+    },
+    {
+      "case": 85,
+      "verdict": "real"
+    },
+    {
+      "case": 86,
+      "verdict": real
+    },
+    {
+      "case": 87,
+      "verdict": "real"
+    },
+    {
+      "case": 88,
+      "verdict": "real"
+    },
+    {
+      "case": 89,
+      "verdict": real
+    },
+    {
+      "case": 90,
+      "verdict": real
+    },
+    {
+      "case": 91,
+      "verdict": real
+    },
+    {
+      "case": 92,
+      "verdict": real
+    },
+    {
+      "case": 93,
+      "verdict": real
+    },
+    {
+      "case": 94,
+      "verdict": real
+    },
+    {
+      "case": 95,
+      "verdict": real
+    },
+    {
+      "case": 96,
+      "verdict": real
+    },
+    {
+      "case": 97,
+      "verdict": real
+    },
+    {
+      "case": 98,
+      "verdict": real
+    },
+    {
+      "case": 99,
+      "verdict": real
+    },
+    {
+      "case": 100,
+      "verdict": real
+    },
+    {
+      "case": 101,
+      "verdict": "real"
+    },
+    {
+      "case": 102,
+      "verdict": real
+    },
+    {
+      "case": 103,
+      "verdict": real
+    },
+    {
+      "case": 104,
+      "verdict": real
+    },
+    {
+      "case": 105,
+      "verdict": real
+    },
+    {
+      "case": 106,
+      "verdict": real
+    },
+    {
+      "case": 107,
+      "verdict": real
+    }
+  ]
+}

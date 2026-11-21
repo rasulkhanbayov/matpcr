@@ -1,0 +1,156 @@
+{
+  "family": "sem",
+  "audit": "oracle_silent",
+  "reviews": [
+    {
+      "case": 1,
+      "key": "L1_2326e1320b39a10f221e597b97ecedbe.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 2,
+      "key": "L6_dfc39308e9f2d5e7c11a2efb766f1f4e.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 3,
+      "key": "L6_2796b06a308aaf562c2040858b73f348.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 4,
+      "key": "L5_f59f1b00d299e2bd2ed2c600d8e48298.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 5,
+      "key": "L6_f1e60cc9334ba1e30a438389232831ca.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 6,
+      "key": "L2_71b6c06d1533dcded7e9dc7551676442.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 7,
+      "key": "L5_3386477d191a1df049b3c8f311625042.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 8,
+      "key": "L8_da42eecdfcd5361c12a8611cd0125a40.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 9,
+      "key": "L1_5d697eca899a3d3f5fd0403ac0ec78b9.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 10,
+      "key": "L8_d329b55744fe805bb422db440259d7f4.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 11,
+      "key": "L8_fc8404db18384d5578658b10396b5bd5.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 12,
+      "key": "L2_ac6ebae46102b1d17791732ecc9a5c62.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 13,
+      "key": "L8_753299f56b528515e0df4de5650423c2.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 14,
+      "key": "L6_62747f5c9884da5678312ca034e42ea6.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 15,
+      "key": "L6_22b20cadc28fcb784db0aa2ab0cbd6ef.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 16,
+      "key": "L8_14b4c8c1f22f07c591116498b1386808.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 17,
+      "key": "L6_a40a78c295b59b4118d1f1d7d423e29a.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 18,
+      "key": "L2_951cee914479d2aedd084836c08a4374.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 19,
+      "key": "L6_c6b5eda281df2d02403209c563d437c2.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 20,
+      "key": "L1_6c87e69ff2caee93bdb4719576d9bfaa.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 21,
+      "key": "L1_ecbe6faa65c12d2a2896c9a4171d5504.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 22,
+      "key": "L2_d9a4d651e542a1916b3f7e6dbd8db748.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 23,
+      "key": "L4_f2f020f8005f3462825b9e3029aa990a.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 24,
+      "key": "L2_42aaf2ba78a92405e4dd6c75c1f41ddc.jpg",
+      "verdict": "missed_violation"
+    },
+    {
+      "case": 25,
+      "key": "L6_2abd3a86740cd058e43706ddd6c29cab.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 26,
+      "key": "L5_2560025c7f6896f66f8ba4164b875b28.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 27,
+      "key": "L1_95bc9bd09147a2203ed038196c721fc4.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 28,
+      "key": "L8_fc87a03c90d59c817bfbfafb6c57926c.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 29,
+      "key": "L8_b0f93b5736ea0a63b5d445dcad3bcb1a.jpg",
+      "verdict": "clean"
+    },
+    {
+      "case": 30,
+      "key": "L2_1a6a7f7fb58ddd80f48296401022342d.jpg",
+      "verdict": "missed_violation"
+    }
+  ]
+}

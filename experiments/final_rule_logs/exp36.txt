@@ -1,0 +1,6 @@
+xrd          missed 1/30 = 0.033 [0.006, 0.167]  (unsure 0)  implied recall 0.967 [0.853, 0.994]
+sem          missed 2/30 = 0.067 [0.018, 0.213]  (unsure 0)  implied recall 0.807 [0.567, 0.938]
+spectrum     missed 1/30 = 0.033 [0.006, 0.167]  (unsure 0)  implied recall 0.995 [0.974, 0.999]
+stability    missed 0/29 = 0.000 [0.000, 0.117]  (unsure 0)  implied recall 1.000 [0.640, 1.000]
+metallicity  missed 0/30 = 0.000 [0.000, 0.114]  (unsure 0)  implied recall 1.000 [0.877, 1.000]
+magnetism    missed 0/29 = 0.000 [0.000, 0.117]  (unsure 1)  implied recall 1.000 [0.886, 1.000]

@@ -192,6 +192,8 @@ def run_stability_sweep():
             if hull is None:
                 continue
             consistent = stability_claim_consistent(claimed == "STABLE", hull, tol_eV_atom=tol)
+            if consistent is None:  # near-hull abstention band at this tolerance
+                continue
             model = r["model"]
             model_hits.setdefault(model, []).append(consistent)
         rates = {m: float(np.mean(v)) for m, v in model_hits.items() if v}

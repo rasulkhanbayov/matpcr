@@ -1,0 +1,323 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Oracle-silent audit: metallicity</title><style>body{font-family:sans-serif;max-width:1000px;margin:0 auto;padding:20px;background:#fafafa}
+.summary{position:sticky;top:0;background:#fff;padding:12px;border-radius:8px;box-shadow:0 1px 4px #0003;z-index:9}
+.case{background:#fff;border-radius:8px;margin:16px 0;box-shadow:0 1px 3px #0002}.case-header{background:#eee;padding:6px 12px;display:flex;gap:12px;font-size:.85rem}
+.model-badge{background:#333;color:#fff;padding:1px 8px;border-radius:4px}.case-body{display:flex;gap:16px;padding:12px;flex-wrap:wrap}
+.case-image img{max-width:340px;border:1px solid #ddd}.case-details{flex:1;min-width:300px}th{text-align:left;color:#555;padding:3px 8px;vertical-align:top}
+td{padding:3px 8px}pre.chain{white-space:pre-wrap;background:#f6f6f6;padding:8px;font-size:.8rem}.review-controls label{display:block}</style></head><body>
+<h1>Oracle-silent audit: metallicity (30 cases)</h1><div class="summary"><p>The oracle accepted the METALLIC/NONMETALLIC claim because it agrees with the Materials Project band gap (&lt;=0.05 eV metallic, &gt;=0.20 eV non-metallic). Mark MISSED VIOLATION if the claim is nevertheless physically wrong given the reference values shown.</p>
+<span id="tally">Reviewed: 0 / 30</span> <button onclick="ex()">Export my review</button>
+<textarea id="out" rows="5" style="width:100%"></textarea></div><div class="case" id="case-0"><div class="case-header"><span class="case-num">Case #1</span>
+<span class="model-badge">api</span><span class="source">mp-1651187</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Li7Mn5O12 (mp-1651187)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.029890409166655196, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.9919000000000002, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 30.0048199, &#x27;nsites&#x27;: 48}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material Li7Mn5O12 is likely a **NONMETALLIC** compound. Here&#x27;s the reasoning:
+
+1.  **Oxidation States of Mn:** Manganese (Mn) in oxides typically exhibits stable oxidation states such as +2, +3, +4, or +7. Let&#x27;s consider possible oxidation states in this compound:
+    *   If Mn is +2 and Li is +1, and O is -2: (7 * +1) + (5 * +2) + (12 * -2) = 7 + 10 - 24 = -7. This does not sum to zero.
+    *   If Mn is +3 and Li is +1, and O is -2: (7 * +1) + (5 * +3) + (12 * -2) = 7 + 15 - 24 = -2. This does not sum to zero.
+    *   If Mn is +4 and Li is +1, and O is -2: (7 * +1) + (5 * +4) + (12 * -2) = 7 + 20 - 24 = +3. This does not sum to zero.
+
+    However, it&#x27;s common for complex oxides to have mixed oxidation states. Let&#x27;s assume Li is +1 and O is -2. The total charge from Li and O is (7 * +1) + (12 * -2) = 7 - 24 = -17. Therefore, the total charge of the 5 Mn ions must be +17. This suggests an average oxidation state of +17/5 = +3.4 for Mn. This mixed oxidation state scenario is plausible and suggests the presence of both Mn ions in different oxidation states, likely leading to localized d-electrons.
+
+2.  **Nature of Bonding:** Oxides, especially those containing transition metals like manganese, often exhibit significant ionic character. The presence of Mn in various oxidation states in an oxide lattice suggests the formation of a band structure with a finite band gap. Metallic conductivity typically arises from delocalized electrons, which are less common in these types of ordered ionic/covalent oxide structures. While some transition metal oxides can be metallic (e.g., VO2 in a certain phase), Mn oxides with mixed oxidation states are more frequently semiconducting or insulating, especially when Li is present, which tends to form more ionic bonds. The d-orbitals of Mn are likely to be involved in bonding and localized, rather than forming a broad conduction band.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-0" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-0" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-0" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-1"><div class="case-header"><span class="case-num">Case #2</span>
+<span class="model-badge">local</span><span class="source">mp-2217706</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Ba2MgFeMoO6 (mp-2217706)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.41631543363636325, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.2989999999999995, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 8.0, &#x27;nsites&#x27;: 11}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material with the chemical composition Ba2MgFeMoO6 is likely to be a semiconductor/insulator rather than metallic. This is because it contains transition metal ions (Fe and Mo), which typically form insulating oxides due to their high electronegativity and the formation of strong covalent bonds. The presence of these elements suggests that the material will have a finite band gap, making it a semiconductor or an insulator.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-1" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-1" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-1" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-2"><div class="case-header"><span class="case-num">Case #3</span>
+<span class="model-badge">local</span><span class="source">mp-2218104</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgFe3OF7 (mp-2218104)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.18951276546296292, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.9061, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 13.0002696, &#x27;nsites&#x27;: 12}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material with the chemical composition MgFe3OF7 is likely to be a nonmetallic semiconductor or insulator. The presence of oxygen and the overall ionic nature of the compound suggest that it will not have metallic properties due to the lack of free electrons. The structure and bonding in such compounds typically involve covalent and ionic interactions, which generally result in a finite band gap.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-2" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-2" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-2" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-3"><div class="case-header"><span class="case-num">Case #4</span>
+<span class="model-badge">api</span><span class="source">mp-1645522</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>CoSb(PO4)2 (mp-1645522)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.05362841656249984, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.8863000000000003, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 2e-07, &#x27;nsites&#x27;: 48}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The composition CoSb(PO$_4$)$_2$ contains elements from different parts of the periodic table. Cobalt (Co) is a transition metal often exhibiting metallic or semiconducting properties depending on its oxidation state and bonding environment. Antimony (Sb) is a metalloid, leaning towards metallic character with a tendency to form covalent bonds. Phosphate groups (PO$_4$) are ionic and strongly contribute to insulating behavior.
+
+In this compound, cobalt is likely in a positive oxidation state, and antimony can also have a positive oxidation state. The presence of strongly electronegative oxygen atoms in the phosphate groups, forming ionic and polar covalent bonds, along with the bonding between Sb and the phosphate, suggests a significant ionic contribution and a delocalized electron sea (required for metallic behavior) is unlikely. The bridging oxygen atoms in PO$_4$ create a network that typically leads to a large band gap. While transition metals can introduce localized d-orbitals that might lead to partially filled bands, the overall structure and bonding of such phosphates tend to be insulating or semiconducting. Therefore, I expect this material to have a finite band gap.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-3" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-3" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-3" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-4"><div class="case-header"><span class="case-num">Case #5</span>
+<span class="model-badge">api</span><span class="source">mp-1650881</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Na3CoBPO7 (mp-1650881)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.06888253975732805, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.5980000000000001, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 6.0000301, &#x27;nsites&#x27;: 52}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material Na3CoBPO7 contains elements from across the periodic table. Sodium (Na) is an alkali metal, Cobalt (Co) is a transition metal, Boron (B) and Phosphorus (P) are from p-block, and Oxygen (O) is a chalcogen. The presence of a transition metal like Cobalt, which has partially filled d-orbitals, suggests a potential for metallic behavior. However, the structure also contains complex oxyanions like borophosphates, which tend to form covalent networks or ionic structures that can lead to band gaps. Given the mixed ionic and covalent bonding possibilities and the presence of a transition metal that can participate in both bonding and localized d-electron states, predicting a definitive metallic character is difficult without crystallographic and electronic structure information. However, many transition metal compounds with complex oxygen-containing polyanions tend towards non-metallic behavior due to the formation of an insulating gap, often influenced by the oxygen ligands and the overall structure. The high charge states indicated by the formula and the complex anions would likely lead to strong interactions that create a band gap.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-4" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-4" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-4" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-5"><div class="case-header"><span class="case-num">Case #6</span>
+<span class="model-badge">api</span><span class="source">mp-2212268</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>La6MnSb15 (mp-2212268)</td></tr><tr><th>Model's claim</th><td class='claim'>METALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.0, &#x27;is_stable&#x27;: True, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 3.8548262, &#x27;nsites&#x27;: 22}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">Considering the composition La$_6$MnSb$_{15}$, we can analyze the bonding and elemental properties. Lanthanum (La) is an early transition metal with a tendency to have a large number of valence electrons and form metallic bonds. Manganese (Mn) is a late transition metal, often exhibiting variable oxidation states and contributing to complex electronic structures, which can lead to metallic or magnetic properties. Antimony (Sb) is a pnictogen, which can be metallic or semimetallic depending on its bonding environment.
+
+In this compound, the high ratio of Sb atoms to La and Mn suggests a significant contribution from Sb to the valence band. However, the presence of a significant number of electropositive elements like La and a transition metal like Mn often leads to metallic character, especially when forming intermetallic compounds. La-Sb and Mn-Sb binary compounds are generally metallic. The overall electronic structure would be a complex interplay, but the dominance of metallic constituents in a high concentration environment often points towards metallic behavior.
+
+FINAL_ANSWER: METALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-5" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-5" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-5" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-6"><div class="case-header"><span class="case-num">Case #7</span>
+<span class="model-badge">api</span><span class="source">mp-2218283</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgCr2(SbO4)2 (mp-2218283)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.16252810567307563, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.8748999999999998, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 6.0146912, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">This material contains a transition metal (Cr) in a high oxidation state, often leading to d-orbital splitting and localized electrons, and the presence of an oxyanion (SbO4) suggests a predominantly ionic or covalent network. The complex structure with multiple elements and likely strong bonding interactions, including those involving oxygen, makes metallic character less probable. Such compositions typically exhibit band gaps due to well-defined electronic structures rather than delocalized metallic bands.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-6" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-6" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-6" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-7"><div class="case-header"><span class="case-num">Case #8</span>
+<span class="model-badge">api</span><span class="source">mp-1522984</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>SrCaHfZrO6 (mp-1522984)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.10960337575001944, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 3.4147, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 10}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material SrCaHfZrO6 is a complex oxide. Generally, oxides, especially those containing alkaline earth metals (Sr, Ca), transition metals and rare earth elements (Hf, Zr), tend to be insulators or semiconductors. These elements typically form ionic or polar covalent bonds, leading to a significant charge separation and a wide band gap. The presence of multiple d-block elements (Hf, Zr) could potentially lead to some d-d transitions, but in a fully oxidized, perovskite-like structure (which this stoichiometry suggests), these are unlikely to bridge the band gap to create metallic conductivity.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-7" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-7" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-7" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-8"><div class="case-header"><span class="case-num">Case #9</span>
+<span class="model-badge">local</span><span class="source">mp-2218940</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgAg2(BrO4)2 (mp-2218940)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.18907982384615352, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.9181, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material with the chemical composition MgAg2(BrO4)2 is likely to be a nonmetallic semiconductor or insulator. The presence of BrO4- ions suggests that it might have a structure similar to perovskites, which are known for their semiconducting properties. Additionally, the presence of magnesium (Mg) and silver (Ag) in the compound could contribute to its electronic structure, but the overall composition does not suggest metallic behavior due to the presence of the bromate ion (BrO4-) which typically leads to a more insulating or semiconducting nature.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-8" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-8" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-8" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-9"><div class="case-header"><span class="case-num">Case #10</span>
+<span class="model-badge">local</span><span class="source">mp-1648306</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Li2FeP2O7 (mp-1648306)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.03356263430555284, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 4.3689, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 7.9999598, &#x27;nsites&#x27;: 24}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material Li2FeP2O7 is a lithium iron phosphate, which is commonly used in rechargeable batteries. Lithium iron phosphates typically have a finite band gap, making them semiconductors or insulators. The presence of transition metal ions like iron (Fe3+) and the structure of the compound suggest that it will not exhibit metallic behavior due to the ionic nature of the bonds and the lack of delocalized electrons.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-9" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-9" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-9" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-10"><div class="case-header"><span class="case-num">Case #11</span>
+<span class="model-badge">local</span><span class="source">mp-1523366</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Ba2PrBiO6 (mp-1523366)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.02611900500000086, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.9086000000000003, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 10}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material with the chemical composition Ba2PrBiO6 is likely to be a nonmetallic semiconductor or insulator. The presence of rare earth elements like Praseodymium (Pr) and Bismuth (Bi) in the structure suggests that it may not have a metallic conductivity due to the complex electronic configurations and the potential for strong covalent bonding within the oxide framework. Additionally, the presence of oxygen (O) typically indicates an ionic bonding contribution, which further supports the likelihood of a nonmetallic behavior.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-10" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-10" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-10" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-11"><div class="case-header"><span class="case-num">Case #12</span>
+<span class="model-badge">local</span><span class="source">mp-2218132</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Y2MgBi2O7 (mp-2218132)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.17210832322916758, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 2.5491, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 12}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine whether Y2MgBi2O7 is metallic or a semiconductor/insulator, we need to consider its electronic structure and the nature of the bonds involved.
+
+1. **Yttrium (Y)**: Yttrium is a rare earth element that typically forms ionic bonds in compounds.
+2. **Magnesium (Mg)**: Magnesium is an alkaline earth metal that also forms ionic bonds.
+3. **Bismuth (Bi)**: Bismuth is a post-transition metal that can form both covalent and ionic bonds, but it often exhibits ionic behavior in compounds.
+4. **Oxygen (O)**: Oxygen forms covalent bonds, typically with a partial negative charge.
+
+In the compound Y2MgBi2O7, the yttrium and magnesium atoms are likely to form ionic bonds with oxygen, while bismuth may also participate in some ionic bonding. The presence of multiple ionic bonds suggests that the material will have a significant ionic character, which generally leads to a higher band gap due to the strong lattice potential.
+
+Given the ionic nature of the bonds and the likely formation of a wide band gap, it is reasonable to conclude that Y2MgBi2O7 is more likely to be a semiconductor/insulator rather than a metallic material.
+
+**FINAL_ANSWER: NONMETALLIC**</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-11" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-11" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-11" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-12"><div class="case-header"><span class="case-num">Case #13</span>
+<span class="model-badge">local</span><span class="source">mp-2218102</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Ba2MgCoWO6 (mp-2218102)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.3312105999999986, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.7935000000000003, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 3.0000002, &#x27;nsites&#x27;: 11}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine whether the material with the chemical composition Ba2MgCoWO6 is metallic or nonmetallic, we need to consider its electronic structure and the nature of the bonds involved.
+
+1. **Chemical Composition Analysis**: The material contains barium (Ba), magnesium (Mg), cobalt (Co), tungsten (W), and oxygen (O). Barium and magnesium are typically metallic elements, while cobalt and tungsten are transition metals. Oxygen is a non-metallic element that forms covalent bonds.
+
+2. **Electronic Structure**: Transition metals like cobalt and tungsten often have partially filled d-orbitals, which can lead to metallic behavior due to delocalized electrons. However, the presence of barium and magnesium, which are more likely to form ionic bonds, suggests that the material might not be purely metallic.
+
+3. **Bonding Nature**: The tungsten-oxygen bond is typically ionic in nature, as tungsten tends to form strong ionic bonds with oxygen. This suggests that the material may have a significant ionic component, which could contribute to a finite band gap rather than a zero or near-zero band gap.
+
+4. **Overall Electronic Band Gap**: Given the mixed nature of the bonding (both ionic and covalent), it is reasonable to infer that the material will have a finite band gap, making it a semiconductor or an insulator.
+
+**Final Answer:** NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-12" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-12" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-12" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-13"><div class="case-header"><span class="case-num">Case #14</span>
+<span class="model-badge">api</span><span class="source">mp-1524762</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Xe (mp-1524762)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.021933189999998604, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 6.8603000000000005, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 4}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">Xenon (Xe) is a noble gas. Noble gases have a full valence electron shell, which leads to very weak interatomic forces (van der Waals interactions). These weak forces result in large interatomic distances and a very small overlap of atomic orbitals. Consequently, the electronic band gap is large, classifying it as an insulator or semiconductor. At standard conditions, it is certainly an insulator.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-13" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-13" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-13" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-14"><div class="case-header"><span class="case-num">Case #15</span>
+<span class="model-badge">api</span><span class="source">mp-2218934</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgTe4Mo4(SeS)2 (mp-2218934)</td></tr><tr><th>Model's claim</th><td class='claim'>METALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.29694055711538425, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.01089999999999991, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0478075, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material MgTe4Mo4(SeS)2 contains elements from groups 1 (Mg), 6 (Te, Se, S), and 5 (Mo). Magnesium is an alkaline earth metal, typically forming ionic or covalent bonds. Molybdenum is a transition metal, often exhibiting metallic bonding and a propensity to form complex structures with chalcogenides. Tellurium, selenium, and sulfur are chalcogens, exhibiting a range of bonding behaviors from metallic to semiconducting. The presence of a high density of d-electrons from molybdenum, coupled with the possibility of extended bonding networks involving the chalcogens, suggests a high probability of metallic character due to delocalized electrons. While there might be some covalent contributions, the overall electronic structure is likely to favor metallic conductivity.
+
+FINAL_ANSWER: METALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-14" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-14" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-14" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-15"><div class="case-header"><span class="case-num">Case #16</span>
+<span class="model-badge">local</span><span class="source">mp-2218716</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgCr2(WO4)2 (mp-2218716)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.3152833846153751, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.21629999999999994, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 10.0000006, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material with the chemical composition MgCr2(WO4)2 is likely to be a semiconductor/insulator rather than metallic. This is because it contains tungsten (W), which is known for its high electronegativity and typically forms insulating oxides due to strong ionic bonding. The presence of chromium (Cr) in the structure also suggests a more ionic character, as Cr often forms oxides that are semiconducting or insulating. Additionally, the presence of magnesium (Mg) can contribute to the overall ionic nature of the compound.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-15" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-15" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-15" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-16"><div class="case-header"><span class="case-num">Case #17</span>
+<span class="model-badge">api</span><span class="source">mp-1521841</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>BaZr2SnO6 (mp-1521841)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.1356739182499993, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 2.9585000000000004, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 40}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">BaZr2SnO6 is an oxide material. Oxides generally exhibit a band gap due to the presence of oxygen anions, which are highly electronegative and contribute to covalent or ionic bonding with metal cations. The electronic structure of such compounds typically involves a filled valence band (formed from oxygen p-orbitals) and an empty conduction band (formed from metal d-orbitals or s/p orbitals). For a material to be metallic, it generally requires either a partially filled band or overlapping valence and conduction bands. In this oxide, with the expected filling of bands by electrons and a sufficient separation between them, a band gap is likely. While the specific band gap value requires detailed calculation, the composition suggests it will be a nonmetal.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-16" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-16" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-16" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-17"><div class="case-header"><span class="case-num">Case #18</span>
+<span class="model-badge">api</span><span class="source">mp-1647689</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Li4TiCo5O12 (mp-1647689)</td></tr><tr><th>Model's claim</th><td class='claim'>METALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.09823690323863321, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.03909999999999991, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0049867, &#x27;nsites&#x27;: 44}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">This material contains Li, Ti, Co, and O. Titanium and Cobalt are transition metals, which often exhibit metallic or semiconducting behavior due to the presence of partially filled d-orbitals. Oxygen is an electronegative element that forms strong covalent/ionic bonds. The presence of multiple transition metal cations, particularly Cobalt which has variable oxidation states, suggests a high likelihood of delocalized electrons or overlapping d-orbitals, leading to metallic conductivity. While ionic contributions from Li-O and some Ti-O and Co-O bonds exist, the contributions from the transition metal d-orbitals are likely to dominate in determining the electronic band structure, leading to a metallic character.
+
+FINAL_ANSWER: METALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-17" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-17" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-17" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-18"><div class="case-header"><span class="case-num">Case #19</span>
+<span class="model-badge">api</span><span class="source">mp-2217721</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgMn2(NiO3)2 (mp-2217721)</td></tr><tr><th>Model's claim</th><td class='claim'>METALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.5878942954545492, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 3.1229885, &#x27;nsites&#x27;: 11}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material contains magnesium (Mg), manganese (Mn), and elements within the nickel-oxide cluster (NiO3). Magnesium is a group 2 element and generally forms ionic or metallic bonds. Manganese and Nickel are transition metals and can exhibit variable oxidation states and covalent interactions with oxygen. The presence of multiple transition metals, particularly in complex oxide structures, often leads to d-d electronic transitions and can contribute to electronic conductivity. However, the specific stoichiometry and bonding environment are crucial. In this hypothetical compound, the NiO3 unit suggests a potentially complex structure. If the manganese and nickel are in relatively high oxidation states (e.g., Mn(IV) and Ni(II) or similar combinations to balance charge), and considering the delocalized nature often present in transition metal oxides, it&#x27;s plausible that some degree of metallic character could arise. However, without a definitive crystal structure and oxidation state determination, predicting with absolute certainty is challenging. The existence of a well-defined anionic complex like (NiO3)²⁻ might suggest a more ionic framework. If the (NiO3)²⁻ unit behaves as a distinct, highly stabilized anion with significant covalent character within itself, and Mg²⁺ and Mn³⁺/Mn⁴⁺ cations complete the structure, it might lean towards nonmetallic. However, the presence of multiple d-orbital-containing transition metals, especially Mn and Ni, which can contribute to complex electronic structures through overlapping bands, presents a strong possibility for metallic behavior, or at least a narrow band gap semiconductor. Given the ambiguity and the potential for significant d-electron contribution, a metallic character is a reasonable expectation.
+
+FINAL_ANSWER: METALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-18" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-18" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-18" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-19"><div class="case-header"><span class="case-num">Case #20</span>
+<span class="model-badge">local</span><span class="source">mp-2217595</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgMo2(BrO)4 (mp-2217595)</td></tr><tr><th>Model's claim</th><td class='claim'>METALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.26689846545452944, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 1.9999617, &#x27;nsites&#x27;: 11}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine whether the material with the chemical composition MgMo2(BrO)4 is metallic or nonmetallic, we need to consider the electronic structure and bonding in the material.
+
+1. **Chemical Composition Analysis**: The material contains magnesium (Mg), molybdenum (Mo), bromine (Br), and oxygen (O). Molybdenum typically forms strong covalent bonds, while magnesium is a transition metal that can form metallic bonds. Bromine and oxygen are nonmetals that generally form covalent bonds.
+
+2. **Electronic Structure**: In compounds like this, the presence of transition metals such as molybdenum often leads to metallic behavior due to the delocalization of electrons within the metal&#x27;s d-orbitals. However, the presence of nonmetallic elements like bromine and oxygen can introduce localized electron states, which might lead to a finite band gap if the material is not purely metallic.
+
+3. **Bonding Type**: The combination of metallic and covalent bonding suggests a complex electronic structure. Metallic behavior is more likely if the d-electrons of molybdenum are delocalized enough to form a metallic band structure, but the presence of nonmetallic elements could introduce localized states that would create a band gap.
+
+Given these considerations, it is reasonable to infer that the material might exhibit metallic behavior due to the potential for delocalized electrons from the molybdenum atoms, but the exact nature of the electronic structure would depend on the specific bonding and interactions within the material.
+
+**Final Answer:** METALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-19" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-19" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-19" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-20"><div class="case-header"><span class="case-num">Case #21</span>
+<span class="model-badge">api</span><span class="source">mp-2217451</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgMnV2O6 (mp-2217451)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.07657992600000618, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.2203, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 7.0, &#x27;nsites&#x27;: 10}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">This material is an oxide containing magnesium, manganese, and vanadium. Oxides, especially those formed from transition metals and more electropositive elements, often exhibit ionic or partially covalent bonding, leading to the formation of electronic band gaps. Vanadium, in particular, can exist in various oxidation states, and its oxide compounds are frequently semiconductors or insulators. The presence of multiple electronegative oxygen atoms will likely lead to localized electrons and a finite band gap.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-20" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-20" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-20" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-21"><div class="case-header"><span class="case-num">Case #22</span>
+<span class="model-badge">local</span><span class="source">mp-1662960</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Li2CoSn(PO4)2 (mp-1662960)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.07440738744047515, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 2.3091, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 5.9996896, &#x27;nsites&#x27;: 28}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material Li2CoSn(PO4)2 is likely to be a semiconductor/insulator rather than metallic. The presence of phosphorus (P) in the form of PO4 groups suggests that it will have a finite band gap due to the covalent bonding characteristics of phosphorus, which typically results in semiconducting behavior. Additionally, the presence of cobalt (Co) and tin (Sn) in the structure can contribute to the formation of a band gap, as these elements often exhibit valence states that lead to insulating or semiconducting properties when incorporated into solid-state compounds.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-21" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-21" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-21" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-22"><div class="case-header"><span class="case-num">Case #23</span>
+<span class="model-badge">api</span><span class="source">mp-1650920</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>SrLa4Cr5O15 (mp-1650920)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.06093989598751115, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.7885, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 1.9872549, &#x27;nsites&#x27;: 25}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">SrLa4Cr5O15 contains a significant amount of chromium (Cr) in a relatively high oxidation state. While some transition metal oxides can be metallic, the presence of perovskite-like structures (implied by Sr and La) and the specific stoichiometry often lead to localized d-electrons or a significant degree of covalent bonding with oxygen. In such oxides, the Cr-O hybridization can lead to a band gap, especially if the oxidation state isn&#x27;t low enough to facilitate extensive metallic conductivity. Predicting exact metallic behavior for complex oxides like this without more specific electronic structure calculations (like DFT) is challenging, but the typical behavior for many ternary/quaternary transition metal oxides with d-electrons in higher oxidation states tends towards semiconducting or insulating behavior. The high Cr content within the oxide lattice, when considering the electron count and potential for bonding, suggests that it is unlikely to exhibit a zero band gap. Instead, it is more plausible that there will be some degree of d-d or charge transfer excitation leading to a finite band gap.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-22" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-22" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-22" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-23"><div class="case-header"><span class="case-num">Case #24</span>
+<span class="model-badge">api</span><span class="source">mp-1639283</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Li7Mn5O12 (mp-1639283)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.031352019583322566, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.8685, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 36.0033784, &#x27;nsites&#x27;: 48}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">Li7Mn5O12 is a complex oxide. Lithium is an alkali metal and typically forms ionic bonds with oxygen. Manganese is a transition metal, and its oxides can exhibit a range of electronic properties depending on its oxidation state and coordination environment. However, in a compound with a high proportion of Li and O, especially in an anionic framework like O12, the bonding is expected to be significantly ionic. The strong electronegativity difference between Li and O, and the likely high formal oxidation states of Mn (which would also contribute to the overall charge balance likely dominated by the Li and O interactions), suggests that the valence band would be formed by oxygen p-orbitals and the conduction band by Mn orbitals. The filling of these bands would determine metallic or semiconducting behavior. Given the typical behavior of such lithium-manganese-oxygen compounds, especially those with complex stoichiometries, it is unlikely to be metallic. They often exhibit semiconducting or insulating properties, with band gaps arising from the electronic transitions within the Mn d-orbitals and hybridization with oxygen p-orbitals.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-23" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-23" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-23" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-24"><div class="case-header"><span class="case-num">Case #25</span>
+<span class="model-badge">local</span><span class="source">mp-2217451</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgMnV2O6 (mp-2217451)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.07657992600000618, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.2203, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 7.0, &#x27;nsites&#x27;: 10}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material MgMnV2O6 is likely to be a semiconductor/insulator rather than metallic. The presence of transition metal ions like Mn and V in the structure suggests that it will have a finite band gap due to the d-electron transitions between different energy levels. Additionally, the presence of oxygen and magnesium in the structure indicates a complex oxide framework, which typically results in insulating or semiconducting properties.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-24" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-24" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-24" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-25"><div class="case-header"><span class="case-num">Case #26</span>
+<span class="model-badge">api</span><span class="source">mp-2218716</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgCr2(WO4)2 (mp-2218716)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.3152833846153751, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.21629999999999994, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 10.0000006, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">Magnesium (Mg) is an alkaline earth metal, typically forming ionic bonds. Chromium (Cr) is a transition metal, capable of forming covalent or ionic bonds depending on its oxidation state and the bonding environment. Tungsten (W) is also a transition metal. The presence of multiple transition metals and oxyanions (WO4) suggests a complex bonding environment. Tungsten oxides and chromates are often semiconductors or insulators. The oxygen atoms in the tungstate groups are highly electronegative, pulling electron density away from the metal cations, which favors localization of electrons rather than delocalization required for metallic behavior. The Mg is likely to be in a +2 oxidation state, and the Cr is likely to have a positive oxidation state, leading to significant ionic character in the Mg-O and Cr-O bonds. The W in the tungstate is also in a positive oxidation state. The overall structure is likely to be a network of [WO4] units coordinated by Mg2+ and Cr cations, characteristic of oxide materials with a band gap.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-25" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-25" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-25" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-26"><div class="case-header"><span class="case-num">Case #27</span>
+<span class="model-badge">local</span><span class="source">mp-2218934</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgTe4Mo4(SeS)2 (mp-2218934)</td></tr><tr><th>Model's claim</th><td class='claim'>METALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.29694055711538425, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.01089999999999991, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0478075, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material&#x27;s composition suggests it is a complex compound involving transition metals and chalcogens. Transition metal compounds often exhibit metallic behavior due to the presence of d-electrons that can delocalize across the crystal lattice, leading to a zero or near-zero electronic band gap. The presence of Te, Mo, and Se in the structure further supports the possibility of metallic behavior as these elements are known to form metallic-like compounds under certain conditions.
+
+Given the complexity and the likely delocalization of electrons, it is reasonable to expect that this material could be metallic.
+
+FINAL_ANSWER: METALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-26" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-26" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-26" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-27"><div class="case-header"><span class="case-num">Case #28</span>
+<span class="model-badge">local</span><span class="source">mp-1662331</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>LiMnSiO4 (mp-1662331)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.024910235072880482, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.0671, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 16.0007728, &#x27;nsites&#x27;: 28}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material LiMnSiO4 is likely to be a semiconductor/insulator rather than metallic. The presence of silicon (Si) in the oxide framework suggests that it will have a finite band gap due to the covalent bonding characteristics of Si-O bonds, which typically result in a non-metallic behavior. Additionally, the presence of lithium (Li) and manganese (Mn) in the structure does not suggest metallic conductivity; instead, these elements are known to form insulating or semiconducting oxides when combined in certain ratios.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-27" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-27" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-27" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-28"><div class="case-header"><span class="case-num">Case #29</span>
+<span class="model-badge">api</span><span class="source">mp-2217752</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Ba2MgNiMoO6 (mp-2217752)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.5178225390909095, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.8651, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 1.9999997, &#x27;nsites&#x27;: 11}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">Ba₂MgNiMoO₆ is a double perovskite with a complex d-electron system due to the presence of Ni²⁺ and Mo⁶⁺ (or potentially Mo⁵⁺ in mixed valence states). The presence of multiple transition metals and oxygen ligands in a perovskite structure often leads to significant hybridization between metal d-orbitals and oxygen p-orbitals. However, the d-electron count can be crucial. In Ni²⁺, the d-shell is 8 electrons, and in Mo⁶⁺, it&#x27;s 0 electrons. If Mo is in a lower oxidation state (e.g., Mo⁵⁺), it would have 1 electron. The Mo-O-Ni network is often responsible for conductivity in related materials. Without precise knowledge of the crystal structure and orbital ordering, it&#x27;s difficult to definitively predict insulating behavior. However, the mixing of d-orbitals and potential for mixed valence or localized d-electrons, especially with Ni²⁺, tends to lead to band splitting and can favor non-metallic behavior, particularly if the Fermi level falls within a gap. The presence of Mo often suggests potential for conductivity, but the specific arrangement and oxidation states are key. In similar double perovskites with transition metals, a band gap is typically present due to ligand field splitting and electron-electron correlation effects.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-28" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-28" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-28" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-29"><div class="case-header"><span class="case-num">Case #30</span>
+<span class="model-badge">api</span><span class="source">mp-2217644</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgSc2(FeO3)2 (mp-2217644)</td></tr><tr><th>Model's claim</th><td class='claim'>NONMETALLIC</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.17468965624999733, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.8179999999999996, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 7.9999996, &#x27;nsites&#x27;: 11}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material MgSc2(FeO3)2 contains Sc, a transition metal, and Fe, another transition metal. Transition metal oxides often exhibit metallic or semiconducting behavior due to the partially filled d-orbitals. However, the iron is present as FeO3, implying Fe3+ (d5 configuration). Magnesium is an alkaline earth metal. Sc3+ has an empty d-shell. The structure likely involves complex oxide coordination. Without more information about the specific crystal structure and bonding, it&#x27;s difficult to definitively predict. However, the presence of multiple transition metal ions, especially iron, suggests a higher probability of localized electrons and d-d transitions, which are characteristic of semiconducting or insulating behavior rather than metallic conductivity, unless there are specific delocalized metallic bonding pathways. The FeO3 stoichiometry is unusual and might imply a defect or a polymeric structure rather than simple Fe2O3. If we consider a more conventional oxide structure like that of a perovskite or a similar framework, the band gap is likely to be finite.
+
+FINAL_ANSWER: NONMETALLIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-29" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-29" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-29" value="unsure" onchange="t()"> Unsure</label></div></div></div></div>
+<script>const K=["mp-1651187", "mp-2217706", "mp-2218104", "mp-1645522", "mp-1650881", "mp-2212268", "mp-2218283", "mp-1522984", "mp-2218940", "mp-1648306", "mp-1523366", "mp-2218132", "mp-2218102", "mp-1524762", "mp-2218934", "mp-2218716", "mp-1521841", "mp-1647689", "mp-2217721", "mp-2217595", "mp-2217451", "mp-1662960", "mp-1650920", "mp-1639283", "mp-2217451", "mp-2218716", "mp-2218934", "mp-1662331", "mp-2217752", "mp-2217644"];
+function t(){let k=0;for(let i=0;i<K.length;i++)for(const r of document.getElementsByName('review-'+i))if(r.checked)k++;document.getElementById('tally').textContent='Reviewed: '+k+' / '+K.length;}
+function ex(){const o=[];for(let i=0;i<K.length;i++){let v=null;for(const r of document.getElementsByName('review-'+i))if(r.checked)v=r.value;o.push({case:i+1,key:K[i],verdict:v});}
+document.getElementById('out').value=JSON.stringify({family:"metallicity",audit:"oracle_silent",reviews:o},null,2);}</script></body></html>

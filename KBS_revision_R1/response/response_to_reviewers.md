@@ -1,0 +1,136 @@
+# Response to Reviewers
+
+**Manuscript:** Physics as the label for measuring and correcting materials reasoning in multimodal models  
+**Journal:** Knowledge-Based Systems
+
+## Reviewer 1
+
+### Reviewer 1, Major comment 1
+
+> *Checking individual claims is not the same as evaluating a reasoning chain. Each item contains only one checkable claim (p. 18), which limits the support for the paper’s central claim about reasoning-chain consistency. The accuracy–consistency comparison also partly reflects different tolerances or definitions of stability (p. 8–9). These differences explain why the scores disagree, but do not show that PCR captures reasoning errors beyond those measured by answer accuracy. A clearer account of what PCR adds to scientific evaluation is needed.*
+
+**Response.** We agree. Each item exposes one checkable quantity (k_i=1), so PCR tests the physical admissibility of a stated quantity, not every inferential step; the abstract, contributions, Introduction and Discussion now say so. We also agree that part of the accuracy-consistency gap is definitional, because the accuracy criteria are tighter than the oracle tolerances, and we no longer present the gap (mean 23.6% on diffraction and spectra) as evidence that PCR catches reasoning errors that accuracy misses. For stability the gap came entirely from near-hull materials, which the final oracle does not score (Reviewer 2, weakness 3). A new paragraph states what PCR adds: it needs no answer key, so it applies where no non-circular accuracy criterion exists (microscopy, magnetization); it is a floor, not a target; and, as a necessary condition, it complements accuracy where labels exist and screens where they do not.
+
+**Changes in the manuscript.** Abstract; Key contributions (1); Introduction (last two paragraphs of the gap and positioning text); Results, Accuracy versus consistency (new final paragraph); Discussion.
+
+### Reviewer 1, Major comment 2
+
+> *The checks need stronger scientific validation. Detecting all planted violations is useful, but does not tell us how many errors are missed in real responses. Reviewing only flagged cases cannot answer this question. The XRD precision and the ranking reversal under different tolerances also suggest that the results depend substantially on the chosen criteria (p. 25). Validation against measurement uncertainty and independent scientific judgment would make the assessment more convincing. The theoretical guarantee should remain explicitly conditional.*
+
+**Response.** We agree on all three points. (i) The positive control shows completeness on injected violations only. The text now says so, and PCR≤PCR* is stated as conditional on d̂=1 for real responses. A new audit of 30 oracle-silent responses per family finds 1/30 misses for diffraction, 2/30 for microscopy, 1/30 for spectra and none for the DFT families, an implied recall of 0.81-1.00, lowest for microscopy (Supplementary Table S8). (ii) We grounded the tolerances in the data. The 5 cm⁻¹ Raman tolerance spans ten sampling steps but is narrower than a typical peak (median FWHM 16.9 cm⁻¹), which is why 34 of 36 false positives lie on a peak flank. The 0.5 degree diffraction tolerance is about four peak widths (median FWHM 0.12 degrees) and is set by what can be read from the plot (3-4 pixels). The diffraction ranking depends on these criteria and is now marked provisional; the spectrum ranking does not. (iii) Every use of the theoretical result is now explicitly conditional, and Table 1 gives intervals for every precision.
+
+**Changes in the manuscript.** Results, Oracle validity (first paragraph); Methods, Programmatic geometric oracles (new paragraph on tolerances); Methods, What oracle error does to the reported rate; Table 1; Discussion (limitations).
+
+### Reviewer 1, Major comment 3
+
+> *The interpretation of self-verification gains needs more evidence. Higher PCR shows that revised answers satisfy the checks more often, since the same checks provide feedback and score the outcome. Zero regressions also follow from the stopping rule (Algorithm 1). The Authors acknowledge that improved consistency need not mean improved correctness. However, the stronger conclusion that most gains represent “retreat” (p. 10) is not supported by final accuracy being lower than PCR alone. Paired changes in correctness would help show what the revisions actually achieve.*
+
+**Response.** Both points are correct. CGSV stops once no violation remains, so b=0 follows from the stopping rule; we now describe it as an implementation check, not a finding. We replaced the unpaired "retreat" argument with paired correctness on the same items (new Table 4). Accuracy rises from 5.8% to 9.9% on spectra (14 items gained, 2 lost; McNemar p=0.004) and from 22.9% to 28.6% on diffraction (14 gained, none lost; p=0.0001). Most revisions that clear the oracle reach an admissible but inexact value (37 of 48 on spectra, 27 of 41 on diffraction). CGSV therefore removes inadmissible claims and gives a small, significant gain in correctness, but mostly moves claims into the admissible region rather than onto the exact value. The matched controls revise every item, so their regression counts are not comparable with CGSV's.
+
+**Changes in the manuscript.** Results, Effect of self-verification (rewritten); new Table 4; Table 3 caption; Figure 2 caption; Methods, Constraint-Grounded Self-Verification; Discussion.
+
+### Reviewer 1, Major comment 4
+
+> *Coverage and sampling complicate the model comparisons. The proportion of checkable responses changes with prompt wording (p. 25), and the stability samples contain very few stable structures (p. 9). Some score differences may therefore come from which responses are evaluated and which materials are sampled. The comparisons would be more reliable if coverage, class balance and aggregation choices were accounted for explicitly.*
+
+**Response.** We agree. Coverage is now reported for every cell, separating items the oracle cannot score (e.g. 64 of 90 diffraction items are evaluable) from responses without a checkable quantity. Coverage is at least 0.93 everywhere except GPT-4o on spectra (0.49). Under three treatments of non-checkable responses the ordering barely changes (Kendall τ=0.83 and 1.00); GPT-4o drops from third to fifth when they count as violations (Supplementary Table S2). Class-conditional and class-balanced DFT rates are now reported (Supplementary Table S4), and they matter: Qwen2.5-VL-7B has a pooled stability PCR of 0.917 but a balanced rate of 0.485, whereas GPT-5.6-Terra has the lowest pooled rate (0.653) but a balanced rate of 0.814. On a new common set with 45 materials per class (Supplementary Table S6), every model is far less consistent on computed-metallic compositions (PCR 0.21-0.40) than on gapped ones (0.84-0.96), a shared bias the imbalanced sample hid.
+
+**Changes in the manuscript.** Results, Physical consistency of current models (new paragraphs on coverage and class balance); Methods, The Physical-Consistency Rate; Supplementary Tables S2, S4, S6.
+
+### Reviewer 1, Minor comment 1
+
+> *It is unclear how the information supplied in the DFT tasks identifies the corresponding reference structure (p. 16). This matters because structures with the same composition can have different properties.*
+
+**Response.** We agree. The DFT tasks give only a formula, checked against one Materials Project entry, so the reference polymorph is not identified. We now state and quantify this. Among the 540 compositions that occur more than once in our batch, polymorphs disagree on the stability class for 0.8%, on the band-gap class for 15.6% and on the magnetization class for 16.1%. Re-scoring every claim against the composition's lowest-energy polymorph changes 12.6% of stability verdicts (8.5% become abstentions, 4.0% flip) and 10.5% of metallicity verdicts. Structure-resolved prompts are noted as an extension.
+
+**Changes in the manuscript.** Methods, DFT-grounded property oracles; Discussion (final sentence).
+
+### Reviewer 1, Minor comment 2
+
+> *The verifier’s pooled performance gives limited insight into its usefulness for a particular scientific task (p. 11, lines 11–24). Results within individual constraint families would help clarify this.*
+
+**Response.** We agree. New Table 6 breaks the in-distribution result down by family: AUC is high for microscopy (0.922) and stability (0.804), moderate for magnetism (0.728) and diffraction (0.696), and near chance for metallicity (0.582) and spectra (0.513). A family-prior baseline alone reaches AUC 0.759, so part of the pooled 0.850 reflects base-rate differences between families. We now recommend the verifier only where it discriminates.
+
+**Changes in the manuscript.** Results, Verifier for violation prediction; new Table 6; Discussion; Key contributions (4).
+
+## Reviewer 2
+
+### Reviewer 2, Strength 1
+
+> *The analysis of how oracle error displaces the reported rate is exact and makes no distributional assumption, giving an identity for the displacement, a one-sided guarantee when the oracle is complete, and a bound for substituting a learned verifier for the oracle. It states precisely what the validity gate must establish and is candid about the bound holding only within the fitted distribution.*
+
+**Response.** We thank the reviewer for this assessment.
+
+### Reviewer 2, Strength 2
+
+> *The measurement design separates constructs: accuracy criteria are defined independently of each oracle's tolerance, consistency and correctness are treated as two axes, and balanced accuracy exposes a base-rate confound that raw accuracy hides. The demonstration that the metric is not answer accuracy under another name is the clearest scientific contribution of the paper.*
+
+**Response.** We thank the reviewer. Following Reviewer 1 (comment 1), we now also note that part of the accuracy-consistency gap is definitional, which sharpens the construct separation.
+
+**Changes in the manuscript.** Results, Accuracy versus consistency.
+
+### Reviewer 2, Strength 3
+
+> *The self-verification experiment isolates a mechanism rather than showing an effect: comparison is paired on identical items, regressions are reported alongside fixes, the tests are corrected for multiplicity, and matched equal-computation controls do not reproduce the gain. The paper also states that the improvement is mostly retreat rather than correction.*
+
+**Response.** We thank the reviewer. Following Reviewer 1 (comment 3), zero regressions is now attributed to the stopping rule, and retreat versus correction is tested with paired before-after correctness (new Table 4).
+
+**Changes in the manuscript.** Results, Effect of self-verification; Table 4.
+
+### Reviewer 2, Weakness 1
+
+> *The manuscript narrates its own internal revision history, and a reader cannot verify it. The oracle-validity and model-evaluation passages of the Results state that the reported values replace an earlier pass, the Discussion revisits a claim the authors have withdrawn, and the running text carries internal labels and repository paths, including the first-principles evaluation label in the caption of Figure 4, the experiment numbering in the Acknowledgements, and the code and result-file names in the Statistics paragraph of the Methods. Please report only final-protocol results in the main text, move the audit trail into a short note in the supplementary material, define or delete the internal labels, and remove repository paths and internal file names from the prose.*
+
+**Response.** We agree. The main text now reports only final-protocol results. Superseded numbers, the withdrawn magnetism-transfer claim and the earlier accuracy-gap figure were moved to a new Supplementary Note 2, which records how the oracles and the verifier split reached their final form. Internal labels, experiment numbers, repository paths and file names were removed from the text, captions and Acknowledgements.
+
+**Changes in the manuscript.** Results; Discussion; Methods (Programmatic geometric oracles, DFT-grounded property oracles, Models and experimental protocol, Statistics); Figure 4 caption; Table 3 caption; Acknowledgements; Supplementary Note 2.
+
+### Reviewer 2, Weakness 2
+
+> *The manuscript gives incompatible accounts of which oracle version each precision audit was judged against. The error-taxonomy paragraph of the Methods and the note under Figure 1c exclude the spectrum and first-principles families because their human review predates the final oracle definitions, whereas the caption of Table 1, the spectra-precision paragraph of the Results and the statement that both revised oracles were re-collected report those same audits as performed under the corrected definitions. The precision values in Table 1 are the warrant for every rate the paper reports, so the inconsistency is not editorial. Please add a short table giving, for each oracle family, the versions used to sample and to judge the audited cases, the date of the audit and the number of cases, and align these passages with it.*
+
+**Response.** Thank you for catching this. The spectrum and DFT audits were redone under the final oracles; the statements that their reviews "predate" these definitions referred to an older taxonomy and were out of date. Table 1 now gives the sample size of every audit, and its caption states the oracle version under which each family was sampled and judged (the final definitions in every case) and the audit dates; the Figure 1c note and the Methods are aligned with it. The taxonomy now covers all six families, using the final-oracle audits (Supplementary Table S5).
+
+**Changes in the manuscript.** Table 1 (sample sizes and caption); Figure 1c caption and note; Methods, Baselines (error taxonomy); Supplementary Table S5.
+
+### Reviewer 2, Weakness 3
+
+> *Every precision figure in Table 1 comes from a single annotator. No agreement statistic is reported, the cases that annotator was unsure about are excluded from the ratio, and several families were audited on small samples. These figures justify treating the oracles as valid and therefore underpin every rate in the paper. Please have a second independent annotator re-label a subsample of the audited cases in each family, report agreement between the annotators, add interval estimates alongside the point estimates, and add a sensitivity analysis that counts unsure cases first as violations and then as clean cases.*
+
+**Response.** We agree, and this led to an important correction. Table 1 now gives Wilson 95% intervals; the 2 unsure spectrum cases move precision by at most 0.4 points. A second, blind annotator re-labelled a stratified subsample of 30 cases per family. Agreement is high where the criterion is sharp (Cohen's kappa 1.00 for metallicity, 0.71 for microscopy, 0.63 for magnetism) and low at the diffraction (0.33) and spectrum (0.13) tolerance boundaries, where every dispute was a claim just outside tolerance on the flank of a real peak. Both annotators then adjudicated the 24 disputed cases. Weighted back by stratum, consensus precision is 0.60 [0.44, 0.75] for diffraction, 0.61 [0.44, 0.76] for spectra and 0.89-1.00 for the other families (Table 1, new column). The paper now states that about four in ten fired diffraction and spectrum cases are not violations, so these families' PCR understates the true rate more than the single audit suggested.
+
+The second annotation also exposed a flaw in the stability oracle: the prompt tells models to call borderline cases UNSTABLE, but the oracle required STABLE within 0.05 eV/atom of the hull. We now treat this near-hull band as an abstention band, as for metallicity, and recomputed all stability results from the existing responses. The stability audit becomes 57 of 57 genuine violations; results under the original rule are in Supplementary Table S7.
+
+**Changes in the manuscript.** Table 1 (new two-annotator consensus column, stability row and footnote); Results, Oracle validity; Methods, DFT-grounded property oracles (stability definition) and Baselines (human agreement); Supplementary Note 2; Supplementary Tables S7 and S8.
+
+### Reviewer 2, Weakness 4
+
+> *The model comparisons are not paired and are not adjusted for multiplicity. Items are drawn afresh for each model in the protocol paragraph of the Methods, so the models are never compared on a common item set; the comparative claims, including the statement that six of the other seven models exceed the local model, rest on whether intervals overlap rather than on a test of difference; and the tolerance-sensitivity and prompt-paraphrase paragraphs of the Methods both report that the diffraction ranking reverses under reasonable changes. Please evaluate all models on one common and paired item set, replace interval-overlap reasoning with paired item-level tests corrected across the family of comparisons, report effect sizes with the intervals, and mark the diffraction comparisons as provisional or remove them from the headline claims.*
+
+**Response.** We agree, with one clarification: for the image constraint types all models already received the same items in each seed, so those comparisons were paired; the Methods now say so. For the DFT types each model drew its own materials. Every comparison is now tested at the item level (exact McNemar for paired items, Fisher's exact test for DFT, a paired bootstrap for overall PCR), with Holm correction and effect sizes (Supplementary Table S3). GPT-5.6-Terra exceeds GPT-4o by 0.072 [0.018, 0.125] (Holm p=0.045); the Opus-Sonnet, Thinking-Instruct and Sol-Terra differences are not significant. On microscopy, seven of the other eight models exceed Qwen2.5-VL-7B; Qwen3-VL-8B-Instruct does not. We also ran all models on a common, class-balanced DFT set (Supplementary Table S6). There no stated DFT comparison is significant (GPT-5.6-Terra vs GPT-4o +0.021 [-0.042, 0.085]), so that gap comes from the image types, chiefly spectra. Qwen3-VL-8B-Thinking is missing from this set because its endpoint was withdrawn. Diffraction comparisons are marked provisional.
+
+**Changes in the manuscript.** Results, Physical consistency of current models; Table 2 caption; Methods, Models and experimental protocol and Statistics; Supplementary Tables S3 and S6.
+
+### Reviewer 2, Weakness 5
+
+> *The share of items the metric actually covers is never reported. The metric and the passage on exposed constraints restrict the rate to items whose chain states a checkable quantity, the record counts behind Table 2 and the caption of Figure 3a show that this subset varies in size across cells, and the prompt-sensitivity paragraph notes that the checkable rate changes with the wording. Because items that state no quantity are excluded rather than penalised, a model can raise its score by saying less. Please report the checkable share for every model and constraint type in the main evaluation, define how non-checkable chains are treated, and state how the ordering changes under each convention.*
+
+**Response.** We agree. Coverage is now reported for every cell (Supplementary Table S2). Because excluding non-checkable responses could reward saying less, we also report PCR with them counted as violations and as consistent. The ordering barely changes (Kendall τ=0.83 and 1.00); GPT-4o falls from third to fifth when they count as violations, because of its low spectrum coverage (0.49).
+
+**Changes in the manuscript.** Results, Physical consistency of current models; Methods, The Physical-Consistency Rate; Supplementary Table S2.
+
+### Reviewer 2, Weakness 6
+
+> *Differences that are small relative to the sampling uncertainty are discussed as substantive findings. The tier and generational conclusions in the Discussion rest on margins no larger than the confidence intervals reported for Table 2, and one of them compares a single pair of models, the flagship and balanced tiers of the same series. Please state the smallest difference the design can detect, report effect sizes together with the intervals, and either bound these claims explicitly or move them to future work.*
+
+**Response.** We agree. With about 500 checkable items per model, the smallest difference detectable at 80% power is 0.064-0.079 overall and 0.11-0.20 within a constraint type; the Results and Discussion now state this, with effect sizes and intervals for every comparison. Non-significant contrasts are described as excluding only differences above about 0.07, not as equivalence. The claims about scaling, reasoning modes and pricing tiers moved to the limitations, since each rests on one pair of models.
+
+**Changes in the manuscript.** Results, Physical consistency of current models; Discussion (first paragraph); Table 2 caption.
+
+### Reviewer 2, Weakness 7
+
+> *The related-work coverage should be extended beyond the benchmark tradition the paper criticises. The manuscript positions itself against four contemporaneous benchmarks, but it cites little recent work on how image-language models are evaluated outside final-answer scoring, on chain-of-thought reasoning and its faithfulness, or on how domain knowledge is infused and checked in large language models in other fields. Please add and critically discuss the following recent studies, and position each of them as conceptual or background context rather than as a comparator for the metric: Seeing Sarcasm Through Different Eyes: Analyzing Multimodal Sarcasm Perception in Large Vision-Language Models, which analyses the perception of an image-language model beyond benchmark scores; Cot-evo: Evolutionary distillation of chain-of-thought for scientific reasoning, which improves scientific reasoning chains rather than evaluating them; Faithcot-bench: Benchmarking instance-level faithfulness of chain-of-thought reasoning, which tests whether a stated chain reflects the underlying computation, the concern raised in your Introduction; and Legal knowledge infusion for large language models: A survey, which shows how domain knowledge is injected and checked in a specialised field. For each, state how it relates to the keywords of this submission, namely materials informatics, multimodal models, scientific reasoning, physics-grounded evaluation and model verification, and how the present work differs from it.*
+
+**Response.** Thank you. We verified all four studies and discuss them in a new Introduction paragraph, as background rather than as comparators for the metric. FaithCoT-Bench tests whether a chain reflects the computation behind an answer; MatPCR tests whether the stated quantities are physically admissible, so the two are complementary. CoT-Evo's evolutionary distillation could use an admissibility signal as a fitness term. The prompt dependence found in the sarcasm-perception study parallels our finding that checkability shifts with prompt wording. The legal knowledge-infusion survey separates injection from verification; MatPCR belongs to verification. None of the four measures the physical admissibility of stated quantities.
+
+**Changes in the manuscript.** Introduction (new paragraph after the discussion of chain faithfulness); References.

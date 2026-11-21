@@ -1,0 +1,91 @@
+Total checkable records aggregated: 4334
+
+Model                  Modality                         n      PCR               95% CI
+------------------------------------------------------------------------------------------
+Qwen2.5-VL-7B          Diffraction (XRD)               64   0.5000 [0.3750, 0.6250]
+Gemini 2.5 Flash Lite  Diffraction (XRD)               60   0.5167 [0.3833, 0.6500]
+GPT-4o                 Diffraction (XRD)               64   0.6250 [0.5000, 0.7348]
+Claude Sonnet 4.5      Diffraction (XRD)               64   0.5469 [0.4219, 0.6719]
+Claude Opus 4.6        Diffraction (XRD)               64   0.5781 [0.4531, 0.7031]
+GPT-5.6-Terra          Diffraction (XRD)               64   0.7969 [0.7031, 0.8906]
+GPT-5.6-Sol            Diffraction (XRD)               61   0.8197 [0.7213, 0.9180]
+Qwen3-VL-8B-Instruct   Diffraction (XRD)               62   0.4677 [0.3548, 0.5968]
+Qwen3-VL-8B-Thinking   Diffraction (XRD)               64   0.5781 [0.4531, 0.6879]
+
+Qwen2.5-VL-7B          Microscopy (SEM)                87   0.6667 [0.5632, 0.7586]
+Gemini 2.5 Flash Lite  Microscopy (SEM)                86   1.0000 [1.0000, 1.0000]
+GPT-4o                 Microscopy (SEM)                87   0.9540 [0.9080, 0.9885]
+Claude Sonnet 4.5      Microscopy (SEM)                87   0.9770 [0.9425, 1.0000]
+Claude Opus 4.6        Microscopy (SEM)                87   0.9540 [0.9080, 0.9885]
+GPT-5.6-Terra          Microscopy (SEM)                81   0.9506 [0.9012, 0.9877]
+GPT-5.6-Sol            Microscopy (SEM)                82   0.9146 [0.8537, 0.9756]
+Qwen3-VL-8B-Instruct   Microscopy (SEM)                86   0.8023 [0.7093, 0.8837]
+Qwen3-VL-8B-Thinking   Microscopy (SEM)                87   0.8851 [0.8161, 0.9425]
+
+Qwen2.5-VL-7B          Spectra (Raman)                 88   0.1477 [0.0795, 0.2273]
+Gemini 2.5 Flash Lite  Spectra (Raman)                 90   0.2778 [0.1889, 0.3778]
+GPT-4o                 Spectra (Raman)                 44   0.0682 [0.0000, 0.1591]
+Claude Sonnet 4.5      Spectra (Raman)                 90   0.1889 [0.1111, 0.2667]
+Claude Opus 4.6        Spectra (Raman)                 90   0.2444 [0.1556, 0.3333]
+GPT-5.6-Terra          Spectra (Raman)                 90   0.8333 [0.7556, 0.9111]
+GPT-5.6-Sol            Spectra (Raman)                 89   0.7640 [0.6742, 0.8427]
+Qwen3-VL-8B-Instruct   Spectra (Raman)                 90   0.1333 [0.0667, 0.2003]
+Qwen3-VL-8B-Thinking   Spectra (Raman)                 87   0.0920 [0.0345, 0.1609]
+
+Qwen2.5-VL-7B          Stability                       72   0.9167 [0.8472, 0.9722] *
+Gemini 2.5 Flash Lite  Stability                       70   0.8143 [0.7286, 0.9000] *
+GPT-4o                 Stability                       79   0.8861 [0.8101, 0.9494] *
+Claude Sonnet 4.5      Stability                       73   0.8493 [0.7671, 0.9315] *
+Claude Opus 4.6        Stability                       76   0.7895 [0.6974, 0.8816] *
+GPT-5.6-Terra          Stability                       75   0.6533 [0.5467, 0.7600] *
+GPT-5.6-Sol            Stability                       71   0.7887 [0.6901, 0.8873] *
+Qwen3-VL-8B-Instruct   Stability                       75   0.7467 [0.6533, 0.8400] *
+Qwen3-VL-8B-Thinking   Stability                       76   0.8947 [0.8158, 0.9605] *
+
+Qwen2.5-VL-7B          Metallicity                     87   0.5402 [0.4368, 0.6437] *
+Gemini 2.5 Flash Lite  Metallicity                     84   0.7024 [0.6071, 0.7976] *
+GPT-4o                 Metallicity                     85   0.6706 [0.5647, 0.7647] *
+Claude Sonnet 4.5      Metallicity                     85   0.6941 [0.6000, 0.7882] *
+Claude Opus 4.6        Metallicity                     86   0.7209 [0.6279, 0.8140] *
+GPT-5.6-Terra          Metallicity                     85   0.6588 [0.5529, 0.7529] *
+GPT-5.6-Sol            Metallicity                     88   0.6705 [0.5795, 0.7614] *
+Qwen3-VL-8B-Instruct   Metallicity                     77   0.6883 [0.5844, 0.7922] *
+Qwen3-VL-8B-Thinking   Metallicity                     87   0.6437 [0.5402, 0.7471] *
+
+Qwen2.5-VL-7B          Sign/magnitude (magnetism)      90   0.7667 [0.6778, 0.8556] *
+Gemini 2.5 Flash Lite  Sign/magnitude (magnetism)      89   0.4944 [0.3820, 0.5955] *
+GPT-4o                 Sign/magnitude (magnetism)      90   0.6778 [0.5778, 0.7778] *
+Claude Sonnet 4.5      Sign/magnitude (magnetism)      90   0.7556 [0.6667, 0.8444] *
+Claude Opus 4.6        Sign/magnitude (magnetism)      90   0.7000 [0.6000, 0.7889] *
+GPT-5.6-Terra          Sign/magnitude (magnetism)      90   0.7667 [0.6778, 0.8444] *
+GPT-5.6-Sol            Sign/magnitude (magnetism)      90   0.7333 [0.6444, 0.8222] *
+Qwen3-VL-8B-Instruct   Sign/magnitude (magnetism)      90   0.5333 [0.4333, 0.6333] *
+Qwen3-VL-8B-Thinking   Sign/magnitude (magnetism)      89   0.5056 [0.4045, 0.6067] *
+
+==========================================================================================
+Overall per model (all modalities pooled):
+  Qwen2.5-VL-7B          n=  488 PCR=0.5840 [0.5389, 0.6291]
+  Gemini 2.5 Flash Lite  n=  479 PCR=0.6305 [0.5866, 0.6722]
+  GPT-4o                 n=  449 PCR=0.6993 [0.6570, 0.7394]
+  Claude Sonnet 4.5      n=  489 PCR=0.6667 [0.6258, 0.7076]
+  Claude Opus 4.6        n=  493 PCR=0.6633 [0.6187, 0.7039]
+  GPT-5.6-Terra          n=  485 PCR=0.7773 [0.7402, 0.8144]
+  GPT-5.6-Sol            n=  481 PCR=0.7775 [0.7401, 0.8150]
+  Qwen3-VL-8B-Instruct   n=  480 PCR=0.5563 [0.5125, 0.6000]
+  Qwen3-VL-8B-Thinking   n=  490 PCR=0.5939 [0.5490, 0.6367]
+
+Table 1 layout (PCR, pooled over seeds; DFT = stability+metallicity+magnetism):
+  Model                   Diffr.  Micro. Spectra     DFT     All
+  Qwen2.5-VL-7B            0.500   0.667   0.148   0.731   0.584
+  Gemini 2.5 Flash Lite    0.517   1.000   0.278   0.658   0.630
+  GPT-4o                   0.625   0.954   0.068   0.740   0.699
+  Claude Sonnet 4.5        0.547   0.977   0.189   0.762   0.667
+  Claude Opus 4.6          0.578   0.954   0.244   0.734   0.663
+  GPT-5.6-Terra            0.797   0.951   0.833   0.696   0.777
+  GPT-5.6-Sol              0.820   0.915   0.764   0.727   0.778
+  Qwen3-VL-8B-Instruct     0.468   0.802   0.133   0.649   0.556
+  Qwen3-VL-8B-Thinking     0.578   0.885   0.092   0.671   0.594
+
+* DFT-grounded modality (stability/metallicity/magnetism): reference values from
+  Materials Project, NOT YET independently validated by the domain co-author.
+  Report as provisional per CLAUDE.md's OVERRIDE note.

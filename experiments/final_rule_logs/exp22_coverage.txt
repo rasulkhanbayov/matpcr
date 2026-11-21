@@ -1,0 +1,37 @@
+Coverage = checkable / evaluable (pooled over 3 seeds)
+
+Model                            xrd         sem    spectrum   stability metallicity   magnetism     All
+Qwen2.5-VL-7B                  1.000       1.000       0.978       1.000       1.000       1.000   0.996
+Gemini 2.5 Flash Lite          0.938       0.989       1.000       0.986       0.966       0.989   0.980
+GPT-4o                         1.000       1.000       0.489       1.000       1.000       1.000   0.907
+Claude Sonnet 4.5              1.000       1.000       1.000       1.000       1.000       1.000   1.000
+Claude Opus 4.6                1.000       1.000       1.000       1.000       1.000       1.000   1.000
+GPT-5.6-Terra                  1.000       0.931       1.000       1.000       1.000       1.000   0.988
+GPT-5.6-Sol                    0.953       0.943       0.989       0.986       0.989       1.000   0.978
+Qwen3-VL-8B-Instruct           0.969       0.989       1.000       0.974       0.939       1.000   0.980
+Qwen3-VL-8B-Thinking           1.000       1.000       0.967       1.000       1.000       0.989   0.992
+
+Evaluable items per cell (of 90 attempted):
+  xrd: [64], sem: [87], spectrum: [90], stability: [71, 72, 73, 75, 76, 77, 79], metallicity: [82, 85, 86, 87, 89], magnetism: [90]
+
+Overall PCR under three conventions, and rank (1 = best):
+Model                             excluded         penalised           lenient
+Qwen2.5-VL-7B                  0.584 (#8)       0.582 (#8)       0.586 (#8)
+Gemini 2.5 Flash Lite          0.630 (#6)       0.618 (#6)       0.638 (#6)
+GPT-4o                         0.699 (#3)       0.634 (#5)       0.727 (#3)
+Claude Sonnet 4.5              0.667 (#4)       0.667 (#3)       0.667 (#4)
+Claude Opus 4.6                0.663 (#5)       0.663 (#4)       0.663 (#5)
+GPT-5.6-Terra                  0.777 (#2)       0.768 (#1)       0.780 (#2)
+GPT-5.6-Sol                    0.778 (#1)       0.760 (#2)       0.783 (#1)
+Qwen3-VL-8B-Instruct           0.556 (#9)       0.545 (#9)       0.565 (#9)
+Qwen3-VL-8B-Thinking           0.594 (#7)       0.589 (#7)       0.597 (#7)
+Kendall tau, excluded vs penalised: 0.833 (p=0.000854)
+Kendall tau, excluded vs lenient: 1.000 (p=5.51e-06)
+
+Per constraint type, Kendall tau of the model ordering vs the excluded convention:
+  xrd          penalised 0.886   lenient 0.986
+  sem          penalised 0.928   lenient 0.971
+  spectrum     penalised 1.000   lenient 0.667
+  stability    penalised 1.000   lenient 0.944
+  metallicity  penalised 0.778   lenient 0.889
+  magnetism    penalised 1.000   lenient 1.000

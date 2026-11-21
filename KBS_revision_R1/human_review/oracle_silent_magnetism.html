@@ -1,0 +1,655 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Oracle-silent audit: magnetism</title><style>body{font-family:sans-serif;max-width:1000px;margin:0 auto;padding:20px;background:#fafafa}
+.summary{position:sticky;top:0;background:#fff;padding:12px;border-radius:8px;box-shadow:0 1px 4px #0003;z-index:9}
+.case{background:#fff;border-radius:8px;margin:16px 0;box-shadow:0 1px 3px #0002}.case-header{background:#eee;padding:6px 12px;display:flex;gap:12px;font-size:.85rem}
+.model-badge{background:#333;color:#fff;padding:1px 8px;border-radius:4px}.case-body{display:flex;gap:16px;padding:12px;flex-wrap:wrap}
+.case-image img{max-width:340px;border:1px solid #ddd}.case-details{flex:1;min-width:300px}th{text-align:left;color:#555;padding:3px 8px;vertical-align:top}
+td{padding:3px 8px}pre.chain{white-space:pre-wrap;background:#f6f6f6;padding:8px;font-size:.8rem}.review-controls label{display:block}</style></head><body>
+<h1>Oracle-silent audit: magnetism (30 cases)</h1><div class="summary"><p>The oracle accepted the claim because the magnetic class (and, if magnetic, the per-atom magnitude within one order of magnitude) agrees with the Materials Project net magnetization. Mark MISSED VIOLATION if the claim is nevertheless physically wrong given the reference values shown.</p>
+<span id="tally">Reviewed: 0 / 30</span> <button onclick="ex()">Export my review</button>
+<textarea id="out" rows="5" style="width:100%"></textarea></div><div class="case" id="case-0"><div class="case-header"><span class="case-num">Case #1</span>
+<span class="model-badge">api</span><span class="source">mp-2210713</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgCrO2 (mp-2210713)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.9497839199999962, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 4.0004627, &#x27;nsites&#x27;: 4}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material MgCrO$_2$ contains chromium (Cr). First, let&#x27;s determine the oxidation state of Cr. Magnesium (Mg) typically forms a +2 ion (Mg$^{2+}$). The oxide ion (O) typically forms a -2 ion (O$^{2-}$). For the compound to be neutral, the sum of oxidation states must be zero. So, for MgCrO$_2$:
+
+(+2) + (Cr oxidation state) + 2*(-2) = 0
+2 + Cr oxidation state - 4 = 0
+Cr oxidation state - 2 = 0
+Cr oxidation state = +2
+
+So, we have Cr$^{2+}$ ions. The electronic configuration of neutral Cr is [Ar] $3d^5 4s^1$. When Cr becomes Cr$^{2+}$, it loses two electrons, typically from the outermost subshells, so its configuration is [Ar] $3d^4$.
+
+The $3d^4$ electron configuration means there are 4 d-electrons. To determine the number of unpaired electrons, we use Hund&#x27;s rules. The 5 d-orbitals will be filled as follows: $\uparrow \downarrow \uparrow \uparrow \uparrow$. There are 3 unpaired electrons.
+
+Each unpaired electron contributes one Bohr magneton ($\mu_B$) to the magnetic moment. Therefore, the spin-only magnetic moment per Cr$^{2+}$ ion is approximately $3 \mu_B$. Since Mg and O ions are diamagnetic (Mg$^{2+}$ has a closed shell configuration, and O$^{2-}$ also effectively has closed shells or a filled configuration in oxides), the magnetism will primarily arise from the unpaired electrons on Cr. Thus, the compound is expected to be magnetic.
+
+The stoichiometry of MgCrO$_2$ suggests a mixed-valence oxide or a structure with specific oxygen coordination. However, assuming a simple ionic model where Cr is in a +2 state, the presence of unpaired electrons on Cr$^{2+}$ dictates a magnetic character. The magnitude is dominated by the Cr ion.
+
+FINAL_ANSWER: MAGNETIC, 3 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-0" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-0" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-0" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-1"><div class="case-header"><span class="case-num">Case #2</span>
+<span class="model-badge">local</span><span class="source">mp-2218824</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgV4O8 (mp-2218824)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.16717574009615532, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.46579999999999977, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 6.001798, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if MgV4O8 has a non-zero net magnetic moment, we need to consider the electronic structure and the nature of the valence electrons involved.
+
+1. **Mg (Magnesium)**: Magnesium typically has a valence electron configuration of 3s². In compounds, magnesium often forms divalent ions (Mg²⁺), which means it donates its 3s electrons to form bonds.
+2. **V (Vanadium)**: Vanadium has a valence electron configuration of 3d³ 4s². In compounds, vanadium can form various oxidation states, but for MgV₄O₈, it is likely to be in the +4 oxidation state due to the presence of oxygen, which can oxidize vanadium to higher states. The +4 state would involve the 3d orbitals being partially filled.
+3. **Oxygen (O)**: Oxygen typically has a valence electron configuration of 2s² 2p⁴. In compounds, oxygen usually forms two covalent bonds, donating its lone pairs to form bonds.
+
+In MgV₄O₈:
+- Magnesium (Mg²⁺) does not contribute to the magnetic moment because it has no unpaired electrons in its ground state.
+- Vanadium (V⁴⁺) in the +4 state will have 3d orbitals that are partially filled, potentially leading to unpaired electrons due to the d-orbital splitting in the crystal field. This could result in a net magnetic moment.
+
+Given that vanadium in the +4 state can have unpaired electrons, we can infer that MgV₄O₈ might be magnetic. However, without detailed calculations, it&#x27;s difficult to predict the exact magnitude of the magnetic moment.
+
+**Final Answer:** FINAL_ANSWER: MAGNETIC, 0.5 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-1" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-1" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-1" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-2"><div class="case-header"><span class="case-num">Case #3</span>
+<span class="model-badge">local</span><span class="source">mp-2030706</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>VF4 (mp-2030706)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.0531900925000004, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.5313999999999999, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 4.0000004, &#x27;nsites&#x27;: 20}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine whether the material with the chemical composition VF4 is magnetic or non-magnetic, we need to consider the electronic structure and the presence of unpaired electrons.
+
+1. **Electronic Structure Analysis**:
+   - Vanadium (V) typically has a valence electron configuration of \(3d^3 4s^2\).
+   - Fluorine (F) has a valence electron configuration of \(2p^5\).
+   - In VF4, vanadium forms four covalent bonds with fluorine atoms, which means each fluorine atom shares one electron with vanadium, resulting in a total of 8 valence electrons for the compound (4 from V and 4 from F).
+
+2. **Spin States**:
+   - The total number of valence electrons in VF4 is 8.
+   - Since vanadium has 3 d-electrons, it can form a variety of spin states depending on the hybridization and bonding. However, in a tetrahedral geometry, the d-orbitals split into two sets: \(t_{2g}\) and \(e_g\), where the \(t_{2g}\) orbitals are lower in energy than the \(e_g\) orbitals.
+   - For a tetrahedral complex, the ground state is often a singlet state due to the strong crystal field splitting, but the excited states can include triplet states as well.
+
+3. **Magnetic Moment**:
+   - A singlet state would have zero net magnetic moment because all spins are paired.
+   - A triplet state would have a non-zero net magnetic moment because there are unpaired electrons contributing to the magnetic moment.
+
+Given that the exact spin state depends on the specific bonding and hybridization, and without more detailed information about the bonding geometry and the specific orbital interactions, it&#x27;s challenging to definitively predict the exact spin state. However, based on the typical behavior of transition metal complexes, it is reasonable to assume that VF4 could potentially have a non-zero net magnetic moment due to the possibility of unpaired electrons in higher spin states.
+
+**Final Answer**: MAGNETIC, 0.5 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-2" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-2" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-2" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-3"><div class="case-header"><span class="case-num">Case #4</span>
+<span class="model-badge">local</span><span class="source">mp-2046031</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Mn3CrAs4 (mp-2046031)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.0, &#x27;is_stable&#x27;: True, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 14.3663608, &#x27;nsites&#x27;: 8}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if the material with the chemical composition Mn3CrAs4 has a non-zero net magnetic moment, we need to consider the electronic structure and the magnetic properties of its constituent elements.
+
+1. **Manganese (Mn)**: Manganese is known to be magnetic due to its d-electrons. The 3d orbitals can hold up to 10 electrons, and in Mn, the 3d orbitals are partially filled, leading to a net magnetic moment.
+2. **Chromium (Cr)**: Chromium is also magnetic, with a partially filled 3d orbital that contributes to its magnetic properties.
+3. **Arsenic (As)**: Arsenic is a non-magnetic element, as its outermost shell is filled with s and p electrons, which do not contribute to a net magnetic moment.
+
+Given that both manganese and chromium are magnetic, and arsenic is non-magnetic, the material will likely have a non-zero net magnetic moment due to the contributions from manganese and chromium.
+
+The exact magnitude of the total magnetization per atom is difficult to predict without detailed computational studies, but a rough estimate based on the relative abundance and magnetic moments of the elements involved suggests a non-zero value. A reasonable order-of-magnitude guess would be around 1-2 Bohr magnetons per atom.
+
+**Final Answer**: MAGNETIC, 1 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-3" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-3" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-3" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-4"><div class="case-header"><span class="case-num">Case #5</span>
+<span class="model-badge">local</span><span class="source">mp-2217566</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgMnP2O7 (mp-2217566)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.12070524931820081, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 3.7667999999999995, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 4.9999737, &#x27;nsites&#x27;: 11}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if the material with the chemical composition MgMnP2O7 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Electronic Structure Analysis**:
+   - Magnesium (Mg) typically forms divalent ions (Mg²⁺), which means its outermost shell is filled.
+   - Manganese (Mn) can form both trivalent (Mn³⁺) and tetravalent (Mn⁴⁺) ions. The trivalent state is more common in oxides due to the lower energy required for the 3d orbitals to be half-filled.
+   - In Mn³⁺, the electron configuration is [Ar]3d²4s², where the 3d orbitals are partially filled, leading to the possibility of unpaired electrons.
+
+2. **Spin Magnetic Moment**:
+   - The 3d orbitals of Mn³⁺ can have up to 5 electrons, but typically, they will have 2 unpaired electrons due to the Pauli exclusion principle and Hund&#x27;s rule, resulting in a significant spin magnetic moment.
+
+3. **Overall Magnetic Moment**:
+   - Since there are unpaired electrons in the Mn³⁺ ions, the material should exhibit a non-zero net magnetic moment due to the spin magnetic moments of the Mn³⁺ ions.
+
+Given the above reasoning, the material is expected to be magnetic.
+
+**Final Answer**: FINAL_ANSWER: MAGNETIC, 1.0 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-4" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-4" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-4" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-5"><div class="case-header"><span class="case-num">Case #6</span>
+<span class="model-badge">local</span><span class="source">mp-1524762</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Xe (mp-1524762)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.021933189999998604, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 6.8603000000000005, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 4}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">Xenon (Xe) is a noble gas and does not form stable compounds that exhibit magnetic properties. Noble gases typically do not have unpaired electrons, which are necessary for magnetic behavior. Therefore, we can conclude that xenon is nonmagnetic.
+
+**Final Answer:** NONMAGNETIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-5" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-5" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-5" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-6"><div class="case-header"><span class="case-num">Case #7</span>
+<span class="model-badge">api</span><span class="source">mp-aaaieirv</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Lu2MgSnO6 (mp-aaaieirv)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.620578822583326, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 3.3384, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 10}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">Here&#x27;s an analysis of Lu$_2$MgSnO$_6$ for magnetic properties:
+
+**Reasoning:**
+
+To determine if Lu$_2$MgSnO$_6$ is magnetic, we need to examine the electronic configurations of the constituent cations and see if any of them possess unpaired electrons.
+
+*   **Lu (Lutetium):** Lu is in the lanthanide series. Its atomic number is 71. The electron configuration of Lu$^{3+}$ is [Xe] 4f$^{14}$. The 4f subshell is completely filled, meaning there are no unpaired electrons and thus no magnetic contribution from Lu$^{3+}$.
+
+*   **Mg (Magnesium):** Mg is an alkaline earth metal. Its atomic number is 12. The electron configuration of Mg$^{2+}$ is [Ne] 3s$^0$. The 3s subshell is empty, so there are no unpaired electrons from Mg$^{2+}$.
+
+*   **Sn (Tin):** Sn is in group 14. Its atomic number is 50. The common oxidation state for Sn in oxides is Sn$^{4+}$. The electron configuration of Sn$^{4+}$ is [Kr] 4d$^{10}$ 5s$^0$ 5p$^0$. All these subshells are filled or empty, leaving no unpaired electrons. Even if Sn were in a +2 oxidation state (Sn$^{2+}$: [Kr] 4d$^{10}$ 5s$^2$ 5p$^0$), the 5p subshell is filled, and the 5s subshell has paired electrons. Therefore, Sn in its common oxidation states does not contribute to magnetism.
+
+*   **O (Oxygen):** Oxygen is in group 16 and typically exists as O$^{2-}$ in oxides. The electron configuration of O$^{2-}$ is [He] 2s$^2$ 2p$^6$. The 2p subshell is filled, resulting in no unpaired electrons.
+
+Since all cations and anions in Lu$_2$MgSnO$_6$ have closed electron shells or filled subshells, there are no unpaired electrons in the material. Therefore, the net magnetic moment is expected to be zero.
+
+FINAL_ANSWER: NONMAGNETIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-6" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-6" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-6" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-7"><div class="case-header"><span class="case-num">Case #8</span>
+<span class="model-badge">local</span><span class="source">mp-2217167</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgMn(SbO3)2 (mp-2217167)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.25802239687499195, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.7717999999999998, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 5.0000732, &#x27;nsites&#x27;: 10}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if the material with the chemical composition MgMn(SbO3)2 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Manganese (Mn)**: Manganese typically has a valence electron configuration that can lead to magnetic behavior due to its d-orbitals. In Mn compounds, the Mn ions often have a +2 oxidation state, which means they have 4 d-electrons. These 4 d-electrons can form a partially filled d-shell, leading to magnetic moments.
+
+2. **SbO3**: Antimony (Sb) in the +5 oxidation state forms a stable oxide, SbO3, which does not contribute significantly to the magnetic properties because it is a closed shell configuration with no unpaired electrons.
+
+Given that the primary source of magnetic behavior in this compound is likely from the Mn ions, and considering that Mn(II) typically has a magnetic moment due to the presence of 4 d-electrons, we can infer that the material will have a non-zero net magnetic moment.
+
+The magnitude of the magnetic moment per atom can be estimated based on the number of unpaired electrons. For Mn(II), each atom contributes approximately 2 unpaired electrons, leading to a magnetic moment of about 2 Bohr magnetons per atom.
+
+**Final Answer: MAGNETIC, 2 muB/atom**</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-7" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-7" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-7" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-8"><div class="case-header"><span class="case-num">Case #9</span>
+<span class="model-badge">api</span><span class="source">mp-2217778</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgAg2(SnO3)2 (mp-2217778)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.3084391750000002, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 5.9e-06, &#x27;nsites&#x27;: 11}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">Let&#x27;s analyze the composition MgAg2(SnO3)2 to determine its magnetic properties.
+
+First, we need to consider the oxidation states of each element.
+Magnesium (Mg) is typically +2 in ionic compounds.
+Silver (Ag) is usually +1 in its compounds.
+Tin (Sn) can have various oxidation states, but in combination with oxygen in a complex oxide like this, +4 is a common stable state for Sn.
+Oxygen (O) is usually -2.
+
+Let&#x27;s check the charge balance for the (SnO3) unit. If Sn is +4 and O is -2, then SnO3 would have a charge of +4 + 3*(-2) = -2. This complex anion is known as a sulfite or stannate. Given the context of a mixed oxide, it&#x27;s likely referring to a stannate, where Sn is in a higher oxidation state.
+
+Now let&#x27;s look at the overall formula MgAg2(SnO3)2.
+For Mg, we assume +2.
+For Ag, we assume +1, so 2 Ag atoms contribute +2.
+If (SnO3) is a -2 anion, then 2 * (-2) = -4 for the (SnO3)2 part.
+The total charge would be (+2) + (+2) + (-4) = 0. This confirms the assumed oxidation states.
+
+So, we have Mg$^{2+}$, Ag$^{+}$, Sn$^{4+}$, and O$^{2-}$.
+
+Now we need to check for unpaired electrons in these ions.
+Mg$^{2+}$: Electron configuration of Mg is [Ne] 3s$^2$. Mg$^{2+}$ has lost its valence electrons, so its configuration is [Ne]. It has no unpaired electrons.
+Ag$^{+}$: Electron configuration of Ag is [Kr] 4d$^{10}$ 5s$^1$. Ag$^{+}$ has lost its 5s electron, so its configuration is [Kr] 4d$^{10}$. It has no unpaired electrons.
+Sn$^{4+}$: Electron configuration of Sn is [Kr] 4d$^{10}$ 5s$^2$ 5p$^2$. Sn$^{4+}$ has lost its 5s and 5p electrons, so its configuration is [Kr] 4d$^{10}$. It has no unpaired electrons.
+O$^{2-}$: Electron configuration of O is [He] 2s$^2$ 2p$^4$. O$^{2-}$ has gained two electrons to become [He] 2s$^2$ 2p$^6$. It has no unpaired electrons.
+
+Since all the constituent ions (Mg$^{2+}$, Ag$^{+}$, Sn$^{4+}$, O$^{2-}$) are diamagnetic (they have closed electron shells or completely filled d-orbitals), we expect the entire compound to be non-magnetic.
+
+FINAL_ANSWER: NONMAGNETIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-8" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-8" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-8" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-9"><div class="case-header"><span class="case-num">Case #10</span>
+<span class="model-badge">api</span><span class="source">mp-2049132</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Cs2In3 (mp-2049132)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.0, &#x27;is_stable&#x27;: True, &#x27;band_gap&#x27;: 0.21629999999999994, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 10}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">Let&#x27;s analyze the potential magnetic properties of Cs$_2$In$_3$.
+
+First, consider the constituents:
+Cesium (Cs) is an alkali metal. In its elemental form, it has one valence electron (6s$^1$). However, in most compounds, alkali metals tend to lose this electron to form a +1 cation (Cs$^+$). Cs$^+$ has a closed electron shell configuration ([Kr]), which is diamagnetic.
+
+Indium (In) is a post-transition metal in Group 13. It typically forms a +3 cation (In$^{3+}$) by losing its 5s$^2$5p$^1$ valence electrons. In$^{3+}$ has a [Kr] configuration, which is also diamagnetic.
+
+If we assume common oxidation states, we could consider Cs$^+$ and In$^{+3}$. In this scenario, the formula would be better represented to maintain charge neutrality. For example, a hypothetical compound with Cs$^+$ and In$^{3+}$ would require a stoichiometry to balance the charges. Let&#x27;s consider an alternative interpretation where the given formula represents a neutral compound where the oxidation states might be different or there might be some covalent character.
+
+However, without a known stable compound of this exact stoichiometry, we can infer from the elements. Both Cs and In are metals. Generally, pure metals can be magnetic, but their magnetism arises from unpaired d or f electrons, which are absent in Cs and In. Their valence electrons are in s and p orbitals.
+
+The most likely scenario for Cs$_2$In$_3$ to exist as a stable neutral compound would involve some degree of electron sharing or a complex structure. However, given that both Cs and In are elements that readily form closed-shell ions with no unpaired electrons, it is highly probable that any stable compound formed between them would also be non-magnetic, dominated by diamagnetic contributions from the closed electron shells. Materials composed only of elements that form diamagnetic ions or have fully filled/empty valence orbitals are typically non-magnetic.
+
+FINAL_ANSWER: NONMAGNETIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-9" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-9" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-9" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-10"><div class="case-header"><span class="case-num">Case #11</span>
+<span class="model-badge">local</span><span class="source">mp-3346481</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>CaMg2(CO3)3 (mp-3346481)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.01442793266665987, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 5.7831, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 30}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if the material with the chemical composition CaMg2(CO3)3 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Electronic Structure Analysis**:
+   - Calcium (Ca) typically forms divalent ions (Ca²⁺), which means its valence electrons are in the 4s orbital.
+   - Magnesium (Mg) forms divalent ions (Mg²⁺), which means its valence electrons are in the 3s orbital.
+   - Carbon (C) forms tetravalent ions (CO₃²⁻), where each carbon atom has four valence electrons, but in the carbonate ion, they are delocalized over three oxygen atoms.
+   - Oxygen (O) forms trivalent ions (O²⁻), which means each oxygen atom has six valence electrons, but in the carbonate ion, they are delocalized over three oxygen atoms.
+
+Given that all the elements in the carbonate ion (CO₃²⁻) are in their highest oxidation states and the valence electrons are delocalized, there are no unpaired electrons available for magnetic interactions. The divalent ions (Ca²⁺, Mg²⁺) do not contribute to magnetic moments because they have completely filled electron shells.
+
+Since there are no unpaired electrons or any electronic configuration that would allow for significant magnetic interactions, the material is expected to be non-magnetic.
+
+**Final Answer**: NONMAGNETIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-10" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-10" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-10" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-11"><div class="case-header"><span class="case-num">Case #12</span>
+<span class="model-badge">local</span><span class="source">mp-2210713</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgCrO2 (mp-2210713)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.9497839199999962, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 4.0004627, &#x27;nsites&#x27;: 4}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if MgCrO2 has a non-zero net magnetic moment, we need to consider the electronic structure and the spin states of the constituent elements.
+
+1. **Mg (Magnesium)**:
+   - Magnesium typically forms divalent ions (Mg²⁺).
+   - The ground state of Mg²⁺ is [Ne] 3s², which means it has no unpaired electrons.
+   - Therefore, Mg²⁺ does not contribute to the magnetic moment.
+
+2. **Cr (Chromium)**:
+   - Chromium can form trivalent ions (Cr³⁺), which have an electron configuration of [Ar] 3d⁵.
+   - The 3d⁵ configuration allows for 5 unpaired electrons, which can contribute to a magnetic moment.
+   - The Cr³⁺ ion is paramagnetic due to the presence of unpaired electrons.
+
+3. **Oxygen (O)**:
+   - Oxygen typically forms divalent ions (O²⁻), which have an electron configuration of [He] 2s² 2p⁴.
+   - The O²⁻ ion has no unpaired electrons and thus does not contribute to the magnetic moment.
+
+Given that the Cr³⁺ ion contributes to the magnetic moment while the Mg²⁺ and O²⁻ ions do not, the overall material will have a non-zero net magnetic moment.
+
+**Final Answer**: MAGNETIC, 1.0 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-11" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-11" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-11" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-12"><div class="case-header"><span class="case-num">Case #13</span>
+<span class="model-badge">api</span><span class="source">mp-2210607</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>BaMgCoO3 (mp-2210607)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.5240806061111121, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 2.9892696, &#x27;nsites&#x27;: 6}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">BaMgCoO3 is a mixed oxide. We need to consider the oxidation states and magnetic properties of the constituent metal ions. Barium (Ba) is typically +2 and is diamagnetic. Magnesium (Mg) is typically +2 and is diamagnetic. Cobalt (Co) can exist in various oxidation states, but in oxides, common oxidation states are +2, +3, and +4.
+
+To determine the oxidation state of cobalt, we consider the charge balance, assuming oxygen has a -2 oxidation state. Let the oxidation state of Co be x.
+(+2) + (+2) + x + 3*(-2) = 0
+2 + 2 + x - 6 = 0
+x - 2 = 0
+x = +4
+
+So, the composition can be considered as Ba$^{2+}$Mg$^{2+}$Co$^{4+}$O$_3^{2-}$.
+Now, let&#x27;s consider the electronic configuration and magnetic moment of Co$^{4+}$:
+Cobalt (Co) has atomic number 27. Its electronic configuration is [Ar] 3d$^7$ 4s$^2$.
+Co$^{4+}$ means it has lost 4 electrons. The configuration becomes [Ar] 3d$^3$.
+In a high-spin configuration for d$^3$, there are 3 unpaired electrons.
+The spin-only magnetic moment ($\mu_s$) can be calculated using the formula $\mu_s = \sqrt{n(n+2)} \mu_B$, where n is the number of unpaired electrons.
+For n = 3, $\mu_s = \sqrt{3(3+2)} = \sqrt{3(5)} = \sqrt{15} \approx 3.87 \mu_B$/Co$^{4+}$ ion.
+
+While this is a theoretical calculation, it suggests a significant magnetic moment. In mixed oxides, other factors like crystal field splitting and ligand field effects can influence the exact magnetic moment, but the presence of unpaired electrons in Co$^{4+}$ is the primary driver of magnetism. Therefore, a nonzero net magnetic moment is expected.
+
+To estimate the total magnetization per atom, we consider the formula unit BaMgCoO3 contains one Co atom which is expected to carry the magnetic moment. Thus, the magnetization per formula unit is primarily due to Co. The magnitude is roughly the magnetic moment of Co$^{4+}$.
+
+FINAL_ANSWER: MAGNETIC, 4.0 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-12" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-12" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-12" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-13"><div class="case-header"><span class="case-num">Case #14</span>
+<span class="model-badge">api</span><span class="source">mp-2218389</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgNb2In2O8 (mp-2218389)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.2013093549145255, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.7440000000000007, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if MgNb2In2O8 is magnetic, we need to consider the oxidation states and electronic configurations of the constituent elements, particularly the transition metals.
+
+Magnesium (Mg) is an alkaline earth metal and typically exists as Mg$^{2+}$ in oxides, which has a d$^0$ electronic configuration and is diamagnetic.
+Oxygen (O) is typically O$^{2-}$ in oxides, which has a filled outer shell and is diamagnetic.
+
+The key elements to consider for magnetism are Nb and In.
+Niobium (Nb) is a transition metal. In a complex oxide like this, it can adopt various oxidation states. However, the nominal charge balance suggests Mg$^{2+}$, 2*Nb$^{n+}$ and 2*In$^{m+}$ with 8*O$^{2-}$ (-16 total charge). If Mg is +2 and O is -2, then 2Nb + 2In must equal +14. Common oxidation states for Nb are +5, +4, or +3. If Nb is in a high oxidation state, such as Nb$^{5+}$, it has a d$^0$ configuration and is diamagnetic.
+
+Indium (In) is in Group 13. In oxides, it is commonly found as In$^{3+}$, which has a d$^{10}$ electronic configuration and is diamagnetic.
+
+Let&#x27;s assume common oxidation states to maintain charge neutrality:
+Mg$^{2+}$ (d$^0$)
+Nb$^{5+}$ (d$^0$)
+In$^{3+}$ (d$^{10}$)
+O$^{2-}$
+
+In this common valency scenario, all ions have empty or completely filled d-shells. Therefore, there are no unpaired electrons that would contribute to a net magnetic moment. The material would be expected to be diamagnetic.
+
+FINAL_ANSWER: NONMAGNETIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-13" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-13" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-13" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-14"><div class="case-header"><span class="case-num">Case #15</span>
+<span class="model-badge">local</span><span class="source">mp-1522366</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>EuZrFeBiO6 (mp-1522366)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 1.2842820745, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 7.4572599, &#x27;nsites&#x27;: 40}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if the material EuZrFeBiO6 has a nonzero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the constituent elements.
+
+1. **Europium (Eu):** Europium is a rare earth element that can have both trivalent (Eu³⁺) and divalent (Eu²⁺) states. In Eu³⁺, the electron configuration is [Xe]4f⁶, which means all 6 f-electrons are paired, resulting in no net magnetic moment. However, in Eu²⁺, the electron configuration is [Xe]4f⁷, leaving one f-electron unpaired, which would contribute to a magnetic moment.
+
+2. **Zirconium (Zr):** Zirconium typically forms Zr⁴⁺ ions, where the electron configuration is [Kr]4d². The d-electrons are paired, so Zr does not contribute to a magnetic moment.
+
+3. **Iron (Fe):** Iron can form Fe³⁺ or Fe²⁺ ions. In Fe³⁺, the electron configuration is [Ar]3d⁵, which has 5 unpaired electrons, contributing significantly to a magnetic moment. In Fe²⁺, the electron configuration is [Ar]3d⁶, which has 4 unpaired electrons, also contributing to a magnetic moment.
+
+4. **Bismuth (Bi):** Bismuth typically forms Bi³⁺ ions, where the electron configuration is [Xe]5d¹⁰6s²6p³. The s and p electrons are paired, so Bi does not contribute to a magnetic moment.
+
+5. **Oxygen (O):** Oxygen typically forms O²⁻ ions, where the electron configuration is [He]2s²2p⁴. The s and p electrons are paired, so oxygen does not contribute to a magnetic moment.
+
+Given the above considerations:
+- Eu²⁺ contributes a magnetic moment.
+- Fe³⁺ and Fe²⁺ contribute significant magnetic moments.
+- Zr, Bi, and O do not contribute to a magnetic moment.
+
+The overall magnetic moment will be the sum of the contributions from Eu²⁺, Fe³⁺, and Fe²⁺. Since Eu²⁺, Fe³⁺, and Fe²⁺ each have a significant number of unpaired electrons, the net magnetic moment will be non-zero.
+
+Final Answer: MAGNETIC, 1.5 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-14" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-14" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-14" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-15"><div class="case-header"><span class="case-num">Case #16</span>
+<span class="model-badge">local</span><span class="source">mp-1646256</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>K2VPCO7 (mp-1646256)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.037949853958332724, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 3.9986588, &#x27;nsites&#x27;: 48}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if the material with the chemical composition \( \text{K}_2\text{VPCO}_7 \) has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Identify the elements and their valence states:**
+   - Potassium (K): Typically +1 valence.
+   - Vanadium (V): Can exist in various oxidation states, but common ones include +3, +4, +5, and +6.
+   - Phosphorus (P): Commonly +3 valence.
+   - Carbon (C): Commonly +4 valence.
+   - Oxygen (O): Commonly -2 valence.
+
+2. **Determine the oxidation state of each element:**
+   - The formula suggests that the vanadium (V) is likely in a higher oxidation state due to the presence of phosphorus (P), which can stabilize higher oxidation states in compounds like this.
+   - Let&#x27;s assume V is in the +5 oxidation state for simplicity, as it is a common state for vanadium in such compounds.
+
+3. **Calculate the formal charges:**
+   - For K: \( 2 \times (+1) = +2 \)
+   - For V: \( +5 \)
+   - For P: \( +3 \)
+   - For C: \( +4 \)
+   - For O: \( 7 \times (-2) = -14 \)
+
+4. **Sum the formal charges:**
+   - Total charge: \( +2 + 5 + 3 + 4 - 14 = -2 \)
+
+Since the total charge is negative, there must be additional positive charges elsewhere in the compound, which is consistent with the presence of potassium ions (\( \text{K}^+ \)).
+
+5. **Consider the electronic configuration:**
+   - Vanadium in the +5 oxidation state typically has a d-electron configuration that can lead to unpaired electrons, contributing to a magnetic moment.
+   - Phosphorus and carbon in their respective oxidation states do not typically contribute significantly to magnetic moments unless they are in unusual configurations.
+
+Given the presence of vanadium in a high oxidation state, it is reasonable to expect that the material could have a non-zero net magnetic moment due to the unpaired electrons in the d-orbitals of vanadium.
+
+**Final Answer:**
+
+FINAL_ANSWER: MAGNETIC, 0.5 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-15" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-15" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-15" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-16"><div class="case-header"><span class="case-num">Case #17</span>
+<span class="model-badge">local</span><span class="source">mp-1881105</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>LaCrNiO6 (mp-1881105)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.25446368074073966, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 0.9999414, &#x27;nsites&#x27;: 9}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine whether LaCrNiO6 has a non-zero net magnetic moment, we need to consider the electronic structure and the nature of the magnetic interactions within the material.
+
+1. **Electronic Structure**: The compound LaCrNiO6 contains transition metal ions (Cr and Ni), which typically have partially filled d-orbitals that can lead to magnetic behavior. The lanthanum (La) ion is a rare earth element, which generally does not contribute significantly to the magnetic properties due to its large size and the shielding effect from the 4f electrons.
+
+2. **Cr and Ni Contributions**: 
+   - Chromium (Cr) often forms high-spin states where all five d-electrons are unpaired, leading to a significant magnetic moment.
+   - Nickel (Ni) can also form high-spin states under certain conditions, but it is less likely to have a strong magnetic moment compared to Cr.
+
+3. **Crystal Field Splitting**: In perovskite structures like LaCrNiO6, the crystal field splitting can further influence the magnetic behavior. The presence of oxygen ions around the transition metals can create a strong crystal field, which can split the d-orbitals and stabilize high-spin configurations.
+
+Given these points, it is reasonable to expect that the chromium and nickel ions in LaCrNiO6 could have significant magnetic moments due to their high-spin configurations. However, the overall magnetic behavior will depend on the interplay between the magnetic moments of Cr and Ni, as well as any possible antiferromagnetic or ferromagnetic interactions.
+
+**Final Answer**: MAGNETIC, 0.5 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-16" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-16" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-16" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-17"><div class="case-header"><span class="case-num">Case #18</span>
+<span class="model-badge">local</span><span class="source">mp-1662331</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>LiMnSiO4 (mp-1662331)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.024910235072880482, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.0671, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 16.0007728, &#x27;nsites&#x27;: 28}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine whether LiMnSiO4 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Electronic Structure Analysis**:
+   - Lithium (Li) typically forms +1 ions.
+   - Manganese (Mn) can exist in various oxidation states, but Mn^3+ and Mn^4+ are common in oxides.
+   - Silicon (Si) forms SiO4 tetrahedra, which are generally non-magnetic.
+   - Oxygen (O) forms O^2- ions.
+
+2. **Manganese Oxidation States**:
+   - In LiMnSiO4, manganese is likely to be in the +3 or +4 oxidation state due to its electronegativity and the overall charge balance of the compound.
+   - Mn^3+ has a d^3 electron configuration, which can lead to a partially filled d shell, potentially resulting in unpaired electrons and thus a magnetic moment.
+   - Mn^4+ has a d^0 electron configuration, which is diamagnetic and does not contribute to a magnetic moment.
+
+3. **Overall Magnetic Moment**:
+   - Since the compound contains Mn^3+, there is a possibility of unpaired electrons contributing to a magnetic moment.
+   - The presence of silicon and oxygen tetrahedra does not contribute significantly to the magnetic properties as they are generally non-magnetic.
+
+Given the above analysis, it is reasonable to conclude that LiMnSiO4 could have a non-zero net magnetic moment due to the presence of Mn^3+ ions.
+
+**Final Answer**: FINAL_ANSWER: MAGNETIC, 0.5 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-17" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-17" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-17" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-18"><div class="case-header"><span class="case-num">Case #19</span>
+<span class="model-badge">local</span><span class="source">mp-2218716</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgCr2(WO4)2 (mp-2218716)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.3152833846153751, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.21629999999999994, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 10.0000006, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if the material with the chemical composition MgCr2(WO4)2 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the constituent elements.
+
+1. **Mg (Magnesium)**: Magnesium is a d-block element that typically forms divalent ions (Mg²⁺). The ground state configuration for Mg²⁺ is [Ne] 3s², which means all its valence electrons are paired. Therefore, Mg does not contribute to the magnetic moment.
+
+2. **Cr (Chromium)**: Chromium is a transition metal with the ground state configuration [Ar] 3d⁵ 4s¹. The 3d orbitals can hold up to 10 electrons, but in Cr³⁺, there are 5 electrons in the 3d orbitals, leaving one electron in the 4s orbital. This results in an unpaired electron, contributing to the magnetic moment.
+
+3. **WO4** (Tungstate ion): The tungstate ion (WO₄²⁻) is a tetrahedral ion where the tungsten (W) atom has a +6 oxidation state. The ground state configuration for W⁶⁺ is [Xe] 4f¹⁴ 5d² 6s². The 5d orbitals can hold up to 10 electrons, but in W⁶⁺, there are 2 electrons in the 5d orbitals, which are unpaired. This contributes to the magnetic moment.
+
+Given that both Cr³⁺ and W⁶⁺ have unpaired electrons, the material will have a non-zero net magnetic moment due to the presence of these unpaired electrons.
+
+The exact magnitude of the total magnetization per atom is difficult to estimate without detailed computational studies, but a rough order-of-magnitude guess would be around 1-2 Bohr magnetons per atom.
+
+**Final Answer**: MAGNETIC, 1-2 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-18" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-18" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-18" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-19"><div class="case-header"><span class="case-num">Case #20</span>
+<span class="model-badge">local</span><span class="source">mp-2217069</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Sr2MgVO4 (mp-2217069)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.1938274264166724, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.33059999999999956, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 2.9999997, &#x27;nsites&#x27;: 8}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if Sr2MgVO4 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Electronic Structure Analysis**:
+   - **Strontium (Sr)**: Typically, strontium forms divalent cations (Sr²⁺), which means its outermost shell is filled with 8 electrons.
+   - **Magnesium (Mg)**: Magnesium forms divalent cations (Mg²⁺), meaning its outermost shell is filled with 2 electrons.
+   - **Vanadium (V)**: Vanadium can form trivalent cations (V³⁺), which means its outermost shell is filled with 3 electrons.
+   - **Oxygen (O)**: Oxygen typically forms oxide ions (O²⁻), meaning its outermost shell is filled with 6 electrons.
+
+Given that Sr²⁺ and Mg²⁺ do not contribute any unpaired electrons, their contribution to the magnetic moment is zero. The key element here is vanadium (V³⁺).
+
+2. **Vanadium (V³⁺) Contribution**:
+   - Vanadium in the +3 oxidation state has a configuration of 3d² 4s¹. This means there are 2 unpaired electrons in the 3d orbitals, contributing to a non-zero magnetic moment.
+
+3. **Overall Magnetic Moment**:
+   - Since vanadium contributes a non-zero magnetic moment, the overall material will have a non-zero net magnetic moment.
+
+**Final Answer**: FINAL_ANSWER: MAGNETIC, 2 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-19" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-19" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-19" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-20"><div class="case-header"><span class="case-num">Case #21</span>
+<span class="model-badge">local</span><span class="source">mp-1522391</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>KNdTi4O12 (mp-1522391)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.183853164583331, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 4.0, &#x27;nsites&#x27;: 18}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if the material with the chemical composition KNdTi4O12 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **K (Potassium)**: Potassium is a metal with a closed-shell electron configuration (1s² 2s² 2p⁶), which means it does not contribute to the magnetic properties.
+2. **Nd (Neodymium)**: Neodymium is a rare earth element with a partially filled 4f shell. The 4f electrons can be either paired or unpaired, contributing to the magnetic moment. However, the exact number of unpaired electrons depends on the specific oxidation state and crystal field splitting.
+3. **Ti (Titanium)**: Titanium typically forms Ti³⁺ ions in many compounds, which have a partially filled d shell (3d¹). This can lead to magnetic moments due to the unpaired electrons in the d orbitals.
+4. **O (Oxygen)**: Oxygen generally forms O²⁻ ions, which have a closed-shell electron configuration (2s² 2p⁴), and thus do not contribute significantly to the magnetic properties.
+
+Given that both Nd and Ti can potentially contribute to the magnetic moment through their unpaired electrons, we need to consider the overall electronic configuration and the crystal field splitting. In general, rare earth elements like Nd often exhibit significant magnetic moments due to the 4f electrons, while transition metals like Ti can also contribute to the magnetic properties.
+
+However, without detailed information about the specific oxidation states and crystal field effects, it&#x27;s challenging to predict the exact magnitude of the magnetic moment. A rough estimate suggests that the material could be magnetic, but the exact value would require more detailed calculations.
+
+**Final Answer**: MAGNETIC, 0.5 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-20" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-20" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-20" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-21"><div class="case-header"><span class="case-num">Case #22</span>
+<span class="model-badge">api</span><span class="source">mp-2034510</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>AgBr (mp-2034510)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.0002707949999987136, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.2441999999999998, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 4}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">Silver bromide (AgBr) is an ionic compound. Let&#x27;s consider the electronic configurations of the constituent ions.
+
+Silver (Ag) is in group 11, and in AgBr, it exists as Ag$^+$. The atomic number of Ag is 47. Its neutral electron configuration is [Kr] $4d^{10} 5s^1$. Thus, Ag$^+$ has a configuration of [Kr] $4d^{10}$. The $4d$ shell is completely filled.
+
+Bromine (Br) is in group 17, and in AgBr, it exists as Br$^-$ (bromide ion). The atomic number of Br is 35. Its neutral electron configuration is [Ar] $3d^{10} 4s^2 4p^5$. Thus, Br$^-$ has a configuration of [Ar] $3d^{10} 4s^2 4p^6$. The $3d$, $4s$, and $4p$ shells are completely filled.
+
+Since both the Ag$^+$ and Br$^-$ ions have completely filled electron shells, there are no unpaired electrons in either ion. The absence of unpaired electrons means that there is no orbital or spin magnetic moment, resulting in a zero net magnetic moment for the compound. AgBr is typically an ionic solid. In ionic solids, magnetism arises from unpaired electrons.
+
+FINAL_ANSWER: NONMAGNETIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-21" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-21" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-21" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-22"><div class="case-header"><span class="case-num">Case #23</span>
+<span class="model-badge">local</span><span class="source">mp-2210607</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>BaMgCoO3 (mp-2210607)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.5240806061111121, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 2.9892696, &#x27;nsites&#x27;: 6}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if the material with the chemical composition BaMgCoO3 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the constituent elements.
+
+1. **Barium (Ba)**: Barium is a divalent metal (Ba²⁺), and its electronic configuration in the +2 oxidation state is [Xe]4f¹⁴5d⁰6s². The 5d and 6s orbitals are completely filled, so there are no unpaired electrons.
+2. **Magnesium (Mg)**: Magnesium is a divalent metal (Mg²⁺), and its electronic configuration in the +2 oxidation state is [Ne]3s². The 3s orbitals are completely filled, so there are no unpaired electrons.
+3. **Cobalt (Co)**: Cobalt is a transition metal, and its electronic configuration in the +3 oxidation state is [Ar]3d⁷4s². The 3d orbitals can hold up to 10 electrons, but in Co³⁺, there are 7 electrons in the 3d orbitals, which means there are 3 unpaired electrons.
+
+Given that cobalt contributes unpaired electrons, while barium and magnesium do not, the material should have a non-zero net magnetic moment due to the presence of unpaired electrons in cobalt.
+
+**Final Answer:** FINAL_ANSWER: MAGNETIC, 3 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-22" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-22" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-22" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-23"><div class="case-header"><span class="case-num">Case #24</span>
+<span class="model-badge">local</span><span class="source">mp-1643948</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Li7Mn5O12 (mp-1643948)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.02913937291665558, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.8136000000000001, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 36.0013692, &#x27;nsites&#x27;: 48}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if the material Li7Mn5O12 has a non-zero net magnetic moment, we need to consider the electronic structure and spin states of the constituent elements.
+
+1. **Lithium (Li)**:
+   - Lithium typically forms +1 ions.
+   - The ground state of Li is 1s²2s¹, which means it has one unpaired electron.
+   - However, in compounds, lithium often forms a closed-shell configuration due to its low electronegativity and high ionization energy, leading to a non-magnetic behavior.
+
+2. **Manganese (Mn)**:
+   - Manganese can exist in various oxidation states, but in Mn³⁺, the ground state is 3d⁴, which has 4 unpaired electrons.
+   - In Mn⁵⁺, the ground state is 3d², which has 2 unpaired electrons.
+   - In Mn⁷⁺, the ground state is 3d⁰, which has no unpaired electrons.
+   - Since the material is Li7Mn5O12, it is likely that manganese is in the Mn³⁺ oxidation state, as it is common for manganese in oxides.
+
+Given that manganese in the Mn³⁺ state has 4 unpaired electrons, each Mn³⁺ ion contributes a non-zero magnetic moment. However, the presence of lithium ions, which are typically non-magnetic, will dilute the overall magnetic moment.
+
+The net magnetic moment of the material will depend on the relative number of magnetic and non-magnetic ions and their interactions. Since the material contains both lithium and manganese, and considering the typical behavior of these elements, the material is likely to exhibit a non-zero net magnetic moment.
+
+**Final Answer**: MAGNETIC, 0.5 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-23" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-23" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-23" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-24"><div class="case-header"><span class="case-num">Case #25</span>
+<span class="model-badge">local</span><span class="source">mp-2218721</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgFe4(OF)4 (mp-2218721)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.16196480807692382, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.5496999999999999, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 17.9999996, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if the material with the chemical composition MgFe4(OF)4 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Electronic Structure Analysis**:
+   - Magnesium (Mg) typically forms divalent ions (Mg²⁺), which means its outermost shell is filled.
+   - Iron (Fe) can form both Fe²⁺ and Fe³⁺ ions, but in compounds like this, it is more likely to be in a higher oxidation state due to the presence of oxygen.
+   - The iron atoms in the compound will likely be in a higher oxidation state, such as Fe³⁺, because they can form more stable bonds with oxygen.
+
+2. **Spin States**:
+   - Fe³⁺ has a spin state of 3/2, meaning it has three unpaired electrons.
+   - Each Fe³⁺ ion contributes a net magnetic moment due to its unpaired electrons.
+
+3. **Overall Magnetic Moment**:
+   - Since there are four Fe³⁺ ions in the formula unit, and each contributes a significant magnetic moment, the overall material should exhibit a non-zero net magnetic moment.
+
+Given the above reasoning, the material is expected to be magnetic.
+
+**Final Answer**: MAGNETIC, 6 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-24" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-24" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-24" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-25"><div class="case-header"><span class="case-num">Case #26</span>
+<span class="model-badge">local</span><span class="source">mp-1542038</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>CsSnSe3 (mp-1542038)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.0, &#x27;is_stable&#x27;: True, &#x27;band_gap&#x27;: 1.1908842789593752, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 2e-07, &#x27;nsites&#x27;: 10}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if CsSnSe₃ has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the material.
+
+1. **Electronic Structure Analysis**:
+   - **Cesium (Cs)**: Cesium is a highly electropositive element that typically forms ionic compounds.
+   - **Tin (Sn)**: Tin can form both metallic and ionic bonds. In compounds like SnO₂, it can exhibit valence states such as +4.
+   - **Selenium (Se)**: Selenium is a chalcogenide and can form covalent bonds. It often exhibits valence states such as -2.
+
+In CsSnSe₃, the compound is likely to be ionic due to the large difference in electronegativity between cesium and selenium. The tin atom will likely have a +4 oxidation state, and each selenium atom will have a -2 oxidation state. This means the compound will have a net charge balance but no significant contribution from unpaired electrons within the unit cell.
+
+2. **Magnetic Moment Consideration**:
+   - For a material to be magnetic, it must have unpaired electrons that can align in a way that results in a net magnetic moment. In CsSnSe₃, the electronic configuration of the elements involved does not suggest the presence of unpaired electrons that would lead to a net magnetic moment.
+
+Given the above analysis, the material is expected to be non-magnetic.
+
+**Final Answer**: NONMAGNETIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-25" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-25" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-25" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-26"><div class="case-header"><span class="case-num">Case #27</span>
+<span class="model-badge">local</span><span class="source">mp-2218221</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>CsLaMgNb2O7 (mp-2218221)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.7495832528819424, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 0.0002779, &#x27;nsites&#x27;: 12}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if the material CsLaMgNb2O7 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the constituent elements.
+
+1. **Cesium (Cs)**: Cesium is a highly electropositive element and typically forms ionic compounds where it has a +1 charge. The outermost electron configuration of Cs is 6s²6p⁶, which means it does not contribute significantly to the magnetic properties due to its complete valence shell.
+
+2. **Lanthanum (La)**: Lanthanum is a lanthanide element, and its electronic configuration is [Xe]4f¹⁴5d¹⁰6s². The 4f and 5d orbitals can hold unpaired electrons, but lanthanides often form ionic compounds where they adopt a +3 oxidation state. In La³⁺, the 4f orbitals are completely filled, so there are no unpaired electrons contributing to magnetism.
+
+3. **Magnesium (Mg)**: Magnesium is a divalent element with the electronic configuration [Ne]3s². In Mg²⁺, the 3s orbitals are empty, and there are no unpaired electrons that could contribute to magnetism.
+
+4. **Niobium (Nb)**: Niobium has the electronic configuration [Xe]4d⁴5s². In Nb²⁺, the 4d orbitals can hold unpaired electrons, but niobium often forms compounds where it adopts a +5 oxidation state. In Nb⁵⁺, the 4d orbitals are partially filled, and there might be some unpaired electrons, but the overall contribution to magnetism would be minimal due to the high oxidation state and the strong covalent bonding in oxides.
+
+Given that all the elements in the compound CsLaMgNb₂O₇ are in high oxidation states and their electronic configurations suggest they do not have significant unpaired electrons, the net magnetic moment of the compound is expected to be zero.
+
+**Final Answer:** NONMAGNETIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-26" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-26" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-26" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-27"><div class="case-header"><span class="case-num">Case #28</span>
+<span class="model-badge">local</span><span class="source">mp-1641824</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Li4Co5NiO12 (mp-1641824)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.08369869897726634, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.06269999999999998, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 17.9996695, &#x27;nsites&#x27;: 44}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if the material Li4Co5NiO12 has a non-zero net magnetic moment, we need to consider the electronic structure and the presence of unpaired electrons in the constituent elements.
+
+1. **Lithium (Li)**: Lithium typically forms ionic bonds and does not contribute significantly to the magnetic properties due to its low atomic number and the fact that it forms a stable +1 ion.
+2. **Cobalt (Co)**: Cobalt can have both ferromagnetic and antiferromagnetic behavior depending on the oxidation state and crystal field effects. In CoO, for example, it can exhibit a magnetic moment due to the 3d electrons.
+3. **Nickel (Ni)**: Nickel is known to be ferromagnetic, especially in NiO, where it forms a strong magnetic moment due to the 3d electrons.
+
+Given the presence of cobalt and nickel, which are known to be magnetic, and considering the oxide environment which often stabilizes high-spin configurations, it is reasonable to expect that the material could have a non-zero net magnetic moment.
+
+However, the exact magnitude of the magnetic moment would depend on the specific crystal structure, the oxidation states of cobalt and nickel, and the interatomic interactions. Without detailed structural information, it&#x27;s challenging to provide a precise value.
+
+**Final Answer**: MAGNETIC, 0.5 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-27" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-27" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-27" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-28"><div class="case-header"><span class="case-num">Case #29</span>
+<span class="model-badge">local</span><span class="source">mp-2017654</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>ThPbAu2 (mp-2017654)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.0, &#x27;is_stable&#x27;: True, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 4}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine whether the material with the chemical composition ThPbAu2 has a non-zero net magnetic moment, we need to consider the electronic structure and the nature of the elements involved.
+
+1. **Th (Thorium)**: Thorium is a transition metal, but it typically forms a divalent ion (Th4+), which does not contribute significantly to magnetic moments because its outermost electrons are in a closed shell configuration (4f14 5d0 6s2).
+
+2. **Pb (Lead)**: Lead is a post-transition metal, and it forms a divalent ion (Pb2+). The Pb2+ ion has a closed 6s2 6p2 electron configuration, which means it does not contribute to a significant magnetic moment.
+
+3. **Au (Gold)**: Gold is a noble metal, and it forms a divalent ion (Au2+). The Au2+ ion has a closed 5d10 6s2 electron configuration, which means it does not contribute to a significant magnetic moment either.
+
+Given that all the elements in the compound ThPbAu2 form divalent ions with closed-shell configurations, there is no significant contribution from these elements to the overall magnetic moment of the material. Therefore, the net magnetic moment of the material is expected to be zero.
+
+**Final Answer**: NONMAGNETIC</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-28" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-28" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-28" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-29"><div class="case-header"><span class="case-num">Case #30</span>
+<span class="model-badge">local</span><span class="source">mp-2210611</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>NaMgMnO2 (mp-2210611)</td></tr><tr><th>Model's claim</th><td class='claim'>None </td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.24432291566522935, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 4.8185793, &#x27;nsites&#x27;: 5}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">To determine if the material with the chemical composition NaMgMnO2 has a non-zero net magnetic moment, we need to consider the electronic structure and the spin states of the constituent elements.
+
+1. **Na (Sodium)**: Sodium typically forms a +1 ion (Na⁺), which does not contribute to the magnetic moment because its outermost electron is in a s orbital, which is fully paired and thus non-magnetic.
+   
+2. **Mg (Magnesium)**: Magnesium forms a +2 ion (Mg²⁺), which has a configuration of [Ne]3s². The 3s electrons are paired and do not contribute to the magnetic moment.
+
+3. **Mn (Manganese)**: Manganese can form various oxidation states, but in MnO₂, it is likely to be in the +4 oxidation state, giving it a configuration of [Ar]3d³4s¹. The 3d electrons are unpaired, contributing to the magnetic moment. The 4s electron is paired and does not contribute.
+
+Given that manganese has unpaired electrons, it will contribute to the magnetic moment. However, the sodium and magnesium ions do not contribute to the magnetic moment due to their fully paired electrons.
+
+**Final Answer**: MAGNETIC, 0.5 muB/atom</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-29" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-29" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-29" value="unsure" onchange="t()"> Unsure</label></div></div></div></div>
+<script>const K=["mp-2210713", "mp-2218824", "mp-2030706", "mp-2046031", "mp-2217566", "mp-1524762", "mp-aaaieirv", "mp-2217167", "mp-2217778", "mp-2049132", "mp-3346481", "mp-2210713", "mp-2210607", "mp-2218389", "mp-1522366", "mp-1646256", "mp-1881105", "mp-1662331", "mp-2218716", "mp-2217069", "mp-1522391", "mp-2034510", "mp-2210607", "mp-1643948", "mp-2218721", "mp-1542038", "mp-2218221", "mp-1641824", "mp-2017654", "mp-2210611"];
+function t(){let k=0;for(let i=0;i<K.length;i++)for(const r of document.getElementsByName('review-'+i))if(r.checked)k++;document.getElementById('tally').textContent='Reviewed: '+k+' / '+K.length;}
+function ex(){const o=[];for(let i=0;i<K.length;i++){let v=null;for(const r of document.getElementsByName('review-'+i))if(r.checked)v=r.value;o.push({case:i+1,key:K[i],verdict:v});}
+document.getElementById('out').value=JSON.stringify({family:"magnetism",audit:"oracle_silent",reviews:o},null,2);}</script></body></html>

@@ -1,0 +1,14 @@
+== reported
+  in_distribution_pooled|original      n= 431 AUC=0.850 [0.813, 0.883]
+  in_distribution_pooled|final         n= 412 AUC=0.871 [0.834, 0.904]
+  in_distribution_stability|original   n=  87 AUC=0.804 [0.707, 0.886]
+  in_distribution_stability|final      n=  68 AUC=0.911 [0.825, 0.974]
+  heldout_stability|original           n= 395 AUC=0.436 [0.371, 0.502]
+  heldout_stability|final              n= 331 AUC=0.372 [0.290, 0.456]
+== released
+  in_distribution_pooled|original      n= 431 AUC=0.850 [0.814, 0.884]
+  in_distribution_pooled|final         n= 412 AUC=0.866 [0.829, 0.902]
+  in_distribution_stability|original   n=  87 AUC=0.833 [0.743, 0.909]
+  in_distribution_stability|final      n=  68 AUC=0.894 [0.788, 0.971]
+  heldout_stability|original           n= 395 AUC=0.383 [0.318, 0.447]
+  heldout_stability|final              n= 331 AUC=0.300 [0.230, 0.376]

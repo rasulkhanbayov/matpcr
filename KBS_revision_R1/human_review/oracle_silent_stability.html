@@ -1,0 +1,283 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Oracle-silent audit: stability</title><style>body{font-family:sans-serif;max-width:1000px;margin:0 auto;padding:20px;background:#fafafa}
+.summary{position:sticky;top:0;background:#fff;padding:12px;border-radius:8px;box-shadow:0 1px 4px #0003;z-index:9}
+.case{background:#fff;border-radius:8px;margin:16px 0;box-shadow:0 1px 3px #0002}.case-header{background:#eee;padding:6px 12px;display:flex;gap:12px;font-size:.85rem}
+.model-badge{background:#333;color:#fff;padding:1px 8px;border-radius:4px}.case-body{display:flex;gap:16px;padding:12px;flex-wrap:wrap}
+.case-image img{max-width:340px;border:1px solid #ddd}.case-details{flex:1;min-width:300px}th{text-align:left;color:#555;padding:3px 8px;vertical-align:top}
+td{padding:3px 8px}pre.chain{white-space:pre-wrap;background:#f6f6f6;padding:8px;font-size:.8rem}.review-controls label{display:block}</style></head><body>
+<h1>Oracle-silent audit: stability (30 cases)</h1><div class="summary"><p>The oracle accepted the STABLE/UNSTABLE claim because it agrees with the Materials Project hull energy at the 0.05 eV/atom near-hull threshold. Mark MISSED VIOLATION if, given the reference values shown, the claim is nevertheless physically wrong (e.g. the reasoning asserts something the reference contradicts).</p>
+<span id="tally">Reviewed: 0 / 30</span> <button onclick="ex()">Export my review</button>
+<textarea id="out" rows="5" style="width:100%"></textarea></div><div class="case" id="case-0"><div class="case-header"><span class="case-num">Case #1</span>
+<span class="model-badge">api</span><span class="source">mp-2218849</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgNb4(NO)4 (mp-2218849)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.21082960903077108, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.01680000000000037, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 2e-06, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The compound MgNb4(NO)4 contains a mixed anion system with nitrate (NO3-) and nitrite (NO2-) or a related nitrogen-oxygen species. Such mixed anion systems are often challenging to form and can be kinetically trapped. Without specific phase diagram data, the unusual stoichiometry and the presence of a mixed nitrogen-oxygen anion suggest a propensity for decomposition or reaction with other components, making it unlikely to be thermodynamically stable.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-0" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-0" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-0" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-1"><div class="case-header"><span class="case-num">Case #2</span>
+<span class="model-badge">local</span><span class="source">mp-1521841</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>BaZr2SnO6 (mp-1521841)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.1356739182499993, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 2.9585000000000004, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 40}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material BaZr2SnO6 does not appear in common databases of thermodynamic stability for oxides, and its formation from known stable precursors (BaO, ZrO2, SnO2) suggests it might be metastable or unstable relative to other possible phases. Given the lack of experimental data and the complexity of predicting stability in such systems, it&#x27;s reasonable to treat this composition as UNSTABLE.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-1" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-1" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-1" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-2"><div class="case-header"><span class="case-num">Case #3</span>
+<span class="model-badge">api</span><span class="source">mp-1521542</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>CaNdHfTiO6 (mp-1521542)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.19043320675000075, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 0.003676, &#x27;nsites&#x27;: 10}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">This composition contains multiple cations with different ionic radii and bonding preferences (Ca, Nd, Hf, Ti). Forming a single, ordered perovskite or related structure might be difficult due to these differences, suggesting potential for phase separation or formation of less ordered, higher energy phases. The presence of rare earth (Nd) and refractory (Hf) elements alongside earth alkali (Ca) and transition metal (Ti) makes a simple, stable single-phase compound less likely.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-2" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-2" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-2" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-3"><div class="case-header"><span class="case-num">Case #4</span>
+<span class="model-badge">api</span><span class="source">mp-1524394</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>WO2 (mp-1524394)</td></tr><tr><th>Model's claim</th><td class='claim'>STABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.0, &#x27;is_stable&#x27;: True, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 12}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">Tungsten oxides form a complex phase diagram. WO2 is known to exist and is a relatively stable bronze-like phase. While other phases might have lower free energies at certain conditions, WO2 is generally considered a stable binary oxide of tungsten under common conditions.
+
+FINAL_ANSWER: STABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-3" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-3" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-3" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-4"><div class="case-header"><span class="case-num">Case #5</span>
+<span class="model-badge">local</span><span class="source">mp-2218748</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>NaMgFe(SeO4)2 (mp-2218748)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.34674333826923753, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 3.8970551, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material NaMgFe(SeO4)2 appears to be a complex compound involving multiple elements and anions. Given the complexity and the specific arrangement of elements, it is challenging to predict its thermodynamic stability without detailed thermodynamic data for all possible phases in the system. However, based on general principles, such compounds often form metastable phases due to the difficulty in achieving the most stable crystal structure under standard conditions.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-4" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-4" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-4" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-5"><div class="case-header"><span class="case-num">Case #6</span>
+<span class="model-badge">local</span><span class="source">mp-2218940</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgAg2(BrO4)2 (mp-2218940)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.18907982384615352, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.9181, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material MgAg2(BrO4)2 appears to be a complex compound involving magnesium, silver, bromine, and oxygen. Given the high oxidation state of silver in this compound, it may not be thermodynamically stable due to the potential for disproportionation reactions that could lead to the formation of more stable compounds like AgBr or Ag2O. Additionally, the presence of multiple anions (BrO4-) can complicate the stability analysis further.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-5" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-5" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-5" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-6"><div class="case-header"><span class="case-num">Case #7</span>
+<span class="model-badge">local</span><span class="source">mp-1828501</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>ZnWF4 (mp-1828501)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.5647951475000017, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.03699999999999992, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 5.9999819, &#x27;nsites&#x27;: 12}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The compound ZnWF4 is highly unlikely to be thermodynamically stable because it contains tungsten (W), which typically forms more stable compounds with fluorine (F) in the form of WOF6. The presence of zinc (Zn) and the substitution of oxygen (O) for fluorine in ZnWF4 suggests a less stable configuration due to the lower electronegativity of oxygen compared to fluorine. This substitution likely destabilizes the structure.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-6" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-6" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-6" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-7"><div class="case-header"><span class="case-num">Case #8</span>
+<span class="model-badge">api</span><span class="source">mp-3346481</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>CaMg2(CO3)3 (mp-3346481)</td></tr><tr><th>Model's claim</th><td class='claim'>STABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.01442793266665987, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 5.7831, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 30}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The given composition CaMg2(CO3)3 represents a double carbonate of calcium and magnesium. Such double carbonates are often observed to be stable phases in the CaO-MgO-CO2 system, frequently found as mineral phases like dolomite. This suggests a favorable formation energy.
+
+FINAL_ANSWER: STABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-7" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-7" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-7" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-8"><div class="case-header"><span class="case-num">Case #9</span>
+<span class="model-badge">api</span><span class="source">mp-2217550</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgMnPb2WO6 (mp-2217550)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.3785201604545403, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 4.9882454, &#x27;nsites&#x27;: 11}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The compound MgMnPb2WO6 contains multiple cations (Mg, Mn, Pb) and an oxyanion (WO4). The presence of four distinct metallic elements, particularly three heavy metals with potentially differing bonding preferences and ionic sizes, increases the likelihood of forming multiple stable intermetallic or oxide phases. This complexity suggests that a single quaternary phase like MgMnPb2WO6 is less likely to be a lowest energy configuration compared to a combination of binary or ternary oxides.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-8" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-8" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-8" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-9"><div class="case-header"><span class="case-num">Case #10</span>
+<span class="model-badge">api</span><span class="source">mp-1664613</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Li2Ti3CoO8 (mp-1664613)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.05665704803571536, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.9589999999999996, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 2e-07, &#x27;nsites&#x27;: 56}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">This compound contains Li, Ti, Co, and O, which are common elements in oxide materials. However, ternary and quaternary oxides of these elements can form complex phase diagrams. The specific stoichiometry Li2Ti3CoO8 suggests a mixture of oxides of these metals. Without known literature data or computational thermodynamic calculations for this specific compound or its potential competing phases (e.g., binary oxides or other ternary/quaternary compositions), predicting absolute thermodynamic stability is challenging. However, such complex compositions often tend to be metastable or unstable relative to simpler binary or ternary oxide phases.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-9" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-9" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-9" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-10"><div class="case-header"><span class="case-num">Case #11</span>
+<span class="model-badge">api</span><span class="source">mp-2218221</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>CsLaMgNb2O7 (mp-2218221)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.7495832528819424, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 0.0002779, &#x27;nsites&#x27;: 12}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">This compound is a perovskite-related oxide with multiple cations in a complex arrangement. Such complex oxide compositions, especially those with multiple rare earth and transition metal elements, often exist as metastable phases due to kinetic barriers preventing their decomposition into simpler, thermodynamically favorable binary or ternary oxides. The presence of several different cations occupying specific sites within a crowded structure increases the likelihood of kinetic stabilization rather than true thermodynamic equilibrium.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-10" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-10" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-10" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-11"><div class="case-header"><span class="case-num">Case #12</span>
+<span class="model-badge">local</span><span class="source">mp-2215966</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgNb3O7F (mp-2215966)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.1797935456249906, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 0.000113, &#x27;nsites&#x27;: 12}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material MgNb3O7F appears to be a complex oxide with a high degree of oxidation state and a unique stoichiometry that deviates from common oxide structures. Given the complexity and the specific combination of elements, it is likely that this compound does not lie on the convex hull of stable phases in its chemical system due to the rarity and instability of such compositions. 
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-11" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-11" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-11" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-12"><div class="case-header"><span class="case-num">Case #13</span>
+<span class="model-badge">local</span><span class="source">mp-aaaiejdz</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Mg3Sc2(GeO4)3 (mp-aaaiejdz)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.09737776629688355, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 4.1586, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0, &#x27;nsites&#x27;: 80}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material&#x27;s composition, Mg3Sc2(GeO4)3, appears to be quite complex and not commonly encountered in standard databases or literature. Without specific thermodynamic data for this exact composition, it is challenging to definitively determine its stability. However, given the rarity of such a specific compound, it is reasonable to assume that it may not be thermodynamically stable compared to other known phases in the system.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-12" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-12" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-12" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-13"><div class="case-header"><span class="case-num">Case #14</span>
+<span class="model-badge">local</span><span class="source">mp-1522007</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>SrCaEuBiO6 (mp-1522007)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.23498786779998948, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 5.9999998, &#x27;nsites&#x27;: 10}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material SrCaEuBiO6 appears to be a complex oxide with a high degree of ionic radius mismatch and a non-trivial electronic structure, which can lead to instability in its crystal structure. Given the complexity and the lack of known stable phases for such a composition, it is reasonable to conclude that this material is likely unstable.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-13" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-13" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-13" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-14"><div class="case-header"><span class="case-num">Case #15</span>
+<span class="model-badge">api</span><span class="source">mp-2217167</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgMn(SbO3)2 (mp-2217167)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.25802239687499195, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.7717999999999998, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 5.0000732, &#x27;nsites&#x27;: 10}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material MgMn(SbO3)2 involves a complex oxide involving antimony in a +5 oxidation state, likely forming a pyroantimonate or a related structure. Such compounds are generally less common and can be prone to decomposition or transformation to more stable simpler oxides. The presence of multiple cations and a complex anion suggests a higher energy state compared to a mixture of simpler binary oxides.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-14" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-14" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-14" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-15"><div class="case-header"><span class="case-num">Case #16</span>
+<span class="model-badge">api</span><span class="source">mp-2218283</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgCr2(SbO4)2 (mp-2218283)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.16252810567307563, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.8748999999999998, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 6.0146912, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The compound contains elements from different chemical families (Mg, Cr, Sb, O) which could potentially form more stable binary or simpler ternary oxides. Without specific phase diagram data, the complex arrangement of Mg, Cr, Sb, and O in a single phase is less likely to be a low-energy minimum compared to simpler oxides. The presence of Sb in an unusual coordination with oxygen might also suggest instability.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-15" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-15" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-15" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-16"><div class="case-header"><span class="case-num">Case #17</span>
+<span class="model-badge">local</span><span class="source">mp-2219039</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgTe4Mo2W2(SeS)2 (mp-2219039)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.37774047557692114, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.03269999999999973, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0013795, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The given composition, MgTe4Mo2W2(SeS)2, appears highly complex and likely to involve multiple elements in non-standard oxidation states or configurations that are not commonly found in stable compounds. Without detailed thermodynamic data for each element&#x27;s behavior in such a complex structure, it is difficult to predict stability conclusively. However, the presence of Te, Mo, W, Se, S, and Mg suggests a high degree of complexity that often leads to instability.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-16" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-16" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-16" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-17"><div class="case-header"><span class="case-num">Case #18</span>
+<span class="model-badge">api</span><span class="source">mp-2216435</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgZn4(Co3O8)2 (mp-2216435)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.16170469411306332, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 14.0029348, &#x27;nsites&#x27;: 27}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The formula MgZn4(Co3O8)2 suggests a complex oxide with multiple cations and polyatomic anions. Such complex compositions often represent specific crystallographic arrangements rather than simple mixtures or solid solutions. Without experimental data or detailed computational phase diagrams, it&#x27;s difficult to definitively assess thermodynamic stability. However, the presence of multiple distinct cation oxidation states and the potential for various coordination environments within the Co3O8 unit can lead to instability against decomposition into simpler binary or ternary oxides.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-17" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-17" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-17" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-18"><div class="case-header"><span class="case-num">Case #19</span>
+<span class="model-badge">local</span><span class="source">mp-2218980</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>K2Na2MgTi2O6 (mp-2218980)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.2542495585142568, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 1.7821145, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material K2Na2MgTi2O6 appears to be a complex oxide with multiple cations and anions, which can form a wide range of possible structures. Given the complexity and the presence of multiple elements, it is challenging to predict its thermodynamic stability without detailed thermodynamic data. However, based on general trends in oxide stability, such compounds often have high enthalpies of formation, making them less likely to be on the convex hull of stable phases.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-18" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-18" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-18" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-19"><div class="case-header"><span class="case-num">Case #20</span>
+<span class="model-badge">local</span><span class="source">mp-2215910</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgZn2(FeO2)4 (mp-2215910)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.21698531533333298, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.2906000000000004, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 18.0000169, &#x27;nsites&#x27;: 15}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The given composition MgZn2(FeO2)4 appears to be highly complex and likely not a common or stable phase in nature due to the unusual stoichiometry and the presence of multiple elements in a non-standard oxidation state. Without detailed thermodynamic data for this specific compound, it is difficult to definitively determine its stability. However, based on general principles of materials chemistry, such compositions often do not align well with known stable phases.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-19" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-19" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-19" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-20"><div class="case-header"><span class="case-num">Case #21</span>
+<span class="model-badge">local</span><span class="source">mp-2216570</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MnOF (mp-2216570)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.05714559277775688, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.14400000000000013, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 31.9749146, &#x27;nsites&#x27;: 24}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The compound MnOF is not a common or well-known material in the context of thermodynamic stability. Given that there are no widely recognized stable oxides or fluorides of manganese with such a stoichiometry, it is reasonable to infer that MnOF might be unstable relative to its constituent elements or simpler compounds. Therefore, based on this limited information, I would classify it as unstable.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-20" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-20" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-20" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-21"><div class="case-header"><span class="case-num">Case #22</span>
+<span class="model-badge">local</span><span class="source">mp-2218370</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgCr2(BiO4)2 (mp-2218370)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.20217247064102128, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.6355, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 4.0024514, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material&#x27;s composition, MgCr2(BiO4)2, appears to be highly complex and not commonly encountered in standard databases or literature. Without specific thermodynamic data for this exact compound, it is challenging to definitively determine its stability. However, given the unusual nature of the elements involved and the lack of known stable phases for such a composition, it is reasonable to infer that this material might be unstable.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-21" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-21" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-21" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-22"><div class="case-header"><span class="case-num">Case #23</span>
+<span class="model-badge">local</span><span class="source">mp-1521831</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>BaCaSmFeO6 (mp-1521831)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.20559424693749317, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.6061000000000001, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 3.0000002, &#x27;nsites&#x27;: 10}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material BaCaSmFeO6 appears to be a complex oxide, and its stability can be assessed by comparing it to known stable phases in the Ba-Ca-Sm-Fe-O system. Given the complexity and the lack of extensive thermodynamic data for this specific composition, it is reasonable to assume that it may not be on the convex hull of stable phases due to the potential for metastability or instability in such complex systems.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-22" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-22" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-22" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-23"><div class="case-header"><span class="case-num">Case #24</span>
+<span class="model-badge">local</span><span class="source">mp-1522963</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>KLiNb4O12 (mp-1522963)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.14350377279258275, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 2.0, &#x27;nsites&#x27;: 18}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material KLiNb4O12 appears to be a complex oxide, and its stability can be assessed by comparing it to known stable phases in the relevant chemical system. Given that it contains elements like potassium (K), lithium (Li), niobium (Nb), and oxygen (O), which form a variety of stable oxides, it is plausible that KLiNb4O12 could be thermodynamically stable. However, without specific thermodynamic data for this exact composition, it&#x27;s difficult to definitively state its stability.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-23" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-23" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-23" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-24"><div class="case-header"><span class="case-num">Case #25</span>
+<span class="model-badge">api</span><span class="source">mp-1542758</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>SrMoO3 (mp-1542758)</td></tr><tr><th>Model's claim</th><td class='claim'>STABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.0, &#x27;is_stable&#x27;: True, &#x27;band_gap&#x27;: 1.3088000000000006, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 4.0000009, &#x27;nsites&#x27;: 10}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">SrMoO3 is an perovskite oxide. Perovskites of the form ABO3 are generally thermodynamically stable, forming well-defined crystal structures. There are no obviously known decomposition products or competing phases that would make it inherently unstable under typical conditions for this class of compounds.
+
+FINAL_ANSWER: STABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-24" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-24" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-24" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-25"><div class="case-header"><span class="case-num">Case #26</span>
+<span class="model-badge">local</span><span class="source">mp-2217728</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Tb2Mg(NiO3)2 (mp-2217728)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.22532504852272517, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 2.5041999999999995, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 3.9999999, &#x27;nsites&#x27;: 11}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The composition Tb2Mg(NiO3)2 appears to be highly unusual and likely not thermodynamically stable due to the presence of both rare earth elements (Tb) and transition metals (Ni) in an oxide framework, which is not a common or well-characterized compound. The stability of such compounds often depends on the specific bonding and electronic configurations, which are not readily predictable without detailed computational studies.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-25" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-25" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-25" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-26"><div class="case-header"><span class="case-num">Case #27</span>
+<span class="model-badge">local</span><span class="source">mp-2217671</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgNi2(BiO3)2 (mp-2217671)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.21882522409091099, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 1.3174000000000001, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 0.0107369, &#x27;nsites&#x27;: 11}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The composition MgNi2(BiO3)2 appears to be highly complex and not commonly encountered in standard material databases. Given the unusual combination of elements and the lack of known stable phases for such a composition, it is reasonable to conclude that this material is likely unstable.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-26" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-26" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-26" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-27"><div class="case-header"><span class="case-num">Case #28</span>
+<span class="model-badge">api</span><span class="source">mp-1641824</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Li4Co5NiO12 (mp-1641824)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.08369869897726634, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.06269999999999998, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 17.9996695, &#x27;nsites&#x27;: 44}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">This composition involves cobalt and nickel oxides, which can form complex spinels or related mixed-metal oxide structures. The specific ratio and combination of Li, Co, and Ni may favor the formation of multiple distinct, simpler binary or ternary oxide phases that are thermodynamically more stable. Without detailed phase diagrams or computational thermodynamics, it&#x27;s difficult to definitively place it on the hull. However, such complex, ordered quaternary oxides are often metastable relative to mixtures of simpler end-member phases.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-27" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-27" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-27" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-28"><div class="case-header"><span class="case-num">Case #29</span>
+<span class="model-badge">api</span><span class="source">mp-2218749</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>MgMn4O7F (mp-2218749)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.22964415895033152, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.0, &#x27;is_metal&#x27;: True, &#x27;total_magnetization&#x27;: 15.0000006, &#x27;nsites&#x27;: 13}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">This composition involves multiple cations (Mg, Mn) and an anion (F) in an oxide framework, which can lead to complex crystallographic arrangements. The presence of manganese, which can exist in multiple oxidation states (e.g., Mn2+, Mn3+, Mn4+), further complicates the phase diagram and increases the likelihood of forming more stable, ordered phases. Without specific phase diagram data for Mg-Mn-O-F systems, it&#x27;s difficult to predict definite stability, but such complex compositions are often not on the convex hull in favor of simpler, stoichiometric compounds.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-28" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-28" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-28" value="unsure" onchange="t()"> Unsure</label></div></div></div></div><div class="case" id="case-29"><div class="case-header"><span class="case-num">Case #30</span>
+<span class="model-badge">local</span><span class="source">mp-2217817</span></div>
+<div class="case-body"><div class="case-details"><table><tr><th>Formula</th><td>Ba2Mg(VS3)2 (mp-2217817)</td></tr><tr><th>Model's claim</th><td class='claim'>UNSTABLE</td></tr><tr><th>Oracle verdict</th><td>CONSISTENT (did not fire)</td></tr><tr><th>Materials Project reference</th><td>{&#x27;energy_above_hull&#x27;: 0.6705841586363599, &#x27;is_stable&#x27;: False, &#x27;band_gap&#x27;: 0.1198999999999999, &#x27;is_metal&#x27;: False, &#x27;total_magnetization&#x27;: 1.9969942, &#x27;nsites&#x27;: 11}</td></tr></table>
+<details open><summary>Full reasoning chain</summary><pre class="chain">The material Ba2Mg(VS3)2 appears to be a complex compound involving rare earth elements and transition metals, which can often form metastable phases due to the complexity of their interactions. Given the lack of extensive thermodynamic data for such specific compositions, it&#x27;s challenging to definitively determine its stability without further experimental evidence. However, based on general trends in materials chemistry, it is more likely to be unstable compared to common stable phases.
+
+FINAL_ANSWER: UNSTABLE</pre></details>
+<div class="review-controls"><b>Your review:</b>
+<label><input type="radio" name="review-29" value="missed_violation" onchange="t()"> Missed violation (oracle wrong)</label>
+<label><input type="radio" name="review-29" value="clean" onchange="t()"> Clean (oracle right)</label>
+<label><input type="radio" name="review-29" value="unsure" onchange="t()"> Unsure</label></div></div></div></div>
+<script>const K=["mp-2218849", "mp-1521841", "mp-1521542", "mp-1524394", "mp-2218748", "mp-2218940", "mp-1828501", "mp-3346481", "mp-2217550", "mp-1664613", "mp-2218221", "mp-2215966", "mp-aaaiejdz", "mp-1522007", "mp-2217167", "mp-2218283", "mp-2219039", "mp-2216435", "mp-2218980", "mp-2215910", "mp-2216570", "mp-2218370", "mp-1521831", "mp-1522963", "mp-1542758", "mp-2217728", "mp-2217671", "mp-1641824", "mp-2218749", "mp-2217817"];
+function t(){let k=0;for(let i=0;i<K.length;i++)for(const r of document.getElementsByName('review-'+i))if(r.checked)k++;document.getElementById('tally').textContent='Reviewed: '+k+' / '+K.length;}
+function ex(){const o=[];for(let i=0;i<K.length;i++){let v=null;for(const r of document.getElementsByName('review-'+i))if(r.checked)v=r.value;o.push({case:i+1,key:K[i],verdict:v});}
+document.getElementById('out').value=JSON.stringify({family:"stability",audit:"oracle_silent",reviews:o},null,2);}</script></body></html>

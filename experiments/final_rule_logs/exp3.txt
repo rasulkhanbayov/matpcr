@@ -1,0 +1,33 @@
+Total records aggregated: 838
+
+Model                  Modality               n     Acc     PCR     CC     CI     WC     WI     Gap
+---------------------------------------------------------------------------------------------------
+Qwen2.5-VL-7B          Diffraction (XRD)     62   0.210   0.565     13      0     22     27   0.355
+Gemini 2.5 Flash Lite  Diffraction (XRD)     58   0.241   0.552     14      0     18     26   0.310
+GPT-4o                 Diffraction (XRD)     62   0.177   0.758     11      0     36     15   0.581
+Claude Sonnet 4.5      Diffraction (XRD)     62   0.210   0.565     13      0     22     27   0.355
+
+Qwen2.5-VL-7B          Spectra (Raman)       90   0.067   0.089      4      2      4     80   0.067
+Gemini 2.5 Flash Lite  Spectra (Raman)       89   0.112   0.180      8      2      8     71   0.112
+GPT-4o                 Spectra (Raman)       48   0.104   0.104      4      1      1     42   0.042
+Claude Sonnet 4.5      Spectra (Raman)       90   0.067   0.133      6      0      6     78   0.067
+
+Qwen2.5-VL-7B          Stability             70   0.871   0.871     61      0      0      9   0.000
+Gemini 2.5 Flash Lite  Stability             73   0.767   0.767     56      0      0     17   0.000
+GPT-4o                 Stability             69   0.913   0.913     63      0      0      6   0.000
+Claude Sonnet 4.5      Stability             65   0.985   0.985     64      0      0      1   0.000
+
+Legend: CC=correct+consistent CI=correct+inconsistent WC=wrong+consistent WI=wrong+inconsistent
+Gap = (CI + WC) / n : fraction where accuracy and PCR disagree
+
+Mean gap across all 12 cells: 0.157
+
+Note: Stability modality accuracy uses Materials Project's own strict is_stable
+label; consistency uses the oracle's looser 0.05 eV/atom tolerance. MP reference
+values are NOT YET independently validated by the domain co-author (see CLAUDE.md).
+
+Stability balanced accuracy (MP is_stable classes):
+  local      stable 0/8  unstable 61/62  balanced 0.492
+  gemini     stable 3/5  unstable 53/68  balanced 0.690
+  gpt4o      stable 0/5  unstable 63/64  balanced 0.492
+  claude     stable 5/5  unstable 59/60  balanced 0.992

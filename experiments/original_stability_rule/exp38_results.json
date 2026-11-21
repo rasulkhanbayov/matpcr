@@ -1,0 +1,349 @@
+{
+ "main": {
+  "original": {
+   "local": {
+    "stability": 0.7444444444444445,
+    "n_stability": 90,
+    "dft": 0.6853932584269663,
+    "overall": 0.5652173913043478
+   },
+   "gemini": {
+    "stability": 0.7303370786516854,
+    "n_stability": 89,
+    "dft": 0.6412213740458015,
+    "overall": 0.6224899598393574
+   },
+   "gpt4o": {
+    "stability": 0.8,
+    "n_stability": 90,
+    "dft": 0.7169811320754716,
+    "overall": 0.6869565217391305
+   },
+   "claude": {
+    "stability": 0.7555555555555555,
+    "n_stability": 90,
+    "dft": 0.7358490566037735,
+    "overall": 0.6561264822134387
+   },
+   "opus46": {
+    "stability": 0.7222222222222222,
+    "n_stability": 90,
+    "dft": 0.7142857142857143,
+    "overall": 0.6548323471400395
+   },
+   "gpt56": {
+    "stability": 0.6555555555555556,
+    "n_stability": 90,
+    "dft": 0.6943396226415094,
+    "overall": 0.774
+   },
+   "gpt56sol": {
+    "stability": 0.7415730337078652,
+    "n_stability": 89,
+    "dft": 0.7153558052434457,
+    "overall": 0.7695390781563126
+   },
+   "qwen3vl": {
+    "stability": 0.7126436781609196,
+    "n_stability": 87,
+    "dft": 0.6417322834645669,
+    "overall": 0.5548780487804879
+   },
+   "qwen3vl_thinking": {
+    "stability": 0.7666666666666667,
+    "n_stability": 90,
+    "dft": 0.6390977443609023,
+    "overall": 0.5793650793650794
+   }
+  },
+  "abstain": {
+   "local": {
+    "stability": 0.9166666666666666,
+    "n_stability": 72,
+    "dft": 0.7309236947791165,
+    "overall": 0.5840163934426229
+   },
+   "gemini": {
+    "stability": 0.8142857142857143,
+    "n_stability": 70,
+    "dft": 0.6584362139917695,
+    "overall": 0.6304801670146137
+   },
+   "gpt4o": {
+    "stability": 0.8860759493670886,
+    "n_stability": 79,
+    "dft": 0.7401574803149606,
+    "overall": 0.6993318485523385
+   },
+   "claude": {
+    "stability": 0.8493150684931506,
+    "n_stability": 73,
+    "dft": 0.7620967741935484,
+    "overall": 0.6666666666666666
+   },
+   "opus46": {
+    "stability": 0.7894736842105263,
+    "n_stability": 76,
+    "dft": 0.7341269841269841,
+    "overall": 0.6632860040567952
+   },
+   "gpt56": {
+    "stability": 0.6533333333333333,
+    "n_stability": 75,
+    "dft": 0.696,
+    "overall": 0.777319587628866
+   },
+   "gpt56sol": {
+    "stability": 0.7887323943661971,
+    "n_stability": 71,
+    "dft": 0.7269076305220884,
+    "overall": 0.7775467775467776
+   },
+   "qwen3vl": {
+    "stability": 0.7466666666666667,
+    "n_stability": 75,
+    "dft": 0.6487603305785123,
+    "overall": 0.55625
+   },
+   "qwen3vl_thinking": {
+    "stability": 0.8947368421052632,
+    "n_stability": 76,
+    "dft": 0.6706349206349206,
+    "overall": 0.5938775510204082
+   }
+  },
+  "accept": {
+   "local": {
+    "stability": 0.9333333333333333,
+    "n_stability": 90,
+    "dft": 0.7490636704119851,
+    "overall": 0.5988142292490118
+   },
+   "gemini": {
+    "stability": 0.8539325842696629,
+    "n_stability": 89,
+    "dft": 0.683206106870229,
+    "overall": 0.6445783132530121
+   },
+   "gpt4o": {
+    "stability": 0.9,
+    "n_stability": 90,
+    "dft": 0.7509433962264151,
+    "overall": 0.7065217391304348
+   },
+   "claude": {
+    "stability": 0.8777777777777778,
+    "n_stability": 90,
+    "dft": 0.7773584905660378,
+    "overall": 0.6778656126482213
+   },
+   "opus46": {
+    "stability": 0.8222222222222222,
+    "n_stability": 90,
+    "dft": 0.7481203007518797,
+    "overall": 0.6725838264299803
+   },
+   "gpt56": {
+    "stability": 0.7111111111111111,
+    "n_stability": 90,
+    "dft": 0.7132075471698113,
+    "overall": 0.784
+   },
+   "gpt56sol": {
+    "stability": 0.8314606741573034,
+    "n_stability": 89,
+    "dft": 0.7453183520599251,
+    "overall": 0.7855711422845691
+   },
+   "qwen3vl": {
+    "stability": 0.7816091954022989,
+    "n_stability": 87,
+    "dft": 0.6653543307086615,
+    "overall": 0.5670731707317073
+   },
+   "qwen3vl_thinking": {
+    "stability": 0.9111111111111111,
+    "n_stability": 90,
+    "dft": 0.6879699248120301,
+    "overall": 0.6051587301587301
+   }
+  },
+  "kendall_tau_overall_abstain": 0.9444444444444445,
+  "kendall_tau_stability_abstain": 0.6666666666666666,
+  "kendall_tau_overall_accept": 0.9444444444444445,
+  "kendall_tau_stability_accept": 0.7222222222222222,
+  "band_share": {
+   "stability_records": 805,
+   "in_band": 138,
+   "in_band_flagged": 89
+  }
+ },
+ "common": {
+  "original": {
+   "local": {
+    "stability": 0.5777777777777777,
+    "n_stability": 90,
+    "dft": 0.6148148148148148,
+    "overall": 0.6148148148148148
+   },
+   "gemini": {
+    "stability": 0.5111111111111111,
+    "n_stability": 90,
+    "dft": 0.5687732342007435,
+    "overall": 0.5687732342007435
+   },
+   "gpt4o": {
+    "stability": 0.5777777777777777,
+    "n_stability": 90,
+    "dft": 0.6185185185185185,
+    "overall": 0.6185185185185185
+   },
+   "claude": {
+    "stability": 0.6444444444444445,
+    "n_stability": 90,
+    "dft": 0.6592592592592592,
+    "overall": 0.6592592592592592
+   },
+   "opus46": {
+    "stability": 0.7333333333333333,
+    "n_stability": 90,
+    "dft": 0.7037037037037037,
+    "overall": 0.7037037037037037
+   },
+   "gpt56": {
+    "stability": 0.7222222222222222,
+    "n_stability": 90,
+    "dft": 0.7037037037037037,
+    "overall": 0.7037037037037037
+   },
+   "gpt56sol": {
+    "stability": 0.7752808988764045,
+    "n_stability": 89,
+    "dft": 0.7211895910780669,
+    "overall": 0.7211895910780669
+   },
+   "qwen3vl": {
+    "stability": 0.5888888888888889,
+    "n_stability": 90,
+    "dft": 0.6096654275092936,
+    "overall": 0.6096654275092936
+   }
+  },
+  "abstain": {
+   "local": {
+    "stability": 0.8035714285714286,
+    "n_stability": 56,
+    "dft": 0.673728813559322,
+    "overall": 0.673728813559322
+   },
+   "gemini": {
+    "stability": 0.625,
+    "n_stability": 56,
+    "dft": 0.6042553191489362,
+    "overall": 0.6042553191489362
+   },
+   "gpt4o": {
+    "stability": 0.8035714285714286,
+    "n_stability": 56,
+    "dft": 0.6779661016949152,
+    "overall": 0.6779661016949152
+   },
+   "claude": {
+    "stability": 0.8214285714285714,
+    "n_stability": 56,
+    "dft": 0.7033898305084746,
+    "overall": 0.7033898305084746
+   },
+   "opus46": {
+    "stability": 0.8392857142857143,
+    "n_stability": 56,
+    "dft": 0.7245762711864406,
+    "overall": 0.7245762711864406
+   },
+   "gpt56": {
+    "stability": 0.7142857142857143,
+    "n_stability": 56,
+    "dft": 0.6991525423728814,
+    "overall": 0.6991525423728814
+   },
+   "gpt56sol": {
+    "stability": 0.8392857142857143,
+    "n_stability": 56,
+    "dft": 0.7288135593220338,
+    "overall": 0.7288135593220338
+   },
+   "qwen3vl": {
+    "stability": 0.6964285714285714,
+    "n_stability": 56,
+    "dft": 0.6382978723404256,
+    "overall": 0.6382978723404256
+   }
+  },
+  "accept": {
+   "local": {
+    "stability": 0.8777777777777778,
+    "n_stability": 90,
+    "dft": 0.7148148148148148,
+    "overall": 0.7148148148148148
+   },
+   "gemini": {
+    "stability": 0.7666666666666667,
+    "n_stability": 90,
+    "dft": 0.654275092936803,
+    "overall": 0.654275092936803
+   },
+   "gpt4o": {
+    "stability": 0.8777777777777778,
+    "n_stability": 90,
+    "dft": 0.7185185185185186,
+    "overall": 0.7185185185185186
+   },
+   "claude": {
+    "stability": 0.8888888888888888,
+    "n_stability": 90,
+    "dft": 0.7407407407407407,
+    "overall": 0.7407407407407407
+   },
+   "opus46": {
+    "stability": 0.9,
+    "n_stability": 90,
+    "dft": 0.7592592592592593,
+    "overall": 0.7592592592592593
+   },
+   "gpt56": {
+    "stability": 0.8222222222222222,
+    "n_stability": 90,
+    "dft": 0.737037037037037,
+    "overall": 0.737037037037037
+   },
+   "gpt56sol": {
+    "stability": 0.898876404494382,
+    "n_stability": 89,
+    "dft": 0.7620817843866171,
+    "overall": 0.7620817843866171
+   },
+   "qwen3vl": {
+    "stability": 0.8111111111111111,
+    "n_stability": 90,
+    "dft": 0.6840148698884758,
+    "overall": 0.6840148698884758
+   }
+  },
+  "kendall_tau_overall_abstain": 0.9092412093166348,
+  "kendall_tau_stability_abstain": 0.6038810848771178,
+  "kendall_tau_overall_accept": 0.9092412093166348,
+  "kendall_tau_stability_accept": 0.5555555555555555,
+  "band_share": {
+   "stability_records": 719,
+   "in_band": 271,
+   "in_band_flagged": 154
+  }
+ },
+ "audit_without_conflict": {
+  "n": 57,
+  "real": 57,
+  "false_positive": 0,
+  "precision": 1.0,
+  "removed": 50
+ }
+}

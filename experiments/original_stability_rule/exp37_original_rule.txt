@@ -1,0 +1,7 @@
+family        A prec       B prec (stratified)   agree  kappa   A->B disagreements
+xrd            0.772     0.602 [0.441, 0.754]      0.700   0.33   {'real->false_positive': 7, 'false_positive->real': 2}
+sem            0.886     0.820 [0.704, 0.900]      0.933   0.71   {'real->false_positive': 2, 'false_positive->real': 0}
+spectrum       0.927     0.608 [0.433, 0.763]      0.633   0.13   {'real->false_positive': 10, 'false_positive->real': 1}
+stability      0.953     0.494 [0.327, 0.671]      0.567   0.18   {'real->false_positive': 13, 'false_positive->real': 0}
+metallicity    0.947     0.947 [0.869, 0.969]      1.000   1.00   {'real->false_positive': 0, 'false_positive->real': 0}
+magnetism      0.922     0.914 [0.797, 0.966]      0.933   0.63   {'real->false_positive': 1, 'false_positive->real': 1}

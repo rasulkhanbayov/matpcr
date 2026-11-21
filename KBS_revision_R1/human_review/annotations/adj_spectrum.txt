@@ -1,0 +1,61 @@
+{
+  "family": "spectrum",
+  "stage": "adjudication",
+  "reviews": [
+    {
+      "case": 45,
+      "verdict": "false_positive",
+      "note": ""
+    },
+    {
+      "case": 166,
+      "verdict": "false_positive",
+      "note": ""
+    },
+    {
+      "case": 185,
+      "verdict": "false_positive",
+      "note": ""
+    },
+    {
+      "case": 213,
+      "verdict": "false_positive",
+      "note": ""
+    },
+    {
+      "case": 226,
+      "verdict": "false_positive",
+      "note": ""
+    },
+    {
+      "case": 265,
+      "verdict": "false_positive",
+      "note": ""
+    },
+    {
+      "case": 291,
+      "verdict": "real",
+      "note": ""
+    },
+    {
+      "case": 333,
+      "verdict": "false_positive",
+      "note": ""
+    },
+    {
+      "case": 342,
+      "verdict": "false_positive",
+      "note": ""
+    },
+    {
+      "case": 357,
+      "verdict": "false_positive",
+      "note": ""
+    },
+    {
+      "case": 458,
+      "verdict": "false_positive",
+      "note": ""
+    }
+  ]
+}

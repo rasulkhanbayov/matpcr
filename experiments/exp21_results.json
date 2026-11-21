@@ -1,0 +1,104 @@
+{
+  "Diffraction (XRD)": {
+    "n_reviewed": 101,
+    "real": 78,
+    "false_positive": 23,
+    "unsure": 0,
+    "precision": 0.7722772277227723,
+    "wilson95": [
+      0.6814098979826017,
+      0.8431917299122592
+    ],
+    "clopper_pearson95": [
+      0.6781544796702796,
+      0.8498346165125283
+    ],
+    "unsure_as_fp": 0.7722772277227723,
+    "unsure_as_real": 0.7722772277227723
+  },
+  "Microscopy (SEM)": {
+    "n_reviewed": 105,
+    "real": 93,
+    "false_positive": 12,
+    "unsure": 0,
+    "precision": 0.8857142857142857,
+    "wilson95": [
+      0.8107987314223847,
+      0.933402980246509
+    ],
+    "clopper_pearson95": [
+      0.808874146485209,
+      0.9395325387619385
+    ],
+    "unsure_as_fp": 0.8857142857142857,
+    "unsure_as_real": 0.8857142857142857
+  },
+  "Spectra (Raman)": {
+    "n_reviewed": 495,
+    "real": 457,
+    "false_positive": 36,
+    "unsure": 2,
+    "precision": 0.9269776876267748,
+    "wilson95": [
+      0.900562295644218,
+      0.9467905016604531
+    ],
+    "clopper_pearson95": [
+      0.9003372058670118,
+      0.9483349723696745
+    ],
+    "unsure_as_fp": 0.9232323232323232,
+    "unsure_as_real": 0.9272727272727272
+  },
+  "Stability": {
+    "n_reviewed": 57,
+    "real": 57,
+    "false_positive": 0,
+    "unsure": 0,
+    "precision": 1.0,
+    "wilson95": [
+      0.9368611642138491,
+      1.0
+    ],
+    "clopper_pearson95": [
+      0.9373325190855151,
+      1.0
+    ],
+    "unsure_as_fp": 1.0,
+    "unsure_as_real": 1.0
+  },
+  "Metallicity": {
+    "n_reviewed": 114,
+    "real": 108,
+    "false_positive": 6,
+    "unsure": 0,
+    "precision": 0.9473684210526315,
+    "wilson95": [
+      0.8899118935150573,
+      0.9756578386345302
+    ],
+    "clopper_pearson95": [
+      0.8889598328917169,
+      0.9804427961144567
+    ],
+    "unsure_as_fp": 0.9473684210526315,
+    "unsure_as_real": 0.9473684210526315
+  },
+  "Magnetism": {
+    "n_reviewed": 115,
+    "real": 106,
+    "false_positive": 9,
+    "unsure": 0,
+    "precision": 0.9217391304347826,
+    "wilson95": [
+      0.8579311814702523,
+      0.9582822924562823
+    ],
+    "clopper_pearson95": [
+      0.8566317469805995,
+      0.9635897917404735
+    ],
+    "unsure_as_fp": 0.9217391304347826,
+    "unsure_as_real": 0.9217391304347826
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "family": "dft_magnetism",
+  "n_cases": 30,
+  "raw_agreement": 0.9333333333333333,
+  "cohens_kappa": 0.6296296296296295,
+  "qualitative_band": "substantial",
+  "disagreements": [
+    {
+      "case": 5,
+      "reviewer_a": "false_positive",
+      "reviewer_b": "real"
+    },
+    {
+      "case": 12,
+      "reviewer_a": "real",
+      "reviewer_b": "false_positive"
+    }
+  ]
+}

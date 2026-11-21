@@ -126,6 +126,18 @@ def main():
     print("methodology and should be retracted, not reported as a caveat-with-exception.")
     print("It should NOT be marketed as a general-purpose, modality-agnostic detector.")
 
+    print("\n--- Bonferroni-widened CI for the six held-out comparisons (alpha/6) ---")
+    print("Metallicity's nominal 95% CI excludes chance (0.5); check whether it still does")
+    print("once alpha is corrected for testing all 6 held-out modalities at once.")
+    alpha_corrected = 0.05 / len(MODALITY_ORDER)
+    for m in MODALITY_ORDER:
+        run = runs[f"modality_heldout_{m}"]
+        point, lo, hi, n_valid = bootstrap_auc_ci(run["probs"], run["labels"], alpha=alpha_corrected)
+        excludes_chance = lo > 0.5
+        print(f"{MODALITY_LABELS[m]:<28} AUC={point:.3f} "
+              f"Bonferroni-corrected CI=[{lo:.3f}, {hi:.3f}] "
+              f"excludes 0.5: {excludes_chance}")
+
 
 if __name__ == "__main__":
     main()

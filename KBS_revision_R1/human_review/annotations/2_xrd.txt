@@ -1,0 +1,126 @@
+{
+  "family": "xrd",
+  "annotator": "second",
+  "reviews": [
+    {
+      "case": 13,
+      "verdict": "real"
+    },
+    {
+      "case": 1,
+      "verdict": "real"
+    },
+    {
+      "case": 71,
+      "verdict": "false_positive"
+    },
+    {
+      "case": 58,
+      "verdict": "real"
+    },
+    {
+      "case": 84,
+      "verdict": "false_positive"
+    },
+    {
+      "case": 64,
+      "verdict": "real"
+    },
+    {
+      "case": 69,
+      "verdict": "real"
+    },
+    {
+      "case": 97,
+      "verdict": "real"
+    },
+    {
+      "case": 89,
+      "verdict": "real"
+    },
+    {
+      "case": 31,
+      "verdict": "real"
+    },
+    {
+      "case": 46,
+      "verdict": "false_positive"
+    },
+    {
+      "case": 87,
+      "verdict": "real"
+    },
+    {
+      "case": 77,
+      "verdict": "real"
+    },
+    {
+      "case": 94,
+      "verdict": "false_positive"
+    },
+    {
+      "case": 96,
+      "verdict": "false_positive"
+    },
+    {
+      "case": 72,
+      "verdict": "real"
+    },
+    {
+      "case": 16,
+      "verdict": "real"
+    },
+    {
+      "case": 12,
+      "verdict": "false_positive"
+    },
+    {
+      "case": 34,
+      "verdict": "real"
+    },
+    {
+      "case": 20,
+      "verdict": "false_positive"
+    },
+    {
+      "case": 3,
+      "verdict": "false_positive"
+    },
+    {
+      "case": 39,
+      "verdict": "real"
+    },
+    {
+      "case": 82,
+      "verdict": "real"
+    },
+    {
+      "case": 30,
+      "verdict": "real"
+    },
+    {
+      "case": 98,
+      "verdict": "real"
+    },
+    {
+      "case": 22,
+      "verdict": "real"
+    },
+    {
+      "case": 52,
+      "verdict": "false_positive"
+    },
+    {
+      "case": 57,
+      "verdict": "false_positive"
+    },
+    {
+      "case": 100,
+      "verdict": "false_positive"
+    },
+    {
+      "case": 32,
+      "verdict": "false_positive"
+    }
+  ]
+}

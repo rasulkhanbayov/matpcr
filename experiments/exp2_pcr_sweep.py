@@ -110,9 +110,15 @@ MODELS = {
     "gpt56": {"kind": "api", "api_model": "openai/gpt-5.6-terra"},
     "qwen3vl": {"kind": "api", "api_model": "qwen/qwen3-vl-8b-instruct"},
     "qwen3vl_thinking": {"kind": "api", "api_model": "qwen/qwen3-vl-8b-thinking"},
+    # Flagship-tier addition (matpcr_REDFLAGS.txt A5, 2026-08-06): GPT-5.6-Terra
+    # above is OpenAI's balanced tier, not flagship -- gpt56sol is the sibling
+    # flagship tier the red-flag file named explicitly, added to test whether
+    # flagship capability beats balanced within the same generation/family.
+    "gpt56sol": {"kind": "api", "api_model": "openai/gpt-5.6-sol"},
 }
 
 REFRESH_MODELS = ["opus46", "gpt56", "qwen3vl", "qwen3vl_thinking"]
+FLAGSHIP_ADDENDUM_MODELS = ["gpt56sol"]
 
 MP_DATA_PATH = os.path.join(MATPCR_DATA_ROOT, "mp_data", "mp_reference_batch.jsonl")
 

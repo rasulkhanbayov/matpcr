@@ -1,0 +1,218 @@
+{
+ "local|stability": {
+  "n_pos": 22,
+  "pcr_pos": 0.045454545454545456,
+  "n_neg": 68,
+  "pcr_neg": 0.9705882352941176,
+  "pooled": 0.7444444444444445,
+  "balanced": 0.5080213903743316
+ },
+ "gemini|stability": {
+  "n_pos": 22,
+  "pcr_pos": 0.45454545454545453,
+  "n_neg": 67,
+  "pcr_neg": 0.8208955223880597,
+  "pooled": 0.7303370786516854,
+  "balanced": 0.6377204884667571
+ },
+ "gpt4o|stability": {
+  "n_pos": 20,
+  "pcr_pos": 0.2,
+  "n_neg": 70,
+  "pcr_neg": 0.9714285714285714,
+  "pooled": 0.8,
+  "balanced": 0.5857142857142857
+ },
+ "claude|stability": {
+  "n_pos": 23,
+  "pcr_pos": 0.34782608695652173,
+  "n_neg": 67,
+  "pcr_neg": 0.8955223880597015,
+  "pooled": 0.7555555555555555,
+  "balanced": 0.6216742375081117
+ },
+ "opus46|stability": {
+  "n_pos": 21,
+  "pcr_pos": 0.42857142857142855,
+  "n_neg": 69,
+  "pcr_neg": 0.8115942028985508,
+  "pooled": 0.7222222222222222,
+  "balanced": 0.6200828157349897
+ },
+ "gpt56|stability": {
+  "n_pos": 20,
+  "pcr_pos": 0.75,
+  "n_neg": 70,
+  "pcr_neg": 0.6285714285714286,
+  "pooled": 0.6555555555555556,
+  "balanced": 0.6892857142857143
+ },
+ "gpt56sol|stability": {
+  "n_pos": 22,
+  "pcr_pos": 0.6363636363636364,
+  "n_neg": 67,
+  "pcr_neg": 0.7761194029850746,
+  "pooled": 0.7415730337078652,
+  "balanced": 0.7062415196743554
+ },
+ "qwen3vl|stability": {
+  "n_pos": 20,
+  "pcr_pos": 0.55,
+  "n_neg": 67,
+  "pcr_neg": 0.7611940298507462,
+  "pooled": 0.7126436781609196,
+  "balanced": 0.6555970149253731
+ },
+ "qwen3vl_thinking|stability": {
+  "n_pos": 21,
+  "pcr_pos": 0.09523809523809523,
+  "n_neg": 69,
+  "pcr_neg": 0.9710144927536232,
+  "pooled": 0.7666666666666667,
+  "balanced": 0.5331262939958592
+ },
+ "local|metallicity": {
+  "n_pos": 38,
+  "pcr_pos": 0.2894736842105263,
+  "n_neg": 49,
+  "pcr_neg": 0.7346938775510204,
+  "pooled": 0.5402298850574713,
+  "balanced": 0.5120837808807734
+ },
+ "gemini|metallicity": {
+  "n_pos": 30,
+  "pcr_pos": 0.36666666666666664,
+  "n_neg": 54,
+  "pcr_neg": 0.8888888888888888,
+  "pooled": 0.7023809523809523,
+  "balanced": 0.6277777777777778
+ },
+ "gpt4o|metallicity": {
+  "n_pos": 34,
+  "pcr_pos": 0.2647058823529412,
+  "n_neg": 51,
+  "pcr_neg": 0.9411764705882353,
+  "pooled": 0.6705882352941176,
+  "balanced": 0.6029411764705882
+ },
+ "claude|metallicity": {
+  "n_pos": 36,
+  "pcr_pos": 0.4444444444444444,
+  "n_neg": 49,
+  "pcr_neg": 0.8775510204081632,
+  "pooled": 0.6941176470588235,
+  "balanced": 0.6609977324263039
+ },
+ "opus46|metallicity": {
+  "n_pos": 32,
+  "pcr_pos": 0.34375,
+  "n_neg": 54,
+  "pcr_neg": 0.9444444444444444,
+  "pooled": 0.7209302325581395,
+  "balanced": 0.6440972222222222
+ },
+ "gpt56|metallicity": {
+  "n_pos": 35,
+  "pcr_pos": 0.3142857142857143,
+  "n_neg": 50,
+  "pcr_neg": 0.9,
+  "pooled": 0.6588235294117647,
+  "balanced": 0.6071428571428572
+ },
+ "gpt56sol|metallicity": {
+  "n_pos": 34,
+  "pcr_pos": 0.20588235294117646,
+  "n_neg": 54,
+  "pcr_neg": 0.9629629629629629,
+  "pooled": 0.6704545454545454,
+  "balanced": 0.5844226579520697
+ },
+ "qwen3vl|metallicity": {
+  "n_pos": 34,
+  "pcr_pos": 0.4117647058823529,
+  "n_neg": 43,
+  "pcr_neg": 0.9069767441860465,
+  "pooled": 0.6883116883116883,
+  "balanced": 0.6593707250341997
+ },
+ "qwen3vl_thinking|metallicity": {
+  "n_pos": 35,
+  "pcr_pos": 0.22857142857142856,
+  "n_neg": 52,
+  "pcr_neg": 0.9230769230769231,
+  "pooled": 0.6436781609195402,
+  "balanced": 0.5758241758241759
+ },
+ "local|magnetism": {
+  "n_pos": 57,
+  "pcr_pos": 0.9473684210526315,
+  "n_neg": 33,
+  "pcr_neg": 0.45454545454545453,
+  "pooled": 0.7666666666666667,
+  "balanced": 0.700956937799043
+ },
+ "gemini|magnetism": {
+  "n_pos": 54,
+  "pcr_pos": 0.5370370370370371,
+  "n_neg": 35,
+  "pcr_neg": 0.42857142857142855,
+  "pooled": 0.4943820224719101,
+  "balanced": 0.4828042328042328
+ },
+ "gpt4o|magnetism": {
+  "n_pos": 56,
+  "pcr_pos": 0.7321428571428571,
+  "n_neg": 34,
+  "pcr_neg": 0.5882352941176471,
+  "pooled": 0.6777777777777778,
+  "balanced": 0.6601890756302521
+ },
+ "claude|magnetism": {
+  "n_pos": 52,
+  "pcr_pos": 0.7884615384615384,
+  "n_neg": 38,
+  "pcr_neg": 0.7105263157894737,
+  "pooled": 0.7555555555555555,
+  "balanced": 0.7494939271255061
+ },
+ "opus46|magnetism": {
+  "n_pos": 57,
+  "pcr_pos": 0.7368421052631579,
+  "n_neg": 33,
+  "pcr_neg": 0.6363636363636364,
+  "pooled": 0.7,
+  "balanced": 0.6866028708133971
+ },
+ "gpt56|magnetism": {
+  "n_pos": 46,
+  "pcr_pos": 0.8260869565217391,
+  "n_neg": 44,
+  "pcr_neg": 0.7045454545454546,
+  "pooled": 0.7666666666666667,
+  "balanced": 0.7653162055335969
+ },
+ "gpt56sol|magnetism": {
+  "n_pos": 50,
+  "pcr_pos": 0.84,
+  "n_neg": 40,
+  "pcr_neg": 0.6,
+  "pooled": 0.7333333333333333,
+  "balanced": 0.72
+ },
+ "qwen3vl|magnetism": {
+  "n_pos": 57,
+  "pcr_pos": 0.5263157894736842,
+  "n_neg": 33,
+  "pcr_neg": 0.5454545454545454,
+  "pooled": 0.5333333333333333,
+  "balanced": 0.5358851674641147
+ },
+ "qwen3vl_thinking|magnetism": {
+  "n_pos": 54,
+  "pcr_pos": 0.4074074074074074,
+  "n_neg": 35,
+  "pcr_neg": 0.6571428571428571,
+  "pooled": 0.5056179775280899,
+  "balanced": 0.5322751322751322
+ }
+}

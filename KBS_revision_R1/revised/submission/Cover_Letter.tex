@@ -1,0 +1,281 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[left=1.85cm,right=1.85cm,top=1.45cm,bottom=1.45cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{libertinus}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\usepackage{parskip}
+
+\definecolor{Navy}{HTML}{17324D}
+\definecolor{Teal}{HTML}{247C83}
+\definecolor{Ink}{HTML}{27313A}
+\definecolor{Muted}{HTML}{66727C}
+\definecolor{Pale}{HTML}{F2F6F7}
+\definecolor{PaleBlue}{HTML}{EDF4F6}
+\definecolor{Rule}{HTML}{D8E2E6}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=Teal,
+  linkcolor=Navy
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.48em}
+\setlength{\emergencystretch}{2em}
+\linespread{1.02}
+\pagestyle{empty}
+\raggedbottom
+
+\newcommand{\smallcapslabel}[1]{%
+  {\fontsize{8.4}{10}\selectfont\bfseries\color{Teal}\MakeUppercase{#1}}%
+}
+
+\newcommand{\reviewer}[4]{%
+\begin{tcolorbox}[
+  colback=Pale,
+  colframe=Pale,
+  boxrule=0pt,
+  arc=1.2mm,
+  left=3.2mm,
+  right=3.2mm,
+  top=2.2mm,
+  bottom=2.2mm,
+  borderline west={2.2pt}{0pt}{Teal},
+  before skip=0.55em,
+  after skip=0.55em
+]
+{\bfseries\color{Navy} #1}
+\hfill
+{\small\href{mailto:#3}{#3}}\\[-0.1em]
+{\small\color{Muted} #2}\\[0.3em]
+{\small\color{Ink} #4}
+\end{tcolorbox}%
+}
+
+\begin{document}
+
+% =========================================================
+% PAGE 1: COVER LETTER
+% =========================================================
+
+\begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{4.4cm}@{}}
+
+\smallcapslabel{Submission cover letter}
+&
+{\small\color{Muted} September 27, 2026}
+\\[0.18em]
+
+{\Large\bfseries\color{Navy}
+Knowledge-Based Systems}
+&
+\\
+
+\end{tabularx}
+
+\vspace{0.55em}
+{\color{Rule}\rule{\textwidth}{0.7pt}}
+\vspace{0.75em}
+
+{\smallcapslabel{Manuscript}}\\[0.18em]
+
+{\fontsize{14.2}{17}\selectfont\bfseries\color{Navy}
+Physics as the label for measuring and correcting materials\\
+reasoning in multimodal models\par}
+
+\vspace{0.55em}
+
+\begin{tcolorbox}[
+  colback=PaleBlue,
+  colframe=PaleBlue,
+  boxrule=0pt,
+  arc=1.2mm,
+  left=3mm,
+  right=3mm,
+  top=1.9mm,
+  bottom=1.9mm
+]
+
+\begin{tabularx}{\textwidth}
+{@{}>{\centering\arraybackslash}X
+>{\centering\arraybackslash}X
+>{\centering\arraybackslash}X@{}}
+
+{\bfseries\color{Navy} 6}
+{\small physics-oracle families}
+&
+{\bfseries\color{Navy} 9}
+{\small contemporary models}
+&
+{\bfseries\color{Navy} 4,472}
+{\small checkable records}
+
+\end{tabularx}
+
+\end{tcolorbox}
+
+\vspace{0.35em}
+
+Dear Editors,
+
+We are pleased to submit our manuscript,
+``\textbf{Physics as the label for measuring and correcting materials reasoning in multimodal models},''
+for consideration in \textit{Knowledge-Based Systems}.
+
+Vision--language and language models are increasingly used to interpret
+diffraction patterns, microscopy images, spectra, and computational materials
+data. However, most current evaluations emphasize final-answer accuracy and
+provide limited information about whether the underlying scientific reasoning
+obeys established physical constraints. We introduce \textbf{MatPCR}, a
+physics-grounded framework that operationalizes established physical knowledge
+as executable constraints for evaluating multimodal materials reasoning. Six
+programmatic oracle families span diffraction geometry, microscopy scale, Raman
+peak structure, near-hull stability, computed band-gap class, and net
+magnetization.
+
+Across nine contemporary models and 4,472 checkable reasoning records, MatPCR
+reveals substantial variation in physical consistency across both models and
+constraint families. We further introduce Constraint-Grounded
+Self-Verification, which systematically reduces oracle-detected violations in
+all four models tested without regressing previously consistent claims.
+Importantly, the accompanying accuracy analysis demonstrates that increased
+physical consistency does not necessarily imply increased physical correctness,
+establishing a quantitative distinction between physically admissible reasoning
+and correct scientific inference. A learned verifier reaches an in-distribution
+ROC AUC of 0.850, while its limited transfer to held-out physical constraints
+further highlights the need for explicit knowledge-grounded evaluation.
+
+We believe this work is particularly well aligned with
+\textit{Knowledge-Based Systems} because it develops a knowledge-grounded
+artificial-intelligence evaluation methodology rather than a routine application
+of an existing model. Established physical rules are encoded as executable
+domain knowledge and used to evaluate and improve model reasoning, directly
+connecting machine-learning methodology with knowledge representation and
+engineering. The framework is evaluated across multiple physical tasks and data
+modalities, including visual materials characterization, and therefore also
+provides a practical knowledge-based computer-vision and engineering
+application. More broadly, MatPCR offers an auditable approach for testing
+whether AI-generated scientific reasoning is consistent with domain knowledge,
+even when complete answer-level labels are unavailable.
+
+The complete benchmark, provenance records, prompts, and machine-readable
+results are publicly available at
+\href{https://zenodo.org/records/21829644}
+{Zenodo (record 21829644)}.
+The oracle implementations, evaluation code, unit tests, and verifier weights
+are available at
+\href{https://github.com/KurbanIntelligenceLab/matpcr}
+{github.com/KurbanIntelligenceLab/matpcr}.
+
+A preprint version of this work is available on arXiv; the present manuscript
+contains the finalized analyses and presentation prepared for journal submission.
+
+This manuscript is original, is not under consideration elsewhere, and has been
+approved by all authors. The authors declare no competing interests.
+
+Thank you for considering our manuscript for publication in
+\textit{Knowledge-Based Systems}.
+
+\vspace{0.25em}
+
+Sincerely,\\[0.18em]
+
+{\bfseries\color{Navy} Mustafa Kurban}\\[-0.05em]
+{\small on behalf of all authors}\\[-0.05em]
+{\small Ankara University, Ankara, T\"urkiye}\\[-0.05em]
+{\small\href{mailto:kurbanm@ankara.edu.tr}
+{kurbanm@ankara.edu.tr}}
+
+\vfill
+
+{\footnotesize\color{Muted}
+Manuscript:
+\textit{Physics as the label for measuring and correcting materials reasoning in multimodal models}\\
+Authors: Hasan Kurban, Rasul Khanbayov, and Mustafa Kurban}
+
+% =========================================================
+% PAGE 2: SUGGESTED REVIEWERS
+% =========================================================
+
+\clearpage
+
+\begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{4.4cm}@{}}
+
+\smallcapslabel{Editorial information}
+&
+{\small\color{Muted} Suggested reviewers}
+\\[0.18em]
+
+{\Large\bfseries\color{Navy} Suggested Reviewers}
+&
+\\
+
+\end{tabularx}
+
+\vspace{0.55em}
+{\color{Rule}\rule{\textwidth}{0.7pt}}
+\vspace{0.65em}
+
+{\small\color{Ink}
+We suggest the following researchers, whose expertise spans scientific machine
+learning, materials informatics, artificial-intelligence evaluation,
+knowledge-guided modelling, computational materials science, and rigorous
+physics-based validation. To the best of our knowledge, none has a conflict of
+interest with the authors.}
+
+\reviewer
+{Prof. Bryan M. Wong}
+{Department of Chemistry, University of California, Riverside, USA}
+{bryan.wong@ucr.edu}
+{Computational and machine-learning methods for chemical and materials systems;
+well positioned to assess the methodological contribution and physical validity
+of the knowledge-grounded evaluation framework.}
+
+\reviewer
+{Dr. Aaron Gilad Kusne}
+{Materials Measurement Science Division, National Institute of Standards and Technology, USA}
+{aaron.kusne@nist.gov}
+{Expertise in AI measurement and evaluation, physics-informed machine learning,
+and autonomous materials research, directly relevant to knowledge-grounded
+scientific-AI evaluation and verification.}
+
+\reviewer
+{Dr. Kamal Choudhary}
+{National Institute of Standards and Technology, USA}
+{kamal.choudhary@nist.gov}
+{Develops machine-learning models, databases, and multimodal methods for
+materials science and can assess both the AI-evaluation methodology and the
+materials-data components of the work.}
+
+\reviewer
+{Prof. Shyue Ping Ong}
+{Department of Materials Science and Engineering, National University of Singapore, Singapore}
+{shyue@nus.edu.sg}
+{Expertise in materials informatics, first-principles databases, pymatgen, and
+the Materials Project ecosystem, directly relevant to the computational
+references and domain-knowledge constraints used in this study.}
+
+\reviewer
+{Prof. Heather J. Kulik}
+{Department of Chemical Engineering, Massachusetts Institute of Technology, USA}
+{hjkulik@mit.edu}
+{Expertise in data-driven modelling, electronic-structure calculations, and
+rigorous computational validation, relevant to assessing the reliability and
+scientific grounding of the proposed evaluation framework.}
+
+\vfill
+
+{\footnotesize\color{Muted}
+Manuscript:
+\textit{Physics as the label for measuring and correcting materials reasoning in multimodal models}\\
+Authors: Hasan Kurban, Rasul Khanbayov, and Mustafa Kurban}
+
+\end{document}

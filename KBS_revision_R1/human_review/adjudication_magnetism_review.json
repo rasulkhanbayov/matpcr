@@ -1,0 +1,16 @@
+{
+ "family": "magnetism",
+ "stage": "adjudication",
+ "reviews": [
+  {
+   "case": 5,
+   "verdict": "real",
+   "note": ""
+  },
+  {
+   "case": 12,
+   "verdict": "false_positive",
+   "note": ""
+  }
+ ]
+}

@@ -1,0 +1,27 @@
+[xrd] tol_deg=0.25: 
+[xrd] tol_deg=0.5: 
+[xrd] tol_deg=0.75: 
+[xrd] tol_deg=1.0: 
+[xrd] rank agreement vs default (tol=0.5): None
+[spectrum] x_tol=20.0 prom=0.05: 
+[spectrum] x_tol=10.0 prom=0.03: 
+[spectrum] x_tol=10.0 prom=0.05: 
+[spectrum] x_tol=10.0 prom=0.08: 
+[spectrum] x_tol=20.0 prom=0.03: 
+[spectrum] x_tol=20.0 prom=0.08: 
+[spectrum] x_tol=30.0 prom=0.03: 
+[spectrum] x_tol=30.0 prom=0.05: 
+[spectrum] x_tol=30.0 prom=0.08: 
+[spectrum] rank agreement vs default (x_tol=20, prom=0.05): None
+[stability] tol_eV_atom=0.05: api=0.766(n=154), local=0.881(n=177)
+[stability] tol_eV_atom=0.0: api=0.735(n=185), local=0.895(n=210)
+[stability] tol_eV_atom=0.025: api=0.753(n=170), local=0.887(n=195)
+[stability] tol_eV_atom=0.1: api=0.750(n=124), local=0.860(n=143)
+[stability] rank agreement vs default (tol=0.05): 1.0
+
+Written to: /export/home/rakh90100/matpcr/experiments/exp9_results.json
+
+SEM excluded (exact-threshold oracle, no ambiguity window to sweep).
+Metallicity/magnetism excluded (metallicity already has a preregistered
+dead-zone rather than a single continuous tolerance; magnetism's threshold
+sensitivity is a separate, not-yet-scoped question).

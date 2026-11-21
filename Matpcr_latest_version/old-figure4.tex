@@ -1,0 +1,117 @@
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[font=\sffamily]
+% -----------------------------------------------------------------
+% Three real, human-confirmed stability-oracle violations. Card style:
+% formula, the model's claim, the real Materials Project reference, and
+% why the two disagree under the 0.05 eV/atom hull tolerance (Methods).
+% -----------------------------------------------------------------
+\def\cardw{3.95}
+\def\cardh{3.35}
+\def\cgap{0.45}
+
+\foreach \i/\x/\formula/\claim/\trueval/\why in {
+  0/0/{SrMoO$_3$}/{UNSTABLE}/{STABLE\\[1pt]{\fontsize{4.6}{5.6}\selectfont$E_{\rm hull}{=}0.0000$}}/{Hull energy is exactly 0: a\\genuine ground-state compound\\judged unstable.},
+  1/{\cardw+\cgap}/{ThPbAu$_2$}/{UNSTABLE}/{STABLE\\[1pt]{\fontsize{4.6}{5.6}\selectfont$E_{\rm hull}{=}0.0000$}}/{Same error on an unrelated\\composition: hull energy 0,\\still defaulted to UNSTABLE.},
+  2/{2*\cardw+2*\cgap}/{EuZrFeBiO$_6$}/{STABLE}/{UNSTABLE\\[1pt]{\fontsize{4.6}{5.6}\selectfont$E_{\rm hull}{=}1.2843$}}/{Opposite error, far larger:\\hull energy is 25$\times$ the\\tolerance, unambiguous.}
+}{
+  \node[card,minimum width=\cardw cm,minimum height=\cardh cm,anchor=south west] at (\x,0){};
+  \node[font=\sffamily\bfseries\fontsize{9}{10.5}\selectfont,text=npslate,anchor=north] at (\x+\cardw/2,\cardh-0.18){\formula};
+  \node[font=\sffamily\fontsize{6.0}{7.2}\selectfont,black!55,anchor=north] at (\x+\cardw/2,\cardh-0.60){real Materials Project entry};
+  \node[bad,text width=1.62cm,minimum height=0.80cm,align=center,font=\sffamily\bfseries\fontsize{5.6}{6.6}\selectfont,inner sep=1.5pt] (cl\i) at (\x+0.98,\cardh-1.62){\claim};
+  \node[font=\sffamily\fontsize{5.4}{6.4}\selectfont,black!55,anchor=south] at (\x+0.98,\cardh-1.22){model claimed};
+  \node[good,text width=1.62cm,minimum height=0.80cm,align=center,font=\sffamily\bfseries\fontsize{5.6}{6.6}\selectfont,inner sep=1.5pt] (rf\i) at (\x+\cardw-0.98,\cardh-1.62){\trueval};
+  \node[font=\sffamily\fontsize{5.4}{6.4}\selectfont,black!55,anchor=south] at (\x+\cardw-0.98,\cardh-1.22){real reference};
+  \draw[flow,black!55] (cl\i.east)--(rf\i.west);
+  \node[npred,font=\sffamily\bfseries\fontsize{9}{10}\selectfont,anchor=center] at (\x+\cardw/2,\cardh-1.62){$\times$};
+  \draw[black!15,line width=0.5pt] (\x+0.25,\cardh-2.18) -- (\x+\cardw-0.25,\cardh-2.18);
+  \node[font=\sffamily\fontsize{6.2}{7.8}\selectfont,black!70,anchor=north,align=center,text width=3.65cm] at (\x+\cardw/2,\cardh-2.34){\why};
+}
+\end{tikzpicture}
+\caption{\textbf{Three real, human-confirmed stability violations.} Each card is an actual
+oracle-fired case from the DFT-grounded Half-B review (Methods): a real chemical formula,
+the model's STABLE/UNSTABLE claim from its reasoning chain, and the real Materials
+Project reference (energy above the convex hull, $\mathrm{eV\,atom^{-1}}$) that the
+stability oracle checked it against. The first two cases are the same qualitative error
+(a genuine ground-state compound judged unstable); the third is the opposite error at a
+much larger, unambiguous distance from the hull. All values are exactly as recorded;
+none are illustrative.}
+\label{fig:stability-cases}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[font=\sffamily]
+% -----------------------------------------------------------------
+% Three real, human-confirmed metallicity-oracle violations.
+% -----------------------------------------------------------------
+\def\cardw{3.95}
+\def\cardh{3.35}
+\def\cgap{0.45}
+
+\foreach \i/\x/\formula/\claim/\trueval/\why in {
+  0/0/{KCaTbNbO$_6$}/{NONMETALLIC}/{METALLIC\\[1pt]{\fontsize{4.6}{5.6}\selectfont$E_g{=}0.0000$\,eV}}/{Computed gap is exactly\\zero, a clear metal;\\reasoned from structure alone.},
+  1/{\cardw+\cgap}/{Ca(H$_8$O$_5)_2$}/{METALLIC}/{NONMETALLIC\\[1pt]{\fontsize{4.6}{5.6}\selectfont$E_g{=}4.4694$\,eV}}/{Opposite error: a 4.47\,eV\\gap is a textbook insulator,\\over 20$\times$ the abstention edge.},
+  2/{2*\cardw+2*\cgap}/{KMgMn$_{16}$O$_{32}$}/{NONMETALLIC}/{METALLIC\\[1pt]{\fontsize{4.6}{5.6}\selectfont$E_g{=}0.0000$\,eV}}/{Computed gap is exactly\\zero again; reasoning pointed\\the wrong direction.}
+}{
+  \node[card,minimum width=\cardw cm,minimum height=\cardh cm,anchor=south west] at (\x,0){};
+  \node[font=\sffamily\bfseries\fontsize{9}{10.5}\selectfont,text=npslate,anchor=north] at (\x+\cardw/2,\cardh-0.18){\formula};
+  \node[font=\sffamily\fontsize{6.0}{7.2}\selectfont,black!55,anchor=north] at (\x+\cardw/2,\cardh-0.60){real Materials Project entry};
+  \node[bad,text width=1.62cm,minimum height=0.80cm,align=center,font=\sffamily\bfseries\fontsize{5.4}{6.4}\selectfont,inner sep=1.5pt] (cl\i) at (\x+0.98,\cardh-1.62){\claim};
+  \node[font=\sffamily\fontsize{5.4}{6.4}\selectfont,black!55,anchor=south] at (\x+0.98,\cardh-1.22){model claimed};
+  \node[good,text width=1.62cm,minimum height=0.80cm,align=center,font=\sffamily\bfseries\fontsize{5.4}{6.4}\selectfont,inner sep=1.5pt] (rf\i) at (\x+\cardw-0.98,\cardh-1.62){\trueval};
+  \node[font=\sffamily\fontsize{5.4}{6.4}\selectfont,black!55,anchor=south] at (\x+\cardw-0.98,\cardh-1.22){real reference};
+  \draw[flow,black!55] (cl\i.east)--(rf\i.west);
+  \node[npred,font=\sffamily\bfseries\fontsize{9}{10}\selectfont,anchor=center] at (\x+\cardw/2,\cardh-1.62){$\times$};
+  \draw[black!15,line width=0.5pt] (\x+0.25,\cardh-2.18) -- (\x+\cardw-0.25,\cardh-2.18);
+  \node[font=\sffamily\fontsize{6.2}{7.8}\selectfont,black!70,anchor=north,align=center,text width=3.65cm] at (\x+\cardw/2,\cardh-2.34){\why};
+}
+\end{tikzpicture}
+\caption{\textbf{Three real, human-confirmed metallicity violations.} Each card is an
+actual oracle-fired case from the DFT-grounded Half-B review (Methods): a real chemical
+formula, the model's METALLIC/NONMETALLIC claim, and the real Materials Project band gap
+$E_g$ (all three cases lie clearly outside the 0.05--0.20\,eV abstention band, so none is a
+borderline call). Two cases are a computed gap of exactly zero -- an unambiguous metal --
+missed as nonmetallic; the third is the opposite error, a large insulating gap called
+metallic. All values are exactly as recorded; none are illustrative.}
+\label{fig:metallicity-cases}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[font=\sffamily]
+% -----------------------------------------------------------------
+% Three real, human-confirmed magnetism-magnitude-oracle violations.
+% -----------------------------------------------------------------
+\def\cardw{3.95}
+\def\cardh{3.35}
+\def\cgap{0.45}
+
+\foreach \i/\x/\formula/\claim/\trueval/\why in {
+  0/0/{C}/{MAGNETIC\\[1pt]{\fontsize{4.6}{5.6}\selectfont 2.2\,\textmu B/atom}}/{NONMAGNETIC\\[1pt]{\fontsize{4.6}{5.6}\selectfont 0.0000\,\textmu B/atom}}/{Real moment is exactly zero;\\reasoning admits it never\\identified the formula.},
+  1/{\cardw+\cgap}/{Eu$_2$Sb$_3$}/{NONMAGNETIC}/{MAGNETIC\\[1pt]{\fontsize{4.6}{5.6}\selectfont 2.76\,\textmu B/atom}}/{Real moment is large and\\unambiguous; reasoned Eu/Sb\\moments cancel, but they do not.},
+  2/{2*\cardw+2*\cgap}/{Na$_2$FeO$_3$}/{NONMAGNETIC}/{MAGNETIC\\[1pt]{\fontsize{4.6}{5.6}\selectfont 0.667\,\textmu B/atom}}/{Real moment is well above\\threshold; own reasoning called\\this ``close to zero.''}
+}{
+  \node[card,minimum width=\cardw cm,minimum height=\cardh cm,anchor=south west] at (\x,0){};
+  \node[font=\sffamily\bfseries\fontsize{9}{10.5}\selectfont,text=npslate,anchor=north] at (\x+\cardw/2,\cardh-0.18){\formula};
+  \node[font=\sffamily\fontsize{6.0}{7.2}\selectfont,black!55,anchor=north] at (\x+\cardw/2,\cardh-0.60){real Materials Project entry};
+  \node[bad,text width=1.62cm,minimum height=0.80cm,align=center,font=\sffamily\bfseries\fontsize{5.4}{6.4}\selectfont,inner sep=1.5pt] (cl\i) at (\x+0.98,\cardh-1.62){\claim};
+  \node[font=\sffamily\fontsize{5.4}{6.4}\selectfont,black!55,anchor=south] at (\x+0.98,\cardh-1.22){model claimed};
+  \node[good,text width=1.62cm,minimum height=0.80cm,align=center,font=\sffamily\bfseries\fontsize{5.4}{6.4}\selectfont,inner sep=1.5pt] (rf\i) at (\x+\cardw-0.98,\cardh-1.62){\trueval};
+  \node[font=\sffamily\fontsize{5.4}{6.4}\selectfont,black!55,anchor=south] at (\x+\cardw-0.98,\cardh-1.22){real reference};
+  \draw[flow,black!55] (cl\i.east)--(rf\i.west);
+  \node[npred,font=\sffamily\bfseries\fontsize{9}{10}\selectfont,anchor=center] at (\x+\cardw/2,\cardh-1.62){$\times$};
+  \draw[black!15,line width=0.5pt] (\x+0.25,\cardh-2.18) -- (\x+\cardw-0.25,\cardh-2.18);
+  \node[font=\sffamily\fontsize{6.2}{7.8}\selectfont,black!70,anchor=north,align=center,text width=3.65cm] at (\x+\cardw/2,\cardh-2.34){\why};
+}
+\end{tikzpicture}
+\caption{\textbf{Three real, human-confirmed magnetism violations.} Each card is an actual
+oracle-fired case from the DFT-grounded Half-B review (Methods): a real chemical formula,
+the model's magnetic classification (with claimed magnitude where given), and the real
+Materials Project total magnetization, normalized per atom, that the magnetism-magnitude
+oracle checked it against. The first case is a false-positive magnetic claim on plain
+carbon; the second and third are real, substantial magnetic moments (well above the
+$0.05\,\mu_{\rm B}\,{\rm atom}^{-1}$ classification threshold) that the model judged
+nonmagnetic. All values are exactly as recorded; none are illustrative.}
+\label{fig:magnetism-cases}
+\end{figure}

@@ -1,0 +1,156 @@
+{
+  "family": "xrd",
+  "audit": "oracle_silent",
+  "reviews": [
+    {
+      "case": 1,
+      "key": "pattern_342.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 2,
+      "key": "pattern_967.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 3,
+      "key": "pattern_682.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 4,
+      "key": "pattern_634.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 5,
+      "key": "pattern_603.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 6,
+      "key": "pattern_972.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 7,
+      "key": "pattern_134.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 8,
+      "key": "pattern_169.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 9,
+      "key": "pattern_133.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 10,
+      "key": "pattern_925.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 11,
+      "key": "pattern_403.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 12,
+      "key": "pattern_425.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 13,
+      "key": "pattern_800.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 14,
+      "key": "pattern_384.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 15,
+      "key": "pattern_268.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 16,
+      "key": "pattern_423.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 17,
+      "key": "pattern_800.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 18,
+      "key": "pattern_439.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 19,
+      "key": "pattern_951.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 20,
+      "key": "pattern_403.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 21,
+      "key": "pattern_392.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 22,
+      "key": "pattern_392.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 23,
+      "key": "pattern_951.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 24,
+      "key": "pattern_396.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 25,
+      "key": "pattern_1040.json",
+      "verdict": "missed_violation"
+    },
+    {
+      "case": 26,
+      "key": "pattern_271.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 27,
+      "key": "pattern_568.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 28,
+      "key": "pattern_682.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 29,
+      "key": "pattern_250.json",
+      "verdict": "clean"
+    },
+    {
+      "case": 30,
+      "key": "pattern_568.json",
+      "verdict": "clean"
+    }
+  ]
+}

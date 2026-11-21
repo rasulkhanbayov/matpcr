@@ -1,0 +1,133 @@
+{
+ "xrd": [
+  {
+   "case": 1,
+   "annotator_1": "false_positive",
+   "annotator_2": "real"
+  },
+  {
+   "case": 12,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  },
+  {
+   "case": 20,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  },
+  {
+   "case": 46,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  },
+  {
+   "case": 52,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  },
+  {
+   "case": 57,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  },
+  {
+   "case": 72,
+   "annotator_1": "false_positive",
+   "annotator_2": "real"
+  },
+  {
+   "case": 94,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  },
+  {
+   "case": 96,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  }
+ ],
+ "sem": [
+  {
+   "case": 2,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  },
+  {
+   "case": 69,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  }
+ ],
+ "spectrum": [
+  {
+   "case": 45,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  },
+  {
+   "case": 166,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  },
+  {
+   "case": 185,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  },
+  {
+   "case": 213,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  },
+  {
+   "case": 226,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  },
+  {
+   "case": 265,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  },
+  {
+   "case": 291,
+   "annotator_1": "false_positive",
+   "annotator_2": "real"
+  },
+  {
+   "case": 333,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  },
+  {
+   "case": 342,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  },
+  {
+   "case": 357,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  },
+  {
+   "case": 458,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  }
+ ],
+ "stability": [],
+ "metallicity": [],
+ "magnetism": [
+  {
+   "case": 5,
+   "annotator_1": "false_positive",
+   "annotator_2": "real"
+  },
+  {
+   "case": 12,
+   "annotator_1": "real",
+   "annotator_2": "false_positive"
+  }
+ ],
+ "_note": "stability: the 13 disputed cases are near-hull and are not scored under the final stability oracle (abstention band); no adjudication needed"
+}

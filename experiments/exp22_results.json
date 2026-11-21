@@ -1,0 +1,650 @@
+{
+ "cells": {
+  "local|xrd": {
+   "attempted": 90,
+   "evaluable": 64,
+   "checkable": 64,
+   "consistent": 32,
+   "coverage": 1.0,
+   "pcr_excluded": 0.5,
+   "pcr_penalised": 0.5,
+   "pcr_lenient": 0.5
+  },
+  "local|sem": {
+   "attempted": 90,
+   "evaluable": 87,
+   "checkable": 87,
+   "consistent": 58,
+   "coverage": 1.0,
+   "pcr_excluded": 0.6666666666666666,
+   "pcr_penalised": 0.6666666666666666,
+   "pcr_lenient": 0.6666666666666666
+  },
+  "local|spectrum": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 88,
+   "consistent": 13,
+   "coverage": 0.9777777777777777,
+   "pcr_excluded": 0.14772727272727273,
+   "pcr_penalised": 0.14444444444444443,
+   "pcr_lenient": 0.16666666666666666
+  },
+  "local|stability": {
+   "attempted": 90,
+   "evaluable": 72,
+   "checkable": 72,
+   "consistent": 66,
+   "coverage": 1.0,
+   "pcr_excluded": 0.9166666666666666,
+   "pcr_penalised": 0.9166666666666666,
+   "pcr_lenient": 0.9166666666666666
+  },
+  "local|metallicity": {
+   "attempted": 90,
+   "evaluable": 87,
+   "checkable": 87,
+   "consistent": 47,
+   "coverage": 1.0,
+   "pcr_excluded": 0.5402298850574713,
+   "pcr_penalised": 0.5402298850574713,
+   "pcr_lenient": 0.5402298850574713
+  },
+  "local|magnetism": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 90,
+   "consistent": 69,
+   "coverage": 1.0,
+   "pcr_excluded": 0.7666666666666667,
+   "pcr_penalised": 0.7666666666666667,
+   "pcr_lenient": 0.7666666666666667
+  },
+  "gemini|xrd": {
+   "attempted": 90,
+   "evaluable": 64,
+   "checkable": 60,
+   "consistent": 31,
+   "coverage": 0.9375,
+   "pcr_excluded": 0.5166666666666667,
+   "pcr_penalised": 0.484375,
+   "pcr_lenient": 0.546875
+  },
+  "gemini|sem": {
+   "attempted": 90,
+   "evaluable": 87,
+   "checkable": 86,
+   "consistent": 86,
+   "coverage": 0.9885057471264368,
+   "pcr_excluded": 1.0,
+   "pcr_penalised": 0.9885057471264368,
+   "pcr_lenient": 1.0
+  },
+  "gemini|spectrum": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 90,
+   "consistent": 25,
+   "coverage": 1.0,
+   "pcr_excluded": 0.2777777777777778,
+   "pcr_penalised": 0.2777777777777778,
+   "pcr_lenient": 0.2777777777777778
+  },
+  "gemini|stability": {
+   "attempted": 90,
+   "evaluable": 71,
+   "checkable": 70,
+   "consistent": 57,
+   "coverage": 0.9859154929577465,
+   "pcr_excluded": 0.8142857142857143,
+   "pcr_penalised": 0.8028169014084507,
+   "pcr_lenient": 0.8169014084507042
+  },
+  "gemini|metallicity": {
+   "attempted": 90,
+   "evaluable": 87,
+   "checkable": 84,
+   "consistent": 59,
+   "coverage": 0.9655172413793104,
+   "pcr_excluded": 0.7023809523809523,
+   "pcr_penalised": 0.6781609195402298,
+   "pcr_lenient": 0.7126436781609196
+  },
+  "gemini|magnetism": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 89,
+   "consistent": 44,
+   "coverage": 0.9888888888888889,
+   "pcr_excluded": 0.4943820224719101,
+   "pcr_penalised": 0.4888888888888889,
+   "pcr_lenient": 0.5
+  },
+  "gpt4o|xrd": {
+   "attempted": 90,
+   "evaluable": 64,
+   "checkable": 64,
+   "consistent": 40,
+   "coverage": 1.0,
+   "pcr_excluded": 0.625,
+   "pcr_penalised": 0.625,
+   "pcr_lenient": 0.625
+  },
+  "gpt4o|sem": {
+   "attempted": 90,
+   "evaluable": 87,
+   "checkable": 87,
+   "consistent": 83,
+   "coverage": 1.0,
+   "pcr_excluded": 0.9540229885057471,
+   "pcr_penalised": 0.9540229885057471,
+   "pcr_lenient": 0.9540229885057471
+  },
+  "gpt4o|spectrum": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 44,
+   "consistent": 3,
+   "coverage": 0.4888888888888889,
+   "pcr_excluded": 0.06818181818181818,
+   "pcr_penalised": 0.03333333333333333,
+   "pcr_lenient": 0.5444444444444444
+  },
+  "gpt4o|stability": {
+   "attempted": 90,
+   "evaluable": 79,
+   "checkable": 79,
+   "consistent": 70,
+   "coverage": 1.0,
+   "pcr_excluded": 0.8860759493670886,
+   "pcr_penalised": 0.8860759493670886,
+   "pcr_lenient": 0.8860759493670886
+  },
+  "gpt4o|metallicity": {
+   "attempted": 90,
+   "evaluable": 85,
+   "checkable": 85,
+   "consistent": 57,
+   "coverage": 1.0,
+   "pcr_excluded": 0.6705882352941176,
+   "pcr_penalised": 0.6705882352941176,
+   "pcr_lenient": 0.6705882352941176
+  },
+  "gpt4o|magnetism": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 90,
+   "consistent": 61,
+   "coverage": 1.0,
+   "pcr_excluded": 0.6777777777777778,
+   "pcr_penalised": 0.6777777777777778,
+   "pcr_lenient": 0.6777777777777778
+  },
+  "claude|xrd": {
+   "attempted": 90,
+   "evaluable": 64,
+   "checkable": 64,
+   "consistent": 35,
+   "coverage": 1.0,
+   "pcr_excluded": 0.546875,
+   "pcr_penalised": 0.546875,
+   "pcr_lenient": 0.546875
+  },
+  "claude|sem": {
+   "attempted": 90,
+   "evaluable": 87,
+   "checkable": 87,
+   "consistent": 85,
+   "coverage": 1.0,
+   "pcr_excluded": 0.9770114942528736,
+   "pcr_penalised": 0.9770114942528736,
+   "pcr_lenient": 0.9770114942528736
+  },
+  "claude|spectrum": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 90,
+   "consistent": 17,
+   "coverage": 1.0,
+   "pcr_excluded": 0.18888888888888888,
+   "pcr_penalised": 0.18888888888888888,
+   "pcr_lenient": 0.18888888888888888
+  },
+  "claude|stability": {
+   "attempted": 90,
+   "evaluable": 73,
+   "checkable": 73,
+   "consistent": 62,
+   "coverage": 1.0,
+   "pcr_excluded": 0.8493150684931506,
+   "pcr_penalised": 0.8493150684931506,
+   "pcr_lenient": 0.8493150684931506
+  },
+  "claude|metallicity": {
+   "attempted": 90,
+   "evaluable": 85,
+   "checkable": 85,
+   "consistent": 59,
+   "coverage": 1.0,
+   "pcr_excluded": 0.6941176470588235,
+   "pcr_penalised": 0.6941176470588235,
+   "pcr_lenient": 0.6941176470588235
+  },
+  "claude|magnetism": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 90,
+   "consistent": 68,
+   "coverage": 1.0,
+   "pcr_excluded": 0.7555555555555555,
+   "pcr_penalised": 0.7555555555555555,
+   "pcr_lenient": 0.7555555555555555
+  },
+  "opus46|xrd": {
+   "attempted": 90,
+   "evaluable": 64,
+   "checkable": 64,
+   "consistent": 37,
+   "coverage": 1.0,
+   "pcr_excluded": 0.578125,
+   "pcr_penalised": 0.578125,
+   "pcr_lenient": 0.578125
+  },
+  "opus46|sem": {
+   "attempted": 90,
+   "evaluable": 87,
+   "checkable": 87,
+   "consistent": 83,
+   "coverage": 1.0,
+   "pcr_excluded": 0.9540229885057471,
+   "pcr_penalised": 0.9540229885057471,
+   "pcr_lenient": 0.9540229885057471
+  },
+  "opus46|spectrum": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 90,
+   "consistent": 22,
+   "coverage": 1.0,
+   "pcr_excluded": 0.24444444444444444,
+   "pcr_penalised": 0.24444444444444444,
+   "pcr_lenient": 0.24444444444444444
+  },
+  "opus46|stability": {
+   "attempted": 90,
+   "evaluable": 76,
+   "checkable": 76,
+   "consistent": 60,
+   "coverage": 1.0,
+   "pcr_excluded": 0.7894736842105263,
+   "pcr_penalised": 0.7894736842105263,
+   "pcr_lenient": 0.7894736842105263
+  },
+  "opus46|metallicity": {
+   "attempted": 90,
+   "evaluable": 86,
+   "checkable": 86,
+   "consistent": 62,
+   "coverage": 1.0,
+   "pcr_excluded": 0.7209302325581395,
+   "pcr_penalised": 0.7209302325581395,
+   "pcr_lenient": 0.7209302325581395
+  },
+  "opus46|magnetism": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 90,
+   "consistent": 63,
+   "coverage": 1.0,
+   "pcr_excluded": 0.7,
+   "pcr_penalised": 0.7,
+   "pcr_lenient": 0.7
+  },
+  "gpt56|xrd": {
+   "attempted": 90,
+   "evaluable": 64,
+   "checkable": 64,
+   "consistent": 51,
+   "coverage": 1.0,
+   "pcr_excluded": 0.796875,
+   "pcr_penalised": 0.796875,
+   "pcr_lenient": 0.796875
+  },
+  "gpt56|sem": {
+   "attempted": 90,
+   "evaluable": 87,
+   "checkable": 81,
+   "consistent": 77,
+   "coverage": 0.9310344827586207,
+   "pcr_excluded": 0.9506172839506173,
+   "pcr_penalised": 0.8850574712643678,
+   "pcr_lenient": 0.9540229885057471
+  },
+  "gpt56|spectrum": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 90,
+   "consistent": 75,
+   "coverage": 1.0,
+   "pcr_excluded": 0.8333333333333334,
+   "pcr_penalised": 0.8333333333333334,
+   "pcr_lenient": 0.8333333333333334
+  },
+  "gpt56|stability": {
+   "attempted": 90,
+   "evaluable": 75,
+   "checkable": 75,
+   "consistent": 49,
+   "coverage": 1.0,
+   "pcr_excluded": 0.6533333333333333,
+   "pcr_penalised": 0.6533333333333333,
+   "pcr_lenient": 0.6533333333333333
+  },
+  "gpt56|metallicity": {
+   "attempted": 90,
+   "evaluable": 85,
+   "checkable": 85,
+   "consistent": 56,
+   "coverage": 1.0,
+   "pcr_excluded": 0.6588235294117647,
+   "pcr_penalised": 0.6588235294117647,
+   "pcr_lenient": 0.6588235294117647
+  },
+  "gpt56|magnetism": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 90,
+   "consistent": 69,
+   "coverage": 1.0,
+   "pcr_excluded": 0.7666666666666667,
+   "pcr_penalised": 0.7666666666666667,
+   "pcr_lenient": 0.7666666666666667
+  },
+  "gpt56sol|xrd": {
+   "attempted": 90,
+   "evaluable": 64,
+   "checkable": 61,
+   "consistent": 50,
+   "coverage": 0.953125,
+   "pcr_excluded": 0.819672131147541,
+   "pcr_penalised": 0.78125,
+   "pcr_lenient": 0.828125
+  },
+  "gpt56sol|sem": {
+   "attempted": 90,
+   "evaluable": 87,
+   "checkable": 82,
+   "consistent": 75,
+   "coverage": 0.9425287356321839,
+   "pcr_excluded": 0.9146341463414634,
+   "pcr_penalised": 0.8620689655172413,
+   "pcr_lenient": 0.9195402298850575
+  },
+  "gpt56sol|spectrum": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 89,
+   "consistent": 68,
+   "coverage": 0.9888888888888889,
+   "pcr_excluded": 0.7640449438202247,
+   "pcr_penalised": 0.7555555555555555,
+   "pcr_lenient": 0.7666666666666667
+  },
+  "gpt56sol|stability": {
+   "attempted": 90,
+   "evaluable": 72,
+   "checkable": 71,
+   "consistent": 56,
+   "coverage": 0.9861111111111112,
+   "pcr_excluded": 0.7887323943661971,
+   "pcr_penalised": 0.7777777777777778,
+   "pcr_lenient": 0.7916666666666666
+  },
+  "gpt56sol|metallicity": {
+   "attempted": 90,
+   "evaluable": 89,
+   "checkable": 88,
+   "consistent": 59,
+   "coverage": 0.9887640449438202,
+   "pcr_excluded": 0.6704545454545454,
+   "pcr_penalised": 0.6629213483146067,
+   "pcr_lenient": 0.6741573033707865
+  },
+  "gpt56sol|magnetism": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 90,
+   "consistent": 66,
+   "coverage": 1.0,
+   "pcr_excluded": 0.7333333333333333,
+   "pcr_penalised": 0.7333333333333333,
+   "pcr_lenient": 0.7333333333333333
+  },
+  "qwen3vl|xrd": {
+   "attempted": 90,
+   "evaluable": 64,
+   "checkable": 62,
+   "consistent": 29,
+   "coverage": 0.96875,
+   "pcr_excluded": 0.46774193548387094,
+   "pcr_penalised": 0.453125,
+   "pcr_lenient": 0.484375
+  },
+  "qwen3vl|sem": {
+   "attempted": 90,
+   "evaluable": 87,
+   "checkable": 86,
+   "consistent": 69,
+   "coverage": 0.9885057471264368,
+   "pcr_excluded": 0.8023255813953488,
+   "pcr_penalised": 0.7931034482758621,
+   "pcr_lenient": 0.8045977011494253
+  },
+  "qwen3vl|spectrum": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 90,
+   "consistent": 12,
+   "coverage": 1.0,
+   "pcr_excluded": 0.13333333333333333,
+   "pcr_penalised": 0.13333333333333333,
+   "pcr_lenient": 0.13333333333333333
+  },
+  "qwen3vl|stability": {
+   "attempted": 90,
+   "evaluable": 77,
+   "checkable": 75,
+   "consistent": 56,
+   "coverage": 0.974025974025974,
+   "pcr_excluded": 0.7466666666666667,
+   "pcr_penalised": 0.7272727272727273,
+   "pcr_lenient": 0.7532467532467533
+  },
+  "qwen3vl|metallicity": {
+   "attempted": 90,
+   "evaluable": 82,
+   "checkable": 77,
+   "consistent": 53,
+   "coverage": 0.9390243902439024,
+   "pcr_excluded": 0.6883116883116883,
+   "pcr_penalised": 0.6463414634146342,
+   "pcr_lenient": 0.7073170731707317
+  },
+  "qwen3vl|magnetism": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 90,
+   "consistent": 48,
+   "coverage": 1.0,
+   "pcr_excluded": 0.5333333333333333,
+   "pcr_penalised": 0.5333333333333333,
+   "pcr_lenient": 0.5333333333333333
+  },
+  "qwen3vl_thinking|xrd": {
+   "attempted": 90,
+   "evaluable": 64,
+   "checkable": 64,
+   "consistent": 37,
+   "coverage": 1.0,
+   "pcr_excluded": 0.578125,
+   "pcr_penalised": 0.578125,
+   "pcr_lenient": 0.578125
+  },
+  "qwen3vl_thinking|sem": {
+   "attempted": 90,
+   "evaluable": 87,
+   "checkable": 87,
+   "consistent": 77,
+   "coverage": 1.0,
+   "pcr_excluded": 0.8850574712643678,
+   "pcr_penalised": 0.8850574712643678,
+   "pcr_lenient": 0.8850574712643678
+  },
+  "qwen3vl_thinking|spectrum": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 87,
+   "consistent": 8,
+   "coverage": 0.9666666666666667,
+   "pcr_excluded": 0.09195402298850575,
+   "pcr_penalised": 0.08888888888888889,
+   "pcr_lenient": 0.12222222222222222
+  },
+  "qwen3vl_thinking|stability": {
+   "attempted": 90,
+   "evaluable": 76,
+   "checkable": 76,
+   "consistent": 68,
+   "coverage": 1.0,
+   "pcr_excluded": 0.8947368421052632,
+   "pcr_penalised": 0.8947368421052632,
+   "pcr_lenient": 0.8947368421052632
+  },
+  "qwen3vl_thinking|metallicity": {
+   "attempted": 90,
+   "evaluable": 87,
+   "checkable": 87,
+   "consistent": 56,
+   "coverage": 1.0,
+   "pcr_excluded": 0.6436781609195402,
+   "pcr_penalised": 0.6436781609195402,
+   "pcr_lenient": 0.6436781609195402
+  },
+  "qwen3vl_thinking|magnetism": {
+   "attempted": 90,
+   "evaluable": 90,
+   "checkable": 89,
+   "consistent": 45,
+   "coverage": 0.9888888888888889,
+   "pcr_excluded": 0.5056179775280899,
+   "pcr_penalised": 0.5,
+   "pcr_lenient": 0.5111111111111111
+  }
+ },
+ "overall": {
+  "excluded": {
+   "local": 0.5840163934426229,
+   "gemini": 0.6304801670146137,
+   "gpt4o": 0.6993318485523385,
+   "claude": 0.6666666666666666,
+   "opus46": 0.6632860040567952,
+   "gpt56": 0.777319587628866,
+   "gpt56sol": 0.7775467775467776,
+   "qwen3vl": 0.55625,
+   "qwen3vl_thinking": 0.5938775510204082
+  },
+  "penalised": {
+   "local": 0.5816326530612245,
+   "gemini": 0.6175869120654397,
+   "gpt4o": 0.6343434343434343,
+   "claude": 0.6666666666666666,
+   "opus46": 0.6632860040567952,
+   "gpt56": 0.7678207739307535,
+   "gpt56sol": 0.7601626016260162,
+   "qwen3vl": 0.5448979591836735,
+   "qwen3vl_thinking": 0.5890688259109311
+  },
+  "lenient": {
+   "local": 0.5857142857142857,
+   "gemini": 0.6380368098159509,
+   "gpt4o": 0.7272727272727273,
+   "claude": 0.6666666666666666,
+   "opus46": 0.6632860040567952,
+   "gpt56": 0.780040733197556,
+   "gpt56sol": 0.782520325203252,
+   "qwen3vl": 0.5653061224489796,
+   "qwen3vl_thinking": 0.597165991902834
+  }
+ },
+ "rank": {
+  "excluded": {
+   "local": 8,
+   "gemini": 6,
+   "gpt4o": 3,
+   "claude": 4,
+   "opus46": 5,
+   "gpt56": 2,
+   "gpt56sol": 1,
+   "qwen3vl": 9,
+   "qwen3vl_thinking": 7
+  },
+  "penalised": {
+   "local": 8,
+   "gemini": 6,
+   "gpt4o": 5,
+   "claude": 3,
+   "opus46": 4,
+   "gpt56": 1,
+   "gpt56sol": 2,
+   "qwen3vl": 9,
+   "qwen3vl_thinking": 7
+  },
+  "lenient": {
+   "local": 8,
+   "gemini": 6,
+   "gpt4o": 3,
+   "claude": 4,
+   "opus46": 5,
+   "gpt56": 2,
+   "gpt56sol": 1,
+   "qwen3vl": 9,
+   "qwen3vl_thinking": 7
+  }
+ },
+ "kendall_tau_overall": {
+  "penalised": [
+   0.8333333333333334,
+   0.0008542768959435626
+  ],
+  "lenient": [
+   1.0,
+   5.5114638447971785e-06
+  ]
+ },
+ "kendall_tau_per_type": {
+  "xrd": {
+   "penalised": 0.8857142857142858,
+   "lenient": 0.9856107606091622
+  },
+  "sem": {
+   "penalised": 0.9276336570439173,
+   "lenient": 0.9710083124552245
+  },
+  "spectrum": {
+   "penalised": 1.0,
+   "lenient": 0.6666666666666666
+  },
+  "stability": {
+   "penalised": 1.0,
+   "lenient": 0.9444444444444445
+  },
+  "metallicity": {
+   "penalised": 0.7777777777777778,
+   "lenient": 0.8888888888888888
+  },
+  "magnetism": {
+   "penalised": 1.0,
+   "lenient": 1.0
+  }
+ }
+}
